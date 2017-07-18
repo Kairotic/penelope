@@ -11,7 +11,6 @@ let vis name pat = do vLines (C.withSVGSurface) (name ++ ".svg") (600,50) pat 1 
                       return ()
 
 -- Transposition
--- 
 
 d1 $ chunk 4 (|+| n 12) $ jux rev $ slow 2 $ n (off 0.125 (+7) $ slow 4 $ "e(3,8) c(3,8) c(3,8) e*2 f(3,8) d*2 d(3,8) g*2" + "<7 2 12>") # sound "supermandolin"
   # legato 4
