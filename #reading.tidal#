@@ -1,0 +1,21 @@
+import Sound.Tidal.Vis
+import qualified Graphics.Rendering.Cairo as C 
+import Data.Colour
+import Data.Colour.Names
+import Data.Colour.SRGB
+import System.Cmd
+
+let vis name pat = do vLines (C.withSVGSurface) (name ++ ".svg") (600,50) pat 1 1
+                      rawSystem "/home/alex/Dropbox/bin/fixsvg.pl" [name ++ ".svg"]
+                      rawSystem "convert" [name ++ ".svg", name ++ ".pdf"]
+                      return ()
+
+-- Transposition
+-- 
+
+d1 $ jux rev $ n (off 0.125 (+7) $ slow 4 $ "e(3,8) c c(3,8) e f d d g" + "<7 2 12>") # sound "supermandolin"
+  # legato 4
+  # room 0.8
+  # size 0.9
+
+
