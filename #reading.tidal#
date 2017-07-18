@@ -1,14 +1,3 @@
-import Sound.Tidal.Vis
-import qualified Graphics.Rendering.Cairo as C 
-import Data.Colour
-import Data.Colour.Names
-import Data.Colour.SRGB
-import System.Cmd
-
-let vis pat = do vLines (C.withSVGSurface) (name ++ ".svg") (600,50) pat 1 1
-                 rawSystem "/home/alex/Dropbox/bin/fixsvg.pl" [name ++ ".svg"]
-                 rawSystem "convert" [name ++ ".svg", name ++ ".pdf"]
-                 return ()
 
 
 
@@ -23,3 +12,5 @@ d2 $ n "0 .. 7" # sound "amencutup"
   # orbit 1
   # gain 1.2
   |+| n "<0 4 8 16>"
+
+v2 $ rev "white blue"
