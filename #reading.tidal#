@@ -3,6 +3,10 @@
 v $ fast 12 $ superimpose (slow 2) $ every 4 (blend' "yellow") $ every 3 (rev) "{orange red pink, blue green}"
 
 -- Transposition
+
+d1 $ n (off 0.125 (+7) $ slow 2 "c( [a c6] e f") # sound "supermandolin"
+  # legato 4
+
 -- Symmetry
 -- Interference
 -- Offset
