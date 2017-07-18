@@ -1,16 +1,10 @@
-import Sound.Tidal.Vis
-import qualified Graphics.Rendering.Cairo as C 
-import Data.Colour
-import Data.Colour.Names
-import Data.Colour.SRGB
-import System.Cmd
 
-let vis name pat = do vLines (C.withSVGSurface) (name ++ ".svg") (600,50) pat 1 1
-                      rawSystem "/home/alex/Dropbox/bin/fixsvg.pl" [name ++ ".svg"]
-                      rawSystem "convert" [name ++ ".svg", name ++ ".pdf"]
-                      return ()
+
 
 -- Transposition
+-- Symmetry
+-- Interference
+-- Offset
 
 d1 $ chunk 4 (|+| n 12) $ jux rev $ slow 2 $ n (off 0.125 (+7) $ slow 4 $ "e(3,8) c(3,8) c(3,8) e*2 f(3,8) d*2 d(3,8) g*2" + "<7 2 12>") # sound "supermandolin"
   # legato 4
@@ -21,3 +15,6 @@ d2 $ n "0 .. 7" # sound "amencutup"
   # orbit 1
   # gain 1.2
   |+| n "<0 4 8 16>"
+
+v2 $ fast 32 $ every 4 (slow 4) $ superimpose rev $ every 3 (blend' "red") $ superimpose (0.25 <~) $ every 3 (rev) $ every 4 (darken 0.2 <$>) $ "grey blue darkblue"
+
