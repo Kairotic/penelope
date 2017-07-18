@@ -2,5 +2,7 @@
 -- Transposition
 --
 
-d1 $ sound "supermandolin"
+d1 $ n "g e c c e f d d " # sound "supermandolin"
+
+d2 $ sound "cp"
 
