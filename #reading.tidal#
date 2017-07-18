@@ -4,9 +4,11 @@ v $ fast 12 $ superimpose (slow 2) $ every 4 (blend' "yellow") $ every 3 (rev) "
 
 -- Transposition
 
-d1 $ n (off 0.125 (+7) $ slow 2 "c( [a c6] e f") # sound "supermandolin"
+d1 $ jux rev $ every 4 (slow 2) $ n (off 0.25 (+12) $ off 0.125 (+7) $ slow 2 "g(3,8) [a*2 c6] e*2 f(3,8)") # sound "supermandolin"
   # legato 4
-
+  # lpf "<3000 4000 400>"
+  # lpq 0.2
+hush
 -- Symmetry
 -- Interference
 -- Offset
