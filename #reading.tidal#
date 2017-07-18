@@ -1,9 +1,0 @@
-
--- Transposition
---
-
-d1 $ n (off 0.25 (+7) $ slow 2 $ "e c c e f d d g" + "<7 2>") # sound "supermandolin"
-  # legato 4
-
-
-

@@ -1,0 +1,9 @@
+
+-- Transposition
+--
+
+d1 $ jux rev $ n (off 0.125 (+7) $ slow 2 $ "e c c e f d d g" + "<7 2 12>") # sound "supermandolin"
+  # legato 4
+
+
+
