@@ -9,7 +9,7 @@
 
 
 -- Kindohm
-jux (|*| speed "1.5") $ foldEvery [3,4] (0.25 <~) $ stack [
+d1 $ jux (|*| speed "1.5") $ foldEvery [3,4] (0.25 <~) $ stack [
   s "less:2([3 5]/2,8)" # unit "c" # speed "4", 
   s "less(3,8)" # cut "1" # up "{0 -3 1}%32", 
   s "{~ [~ cp] ~ less:3/2 ~}%4", 
