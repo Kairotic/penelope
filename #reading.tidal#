@@ -1,6 +1,6 @@
 -- Pattern transformations with TidalCycles
 
-v $ fast 12 $ every 3 (rev) "blue white"
+v $ fast 12 $ superimpose (slow 2) $ every 4 (blend' "yellow") $ every 3 (rev) "{orange red pink, blue green}"
 
 -- Transposition
 -- Symmetry
