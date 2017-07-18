@@ -13,4 +13,5 @@ d2 $ n "0 .. 7" # sound "amencutup"
   # gain 1.2
   |+| n "<0 4 8 16>"
 
-v2 $ rev "white blue"
+v2 $ fast 32 $ every 3 (blen $ superimpose (0.25 <~) $ every 3 (rev) $ every 4 (darken 0.2 <$>) $ "white blue"
+
