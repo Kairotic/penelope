@@ -31,5 +31,5 @@ d1 $ rotR now $
 
 let time = sig id
 
-d1 $ fast 8 $ sound "arpy" # n (floor <$> time)
+
 
