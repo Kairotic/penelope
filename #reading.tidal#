@@ -8,7 +8,7 @@ d1 $ jux rev $ every 4 (slow 2) $ n (off 0.25 (+12) $ off 0.125 (+7) $ slow 2 "g
   # legato 4
   # lpf "<3000 4000 400>"
   # lpq 0.2
-hush
+
 -- Symmetry
 -- Interference
 -- Offset
