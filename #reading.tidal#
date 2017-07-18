@@ -28,3 +28,12 @@ d1 $ rotR now $
   do x <- _slow (12 * 12) $ run 12;
      jux (rotR (x/12)) $ sound "cp ! ! ~ cp ! ~ cp ~ cp ! ~"
 
+
+d1 $ weave 16 (n "0 .. 7" # sound "arpy")
+  [vowel "a e*2 i",
+   vowel "i o u i",
+   speed "1 [2 3] 1",
+   speed "0.5 1"
+  ]
+
+
