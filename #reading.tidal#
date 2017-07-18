@@ -1,0 +1,35 @@
+-- Pattern transformations with TidalCycles
+
+v $ fast 12 $ superimpose (slow 2) $ every 4 (blend' "yellow") $ every 3 (rev) "{orange red pink, blue green}"
+
+-- Transposition
+
+d1 $ jux rev $ every 4 (slow 2) $ n (off 0.25 (+12) $ off 0.125 (+7) $ slow 2 "g(3,8) [a*2 c6] e*2 f(3,8)") # sound "supermandolin"
+  # legato 4
+  # lpf "<3000 4000 400>"
+  # lpq 0.2
+
+-- Symmetry
+-- Interference
+-- Offset
+-- Glitch
+
+
+-- Kindohm
+d1 $ jux (|*| speed "1.5") $ foldEvery [3,4] (0.25 <~) $ stack [
+  s "less:2([3 5]/2,8)" # unit "c" # speed "4", 
+  s "less(3,8)" # cut "1" # up "{0 -3 1}%32", 
+  s "{~ [~ cp] ~ less:3/2 ~}%4", 
+  s "[less:1*2 less:1]*2"]
+
+
+-- Steve Reich - Clapping music
+d1 $ rotR now $
+  do x <- _slow (12 * 12) $ run 12;
+     jux (rotR (x/12)) $ sound "cp ! ! ~ cp ! ~ cp ~ cp ! ~"
+
+
+
+let tp = sig id
+
+tp
