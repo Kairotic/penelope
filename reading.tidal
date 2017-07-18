@@ -18,5 +18,10 @@ d2 $ n "0 .. 7" # sound "amencutup"
   # gain 1.2
   |+| n "<0 4 8 16>"
 
-v2 $ fast 32 $ every 4 (slow 4) $ superimpose rev $ every 3 (blend' "red") $ superimpose (0.25 <~) $ every 3 (rev) $ every 4 (darken 0.2 <$>) $ "grey blue darkblue"
+v $ fast 32 $ every 4 (slow 4) $ superimpose rev $ every 3 (blend' "red") $ superimpose (0.25 <~) $ every 3 (rev) $ every 4 (darken 0.2 <$>) $ "grey blue darkblue"
 
+
+-- Steve Reich - Clapping music
+d1 $ rotR now $
+  do x <- _slow (12 * 12) $ run 12;
+     jux (rotR (x/12)) $ sound "cp ! ! ~ cp ! ~ cp ~ cp ! ~"
