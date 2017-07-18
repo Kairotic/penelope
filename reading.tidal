@@ -8,6 +8,9 @@ v $ "white"
 -- Offset
 -- Glitch
 
+
+
+
 -- Kindohm
 d1 $ jux (|*| speed "1.5") $ foldEvery [3,4] (0.25 <~) $ stack [
   s "less:2([3 5]/2,8)" # unit "c" # speed "4", 
