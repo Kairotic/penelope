@@ -32,9 +32,8 @@ data Structure = Structure Thread Action
 -- 'roll'
 data Tablet = Tablet {warps :: [Thread], yaw :: Twist}
 
-data TabletLoom = TabletLoom {tablet :: Tablet, weft :: Thread}
+data Loom = TabletLoom {tablet :: Tablet, weft :: Thread}
+            Loom {warp :: Thread, weft :: Thread}
 
 data TabletWeave = TabletWeave [Twist]
 
-
-data Loom = Loom {warp :: Thread, weft :: Thread}
