@@ -22,8 +22,8 @@ instance Eq Action where
   (==) (Pull a) (Pull b) = a == b
   (==) _ _ = False
 
-data Thread = Strand (Colour Double)
-            | Ply [Thread]
+data Thread = Strand (Colour Double) Spin
+            | Ply [Thread] Spin
 
 data Structure = Structure Thread Action
 
