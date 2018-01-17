@@ -12,6 +12,14 @@ instance Show Movement where
   show Over = "over"
   show Under = "under"
 
+instance Eq Action where
+  (==) Turn Turn = True
+  (==) TurnBack TurnBack = True
+  (==) Over Over = True
+  (==) Under Under = True
+  (==) (Pull a) (Pull b) = a == b
+  (==) _ _ = False
+
 data Thread = Strand (Colour Double) | Ply [Thread]
 
 data Structure = Structure Thread Movement
