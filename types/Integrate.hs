@@ -28,7 +28,7 @@ data Thread = Strand (Colour Double) Spin
 data Structure = Structure Thread Action
 
 -- Trying to conflate S/Z threading (or flip) on the card with
--- rotation of card by referring to former as 'yaw' and latter as
+-- rotation of it by referring to former as 'yaw' and latter as
 -- 'roll'
 data Tablet = Tablet {warps :: [Thread], yaw :: Twist}
 
