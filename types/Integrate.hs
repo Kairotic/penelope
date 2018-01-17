@@ -37,3 +37,4 @@ data TabletLoom = TabletLoom {tablet :: Tablet, weft :: Thread}
 data TabletWeave = TabletWeave [Twist]
 
 
+data Loom = Loom {warp :: Thread, weft :: Thread}
