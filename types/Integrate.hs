@@ -29,7 +29,7 @@ data Structure = Structure Thread Action
 
 data Tablet = Tablet [Thread]
 
-data TabletLoom = TabletLoom Tablet Thread
+data TabletLoom = TabletLoom {tablet :: Tablet, weft :: Thread}
 
 data TabletWeave = TabletWeave [Twist]
 
