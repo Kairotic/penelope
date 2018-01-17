@@ -3,7 +3,7 @@ module Integrate where
 import Data.Colour.SRGB
 import Data.Colour.Names
 
-data Movement = Pull Int | Turn | TurnBack | Over | Under
+data Action = Pull Int | Turn | TurnBack | Over | Under
 
 instance Show Action where
   show (Pull n) = "pull " ++ show n
