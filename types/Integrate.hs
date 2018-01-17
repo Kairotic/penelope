@@ -27,8 +27,9 @@ data Thread = Strand (Colour Double) Spin
 
 data Structure = Structure Thread Action
 
-type Tablet = Tablet [Thread]
+data Tablet = Tablet [Thread]
 
-type TabletLoom = TabletLoom Tablet Thread
+data TabletLoom = TabletLoom Tablet Thread
 
-type TabletWeave = TabletLoom [Twist]
+data TabletWeave = TabletLoom [Twist]
+
