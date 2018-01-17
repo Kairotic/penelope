@@ -27,6 +27,7 @@ data Thread = Strand (Colour Double) Spin
 
 data Structure = Structure Thread Action
 
+-- Probably not right to conflate S/Z threading with S/Z turning
 data Tablet = Tablet {warps :: [Thread], flip :: Twist}
 
 data TabletLoom = TabletLoom {tablet :: Tablet, weft :: Thread}
