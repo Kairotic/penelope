@@ -27,7 +27,7 @@ data Thread = Strand (Colour Double) Spin
 
 data Structure = Structure Thread Action
 
-data Tablet = Tablet [Thread]
+data Tablet = Tablet {warps :: [Thread]}
 
 data TabletLoom = TabletLoom {tablet :: Tablet, weft :: Thread}
 
