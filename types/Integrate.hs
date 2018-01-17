@@ -5,7 +5,7 @@ import Data.Colour.Names
 
 data Movement = Pull Int | TurnIn | TurnOut | Over | Under
 
-data Thread = Strand ColourD | Ply [Thread]
+data Thread = Strand (Colour Double) | Ply [Thread]
 
 data Structure = Structure Thread Movement
 
