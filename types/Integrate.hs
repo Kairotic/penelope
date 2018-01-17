@@ -31,3 +31,4 @@ type Tablet = Tablet [Thread]
 
 type TabletLoom = TabletLoom Tablet Thread
 
+type TabletWeave = TabletLoom [Twist]
