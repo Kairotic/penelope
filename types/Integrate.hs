@@ -31,5 +31,5 @@ data Tablet = Tablet [Thread]
 
 data TabletLoom = TabletLoom Tablet Thread
 
-data TabletWeave = TabletLoom [Twist]
+data TabletWeave = TabletWeave [Twist]
 
