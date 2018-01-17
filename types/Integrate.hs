@@ -33,7 +33,7 @@ data Structure = Structure Thread Action
 data Tablet = Tablet {warps :: [Thread], yaw :: Twist}
 
 data Loom = TabletLoom {tablet :: Tablet, weft :: Thread}
-            Loom {warp :: Thread, weft :: Thread}
+          | Loom {warp :: Thread, weft :: Thread}
 
 data TabletWeave = TabletWeave [Twist]
 
