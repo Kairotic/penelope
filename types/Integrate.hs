@@ -27,9 +27,10 @@ data Thread = Strand (Colour Double) Spin
 
 data Structure = Structure Thread Action
 
--- Not sure if it's really right to conflate S/Z threading on the flip
--- with S/Z turning but seems to work..
-data Tablet = Tablet {warps :: [Thread], flip :: Twist}
+-- Trying to conflate S/Z threading (or flip) on the card with
+-- rotation of card by referring to former as 'yaw' and latter as
+-- 'roll'
+data Tablet = Tablet {warps :: [Thread], yaw :: Twist}
 
 data TabletLoom = TabletLoom {tablet :: Tablet, weft :: Thread}
 
