@@ -47,5 +47,7 @@ data Curve = Curve Thread Action
 data Band = Band {cords :: [Thread], bandWeft :: Curve}
 
 
+
+
 -- tabletWeave :: TabletWeave -> 
 -- tabletWeave tw = 
