@@ -43,7 +43,7 @@ data TabletWeave = TabletWeave {tShed :: [TabletShed], tLoom :: TabletLoom}
 
 -- Curve as in how to move from one dimensional thread to two dimensional surface
 data Curve = Curve Thread Action
-data Band = Band {cords :: [Curve], bandWeft :: Curve}
+data Band = Band {cords :: [Thread], bandWeft :: Curve}
 
 
 -- tabletWeave :: TabletWeave -> 
