@@ -25,6 +25,7 @@ instance Eq Action where
 data Thread = Strand (Colour Double) Spin
             | Ply [Thread] Spin
 
+-- Curve as in how to move from one dimensional thread to two dimensional surface
 data Curve = Curve Thread Action
 
 data Band = Band {cord :: [Curve], bandWeft ::}
