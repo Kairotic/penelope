@@ -10,7 +10,7 @@ data Twist = S | Z
 data Spin = Spin [Twist]
 
 instance Show Spin where
-  show (Spin s) = (show [take 12 s]) ++ ", .."
+  show (Spin s) = (show $ take 12 s) ++ ", .."
 
 instance Show Action where
   show (Pull n) = "pull " ++ show n
