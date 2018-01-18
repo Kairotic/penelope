@@ -40,7 +40,9 @@ data Loom = Loom {warp :: Thread, loomWeft :: Thread, heddles :: Heddles}
 
 data TabletLoom = TabletLoom {tablets :: [Tablet], tabletWeft :: Thread}
 
-data TabletWeave = TabletWeave [[Twist]] TabletLoom
+type Rotation = [Twist]
+
+data TabletWeave = TabletWeave {rotations [[Twist]] TabletLoom}
 
 tabletWeave :: TabletWeave -> Structure
 tabletWeave tw = 
