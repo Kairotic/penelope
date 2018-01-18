@@ -8,7 +8,9 @@ data Twist = S | Z
            deriving Show
                      
 data Spin = Spin [Twist]
-          deriving Show
+
+instance Show Spin where
+  Show (Spin s) = (show [take 12 s]) ++ ", .."
 
 instance Show Action where
   show (Pull n) = "pull " ++ show n
