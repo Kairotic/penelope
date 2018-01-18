@@ -27,6 +27,8 @@ data Thread = Strand (Colour Double) Spin
 
 data Structure = Structure Thread Action
 
+data Band = Band {cord :: [Structure], bandWeft ::}
+
 -- Trying to conflate S/Z threading (or flip) on the card with
 -- rotation of it by referring to former as 'yaw' and latter as
 -- 'roll'
@@ -38,5 +40,10 @@ data Loom = Loom {warp :: Thread, loomWeft :: Thread, heddles :: Heddles}
 
 data TabletLoom = TabletLoom {tablets :: [Tablet], tabletWeft :: Thread}
 
-data TabletWeave = TabletWeave [[Twist]] TabletLoom
+-- Not the shed exactly but how to go from one shed to the next..
+type TabletShed = [Twist]
 
+data TabletWeave = TabletWeave {[TabletShed] TabletLoom}
+
+tabletWeave :: TabletWeave -> Structure
+tabletWeave tw = 
