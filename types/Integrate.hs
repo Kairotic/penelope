@@ -43,6 +43,7 @@ data Loom = Loom {warp :: Thread, loomWeft :: Thread, heddles :: Heddles}
 data Weave = Weave {wWarp :: Curve, wWeft :: Curve}
 
 data TabletLoom = TabletLoom {tablets :: [Tablet], tabletWeft :: Thread}
+                 deriving Show
 
 -- Not the shed exactly but how to go from one shed to the
 -- next.. Should be one twist per card
