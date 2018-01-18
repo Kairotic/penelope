@@ -43,7 +43,7 @@ data TabletLoom = TabletLoom {tablets :: [Tablet], tabletWeft :: Thread}
 -- next.. Should be one twist per card
 type TabletShed = [Twist]
 
-data TabletWeave = TabletWeave {tLoom :: TabletLoom, tShed :: [TabletShed]}
+data TabletWeave = TabletWeave {tLoom :: TabletLoom, tSheds :: [TabletShed]}
 
 -- Curve as in how to move from one dimensional thread to two dimensional surface
 data Curve = Curve Thread [Action]
@@ -57,6 +57,14 @@ tabletWeave tw = Band cords weftCurve
         weftCurve = Curve (tabletWeft $ tLoom tw)  []
         -- assuming yaw of tablet = roll of thread, depends which side you look at tablet from
         tabletCord tablet = Ply (warps tablet) (Spin [yaw tablet])
+
+test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redTablet, blueTablet],
+                                        tabletWeft = Strand {colour = orange,
+                                                             roll = S
+                                                            }
+                                       },
+                    tSheds take 24 $ cycle [replicate 12 S, replicate 12 Z]
+                   }
 
 -- tabletWeave :: TabletWeave -> 
 -- tabletWeave tw = 
