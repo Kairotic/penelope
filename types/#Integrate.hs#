@@ -52,7 +52,8 @@ data Band = Band {cords :: [Thread], bandWeft :: Curve}
 
 
 tabletWeave :: TabletWeave -> Band
-tabletWeave tw = 
+tabletWeave tw =
+  cord = 
 
 -- tabletWeave :: TabletWeave -> 
 -- tabletWeave tw = 
