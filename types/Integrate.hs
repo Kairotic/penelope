@@ -24,6 +24,7 @@ instance Eq Action where
 
 data Thread = Strand {colour :: Colour Double, roll :: Spin}
             | Ply {plyThreads :: [Thread], roll :: Spin}
+            deriving Show
 
 -- Trying to conflate S/Z threading (or flip) on the card with
 -- rotation of it by referring to former as 'yaw' and latter as
