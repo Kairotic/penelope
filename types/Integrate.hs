@@ -32,7 +32,6 @@ instance Eq Action where
 
 data Thread = Strand {colour :: Colour Double, roll :: Spin}
             | Ply {plyThreads :: [Thread], roll :: Spin}
-            deriving Show
 
 instance Show Thread where
   show (Strand c r) = "Strand " ++ showColour c ++ " " ++ show r
