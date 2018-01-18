@@ -63,7 +63,7 @@ test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redTablet, bl
                                                              roll = S
                                                             }
                                        },
-                    tSheds (take 24 $ cycle [replicate 12 S, replicate 12 Z])
+                    tSheds = (take 24 $ cycle [replicate 12 S, replicate 12 Z])
                    }
 
 -- tabletWeave :: TabletWeave -> 
