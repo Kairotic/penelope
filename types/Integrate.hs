@@ -34,8 +34,9 @@ data Tablet = Tablet {warps :: [Thread], yaw :: Twist}
 
 data Heddles = Heddles [Int]
 
-type Loom = Loom Thread Thread, heddles :: [Int]}
-          | TabletLoom {tablets :: [Tablet], weft :: Thread}
+type Loom = Loom warp :: Thread, loomWeft :: Thread, heddles :: [Int]}
+
+type TabletLoom = TabletLoom {tablets :: [Tablet], tabletWeft :: Thread}
 
 data TabletWeave = TabletWeave [Twist]
 
