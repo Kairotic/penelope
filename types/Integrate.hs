@@ -67,6 +67,7 @@ data TabletWeave = TabletWeave {tLoom :: TabletLoom, tSheds :: [TabletShed]}
 
 -- Curve as in how to move from one dimensional thread to two dimensional surface
 data Curve = Curve Thread [Action]
+           deriving Show
 -- Cords here aren't curves, they're 1d but with varying spin
 data Band = Band {bandCords :: [Thread], bandWeft :: Curve}
           deriving Show
