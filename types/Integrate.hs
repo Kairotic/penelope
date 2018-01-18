@@ -34,6 +34,14 @@ data Thread = Strand {colour :: Colour Double, roll :: Spin}
             | Ply {plyThreads :: [Thread], roll :: Spin}
             deriving Show
 
+instance Show Thread where
+  show (Strand c r) = "Strand " ++ showColour c ++ " " ++ show r
+    where showColour r | r == red = "red"
+                       | r == blue = "blue"
+                       | r == green = "green"
+                       | r == white = "white"
+                       | otherwise = show r
+
 -- Trying to conflate S/Z threading (or flip) on the card with
 -- rotation of it by referring to former as 'yaw' and latter as
 -- 'roll'
