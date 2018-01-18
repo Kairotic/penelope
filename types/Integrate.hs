@@ -29,6 +29,7 @@ data Thread = Strand {colour :: Colour Double, roll :: Spin}
 -- rotation of it by referring to former as 'yaw' and latter as
 -- 'roll'
 data Tablet = Tablet {warps :: [Thread], yaw :: Twist}
+            deriving Show
 
 type Heddles = [Int]
 
