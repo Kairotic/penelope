@@ -5,7 +5,10 @@ import Data.Colour.Names
 
 data Action = Pull Int | Turn | TurnBack | Over | Under
 data Twist = S | Z
-           deriving Show
+
+instance Show Twist where
+  show S = "S"
+  show Z = "Z"
                      
 data Spin = Spin [Twist]
 
