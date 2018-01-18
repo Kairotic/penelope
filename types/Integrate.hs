@@ -49,6 +49,7 @@ data TabletLoom = TabletLoom {tablets :: [Tablet], tabletWeft :: Thread}
 type TabletShed = [Twist]
 
 data TabletWeave = TabletWeave {tLoom :: TabletLoom, tSheds :: [TabletShed]}
+                 deriving Show
 
 -- Curve as in how to move from one dimensional thread to two dimensional surface
 data Curve = Curve Thread [Action]
