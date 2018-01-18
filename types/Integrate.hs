@@ -71,8 +71,8 @@ test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redWhiteTable
                                        },
                     tSheds = (take 24 $ cycle [replicate 12 S, replicate 12 Z])
                    }
-  where redWhiteTablet = Tablet {warps = [redThread, redThread, whiteThread, whiteThread]} S
-        blueGreenTablet = Tablet {warps = [blueThread, blueThread, greenThread, greenThread]} S
+  where redWhiteTablet = Tablet {warps = [redThread, redThread, whiteThread, whiteThread], yaw = S}
+        blueGreenTablet = Tablet {warps = [blueThread, blueThread, greenThread, greenThread], yaw = S}
         redThread = Strand red S
         whiteThread = Strand white S
         blueThread = Strand blue S
