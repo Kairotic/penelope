@@ -22,8 +22,8 @@ instance Eq Action where
   (==) (Pull a) (Pull b) = a == b
   (==) _ _ = False
 
-data Thread = Strand (Colour Double) Spin
-            | Ply [Thread] Spin
+data Thread = Strand {colour :: Colour Double, roll :: Spin}
+            | Ply {plyThreads :: [Thread], roll :: Spin}
 
 -- Trying to conflate S/Z threading (or flip) on the card with
 -- rotation of it by referring to former as 'yaw' and latter as
@@ -54,7 +54,8 @@ data Band = Band {cords :: [Thread], bandWeft :: Curve}
 tabletWeave :: TabletWeave -> Band
 tabletWeave tw =
   let cords = map tabletCord (tablets $ tLoom tw)
-      tabletCord tablet = warps tablet
+      -- assuming yaw of tablet = roll of thread, depends which side you look at tablet from
+      tabletCord tablet = Ply (warps tablet) (yaw tablet)
 
 -- tabletWeave :: TabletWeave -> 
 -- tabletWeave tw = 
