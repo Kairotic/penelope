@@ -1,5 +1,6 @@
 module Integrate where
 
+import Data.List (transpose)
 import Data.Colour.SRGB
 import Data.Colour.Names
 
