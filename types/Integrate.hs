@@ -55,7 +55,7 @@ flipTwist Z = S
 
 flipTablet t = t {yaw = flipTwist (yaw t)}
 
-spin x = Spin $ repeat x
+spin twist = Spin $ repeat twist
 
 tabletWeave :: TabletWeave -> Band
 tabletWeave tw = Band cords weftCurve
