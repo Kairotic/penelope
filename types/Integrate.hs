@@ -55,6 +55,8 @@ flipTwist Z = S
 
 flipTablet t = t {yaw = flipTwist (yaw t)}
 
+spin x = Spin $ repeat s
+
 tabletWeave :: TabletWeave -> Band
 tabletWeave tw = Band cords weftCurve
   where cords = map tabletCord (tablets $ tLoom tw)
@@ -73,10 +75,10 @@ test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redWhiteTable
                    }
   where redWhiteTablet = Tablet {warps = [redThread, redThread, whiteThread, whiteThread], yaw = S}
         blueGreenTablet = Tablet {warps = [blueThread, blueThread, greenThread, greenThread], yaw = S}
-        redThread = Strand red S
-        whiteThread = Strand white S
-        blueThread = Strand blue S
-        greenThread = Strand green S
+        redThread = Strand red (spin S)
+        whiteThread = Strand white (spin S)
+        blueThread = Strand blue (spin S)
+        greenThread = Strand green (spin S)
 
 -- tabletWeave :: TabletWeave -> 
 -- tabletWeave tw = 
