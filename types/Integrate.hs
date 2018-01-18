@@ -13,7 +13,7 @@ instance Show Twist where
 data Spin = Spin [Twist]
 
 instance Show Spin where
-  show (Spin s) = show ((map show $ take 12 s) ++ [".."])
+  show (Spin s) = show ((concatMap show $ take 12 s) ++ [".."])
 
 instance Show Action where
   show (Pull n) = "pull " ++ show n
