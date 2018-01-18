@@ -53,7 +53,8 @@ data Band = Band {cords :: [Thread], bandWeft :: Curve}
 
 tabletWeave :: TabletWeave -> Band
 tabletWeave tw =
-  cord = 
+  let cords = map tabletCord (tablets $ tLoom tw)
+      tabletCord tablet = warps tablet
 
 -- tabletWeave :: TabletWeave -> 
 -- tabletWeave tw = 
