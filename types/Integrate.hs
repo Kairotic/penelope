@@ -58,13 +58,18 @@ tabletWeave tw = Band cords weftCurve
         -- assuming yaw of tablet = roll of thread, depends which side you look at tablet from
         tabletCord tablet = Ply (warps tablet) (Spin [yaw tablet])
 
-test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redTablet, blueTablet],
+test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redWhiteTablet, blueGreenTablet],
                                         tabletWeft = Strand {colour = orange,
                                                              roll = S
                                                             }
                                        },
                     tSheds = (take 24 $ cycle [replicate 12 S, replicate 12 Z])
                    }
+  where redWhiteTablet = Tablet {warps = []}
+        redThread = Strand red S
+        whiteThread = Strand white S
+        blueThread = Strand blue S
+        greenThread = Strand green S
 
 -- tabletWeave :: TabletWeave -> 
 -- tabletWeave tw = 
