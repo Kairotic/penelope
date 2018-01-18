@@ -38,5 +38,5 @@ data Loom = Loom {warp :: Thread, loomWeft :: Thread, heddles :: Heddles}
 
 data TabletLoom = TabletLoom {tablets :: [Tablet], tabletWeft :: Thread}
 
-data TabletWeave = TabletWeave [Twist] TabletLoom
+data TabletWeave = TabletWeave [[Twist]] TabletLoom
 
