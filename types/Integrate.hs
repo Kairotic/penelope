@@ -88,7 +88,6 @@ tabletWeave tw = Band cords weftCurve
 
 doTabletWeave tw = map tabletCord (tablets $ tLoom tw)
   where tabletCord tablet = Ply (warps tablet) (Spin [])
-
   
 test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redWhiteTablet,
                                                                    flipTablet blueGreenTablet
