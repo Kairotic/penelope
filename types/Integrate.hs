@@ -69,6 +69,7 @@ data TabletWeave = TabletWeave {tLoom :: TabletLoom, tSheds :: [TabletShed]}
 data Curve = Curve Thread [Action]
 -- Cords here aren't curves, they're 1d but with varying spin
 data Band = Band {bandCords :: [Thread], bandWeft :: Curve}
+          deriving Show
 
 flipTwist S = Z
 flipTwist Z = S
