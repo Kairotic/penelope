@@ -43,7 +43,7 @@ data TabletLoom = TabletLoom {tablets :: [Tablet], tabletWeft :: Thread}
 -- Not the shed exactly but how to go from one shed to the next..
 type TabletShed = [Twist]
 
-data TabletWeave = TabletWeave {[TabletShed] TabletLoom}
+data TabletWeave = TabletWeave {tabletShed :: [TabletShed], tabletLoom :: TabletLoom}
 
 tabletWeave :: TabletWeave -> Structure
 tabletWeave tw = 
