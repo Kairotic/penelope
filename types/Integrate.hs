@@ -46,5 +46,7 @@ type TabletShed = [Twist]
 
 data TabletWeave = TabletWeave {tShed :: [TabletShed], tLoom :: TabletLoom}
 
+
+
 -- tabletWeave :: TabletWeave -> 
 -- tabletWeave tw = 
