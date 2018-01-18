@@ -27,7 +27,7 @@ data Thread = Strand (Colour Double) Spin
 
 data Structure = Structure Thread Action
 
-data Band = Band {structurStructure, }
+data Band = Band {cord :: [Structure], bandWeft ::}
 
 -- Trying to conflate S/Z threading (or flip) on the card with
 -- rotation of it by referring to former as 'yaw' and latter as
