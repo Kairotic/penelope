@@ -28,7 +28,7 @@ data Thread = Strand (Colour Double) Spin
 -- Curve as in how to move from one dimensional thread to two dimensional surface
 data Curve = Curve Thread Action
 
-data Band = Band {cord :: [Curve], bandWeft ::}
+data Band = Band {cords :: [Curve], bandWeft :: Curve}
 
 -- Trying to conflate S/Z threading (or flip) on the card with
 -- rotation of it by referring to former as 'yaw' and latter as
