@@ -50,6 +50,10 @@ data Curve = Curve Thread [Action]
 -- Cords here aren't curves, they're 1d but with varying spin
 data Band = Band {bandCords :: [Thread], bandWeft :: Curve}
 
+flipTwist S = Z
+flipTwist Z = S
+
+flipTablet t = t {yaw = flipTwist (yaw t)}
 
 tabletWeave :: TabletWeave -> Band
 tabletWeave tw = Band cords weftCurve
@@ -58,7 +62,9 @@ tabletWeave tw = Band cords weftCurve
         -- assuming yaw of tablet = roll of thread, depends which side you look at tablet from
         tabletCord tablet = Ply (warps tablet) (Spin [yaw tablet])
 
-test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redWhiteTablet, blueGreenTablet],
+test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redWhiteTablet,
+                                                                   flipTablet blueGreenTablet
+                                                                  ],
                                         tabletWeft = Strand {colour = orange,
                                                              roll = S
                                                             }
