@@ -66,7 +66,7 @@ test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redWhiteTable
                                                                    flipTablet blueGreenTablet
                                                                   ],
                                         tabletWeft = Strand {colour = orange,
-                                                             roll = repeat S
+                                                             roll = Spin (repeat S)
                                                             }
                                        },
                     tSheds = (take 24 $ cycle [replicate 12 S, replicate 12 Z])
