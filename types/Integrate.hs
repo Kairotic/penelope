@@ -25,11 +25,6 @@ instance Eq Action where
 data Thread = Strand (Colour Double) Spin
             | Ply [Thread] Spin
 
--- Curve as in how to move from one dimensional thread to two dimensional surface
-data Curve = Curve Thread Action
-
-data Band = Band {cords :: [Curve], bandWeft :: Curve}
-
 -- Trying to conflate S/Z threading (or flip) on the card with
 -- rotation of it by referring to former as 'yaw' and latter as
 -- 'roll'
@@ -46,6 +41,9 @@ type TabletShed = [Twist]
 
 data TabletWeave = TabletWeave {tShed :: [TabletShed], tLoom :: TabletLoom}
 
+-- Curve as in how to move from one dimensional thread to two dimensional surface
+data Curve = Curve Thread Action
+data Band = Band {cords :: [Curve], bandWeft :: Curve}
 
 
 -- tabletWeave :: TabletWeave -> 
