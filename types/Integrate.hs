@@ -40,7 +40,7 @@ instance Show Thread where
                        | c == green = "green"
                        | c == white = "white"
                        | otherwise = show c
-  show (Ply pt r) = "Ply " ++ show pt ++ show r
+  show (Ply pt r) = "Ply " ++ show pt ++ " " ++ show r
 
 -- Trying to conflate S/Z threading (or flip) on the card with
 -- rotation of it by referring to former as 'yaw' and latter as
