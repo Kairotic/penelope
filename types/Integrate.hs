@@ -25,9 +25,9 @@ instance Eq Action where
 data Thread = Strand (Colour Double) Spin
             | Ply [Thread] Spin
 
-data Structure = Structure Thread Action
+data Curve = Curve Thread Action
 
-data Band = Band {cord :: [Structure], bandWeft ::}
+data Band = Band {cord :: [Curve], bandWeft ::}
 
 -- Trying to conflate S/Z threading (or flip) on the card with
 -- rotation of it by referring to former as 'yaw' and latter as
@@ -45,5 +45,5 @@ type TabletShed = [Twist]
 
 data TabletWeave = TabletWeave {tShed :: [TabletShed], tLoom :: TabletLoom}
 
-tabletWeave :: TabletWeave -> Structure
-tabletWeave tw = 0
+-- tabletWeave :: TabletWeave -> 
+-- tabletWeave tw = 
