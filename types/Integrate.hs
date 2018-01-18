@@ -86,7 +86,7 @@ tabletWeave tw = Band cords weftCurve
         -- assuming yaw of tablet = roll of thread, depends which side you look at tablet from
         tabletCord tablet = Ply (warps tablet) (Spin [])
 
-doTabletWeave tw = map tabletCord (tablets $ tabletLoom tw)
+doTabletWeave tw = map tabletCord (tablets $ tLoom tw)
   where tabletCord tablet = Ply (warps tablet) (Spin [])
 
   
