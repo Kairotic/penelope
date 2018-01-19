@@ -151,3 +151,4 @@ test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redWhiteTable
 
 -- The resulting band
 testBand = tabletWeave test
+
