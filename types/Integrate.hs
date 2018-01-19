@@ -152,5 +152,5 @@ test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redWhiteTable
 -- The resulting band
 testBand = tabletWeave test
 
-ansi red = "\x001b[31m"
-ansi blue = "\x001b[30m"
+ansi c | c == red = "\x001b[31m"
+
