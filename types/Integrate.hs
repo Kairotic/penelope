@@ -88,6 +88,7 @@ data TabletLoom = TabletLoom {tablets :: [Tablet], tabletWeft :: Thread}
 -- as a Spin although used differently, hmm.
 type TabletShed = [Twist]
 
+-- A tablet weave is a tablet loom and a sequence of rotations to create sheds
 data TabletWeave = TabletWeave {tLoom :: TabletLoom, tSheds :: [TabletShed]}
                  deriving Show
 
