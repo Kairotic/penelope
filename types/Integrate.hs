@@ -6,6 +6,7 @@ import Data.Colour.Names
 
 data Action = Pull Int | Turn | TurnBack | Over | Under
 data Twist = S | Z
+           deriving Eq
 
 instance Show Twist where
   show S = "S"
