@@ -62,6 +62,11 @@ instance Show Thread where
                        | otherwise = show c
   show (Ply pt r) = "Ply " ++ show pt ++ " " ++ show r
 
+-- A curve is a sequence of actions -- representing how to move from
+-- one dimensional thread to two dimensional surface
+data Curve = Curve Thread [Action]
+           deriving Show
+
 -- Trying to conflate S/Z threading (or flip) on the card with
 -- rotation of it by referring to former as 'yaw' and latter as
 -- 'roll'
@@ -83,9 +88,6 @@ type TabletShed = [Twist]
 data TabletWeave = TabletWeave {tLoom :: TabletLoom, tSheds :: [TabletShed]}
                  deriving Show
 
--- Curve as in how to move from one dimensional thread to two dimensional surface
-data Curve = Curve Thread [Action]
-           deriving Show
 -- Cords here aren't curves, they're 1d but with varying spin
 data Band = Band {bandCords :: [Thread], bandWeft :: Curve}
           deriving Show
