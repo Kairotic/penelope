@@ -65,7 +65,7 @@ instance Show Thread where
 -- A curve is a sequence of actions -- representing how to use a one
 -- dimensional thread to fill a two dimensional surface..
 data Curve = Curve {curveThread :: Thread,
-                    curveMovement :: [Action]
+                    curvePath :: [Action]
                    }
            deriving Show
 
