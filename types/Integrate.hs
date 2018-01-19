@@ -92,8 +92,10 @@ type TabletShed = [Twist]
 data TabletWeave = TabletWeave {tLoom :: TabletLoom, tSheds :: [TabletShed]}
                  deriving Show
 
--- Cords here aren't curves, they're 1d but with varying spin. It's
--- the curve of the weft that binds them together into a 2D surface.
+-- A band is a set of twisted cords next to each other, drawn together
+-- into a band by the weft. Cords here aren't curves, they're 1d but
+-- with varying spin. It's the curve of the weft that binds them
+-- together into a 2D surface.
 data Band = Band {bandCords :: [Thread], bandWeft :: Curve}
           deriving Show
 
@@ -113,6 +115,7 @@ tabletWeave tw = Band cords weftCurve
   where cords = twistCords tw
         weftCurve = Curve (tabletWeft $ tLoom tw)  []
 
+-- Twists the cords according to the 
 twistCords :: TabletWeave -> [Thread]
 twistCords tw = map tabletCord (zip (tablets $ tLoom tw) twists)
   where tabletCord (tablet, tabletTwists) = Ply (warps tablet) (Spin $ map doFlip tabletTwists)
