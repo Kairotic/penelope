@@ -19,6 +19,7 @@ instance Show Twist where
 -- A sequence of twists. Currently called 'spin' but there is probably better name!
 data Spin = Spin [Twist]
 
+-- Helper functions
 instance Show Spin where
   show (Spin s) =  (concatMap (show) $ take 5 s) ++ ".."
 
