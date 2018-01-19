@@ -16,7 +16,7 @@ instance Show Twist where
   show S = "S"
   show Z = "Z"
 
--- A sequence of twists. Currently called 'spin' but a better name would be better!
+-- A sequence of twists. Currently called 'spin' but there is probably better name!
 data Spin = Spin [Twist]
 
 instance Show Spin where
