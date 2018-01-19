@@ -153,7 +153,7 @@ test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redWhiteTable
 testBand = tabletWeave test
 
 vis :: Band -> String
-vis b = map () bandCords b
+vis b = map () $ bandCords b
 
 ansi c | c == black   = "\x001b[30m"
        | c == red     = "\x001b[31m"
