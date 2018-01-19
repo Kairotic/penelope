@@ -97,9 +97,11 @@ data TabletWeave = TabletWeave {tLoom :: TabletLoom, tSheds :: [TabletShed]}
 data Band = Band {bandCords :: [Thread], bandWeft :: Curve}
           deriving Show
 
+-- Function for flipping S/Z direction
 flipTwist S = Z
 flipTwist Z = S
 
+-- Returns the input tablet, but flipped
 flipTablet t = t {yaw = flipTwist (yaw t)}
 
 spin twist = Spin $ repeat twist
