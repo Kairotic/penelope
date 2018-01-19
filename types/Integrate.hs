@@ -114,7 +114,9 @@ spin twist = Spin $ repeat twist
 tabletWeave :: TabletWeave -> Band
 tabletWeave tw = Band cords weftCurve
   where cords = twistCords tw
-        weftCurve = Curve (tabletWeft $ tLoom tw)  []
+        weftCurve = Curve (tabletWeft $ tLoom tw) $ replicate weftCount [Pull warpCount, TurnBack, Turn]
+        warpCount = length $ tablets $ tLoom tw
+        weftCount = length $ tSheds tw
 
 -- Twists the cords according to the 'flip' of the tablet and the sequences of twists in the shed.
 twistCords :: TabletWeave -> [Thread]
