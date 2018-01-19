@@ -4,7 +4,31 @@ import Data.List (transpose)
 import Data.Colour.SRGB
 import Data.Colour.Names
 
+-- From earlier attempt at representation of thread within a
+-- weave..
+-- 'Pull' is a thread over a given distance (generally under tension)
+-- 'Turn' is where a thread takes the same 90 degree turn as last time
+-- 'TurnBack' is where takes teh opposite 90 degree turn as last time
+-- 'Over' and 'Under' is where a thread goes over or under a thread
+-- (possibly itself)
 data Action = Pull Int | Turn | TurnBack | Over | Under
+
+instance Show Action where
+  show (Pull n) = "pull " ++ show n
+  show Turn = "turn"
+  show TurnBack = "turn back"
+  show Over = "over"
+  show Under = "under"
+
+instance Eq Action where
+  (==) Turn Turn = True
+  (==) TurnBack TurnBack = True
+  (==) Over Over = True
+  (==) Under Under = True
+  (==) (Pull a) (Pull b) = a == b
+  (==) _ _ = False
+
+
 data Twist = S | Z
            deriving Eq
 
@@ -22,21 +46,6 @@ data Spin = Spin [Twist]
 -- Helper functions
 instance Show Spin where
   show (Spin s) =  (concatMap (show) $ take 5 s) ++ ".."
-
-instance Show Action where
-  show (Pull n) = "pull " ++ show n
-  show Turn = "turn"
-  show TurnBack = "turn back"
-  show Over = "over"
-  show Under = "under"
-
-instance Eq Action where
-  (==) Turn Turn = True
-  (==) TurnBack TurnBack = True
-  (==) Over Over = True
-  (==) Under Under = True
-  (==) (Pull a) (Pull b) = a == b
-  (==) _ _ = False
 
 data Thread = Strand {colour :: Colour Double, roll :: Spin}
             | Ply {plyThreads :: [Thread], roll :: Spin}
