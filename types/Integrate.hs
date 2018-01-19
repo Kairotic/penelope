@@ -79,9 +79,9 @@ data Loom = Loom {warp :: Thread, loomWeft :: Thread, heddles :: Heddles}
 -- A weave as two interactive curves
 data Weave = Weave {wWarp :: Curve, wWeft :: Curve}
 
--- A tablet weaving loom
+-- A tablet weaving loom, as an ordered set of tablets and a weft
 data TabletLoom = TabletLoom {tablets :: [Tablet], tabletWeft :: Thread}
-                 deriving Show
+                deriving Show
 
 -- Not the shed exactly but how to go from one shed to the
 -- next.. Should be one twist per card
