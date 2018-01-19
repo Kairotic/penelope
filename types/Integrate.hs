@@ -153,4 +153,4 @@ test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redWhiteTable
 testBand = tabletWeave test
 
 ansi red = "\x001b[31m"
-ansi _ = "\x001b[30m"
+ansi blue = "\x001b[30m"
