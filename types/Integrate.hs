@@ -69,9 +69,7 @@ data Tablet = Tablet {warps :: [Thread], yaw :: Twist}
             deriving Show
 
 type Heddles = [Int]
-
 data Loom = Loom {warp :: Thread, loomWeft :: Thread, heddles :: Heddles}
-
 -- A weave as two interactive curves
 data Weave = Weave {wWarp :: Curve, wWeft :: Curve}
 
