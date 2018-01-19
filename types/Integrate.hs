@@ -64,7 +64,9 @@ instance Show Thread where
 
 -- A curve is a sequence of actions -- representing how to use a one
 -- dimensional thread to fill a two dimensional surface..
-data Curve = Curve Thread [Action]
+data Curve = Curve {curveThread :: Thread,
+                    curveMovement :: [Action]
+                   }
            deriving Show
 
 -- Trying to conflate S/Z threading (or flip) on the card with
