@@ -15,7 +15,8 @@ data Twist = S | Z
 instance Show Twist where
   show S = "S"
   show Z = "Z"
-                     
+
+-- Might be better as a type rather than datatype.
 data Spin = Spin [Twist]
 
 instance Show Spin where
