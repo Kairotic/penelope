@@ -8,6 +8,9 @@ data Action = Pull Int | Turn | TurnBack | Over | Under
 data Twist = S | Z
            deriving Eq
 
+-- Used for twist in yarn, threading (and 'flipping') of cards, and
+-- rotation of cards. These are closely related if you consider the
+-- twist of cards to create a new composite yarn.
 instance Show Twist where
   show S = "S"
   show Z = "Z"
