@@ -97,7 +97,7 @@ data TabletWeave = TabletWeave {tLoom :: TabletLoom, tSheds :: [TabletShed]}
 -- A band is a set of twisted cords next to each other, drawn together
 -- into a band by the weft. Cords here aren't curves, they're 1d but
 -- with varying S/Z spin. It's the curve of the weft that binds them
--- together into a 2D surface.
+-- together (by passing through the cords) into a 2D surface.
 data Band = Band {bandCords :: [Thread], bandWeft :: Curve}
           deriving Show
 
