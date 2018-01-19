@@ -10,7 +10,8 @@ data Twist = S | Z
 
 -- Used for twist in yarn, threading (and 'flipping') of cards, and
 -- rotation of cards. These are closely related if you consider the
--- twist of cards to create a new composite yarn.
+-- twist of cards to create a new yarn by twisting threads together
+-- within the band.
 instance Show Twist where
   show S = "S"
   show Z = "Z"
