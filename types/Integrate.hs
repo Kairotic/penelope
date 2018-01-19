@@ -85,12 +85,11 @@ tabletWeave :: TabletWeave -> Band
 tabletWeave tw = Band cords weftCurve
   where cords = twistCords tw
         weftCurve = Curve (tabletWeft $ tLoom tw)  []
-        -- assuming yaw of tablet = roll of thread, depends which side you look at tablet from
-        -- tabletCord tablet = Ply (warps tablet) (Spin [])
 
 twistCords :: TabletWeave -> [Thread]
 twistCords tw = map tabletCord (zip (tablets $ tLoom tw) twists)
   where tabletCord (tablet, tabletTwists) = Ply (warps tablet) (Spin $ map doFlip tabletTwists)
+        -- assuming yaw of tablet = roll of thread, depends which side you look at tablet from?
           where doFlip x | yaw tablet == S = x
                          | otherwise = flipTwist x
         -- list of thread twists rather than list of card moves over time
