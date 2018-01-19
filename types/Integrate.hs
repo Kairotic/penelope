@@ -73,11 +73,13 @@ data Curve = Curve Thread [Action]
 data Tablet = Tablet {warps :: [Thread], yaw :: Twist}
             deriving Show
 
+-- Undeveloped representation of a loom for 'normal' weaving
 type Heddles = [Int]
 data Loom = Loom {warp :: Thread, loomWeft :: Thread, heddles :: Heddles}
 -- A weave as two interactive curves
 data Weave = Weave {wWarp :: Curve, wWeft :: Curve}
 
+-- A tablet weaving loom
 data TabletLoom = TabletLoom {tablets :: [Tablet], tabletWeft :: Thread}
                  deriving Show
 
