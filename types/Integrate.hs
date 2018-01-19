@@ -107,6 +107,7 @@ flipTablet t = t {yaw = flipTwist (yaw t)}
 -- An infinitely long twist in a single given direction
 spin twist = Spin $ repeat twist
 
+-- Does the tablet weaving - turrning the TabletWeave instructions into an actual Band.
 tabletWeave :: TabletWeave -> Band
 tabletWeave tw = Band cords weftCurve
   where cords = twistCords tw
