@@ -125,7 +125,8 @@ twistCords tw = map tabletCord (zip (tablets $ tLoom tw) twists)
                          | otherwise = flipTwist x
         -- list of thread twists rather than list of card moves over time
         twists = transpose (tSheds tw)
-  
+
+An example tablet weave
 test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redWhiteTablet,
                                                                    flipTablet blueGreenTablet
                                                                   ],
