@@ -84,7 +84,8 @@ data TabletLoom = TabletLoom {tablets :: [Tablet], tabletWeft :: Thread}
                 deriving Show
 
 -- Not the shed exactly but how to go from one shed to the
--- next.. Should be one twist per card
+-- next.. Should be one twist per card. This is really the same type
+-- as a Spin although used differently. They should probably be unified.
 type TabletShed = [Twist]
 
 data TabletWeave = TabletWeave {tLoom :: TabletLoom, tSheds :: [TabletShed]}
