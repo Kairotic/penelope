@@ -104,7 +104,7 @@ flipTwist Z = S
 -- Returns the input tablet, but flipped
 flipTablet t = t {yaw = flipTwist (yaw t)}
 
--- An infinitely long twist in a single spin direction
+-- An infinitely long twist in a single direction
 spin twist = Spin $ repeat twist
 
 tabletWeave :: TabletWeave -> Band
