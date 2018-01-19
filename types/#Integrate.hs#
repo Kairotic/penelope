@@ -53,6 +53,10 @@ instance Show Spin where
 data Thread = Strand {colour :: Colour Double, roll :: Spin}
             | Ply {plyThreads :: [Thread], roll :: Spin}
 
+firstColour :: Thread -> Colour Double
+firstColour (Ply threads _) = firstColour $ head threads
+firstC
+
 instance Show Thread where
   show (Strand c r) = "Strand " ++ showColour c ++ " " ++ show r
     where showColour c | c == red = "r"
@@ -152,8 +156,9 @@ test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redWhiteTable
 -- The resulting band
 testBand = tabletWeave test
 
-vis :: Band -> String
-vis b = map () $ bandCords b
+visFirst :: Band -> String
+visFirst b = 
+  where cord = head $ bandCords b
 
 ansi c | c == black   = "\x001b[30m"
        | c == red     = "\x001b[31m"
