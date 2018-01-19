@@ -94,7 +94,7 @@ data TabletWeave = TabletWeave {tLoom :: TabletLoom, tSheds :: [TabletShed]}
 
 -- A band is a set of twisted cords next to each other, drawn together
 -- into a band by the weft. Cords here aren't curves, they're 1d but
--- with varying spin. It's the curve of the weft that binds them
+-- with varying S/Z spin. It's the curve of the weft that binds them
 -- together into a 2D surface.
 data Band = Band {bandCords :: [Thread], bandWeft :: Curve}
           deriving Show
@@ -109,7 +109,8 @@ flipTablet t = t {yaw = flipTwist (yaw t)}
 -- An infinitely long twist in a single given direction
 spin twist = Spin $ repeat twist
 
--- Does the tablet weaving - turrning the TabletWeave instructions into an actual Band.
+-- A function that does the tablet weaving - turrning the TabletWeave
+-- instructions into an actual Band.
 tabletWeave :: TabletWeave -> Band
 tabletWeave tw = Band cords weftCurve
   where cords = twistCords tw
