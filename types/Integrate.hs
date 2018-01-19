@@ -62,8 +62,8 @@ instance Show Thread where
                        | otherwise = show c
   show (Ply pt r) = "Ply " ++ show pt ++ " " ++ show r
 
--- A curve is a sequence of actions -- representing how to move from
--- one dimensional thread to two dimensional surface
+-- A curve is a sequence of actions -- representing how to use a one
+-- dimensional thread to create a two dimensional surface
 data Curve = Curve Thread [Action]
            deriving Show
 
