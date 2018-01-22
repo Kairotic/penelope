@@ -178,15 +178,17 @@ test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redWhiteTable
 -- The resulting band
 testBand = tabletWeave test
 
-simpleTest = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [rwgbTablet
-                                                                        ],
-                                              tabletWeft = Strand {colour = orange,
-                                                                   roll = Spin (repeat S)
-                                                                  }
-                                             },
-                          tSheds = (take 24 $ cycle [replicate 12 S])
-                         }
+simpleWeave = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [rwgbTablet
+                                                                         ],
+                                               tabletWeft = Strand {colour = orange,
+                                                                    roll = Spin (repeat S)
+                                                                   }
+                                              },
+                           tSheds = (take 24 $ cycle [replicate 12 S])
+                          }
   where rwgbTablet = Tablet {warps = [redThread, whiteThread, greenThread, blueThread], yaw = S}
+        
+simpleBand = tabletWeave test
 
 ansifg c | c == black   = "\x001b[30m"
          | c == red     = "\x001b[31m"
