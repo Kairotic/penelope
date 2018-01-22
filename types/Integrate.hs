@@ -84,8 +84,10 @@ plyTop n (Ply pt (Spin (twist:twists)))
           (!!!) :: [a] -> Int -> a
           (!!!) xs n = xs !! (n `mod` length xs)
 
+showSegments :: [[Segment]] -> [Char]
 showSegments ss = concat $ map (\(f, s) -> (f s))
                   $ zip (cycle [colourTwistEven, colourTwistEven]) (concat $ transpose ss)
+
 
 showBand b = showSegments $ map (plyTop 0) $ bandCords b
 
