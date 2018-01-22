@@ -200,11 +200,11 @@ ansibg c | c == black   = "\x001b[40m"
 
 ansireset = "\x001b[0m"
 
-colourTwistOdd f b S = colourString f b (tr:[])
-colourTwistOdd f b Z = colourString f b (tl:[])
+colourTwistOdd (Segment f b S) = colourString f b (tr:[])
+colourTwistOdd (Segment f b Z) = colourString f b (tl:[])
 
-colourTwistEven f b S = colourString b f (br:[])
-colourTwistEven f b Z = colourString b f (bl:[])
+colourTwistEven (Segment f b S) = colourString b f (br:[])
+colourTwistEven (Segment f b Z) = colourString b f (bl:[])
 
 colourString :: (Colour Double) -> (Colour Double) -> String -> String
 colourString f b s = ansifg f ++ ansibg b ++ s ++ ansireset
