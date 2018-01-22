@@ -68,6 +68,9 @@ firstColour (Ply (t:_) r) = firstColour t
 
 data Segment = Segment (Colour Double, Colour Double, Twist)
 
+instance Show Segment where
+  show (Segment c1 c2 S) = 
+
 plyTop :: Int -> Thread -> [Segment]
 plyTop _ (Strand _ _) = []
 plyTop _ (Ply _ (Spin [])) = []
@@ -170,15 +173,30 @@ test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redWhiteTable
 -- The resulting band
 testBand = tabletWeave test
 
-ansi c | c == black   = "\x001b[30m"
-       | c == red     = "\x001b[31m"
-       | c == green   = "\x001b[32m"
-       | c == yellow  = "\x001b[33m"
-       | c == blue    = "\x001b[34m"
-       | c == magenta = "\x001b[35m"
-       | c == cyan    = "\x001b[36m"
-       | c == white   = "\x001b[37m"
-       | otherwise    = "\x001b[0m" -- reset
+ansifg c | c == black   = "\x001b[30m"
+         | c == red     = "\x001b[31m"
+         | c == green   = "\x001b[32m"
+         | c == yellow  = "\x001b[33m"
+         | c == blue    = "\x001b[34m"
+         | c == magenta = "\x001b[35m"
+         | c == cyan    = "\x001b[36m"
+         | c == white   = "\x001b[37m"
+         | otherwise    = ansireset
+
+ansibg c | c == black   = "\x001b[40m"
+         | c == red     = "\x001b[41m"
+         | c == green   = "\x001b[42m"
+         | c == yellow  = "\x001b[43m"
+         | c == blue    = "\x001b[44m"
+         | c == magenta = "\x001b[45m"
+         | c == cyan    = "\x001b[46m"
+         | c == white   = "\x001b[47m"
+         | otherwise    = ansireset
+
+ansireset = "\x001b[0m"
+
+colourString :: (Colour Double) -> (Colour Double) -> String -> String
+colourString f b s = ansifg f ++ ansibg b ++ s ++ ansireset
 
 tl = '◤'
 tr = '◥'
