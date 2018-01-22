@@ -53,10 +53,6 @@ instance Show Spin where
 data Thread = Strand {colour :: Colour Double, roll :: Spin}
             | Ply {plyThreads :: [Thread], roll :: Spin}
 
-firstColour :: Thread -> Colour Double
-firstColour (Ply threads _) = firstColour $ head threads
-firstColour (Strand c _) = c
-
 instance Show Thread where
   show (Strand c r) = "Strand " ++ showColour c ++ " " ++ show r
     where showColour c | c == red = "r"
@@ -65,6 +61,8 @@ instance Show Thread where
                        | c == white = "w"
                        | otherwise = show c
   show (Ply pt r) = "Ply " ++ show pt ++ " " ++ show r
+
+plyTop (Ply pt (Spin (twist:twists))) = 
 
 -- A curve is a sequence of actions -- representing how to use a one
 -- dimensional thread to fill a two dimensional surface..
@@ -156,10 +154,6 @@ test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redWhiteTable
 -- The resulting band
 testBand = tabletWeave test
 
-visThread :: Twist -> Thread -> String
-visThread twist thread = map colour cord ()
-  where colour = firstColour thread
-
 ansi c | c == black   = "\x001b[30m"
        | c == red     = "\x001b[31m"
        | c == green   = "\x001b[32m"
@@ -169,3 +163,8 @@ ansi c | c == black   = "\x001b[30m"
        | c == cyan    = "\x001b[36m"
        | c == white   = "\x001b[37m"
        | otherwise    = "\x001b[0m" -- reset
+
+tl = '◤'
+tr = '◥'
+bl = '◣'
+br = '◢'
