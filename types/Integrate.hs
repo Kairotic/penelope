@@ -188,7 +188,7 @@ simpleWeave = TabletWeave {tLoom = TabletLoom {tablets = take 2 $ cycle [rwgbTab
                            tSheds = (take 24 $ cycle [replicate 12 S])
                           }
   where rwgbTablet = Tablet {warps = [redThread, whiteThread, greenThread, blueThread], yaw = S}
-        wgbrTablet = Tablet {warps = [whiteThread, greenThread, blueThread,redThread], yaw = S}
+        wgbrTablet = Tablet {warps = [whiteThread, greenThread, blueThread,redThread], yaw = Z}
         
 simpleBand = tabletWeave simpleWeave
 
