@@ -67,7 +67,7 @@ plyTop _ (Strand _ _) = []
 plyTop _ (Ply _ (Spin [])) = []
 plyTop n (Ply pt (Spin (twist:twists)))
   = plyTop (n+delta) (Ply pt (Spin twists))
-    where delta | twist == S = 1 -- TODO - maybe this is the wrong way round..
+    where delta | twist == S = 1 -- TODO - guess - other way around?
                 | otherwise = -1
             
 -- A curve is a sequence of actions -- representing how to use a one
