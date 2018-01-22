@@ -204,4 +204,4 @@ bl = '◣'
 br = '◢'
 
 twistChar Z = tl
-twistChar S = tr
+twistChar S = bl
