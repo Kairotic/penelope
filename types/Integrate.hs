@@ -66,7 +66,7 @@ firstColour :: Thread -> Colour Double
 firstColour (Strand c _) = c
 firstColour (Ply (t:_) r) = firstColour t
 
-data Segment = Segment (Colour Double, Colour Double, Twist)
+data Segment = Segment (Colour Double) (Colour Double) Twist
 
 instance Show Segment where
   show (Segment c1 c2 t) = colourString c1 c1 ((twistChar t):[])
