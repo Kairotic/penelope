@@ -93,7 +93,7 @@ showBand b = concat $ concat $ transpose $ map (showSegments . plyTop 0) $ bandC
 
 -- svgPath :: String -> Twist -> (Int,Int) -> Colour Double -> Corner ->  String
 
-svgFgBg x y (Segment f b t) = (svgPath idFg (x*svgScale,y*svgScale) f fCorner)
+svgFgBg x y (Segment f b t) = (svgPath idFg (x*svgScale,y*svgScale) f fCorner) ++ (svgPath idBg (x*svgScale,y*svgScale) b bCorner)
   where idFg = "fg-" ++ show x ++ "x" ++ show y
         idBg = "bg-" ++ show x ++ "x" ++ show y
         fCorner | t == S = TR
