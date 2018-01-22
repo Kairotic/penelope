@@ -203,5 +203,5 @@ tr = '◥'
 bl = '◣'
 br = '◢'
 
-twistChar Z = tl
-twistChar S = tr
+twistChar Z = bl
+twistChar S = br
