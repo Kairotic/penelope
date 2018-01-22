@@ -88,7 +88,7 @@ showSegments :: [[Segment]] -> [Char]
 showSegments ss = concat $ map (\(f, s) -> (f s))
                   $ zip (cycle [colourTwistEven, colourTwistEven]) (concat $ transpose ss)
 
-
+showBand :: Band -> String
 showBand b = showSegments $ map (plyTop 0) $ bandCords b
 
 -- A curve is a sequence of actions -- representing how to use a one
