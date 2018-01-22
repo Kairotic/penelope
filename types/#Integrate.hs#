@@ -66,8 +66,8 @@ plyTop :: Int -> [(Colour Double, Colour Double, Twist)]
 plyTop _ (Strand _ _) = []
 plyTop _ (Ply _ (Spin [])) = []
 plyTop 0 (Ply pt (Spin (twist:twists)))
-  = plyTop
-
+  = plyTop 
+    where delta ()
 -- A curve is a sequence of actions -- representing how to use a one
 -- dimensional thread to fill a two dimensional surface..
 data Curve = Curve {curveThread :: Thread,
