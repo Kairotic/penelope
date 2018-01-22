@@ -64,7 +64,7 @@ instance Show Thread where
 
 firstColour :: Thread -> Colour Double
 firstColour (Strand c _) = c
-firstColour (Ply (t:_) r) = firstcolour t
+firstColour (Ply (t:_) r) = firstColour t
 
 plyTop :: Int -> [(Colour Double, Colour Double, Twist)]
 plyTop _ (Strand _ _) = []
