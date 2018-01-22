@@ -26,5 +26,5 @@
   </metadata>
   <g
      id="layer1">
-<path id="a" d="m 100 100 10,-10 -10,0 z" style="fill:#ff0000;fill-rule:evenodd;stroke:none" /><path id="b" d="m 110 100 -10,-10 10,0 z" style="fill:#0000ff;fill-rule:evenodd;stroke:none" /><path id="c" d="m 120 100 10,10 -10,0 z" style="fill:#ff0000;fill-rule:evenodd;stroke:none" /><path id="d" d="m 130 100 -10,10 10,0 z" style="fill:#0000ff;fill-rule:evenodd;stroke:none" /></g>
+<path id="a" d="m 100 100 10,-10 -10,0 z" style="fill:#ff0000;fill-rule:evenodd;stroke:none" /><path id="b" d="m 110 100 -10,-10 10,0 z" style="fill:#0000ff;fill-rule:evenodd;stroke:none" /><path id="c" d="m 120 100 10,10 -10,0 z" style="fill:#008000;fill-rule:evenodd;stroke:none" /><path id="d" d="m 130 100 -10,10 10,0 z" style="fill:#ffff00;fill-rule:evenodd;stroke:none" /></g>
 </svg>
