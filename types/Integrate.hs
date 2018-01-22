@@ -84,7 +84,7 @@ plyTop n (Ply pt (Spin (twist:twists)))
           (!!!) :: [a] -> Int -> a
           (!!!) xs n = xs !! (n `mod` length xs)
 
-showSegments :: [Segment] -> [Char]
+showSegments :: [Segment] -> [String]
 showSegments ss = map (\(f, s) -> (f s))
                   $ zip (cycle [colourTwistEven, colourTwistOdd]) ss
 
