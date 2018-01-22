@@ -66,7 +66,7 @@ firstColour :: Thread -> Colour Double
 firstColour (Strand c _) = c
 firstColour (Ply (t:_) r) = firstColour t
 
-plyTop :: Int -> [(Colour Double, Colour Double, Twist)]
+plyTop :: Int -> Thread -> [(Colour Double, Colour Double, Twist)]
 plyTop _ (Strand _ _) = []
 plyTop _ (Ply _ (Spin [])) = []
 plyTop n (Ply pt (Spin (twist:twists)))
