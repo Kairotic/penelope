@@ -68,8 +68,6 @@ firstColour (Ply (t:_) r) = firstColour t
 
 data Segment = Segment (Colour Double) (Colour Double) Twist
 
-instance Show Segment
-
 --instance Show Segment where
 --  show (Segment c1 c2 t) = colourTwistEven c1 c2 t
 
