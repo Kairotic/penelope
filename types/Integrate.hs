@@ -101,7 +101,7 @@ svgFgBg x y (Segment f b t) = (svgPath idFg (x*svgScale,y*svgScale) f fCorner)
         bCorner | t == S = BL
                 | otherwise = BR
 
-svgBand b = svgPreamble + body + svgPostamble
+svgBand b = svgPreamble ++ body ++ svgPostamble
   where body = concatMap (\(x,ys) -> concatMap (\(y,s) -> svgFgBg x y s) ys) $ zip [0 ..] (map (zip [0 ..] . plyTop 0) $ bandCords b)
 
 -- A curve is a sequence of actions -- representing how to use a one
