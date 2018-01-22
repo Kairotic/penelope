@@ -183,6 +183,7 @@ ansifg c | c == black   = "\x001b[30m"
          | c == white   = "\x001b[37m"
          | otherwise    = "\x001b[0m" -- reset
 
+ansireset = "\x001b[0m" -- rese
 ansibg c | c == black   = "\x001b[40m"
          | c == red     = "\x001b[41m"
          | c == green   = "\x001b[42m"
@@ -192,6 +193,9 @@ ansibg c | c == black   = "\x001b[40m"
          | c == cyan    = "\x001b[46m"
          | c == white   = "\x001b[47m"
          | otherwise    = "\x001b[0m" -- reset
+
+colourString :: (Colour Double) -> (Colour Double) -> String -> String
+colourString f b s = ansifg f ++ ansibg b ++ s ++ ansibg
 
 tl = '◤'
 tr = '◥'
