@@ -237,39 +237,9 @@ br = '◢'
 
 
 
-svgPreamble = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>
-<svg
-   xmlns:dc=\"http://purl.org/dc/elements/1.1/\"
-   xmlns:cc=\"http://creativecommons.org/ns#\"
-   xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"
-   xmlns:svg=\"http://www.w3.org/2000/svg\"
-   xmlns=\"http://www.w3.org/2000/svg\"
-   version=\"1.1\"
-   id=\"svg2\"
-   viewBox=\"0 0 744.09448819 1052.3622047\"
-   height=\"297mm\"
-   width=\"210mm\">
-  <defs
-     id=\"defs4\" />
-  <metadata
-     id=\"metadata7\">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about=\"\">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource=\"http://purl.org/dc/dcmitype/StillImage\" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     id=\"layer1\">
-"
+svgPreamble = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<svg\n   xmlns:dc=\"http://purl.org/dc/elements/1.1/\"\n   xmlns:cc=\"http://creativecommons.org/ns#\"\n   xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"\n   xmlns:svg=\"http://www.w3.org/2000/svg\"\n   xmlns=\"http://www.w3.org/2000/svg\"\n   version=\"1.1\"\n   id=\"svg2\"\n   viewBox=\"0 0 744.09448819 1052.3622047\"\n   height=\"297mm\"\n   width=\"210mm\">\n  <defs\n     id=\"defs4\" />\n  <metadata\n     id=\"metadata7\">\n    <rdf:RDF>\n      <cc:Work\n         rdf:about=\"\">\n        <dc:format>image/svg+xml</dc:format>\n        <dc:type\n           rdf:resource=\"http://purl.org/dc/dcmitype/StillImage\" />\n        <dc:title></dc:title>\n      </cc:Work>\n    </rdf:RDF>\n  </metadata>\n  <g\n     id=\"layer1\">\n"
 
-svgPostamble = "</g>
-</svg>
-"
+svgPostamble = "</g>\n</svg>\n"
 
 svgScale = 10
 
@@ -280,10 +250,7 @@ path TL = "10,-10 -10,0"
 path TR = "-10,-10 10,0"
 
 svgPath :: String -> Twist -> (Int,Int) -> Corner ->  String
-svgPath id t (x,y) c cnr = "<path
-       id=\"" ++ id ++ "\"
-       d=\"m " ++ xy ++ " " ++ path corn ++ " z\"
-       style=\"fill:" ++ cHex ++ ";fill-rule:evenodd;stroke:none\" />"
+svgPath id t (x,y) c cnr = "<path id=\"" ++ id ++ "\" d=\"m " ++ xy ++ " " ++ path corn ++ " z\" style=\"fill:" ++ cHex ++ ";fill-rule:evenodd;stroke:none\" />"
   where cHex = sRGB24show c
         xy = show x ++ " " show y
 
