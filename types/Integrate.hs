@@ -161,3 +161,8 @@ ansi c | c == black   = "\x001b[30m"
        | c == cyan    = "\x001b[36m"
        | c == white   = "\x001b[37m"
        | otherwise    = "\x001b[0m" -- reset
+
+tl = '◤'
+tr = '◥'
+bl = '◣'
+br = '◢'
