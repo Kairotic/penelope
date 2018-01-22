@@ -82,7 +82,12 @@ plyTop n (Ply pt (Spin (twist:twists)))
                 | otherwise = -1
           (!!!) :: [a] -> Int -> a
           (!!!) xs n = xs !! (n `mod` length xs)
-        
+
+showSegments ss = concat $ map (\(f, s) -> f s)
+                  $ zip (repeat [colourTwistEven, colourTwistOdd]) (concat $ transpose ss) 
+
+showBand b = showSegmap (plyTop 0) (bandCords testBand)
+
 -- A curve is a sequence of actions -- representing how to use a one
 -- dimensional thread to fill a two dimensional surface..
 data Curve = Curve {curveThread :: Thread,
