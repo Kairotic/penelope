@@ -274,6 +274,10 @@ svgPostamble = "</g>
 svgScale = 10
 
 data Corner = TL | TR | BL | BR
+path BL = "10,10 -10,0"
+path BR = "-10,10 10,0"
+path TL = "10,-10 -10,0"
+path TR = "-10,-10 10,0"
 
 svgPath :: String -> Twist -> (Int,Int) -> Corner ->  String
 svgPath id t (x,y) c cnr = "<path
@@ -283,8 +287,4 @@ svgPath id t (x,y) c cnr = "<path
   where cHex = sRGB24show c
         xy = show x ++ " " show y
 
-path BL = "10,10 -10,0"
-path BR = "-10,10 10,0"
-path TL = "10,-10 -10,0"
-path TR = "-10,-10 10,0"
 
