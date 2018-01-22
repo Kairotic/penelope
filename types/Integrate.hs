@@ -91,7 +91,11 @@ showSegments ss = map (\(f, s) -> (f s))
 -- showBand :: Band -> String
 showBand b = concat $ concat $ transpose $ map (showSegments . plyTop 0) $ bandCords b
 
-svgBand b = zip [0 ..] (map (zip [0 ..] . plyTop 0) $ bandCords b)
+svgPath :: String -> Twist -> (Int,Int) -> Colour Double -> Corner ->  String
+
+svgFgBg x y s = ""
+
+svgBand b = concatMap (\(x,ys) -> concatMap (\(y,s) -> svgFgBg x y s)) $ zip [0 ..] (map (zip [0 ..] . plyTop 0) $ bandCords b)
 
 -- A curve is a sequence of actions -- representing how to use a one
 -- dimensional thread to fill a two dimensional surface..
