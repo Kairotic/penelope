@@ -195,8 +195,11 @@ ansibg c | c == black   = "\x001b[40m"
 
 ansireset = "\x001b[0m"
 
-colourTwist f b S = colourString f b (tr:[])
-colourTwist f b Z = colourString b f (br:[]) -- flip colours so we can use the chars that 'touch'
+colourTwistOdd f b S = colourString f b (tl:[])
+colourTwistOdd f b Z = colourString f b (tr:[])
+
+colourTwistEven f b S = colourString b f (bl:[])
+colourTwistEven f b Z = colourString b f (br:[])
 
 colourString :: (Colour Double) -> (Colour Double) -> String -> String
 colourString f b s = ansifg f ++ ansibg b ++ s ++ ansireset
