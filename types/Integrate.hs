@@ -245,9 +245,9 @@ svgScale = 10
 
 data Corner = TL | TR | BL | BR
 path BL = "10,10 -10,0"
-path BR = "-10,10 10,0"
+path BR = "0,10 10,0"
 path TL = "10,-10 -10,0"
-path TR = "-10,-10 10,0"
+path TR = "0,-10 10,0"
 
 svgPath :: String -> Twist -> (Int,Int) -> Colour Double -> Corner ->  String
 svgPath id t (x,y) c cnr = "<path id=\"" ++ id ++ "\" d=\"m " ++ xy ++ " " ++ path cnr ++ " z\" style=\"fill:" ++ cHex ++ ";fill-rule:evenodd;stroke:none\" />"
