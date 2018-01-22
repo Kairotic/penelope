@@ -250,7 +250,7 @@ path TL = "10,-10 -10,0"
 path TR = "-10,-10 10,0"
 
 svgPath :: String -> Twist -> (Int,Int) -> Corner ->  String
-svgPath id t (x,y) c cnr = "<path id=\"" ++ id ++ "\" d=\"m " ++ xy ++ " " ++ path corn ++ " z\" style=\"fill:" ++ cHex ++ ";fill-rule:evenodd;stroke:none\" />"
+svgPath id t (x,y) c cnr = "<path id=\"" ++ id ++ "\" d=\"m " ++ xy ++ " " ++ path cnr ++ " z\" style=\"fill:" ++ cHex ++ ";fill-rule:evenodd;stroke:none\" />"
   where cHex = sRGB24show c
         xy = show x ++ " " show y
 
