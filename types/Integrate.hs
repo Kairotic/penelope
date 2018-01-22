@@ -62,13 +62,21 @@ instance Show Thread where
                        | otherwise = show c
   show (Ply pt r) = "Ply " ++ show pt ++ " " ++ show r
 
+firstColour :: Thread -> Colour Double
+firstColour (Strand c _) = c
+firstColour (Ply (t:_) r) = firstcolour t
+
 plyTop :: Int -> [(Colour Double, Colour Double, Twist)]
 plyTop _ (Strand _ _) = []
 plyTop _ (Ply _ (Spin [])) = []
 plyTop n (Ply pt (Spin (twist:twists)))
-  = plyTop (n+delta) (Ply pt (Spin twists))
-    where delta | twist == S = 1 -- TODO - guess - other way around?
+  = this:succ
+    where this = (pt !!! n, pt !!! delta, twist)
+          succ = plyTop (n+delta) (Ply pt (Spin twists))
+          delta | twist == S = 1 -- TODO - guess - other way around?
                 | otherwise = -1
+          (!!!) :: [a] -> Int -> a
+          (!!!) xs n = xs !! (n `mod` length xs)
             
 -- A curve is a sequence of actions -- representing how to use a one
 -- dimensional thread to fill a two dimensional surface..
