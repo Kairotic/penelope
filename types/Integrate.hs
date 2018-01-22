@@ -187,7 +187,7 @@ simpleTest = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redWhit
                                              },
                           tSheds = (take 24 $ cycle [replicate 12 S, replicate 12 Z])
                          }
-  where redWhiteTablet = Tablet {warps = [redThread, whiteThread, redThread, whiteThread], yaw = S}
+  where rwgbTablet = Tablet {warps = [redThread, whiteThread, greenThread, blueThread], yaw = S}
 
 ansifg c | c == black   = "\x001b[30m"
          | c == red     = "\x001b[31m"
