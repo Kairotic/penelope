@@ -86,7 +86,7 @@ plyTop n (Ply pt (Spin (twist:twists)))
 
 showSegments :: [Segment] -> [String]
 showSegments ss = map (\(f, s) -> (f s))
-                  $ zip (cycle [colourTwistEven, colourTwistEven]) ss
+                  $ zip (cycle [colourTwistEven, colourTwistOdd]) ss
 
 -- showBand :: Band -> String
 showBand b = concat $ concat $ transpose $ map (showSegments . plyTop 0) $ bandCords b
