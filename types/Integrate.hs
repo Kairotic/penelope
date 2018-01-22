@@ -154,7 +154,7 @@ tabletWeave tw = Band cords weftCurve
 -- Twists the cords according to the 'flip' of the tablet and the sequences of twists in the shed.
 twistCords :: TabletWeave -> [Thread]
 twistCords tw = map tabletCord (zip (tablets $ tLoom tw) twists)
-  where tabletCord (tablet, tabletTwists) = Ply (warps tablet) (Spin $ tabletTwists)
+  where tabletCord (tablet, tabletTwists) = Ply (warps tablet) (Spin $ map doFlip tabletTwists)
         -- assuming yaw of tablet = roll of thread, depends which side you look at tablet from?
           where doFlip x | yaw tablet == S = x
                          | otherwise = flipTwist x
