@@ -270,3 +270,32 @@ svgPreamble = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>
 svgPostamble = "</g>
 </svg>
 "
+
+svgScale = 10
+
+data Corner = TL | TR | BL | BR
+
+svgPath :: String -> Twist -> (Int,Int) ->  String
+svgPath id t (x,y) c = "<path
+       id=\"" ++ id ++ "\"
+       d=\"m " ++ xy ++ " " ++ path ++ " z\"
+       style=\"fill:" ++ cHex ++ ";fill-rule:evenodd;stroke:none\" />"
+
+
+path BL = "10,10 -10,0"
+path BR = "-10,10 10,0"
+path TL = "10,-10 -10,0"
+path TR = "-10,-10 10,0"
+
+    <path
+       id="rect3336-3"
+       d="m 20,1042.3622 -10,10 10,0 z"
+       style="fill:#ff0000;fill-rule:evenodd;stroke:none;stroke-width:0.08216304px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       id="rect3336-3-6"
+       d="m 0,1042.3622 10,-10 -10,0 z"
+       style="fill:#ffff00;fill-rule:evenodd;stroke:none;stroke-width:0.08216304px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       id="rect3336-3-6-7"
+       d="m 20,1042.3622 -10,-10 10,0 z"
+       style="fill:#00ff00;fill-rule:evenodd;stroke:none;stroke-width:0.08216304px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
