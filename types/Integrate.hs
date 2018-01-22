@@ -69,7 +69,7 @@ firstColour (Ply (t:_) r) = firstColour t
 data Segment = Segment (Colour Double) (Colour Double) Twist
 
 instance Show Segment where
-  show (Segment c1 c2 t) = colourString c1 c2 ((twistChar t):[])
+  show (Segment c1 c2 t) = colourTwist c1 c2 twistChar
 
 plyTop :: Int -> Thread -> [Segment]
 plyTop _ (Strand _ _) = []
