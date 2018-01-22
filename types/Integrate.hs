@@ -55,12 +55,13 @@ data Thread = Strand {colour :: Colour Double, roll :: Spin}
 
 instance Show Thread where
   show (Strand c r) = "Strand " ++ showColour c ++ " " ++ show r
-    where showColour c | c == red = "r"
-                       | c == blue = "b"
-                       | c == green = "g"
-                       | c == white = "w"
-                       | otherwise = show c
   show (Ply pt r) = "Ply " ++ show pt ++ " " ++ show r
+
+showColour c | c == red = "r"
+             | c == blue = "b"
+             | c == green = "g"
+             | c == white = "w"
+             | otherwise = show c
 
 firstColour :: Thread -> Colour Double
 firstColour (Strand c _) = c
@@ -68,8 +69,8 @@ firstColour (Ply (t:_) r) = firstColour t
 
 data Segment = Segment (Colour Double) (Colour Double) Twist
 
---instance Show Segment where
---  show (Segment c1 c2 t) = colourTwistEven c1 c2 t
+instance Show Segment where
+  show (Segment c1 c2 t) = showColour c1 ++ "/" ++ showColour c2 ++ " " ++ show t
 
 plyTop :: Int -> Thread -> [Segment]
 plyTop _ (Strand _ _) = []
