@@ -221,8 +221,8 @@ greenThread = Strand green (spin S)
 colourTwistEven (Segment f b S) = colourString f b (tr:[])
 colourTwistEven (Segment f b Z) = colourString f b (tl:[])
 
-colourTwistOdd (Segment f b S) = colourString b f (br:[])
-colourTwistOdd (Segment f b Z) = colourString b f (bl:[])
+colourTwistOdd (Segment f b S) = colourString b f (bl:[])
+colourTwistOdd (Segment f b Z) = colourString b f (br:[])
 
 colourString :: (Colour Double) -> (Colour Double) -> String -> String
 colourString f b s = ansifg f ++ ansibg b ++ s ++ ansireset
