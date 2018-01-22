@@ -178,6 +178,17 @@ test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redWhiteTable
 -- The resulting band
 testBand = tabletWeave test
 
+simpleTest = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redWhiteTablet,
+                                                                         flipTablet blueGreenTablet
+                                                                        ],
+                                              tabletWeft = Strand {colour = orange,
+                                                                   roll = Spin (repeat S)
+                                                                  }
+                                             },
+                          tSheds = (take 24 $ cycle [replicate 12 S, replicate 12 Z])
+                         }
+  where redWhiteTablet = Tablet {warps = [redThread, whiteThread, redThread, whiteThread], yaw = S}
+
 ansifg c | c == black   = "\x001b[30m"
          | c == red     = "\x001b[31m"
          | c == green   = "\x001b[32m"
@@ -199,6 +210,11 @@ ansibg c | c == black   = "\x001b[40m"
          | otherwise    = ansireset
 
 ansireset = "\x001b[0m"
+
+redThread = Strand red (spin S)
+whiteThread = Strand white (spin S)
+blueThread = Strand blue (spin S)
+greenThread = Strand green (spin S)
 
 colourTwistEven (Segment f b S) = colourString f b (tr:[])
 colourTwistEven (Segment f b Z) = colourString f b (tl:[])
