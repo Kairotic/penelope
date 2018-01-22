@@ -266,3 +266,7 @@ svgPreamble = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>
   <g
      id=\"layer1\">
 "
+
+svgPostamble = "</g>
+</svg>
+"
