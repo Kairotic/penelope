@@ -91,7 +91,7 @@ showSegments ss = map (\(f, s) -> (f s))
 -- showBand :: Band -> String
 showBand b = concat $ concat $ transpose $ map (showSegments . plyTop 0) $ bandCords b
 
-svgPath :: String -> Twist -> (Int,Int) -> Colour Double -> Corner ->  String
+-- svgPath :: String -> Twist -> (Int,Int) -> Colour Double -> Corner ->  String
 
 svgFgBg x y s = ""
 
