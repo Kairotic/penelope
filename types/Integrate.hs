@@ -93,7 +93,13 @@ showBand b = concat $ concat $ transpose $ map (showSegments . plyTop 0) $ bandC
 
 -- svgPath :: String -> Twist -> (Int,Int) -> Colour Double -> Corner ->  String
 
-svgFgBg x y s = ""
+svgFgBg x y (Segment f b t) = svgPath idFg t (x*svgScale,y*svgScale) f fCorner
+  where idFg = "fg-" ++ show x ++ "x" ++ show y
+        idBg = "bg-" ++ show x ++ "x" ++ show y
+        fCorner | t == S = TR
+                | otherwise = TL
+        bCorner | t == S = BL
+                | otherwise = BR
 
 svgBand b = concatMap (\(x,ys) -> concatMap (\(y,s) -> svgFgBg x y s) ys) $ zip [0 ..] (map (zip [0 ..] . plyTop 0) $ bandCords b)
 
@@ -253,8 +259,8 @@ path TR x y = show x ++ "," ++ show y ++ " 10,0 0,10"
 path BL x y = show x ++ "," ++ show y ++ " 10,10 -10,0"
 path BR x y = show (x+10) ++ "," ++ show y ++ " 0,10 -10,0"
 
-svgPath :: String -> Twist -> (Int,Int) -> Colour Double -> Corner ->  String
-svgPath id t (x,y) c cnr = "<path id=\"" ++ id ++ "\" d=\"m " ++ path cnr x y ++ " z\" style=\"fill:" ++ cHex ++ ";fill-rule:evenodd;stroke:none\" />"
+svgPath :: String -> (Int,Int) -> Colour Double -> Corner ->  String
+svgPath id (x,y) c cnr = "<path id=\"" ++ id ++ "\" d=\"m " ++ path cnr x y ++ " z\" style=\"fill:" ++ cHex ++ ";fill-rule:evenodd;stroke:none\" />"
   where cHex = sRGB24show c
         xy = show x ++ " " ++ show y
 
