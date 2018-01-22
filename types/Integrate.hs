@@ -200,7 +200,7 @@ simpleWeave = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [rwgbTa
                                                                     roll = Spin (repeat S)
                                                                    }
                                               },
-                           tSheds = (take 24 $ cycle [replicate 3 S, replicate 3 Z])
+                           tSheds = (take 24 $ cycle [replicate 12 S])
                           }
   where rwgbTablet = Tablet {warps = [redThread, whiteThread, greenThread, blueThread], yaw = S}
         
