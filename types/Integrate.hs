@@ -178,8 +178,7 @@ test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redWhiteTable
 -- The resulting band
 testBand = tabletWeave test
 
-simpleTest = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redWhiteTablet,
-                                                                         flipTablet blueGreenTablet
+simpleTest = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [rwgbTablet
                                                                         ],
                                               tabletWeft = Strand {colour = orange,
                                                                    roll = Spin (repeat S)
