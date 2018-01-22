@@ -68,8 +68,8 @@ firstColour (Ply (t:_) r) = firstColour t
 
 data Segment = Segment (Colour Double) (Colour Double) Twist
 
-instance Show Segment where
-  show (Segment c1 c2 t) = colourTwistEven c1 c2 t
+--instance Show Segment where
+--  show (Segment c1 c2 t) = colourTwistEven c1 c2 t
 
 plyTop :: Int -> Thread -> [Segment]
 plyTop _ (Strand _ _) = []
