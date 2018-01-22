@@ -1,0 +1,2069 @@
+alex@olga ~ $ cd src/
+alex@olga ~/src $ ls
+dorkbot.gitlab.io    grabgs          pandoc     Troop
+dorkbot.org          grabgs.py~      Tidal      websites
+eulerroom.github.io  iclc.github.io  Tidal-vis  Zotero_linux-x86_64
+alex@olga ~/src $ cd
+alex@olga ~ $ cd SparkleShare/penelope/
+alex@olga ~/SparkleShare/penelope $ ls
+nice.pdf  nice.svg  pen.pdf  pen.svg  reading.tidal  types  visinit.tidal
+alex@olga ~/SparkleShare/penelope $ cd types/
+alex@olga ~/SparkleShare/penelope/types $ ghci Integrate.hs 
+GHCi, version 7.10.3: http://www.haskell.org/ghc/  :? for help
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:67:29:
+    Not in scope: ‘firstcolour’
+    Perhaps you meant ‘firstColour’ (line 66)
+Failed, modules loaded: none.
+Prelude> :set prompt-cont "foo"
+Some flags have not been recognized: prompt-cont, foo
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:70:1:
+    Couldn't match expected type ‘Thread
+                                  -> [(Colour Double, Colour Double, Twist)]’
+                with actual type ‘[(Colour Double, Colour Double, Twist)]’
+    The equation(s) for ‘plyTop’ have two arguments,
+    but its type ‘Int -> [(Colour Double, Colour Double, Twist)]’
+    has only one
+
+Integrate.hs:75:18:
+    Couldn't match expected type ‘Thread -> t’
+                with actual type ‘[(Colour Double, Colour Double, Twist)]’
+    Relevant bindings include succ :: t (bound at Integrate.hs:75:11)
+    The function ‘plyTop’ is applied to two arguments,
+    but its type ‘Int -> [(Colour Double, Colour Double, Twist)]’
+    has only one
+    In the expression: plyTop (n + delta) (Ply pt (Spin twists))
+    In an equation for ‘succ’:
+        succ = plyTop (n + delta) (Ply pt (Spin twists))
+Failed, modules loaded: none.
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> test
+test      testBand
+*Integrate> test
+test      testBand
+*Integrate> testBand 
+Band {bandCords = [Ply [Strand r SSSSS..,Strand r SSSSS..,Strand w SSSSS..,Strand w SSSSS..] SZSZS..,Ply [Strand b SSSSS..,Strand b SSSSS..,Strand g SSSSS..,Strand g SSSSS..] ZSZSZ..,Ply [Strand r SSSSS..,Strand r SSSSS..,Strand w SSSSS..,Strand w SSSSS..] SZSZS..,Ply [Strand b SSSSS..,Strand b SSSSS..,Strand g SSSSS..,Strand g SSSSS..] ZSZSZ..,Ply [Strand r SSSSS..,Strand r SSSSS..,Strand w SSSSS..,Strand w SSSSS..] SZSZS..,Ply [Strand b SSSSS..,Strand b SSSSS..,Strand g SSSSS..,Strand g SSSSS..] ZSZSZ..,Ply [Strand r SSSSS..,Strand r SSSSS..,Strand w SSSSS..,Strand w SSSSS..] SZSZS..,Ply [Strand b SSSSS..,Strand b SSSSS..,Strand g SSSSS..,Strand g SSSSS..] ZSZSZ..,Ply [Strand r SSSSS..,Strand r SSSSS..,Strand w SSSSS..,Strand w SSSSS..] SZSZS..,Ply [Strand b SSSSS..,Strand b SSSSS..,Strand g SSSSS..,Strand g SSSSS..] ZSZSZ..,Ply [Strand r SSSSS..,Strand r SSSSS..,Strand w SSSSS..,Strand w SSSSS..] SZSZS..,Ply [Strand b SSSSS..,Strand b SSSSS..,Strand g SSSSS..,Strand g SSSSS..] ZSZSZ..], bandWeft = Curve {curveThread = Strand Data.Colour.SRGB.Linear.rgb 1.0 0.3762621229909065 0.0 SSSSS.., curvePath = [pull 12,turn back,turn,pull 12,turn back,turn,pull 12,turn back,turn,pull 12,turn back,turn,pull 12,turn back,turn,pull 12,turn back,turn,pull 12,turn back,turn,pull 12,turn back,turn,pull 12,turn back,turn,pull 12,turn back,turn,pull 12,turn back,turn,pull 12,turn back,turn,pull 12,turn back,turn,pull 12,turn back,turn,pull 12,turn back,turn,pull 12,turn back,turn,pull 12,turn back,turn,pull 12,turn back,turn,pull 12,turn back,turn,pull 12,turn back,turn,pull 12,turn back,turn,pull 12,turn back,turn,pull 12,turn back,turn,pull 12,turn back,turn]}}
+*Integrate> plyTop $ testBand 
+
+<interactive>:6:10:
+    Couldn't match expected type ‘Int’ with actual type ‘Band’
+    In the second argument of ‘($)’, namely ‘testBand’
+    In the expression: plyTop $ testBand
+*Integrate> plyTop 0 $ testBand 
+
+<interactive>:7:12:
+    Couldn't match expected type ‘Thread’ with actual type ‘Band’
+    In the second argument of ‘($)’, namely ‘testBand’
+    In the expression: plyTop 0 $ testBand
+*Integrate> map (plyTop 0) testBand 
+
+<interactive>:8:16:
+    Couldn't match expected type ‘[Thread]’ with actual type ‘Band’
+    In the second argument of ‘map’, namely ‘testBand’
+    In the expression: map (plyTop 0) testBand
+*Integrate> map (plyTop 0) (bandCords testBand)
+[[(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z)],[(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S)],[(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z)],[(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S)],[(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z)],[(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S)],[(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z)],[(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S)],[(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z)],[(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S)],[(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,S),(Data.Colour.SRGB.Linear.rgb 1.0 0.0 0.0,Data.Colour.SRGB.Linear.rgb 1.0 1.0 1.0,Z)],[(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S),(Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Z),(Data.Colour.SRGB.Linear.rgb 0.0 0.21586050011389926 0.0,Data.Colour.SRGB.Linear.rgb 0.0 0.0 1.0,S)]]
+*Integrate> length $ map (plyTop 0) (bandCords testBand)
+12
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:74:1:
+    parse error (possibly incorrect indentation or mismatched brackets)
+Failed, modules loaded: none.
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:72:9:
+    Constructor ‘Segment’ should have 1 argument, but has been given 3
+    In the pattern: Segment c1 c2 t
+    In an equation for ‘show’:
+        show (Segment c1 c2 t) = colourString c1 c1 ((twistChar t) : [])
+    In the instance declaration for ‘Show Segment’
+Failed, modules loaded: none.
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:78:5:
+    Couldn't match expected type ‘Segment’
+                with actual type ‘Colour Double -> Twist -> Segment’
+    Probable cause: ‘this’ is applied to too few arguments
+    In the first argument of ‘(:)’, namely ‘this’
+    In the expression: this : succ
+
+Integrate.hs:79:26:
+    Couldn't match expected type ‘Colour Double’
+                with actual type ‘(Colour Double, Colour Double, Twist)’
+    In the first argument of ‘Segment’, namely
+      ‘(firstColour $ pt !!! n, firstColour $ pt !!! delta, twist)’
+    In the expression:
+      Segment (firstColour $ pt !!! n, firstColour $ pt !!! delta, twist)
+    In an equation for ‘this’:
+        this
+          = Segment
+              (firstColour $ pt !!! n, firstColour $ pt !!! delta, twist)
+Failed, modules loaded: none.
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> length $ map (plyTop 0) (bandCords testBand)
+12
+*Integrate>  map (plyTop 0) (bandCords testBand)
+[[◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤],[◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥],[◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤],[◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥],[◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤],[◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥],[◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤],[◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥],[◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤],[◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥],[◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤],[◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥]]
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate>  map (plyTop 0) (bandCords testBand)
+[[◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤],[◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥],[◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤],[◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥],[◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤],[◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥],[◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤],[◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥],[◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤],[◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥],[◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤],[◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥]]
+*Integrate> transpose $  map (plyTop 0) (bandCords testBand)
+[[◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤],[◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥],[◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤],[◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥],[◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤],[◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥],[◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤],[◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥],[◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤],[◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥],[◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤],[◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥],[◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤],[◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥],[◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤],[◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥],[◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤],[◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥],[◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤],[◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥],[◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤],[◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥],[◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤],[◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥]]
+*Integrate> concat $ transpose $  map (plyTop 0) (bandCords testBand)
+[◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥]
+*Integrate> concat $ concat $ transpose $  map (plyTop 0) (bandCords testBand)
+
+<interactive>:22:10:
+    Couldn't match type ‘Segment’ with ‘[a]’
+    Expected type: [[a]]
+      Actual type: [Segment]
+    Relevant bindings include it :: [a] (bound at <interactive>:22:1)
+    In the second argument of ‘($)’, namely
+      ‘concat $ transpose $ map (plyTop 0) (bandCords testBand)’
+    In the expression:
+      concat $ concat $ transpose $ map (plyTop 0) (bandCords testBand)
+    In an equation for ‘it’:
+        it
+          = concat $ concat $ transpose $ map (plyTop 0) (bandCords testBand)
+*Integrate> concat $ transpose $  map (plyTop 0) (bandCords testBand)
+[◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥,◤,◥]
+*Integrate> :t $ concat $ transpose $  map (plyTop 0) (bandCords testBand)
+
+<interactive>:1:1:
+    parse error on input ‘$’
+    Perhaps you intended to use TemplateHaskell
+*Integrate> :t concat $ transpose $  map (plyTop 0) (bandCords testBand)
+concat $ transpose $  map (plyTop 0) (bandCords testBand)
+  :: [Segment]
+*Integrate> map show $ concat $ transpose $  map (plyTop 0) (bandCords testBand)["\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[41m\9701\ESC[0m","\ESC[34m\ESC[42m\9700\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m","\ESC[31m\ESC[47m\9700\ESC[0m","\ESC[32m\ESC[44m\9701\ESC[0m"]
+*Integrate> concat $ map show $ concat $ transpose $  map (plyTop 0) (bandCords testBand)
+"\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9701\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[47m\9700\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m"
+*Integrate> printLn $ concat $ map show $ concat $ transpose $  map (plyTop 0) (bandCords testBand)
+
+<interactive>:28:1:
+    Not in scope: ‘printLn’
+    Perhaps you meant ‘print’ (imported from Prelude)
+*Integrate> putStrLn $ concat $ map show $ concat $ transpose $  map (plyTop 0) (bandCords testBand)
+◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥*Integrate> *Integrate> *Integrate*Integra*Integ*Int*Integra*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ concat $ map show $ concat $ transpose $  map (plyTop 0) (bandCords testBand)
+◢◣◢◣◢◣◢◣◢◣◢◣◣◢◣◢◣◢◣◢◣◢◣◢◢◣◢◣◢◣◢◣◢◣◢◣◣◢◣◢◣◢◣◢◣◢◣◢◢◣◢◣◢◣◢◣◢◣◢◣◣◢◣◢◣◢◣◢◣◢◣◢◢◣◢◣◢◣◢◣◢◣◢◣◣◢◣◢◣◢◣◢◣◢◣◢◢◣◢◣◢◣◢◣◢◣◢◣◣◢◣◢◣◢◣◢◣◢◣◢◢◣◢◣◢◣◢◣◢◣◢◣◣◢◣◢◣◢◣◢◣◢◣◢◢◣◢◣◢◣◢◣◢◣◢◣◣◢◣◢◣◢◣◢◣◢◣◢◢◣◢◣◢◣◢◣◢◣◢◣◣◢◣◢◣◢◣◢◣◢◣◢◢◣◢◣◢◣◢◣◢◣◢◣◣◢◣◢◣◢◣◢◣◢◣◢◢◣◢◣◢◣◢◣◢◣◢◣◣◢◣◢◣◢◣◢◣◢◣◢◢◣◢◣◢◣◢◣◢◣◢◣◣◢◣◢◣◢◣◢◣◢◣◢◢◣◢◣◢◣◢◣◢◣◢◣◣◢◣◢◣◢◣◢◣◢◣◢
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:72:46: Not in scope: ‘twistChar’
+Failed, modules loaded: none.
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:198:1: Warning:
+    Pattern match(es) are overlapped
+    In an equation for ‘colourTwist’: colourTwist f b S = ...
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ concat $ map show $ concat $ transpose $  map (plyTop 0) (bandCords testBand)
+◥*** Exception: Integrate.hs:(198,1)-(199,44): Non-exhaustive patterns in function colourTwist
+
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ concat $ map show $ concat $ transpose $  map (plyTop 0) (bandCords testBand)
+◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ concat $ map show $ concat $ transpose $  map (plyTop 0) (bandCords testBand)
+◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ concat $ map show $ concat $ transpose $  map (plyTop 0) (bandCords testBand)
+◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ concat $ map show $ concat $ transpose $  map (plyTop 0) (bandCords testBand)
+◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ concat $ map show $ concat $ transpose $  map (plyTop 0) (bandCords testBand)
+◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ concat $ map show $ concat $ transpose $  map (plyTop 0) (bandCords testBand)
+◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ concat $ map show $ concat $ transpose $  map (plyTop 0) (bandCords testBand)
+◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ concat $ map show $ concat $ transpose $  map (plyTop 0) (bandCords testBand)
+◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ concat $ map show $ concat $ transpose $  map (plyTop 0) (bandCords testBand)
+◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥◥◢◥◢◥◢◥◢◥◢◥◢◢◥◢◥◢◥◢◥◢◥◢◥
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ concat $ map show $ concat $ transpose $  map (plyTop 0) (bandCords testBand)
+◢◣◢◣◢◣◢◣◢◣◢◣◣◢◣◢◣◢◣◢◣◢◣◢◢◣◢◣◢◣◢◣◢◣◢◣◣◢◣◢◣◢◣◢◣◢◣◢◢◣◢◣◢◣◢◣◢◣◢◣◣◢◣◢◣◢◣◢◣◢◣◢◢◣◢◣◢◣◢◣◢◣◢◣◣◢◣◢◣◢◣◢◣◢◣◢◢◣◢◣◢◣◢◣◢◣◢◣◣◢◣◢◣◢◣◢◣◢◣◢◢◣◢◣◢◣◢◣◢◣◢◣◣◢◣◢◣◢◣◢◣◢◣◢◢◣◢◣◢◣◢◣◢◣◢◣◣◢◣◢◣◢◣◢◣◢◣◢◢◣◢◣◢◣◢◣◢◣◢◣◣◢◣◢◣◢◣◢◣◢◣◢◢◣◢◣◢◣◢◣◢◣◢◣◣◢◣◢◣◢◣◢◣◢◣◢◢◣◢◣◢◣◢◣◢◣◢◣◣◢◣◢◣◢◣◢◣◢◣◢◢◣◢◣◢◣◢◣◢◣◢◣◣◢◣◢◣◢◣◢◣◢◣◢◢◣◢◣◢◣◢◣◢◣◢◣◣◢◣◢◣◢◣◢◣◢◣◢
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:87:33:
+    Couldn't match expected type ‘t -> [a]’
+                with actual type ‘[Colour Double
+                                   -> Colour Double -> Twist -> String]’
+    Relevant bindings include
+      ss :: [[t]] (bound at Integrate.hs:86:14)
+      showSegments :: [[t]] -> [a] (bound at Integrate.hs:86:1)
+    In the first argument of ‘repeat’, namely
+      ‘[colourTwistEven, colourTwistOdd]’
+    In the first argument of ‘zip’, namely
+      ‘(repeat [colourTwistEven, colourTwistOdd])’
+    In the second argument of ‘($)’, namely
+      ‘zip
+         (repeat [colourTwistEven, colourTwistOdd]) (concat $ transpose ss)’
+Failed, modules loaded: none.
+Prelude> :t repeat
+repeat :: a -> [a]
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:86:28:
+    Couldn't match type ‘Colour Double -> Twist -> String’ with ‘[a]’
+    Expected type: [[a]]
+      Actual type: [Colour Double -> Twist -> String]
+    Relevant bindings include
+      showSegments :: [[Colour Double]] -> [a]
+        (bound at Integrate.hs:86:1)
+    In the second argument of ‘($)’, namely
+      ‘map (\ (f, s) -> f s)
+       $ zip
+           (cycle [colourTwistEven, colourTwistOdd]) (concat $ transpose ss)’
+    In the expression:
+      concat
+      $ map (\ (f, s) -> f s)
+        $ zip
+            (cycle [colourTwistEven, colourTwistOdd]) (concat $ transpose ss)
+    In an equation for ‘showSegments’:
+        showSegments ss
+          = concat
+            $ map (\ (f, s) -> f s)
+              $ zip
+                  (cycle [colourTwistEven, colourTwistOdd]) (concat $ transpose ss)
+
+Integrate.hs:89:29:
+    Couldn't match type ‘Segment’ with ‘Colour Double’
+    Expected type: [[Colour Double]]
+      Actual type: [[Segment]]
+    In the second argument of ‘($)’, namely
+      ‘map (plyTop 0) $ bandCords b’
+    In the expression: showSegments $ map (plyTop 0) $ bandCords b
+    In an equation for ‘showBand’:
+        showBand b = showSegments $ map (plyTop 0) $ bandCords b
+Failed, modules loaded: none.
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:72:28:
+    Couldn't match expected type ‘Colour Double -> Twist -> String’
+                with actual type ‘[Char]’
+    The function ‘colourTwistEven’ is applied to three arguments,
+    but its type ‘Segment -> String’ has only one
+    In the expression: colourTwistEven c1 c2 t
+    In an equation for ‘show’:
+        show (Segment c1 c2 t) = colourTwistEven c1 c2 t
+
+Integrate.hs:72:44:
+    Couldn't match expected type ‘Segment’
+                with actual type ‘Colour Double’
+    In the first argument of ‘colourTwistEven’, namely ‘c1’
+    In the expression: colourTwistEven c1 c2 t
+Failed, modules loaded: none.
+Prelude> 
+Prelude> 
+Prelude> 
+Prelude> 
+Prelude> 
+Prelude> 
+Prelude> 
+Prelude> 
+Prelude> 
+Prelude> 
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:72:28:
+    Couldn't match expected type ‘Colour Double -> Twist -> String’
+                with actual type ‘[Char]’
+    The function ‘colourTwistEven’ is applied to three arguments,
+    but its type ‘Segment -> String’ has only one
+    In the expression: colourTwistEven c1 c2 t
+    In an equation for ‘show’:
+        show (Segment c1 c2 t) = colourTwistEven c1 c2 t
+
+Integrate.hs:72:44:
+    Couldn't match expected type ‘Segment’
+                with actual type ‘Colour Double’
+    In the first argument of ‘colourTwistEven’, namely ‘c1’
+    In the expression: colourTwistEven c1 c2 t
+Failed, modules loaded: none.
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> showBand te
+teal      test      testBand
+*Integrate> showBand testBand 
+"\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[31m\ESC[41m\9698\ESC[0m\ESC[34m\ESC[42m\9700\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m\ESC[37m\ESC[41m\9699\ESC[0m\ESC[32m\ESC[44m\9701\ESC[0m"
+*Integrate> printStrLn  $ showBand testBand 
+
+<interactive>:72:1:
+    Not in scope: ‘printStrLn’
+    Perhaps you meant ‘putStrLn’ (imported from Prelude)
+*Integrate> putStrLn  $ showBand testBand 
+◢◤◢◤◢◤◢◤◢◤◢◤◣◥◣◥◣◥◣◥◣◥◣◥◢◤◢◤◢◤◢◤◢◤◢◤◣◥◣◥◣◥◣◥◣◥◣◥◢◤◢◤◢◤◢◤◢◤◢◤◣◥◣◥◣◥◣◥◣◥◣◥◢◤◢◤◢◤◢◤◢◤◢◤◣◥◣◥◣◥◣◥◣◥◣◥◢◤◢◤◢◤◢◤◢◤◢◤◣◥◣◥◣◥◣◥◣◥◣◥◢◤◢◤◢◤◢◤◢◤◢◤◣◥◣◥◣◥◣◥◣◥◣◥◢◤◢◤◢◤◢◤◢◤◢◤◣◥◣◥◣◥◣◥◣◥◣◥◢◤◢◤◢◤◢◤◢◤◢◤◣◥◣◥◣◥◣◥◣◥◣◥◢◤◢◤◢◤◢◤◢◤◢◤◣◥◣◥◣◥◣◥◣◥◣◥◢◤◢◤◢◤◢◤◢◤◢◤◣◥◣◥◣◥◣◥◣◥◣◥◢◤◢◤◢◤◢◤◢◤◢◤◣◥◣◥◣◥◣◥◣◥◣◥◢◤◢◤◢◤◢◤◢◤◢◤◣◥◣◥◣◥◣◥◣◥◣◥*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn  $ showBand testBand 
+◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:207:1:
+    Multiple declarations of ‘colourTwistEven’
+    Declared at: Integrate.hs:203:1
+                 Integrate.hs:207:1
+Failed, modules loaded: none.
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:207:1:
+    Multiple declarations of ‘colourTwistEven’
+    Declared at: Integrate.hs:203:1
+                 Integrate.hs:207:1
+Failed, modules loaded: none.
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn  $ showBand testBand 
+◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn  $ showBand testBand 
+◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn  $ showBand testBand 
+◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn  $ showBand testBand 
+◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢
+*Integrate>  
+*Integrate>  
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate>  
+*Integrate> putStrLn  $ showBand simpleBand 
+◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣*Integrate*I*I*I*Integrate> ◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢*Integrate> ◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤*Integrate> Integr*Integ*Integrate> 
+*Integrate> putStrLn  $ showBand simpleBand 
+◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn  $ showBand simpleBand 
+◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢◥◣◥◣◥◣◥◣◥◣◥◣◤◢◤◢◤◢◤◢◤◢◤◢
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:191:14:
+    Couldn't match expected type ‘TabletWeave -> t’
+                with actual type ‘TabletWeave’
+    Relevant bindings include
+      simpleBand :: t (bound at Integrate.hs:191:1)
+    The function ‘simpleWeave’ is applied to one argument,
+    but its type ‘TabletWeave’ has none
+    In the expression: simpleWeave test
+    In an equation for ‘simpleBand’: simpleBand = simpleWeave test
+Failed, modules loaded: none.
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn  $ showBand simpleBand 
+◥◢◥◢◥◢◥◢◥◢◥◢◥◢◥◢◥◢◥◢◥◢◥◢
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn  $ showBand simpleBand 
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+
+*Integrate> showBand simpleBand 
+"\ESC[31m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[47m\9698\ESC[0m\n\ESC[32m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[47m\9698\ESC[0m\n\ESC[32m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[47m\9698\ESC[0m\n\ESC[32m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[47m\9698\ESC[0m\n\ESC[32m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[47m\9698\ESC[0m\n\ESC[32m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[47m\9698\ESC[0m\n\ESC[32m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[44m\9698\ESC[0m\n"
+*Integrate> showBand simpleBand 
+"\ESC[31m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[47m\9698\ESC[0m\n\ESC[32m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[47m\9698\ESC[0m\n\ESC[32m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[47m\9698\ESC[0m\n\ESC[32m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[47m\9698\ESC[0m\n\ESC[32m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[47m\9698\ESC[0m\n\ESC[32m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[47m\9698\ESC[0m\n\ESC[32m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[44m\9698\ESC[0m\n"
+*Integrate>  simpleBand 
+Band {bandCords = [Ply [Strand r SSSSS..,Strand w SSSSS..,Strand g SSSSS..,Strand b SSSSS..] SSSSS..], bandWeft = Curve {curveThread = Strand Data.Colour.SRGB.Linear.rgb 1.0 0.3762621229909065 0.0 SSSSS.., curvePath = [pull 1,turn back,turn,pull 1,turn back,turn,pull 1,turn back,turn,pull 1,turn back,turn,pull 1,turn back,turn,pull 1,turn back,turn,pull 1,turn back,turn,pull 1,turn back,turn,pull 1,turn back,turn,pull 1,turn back,turn,pull 1,turn back,turn,pull 1,turn back,turn,pull 1,turn back,turn,pull 1,turn back,turn,pull 1,turn back,turn,pull 1,turn back,turn,pull 1,turn back,turn,pull 1,turn back,turn,pull 1,turn back,turn,pull 1,turn back,turn,pull 1,turn back,turn,pull 1,turn back,turn,pull 1,turn back,turn,pull 1,turn back,turn]}}
+*Integrate> bandCords simpleBand 
+[Ply [Strand r SSSSS..,Strand w SSSSS..,Strand g SSSSS..,Strand b SSSSS..] SSSSS..]
+*Integrate> fst $ bandCords simpleBand 
+
+<interactive>:105:7:
+    Couldn't match expected type ‘(a, b0)’ with actual type ‘[Thread]’
+    Relevant bindings include it :: a (bound at <interactive>:105:1)
+    In the second argument of ‘($)’, namely ‘bandCords simpleBand’
+    In the expression: fst $ bandCords simpleBand
+*Integrate> head $ bandCords simpleBand 
+Ply [Strand r SSSSS..,Strand w SSSSS..,Strand g SSSSS..,Strand b SSSSS..] SSSSS..
+*Integrate> let t = head $ bandCords simpleBand 
+*Integrate> t
+Ply [Strand r SSSSS..,Strand w SSSSS..,Strand g SSSSS..,Strand b SSSSS..] SSSSS..
+*Integrate> plyTop 0 t
+
+<interactive>:109:1:
+    No instance for (Show Segment) arising from a use of ‘print’
+    In a stmt of an interactive GHCi command: print it
+*Integrate> showSegMent $ plyTop 0 t
+
+<interactive>:110:1:
+    Not in scope: ‘showSegMent’
+    Perhaps you meant ‘showSegments’ (line 86)
+*Integrate> showSegments $ plyTop 0 t
+
+<interactive>:111:16:
+    Couldn't match type ‘Segment’ with ‘[Segment]’
+    Expected type: [[Segment]]
+      Actual type: [Segment]
+    In the second argument of ‘($)’, namely ‘plyTop 0 t’
+    In the expression: showSegments $ plyTop 0 t
+*Integrate> showSegments $ [plyTop 0 t]
+"\ESC[31m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[47m\9698\ESC[0m\n\ESC[32m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[47m\9698\ESC[0m\n\ESC[32m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[47m\9698\ESC[0m\n\ESC[32m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[47m\9698\ESC[0m\n\ESC[32m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[47m\9698\ESC[0m\n\ESC[32m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[47m\9698\ESC[0m\n\ESC[32m\ESC[47m\9701\ESC[0m\n\ESC[37m\ESC[44m\9698\ESC[0m\n"
+*Integrate> plyTop 0 t
+
+<interactive>:113:1:
+    No instance for (Show Segment) arising from a use of ‘print’
+    In a stmt of an interactive GHCi command: print it
+*Integrate> plyTop 0 t
+
+<interactive>:114:1:
+    No instance for (Show Segment) arising from a use of ‘print’
+    In a stmt of an interactive GHCi command: print it
+*Integrate> plyTop 0 t
+
+<interactive>:115:1:
+    No instance for (Show Segment) arising from a use of ‘print’
+    In a stmt of an interactive GHCi command: print it
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:70:25: parse error on input ‘show’
+Failed, modules loaded: none.
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:70:23: parse error on input ‘show’
+Failed, modules loaded: none.
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:71:10: Warning:
+    No explicit implementation for
+      either ‘showsPrec’ or ‘show’
+    In the instance declaration for ‘Show Segment’
+Ok, modules loaded: Integrate.
+*Integrate> plyTop 0 t
+
+<interactive>:119:10: Not in scope: ‘t’
+*Integrate> let t = head $ bandCords simpleBand 
+*Integrate> plyTop 0 t
+[*** Exception: stack overflow
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> plyTop 0 t
+
+<interactive>:123:10: Not in scope: ‘t’
+*Integrate> let t = head $ bandCords simpleBand 
+*Integrate> plyTop 0 t
+
+<interactive>:125:1:
+    No instance for (Show Segment) arising from a use of ‘print’
+    In a stmt of an interactive GHCi command: print it
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> plyTop 0 t
+
+<interactive>:127:10: Not in scope: ‘t’
+*Integrate> let t = head $ bandCords simpleBand 
+*Integrate> plyTop 0 t
+[◥ (r/w S),◥ (w/w S),◥ (g/w S),◥ (b/w S),◥ (r/w S),◥ (w/w S),◥ (g/w S),◥ (b/w S),◥ (r/w S),◥ (w/w S),◥ (g/w S),◥ (b/w S),◥ (r/w S),◥ (w/w S),◥ (g/w S),◥ (b/w S),◥ (r/w S),◥ (w/w S),◥ (g/w S),◥ (b/w S),◥ (r/w S),◥ (w/w S),◥ (g/w S),◥ (b/w S)]
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> let t = head $ bandCords simpleBand 
+*Integrate> plyTop 0 t
+[◥ (r/w S),◥ (w/g S),◥ (g/b S),◥ (b/r S),◥ (r/w S),◥ (w/g S),◥ (g/b S),◥ (b/r S),◥ (r/w S),◥ (w/g S),◥ (g/b S),◥ (b/r S),◥ (r/w S),◥ (w/g S),◥ (g/b S),◥ (b/r S),◥ (r/w S),◥ (w/g S),◥ (g/b S),◥ (b/r S),◥ (r/w S),◥ (w/g S),◥ (g/b S),◥ (b/r S)]
+*Integrate> showSegments $ [plyTop 0 t]
+"\ESC[31m\ESC[47m\9701\ESC[0m\n\ESC[32m\ESC[47m\9698\ESC[0m\n\ESC[32m\ESC[44m\9701\ESC[0m\n\ESC[31m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[47m\9701\ESC[0m\n\ESC[32m\ESC[47m\9698\ESC[0m\n\ESC[32m\ESC[44m\9701\ESC[0m\n\ESC[31m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[47m\9701\ESC[0m\n\ESC[32m\ESC[47m\9698\ESC[0m\n\ESC[32m\ESC[44m\9701\ESC[0m\n\ESC[31m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[47m\9701\ESC[0m\n\ESC[32m\ESC[47m\9698\ESC[0m\n\ESC[32m\ESC[44m\9701\ESC[0m\n\ESC[31m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[47m\9701\ESC[0m\n\ESC[32m\ESC[47m\9698\ESC[0m\n\ESC[32m\ESC[44m\9701\ESC[0m\n\ESC[31m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[47m\9701\ESC[0m\n\ESC[32m\ESC[47m\9698\ESC[0m\n\ESC[32m\ESC[44m\9701\ESC[0m\n\ESC[31m\ESC[44m\9698\ESC[0m\n"
+*Integrate> putStrLn $ showSegments $ [plyTop 0 t]
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> let t = head $ bandCords simpleBand 
+*Integrate> putStrLn $ showSegments $ [plyTop 0 t]
+◥
+◣
+◥
+◣
+◥
+◣
+◥
+◣
+◥
+◣
+◥
+◣
+◥
+◣
+◥
+◣
+◥
+◣
+◥
+◣
+◥
+◣
+◥
+◣
+
+*Integrate> putStrLn $ showSegments $ test
+test      testBand
+*Integrate> putStrLn $ showSegments $ testBand  
+
+<interactive>:138:27:
+    Couldn't match expected type ‘[[Segment]]’ with actual type ‘Band’
+    In the second argument of ‘($)’, namely ‘testBand’
+    In the second argument of ‘($)’, namely ‘showSegments $ testBand’
+*Integrate> putStrLn $ map showSegments $ testBand 
+
+<interactive>:139:12:
+    Couldn't match type ‘[Char]’ with ‘Char’
+    Expected type: String
+      Actual type: [[Char]]
+    In the second argument of ‘($)’, namely
+      ‘map showSegments $ testBand’
+    In the expression: putStrLn $ map showSegments $ testBand
+    In an equation for ‘it’:
+        it = putStrLn $ map showSegments $ testBand
+
+<interactive>:139:31:
+    Couldn't match expected type ‘[[[Segment]]]’
+                with actual type ‘Band’
+    In the second argument of ‘($)’, namely ‘testBand’
+    In the second argument of ‘($)’, namely
+      ‘map showSegments $ testBand’
+*Integrate> putStrLn $ showSegments $ testBand 
+
+<interactive>:140:27:
+    Couldn't match expected type ‘[[Segment]]’ with actual type ‘Band’
+    In the second argument of ‘($)’, namely ‘testBand’
+    In the second argument of ‘($)’, namely ‘showSegments $ testBand’
+*Integrate> 
+*Integrate> putStrLn  $ showBand testBand 
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+
+*Integrate> let t = head $ bandCords simpleBand 
+*Integrate> putStrLn  $ showBand testBand 
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+
+*Integrate> putStrLn  $ showBand t
+
+<interactive>:145:22:
+    Couldn't match expected type ‘Band’ with actual type ‘Thread’
+    In the first argument of ‘showBand’, namely ‘t’
+    In the second argument of ‘($)’, namely ‘showBand t’
+*Integrate> 
+*Integrate> 
+*Integrate> putStrLn $ showSegments $ testBand 
+
+<interactive>:148:27:
+    Couldn't match expected type ‘[[Segment]]’ with actual type ‘Band’
+    In the second argument of ‘($)’, namely ‘testBand’
+    In the second argument of ‘($)’, namely ‘showSegments $ testBand’
+*Integrate> let t = head $ bandCords simpleBand 
+*Integrate> putStrLn  $ showBand t
+
+<interactive>:150:22:
+    Couldn't match expected type ‘Band’ with actual type ‘Thread’
+    In the first argument of ‘showBand’, namely ‘t’
+    In the second argument of ‘($)’, namely ‘showBand t’
+*Integrate> putStrLn $ showSegments $ [plyTop 0 t]
+◥
+◣
+◥
+◣
+◥
+◣
+◥
+◣
+◥
+◣
+◥
+◣
+◥
+◣
+◥
+◣
+◥
+◣
+◥
+◣
+◥
+◣
+◥
+◣
+
+*Integrate> :t showSegments 
+showSegments :: [[Segment]] -> [Char]
+*Integrate> showBand test
+test      testBand
+*Integrate> showBand testBand 
+"\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9701\ESC[0m\n\ESC[32m\ESC[44m\9698\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n\ESC[31m\ESC[41m\9700\ESC[0m\n\ESC[34m\ESC[42m\9699\ESC[0m\n"
+*Integrate> putStrLn $ showBand testBand 
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◥
+◢
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+◤
+◣
+
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ showBand testBand 
+◥◢◥◢◥◢◥◢◥◢◥◢◤◣◤◣◤◣◤◣◤◣◤◣◥◢◥◢◥◢◥◢◥◢◥◢◤◣◤◣◤◣◤◣◤◣◤◣◥◢◥◢◥◢◥◢◥◢◥◢◤◣◤◣◤◣◤◣◤◣◤◣◥◢◥◢◥◢◥◢◥◢◥◢◤◣◤◣◤◣◤◣◤◣◤◣◥◢◥◢◥◢◥◢◥◢◥◢◤◣◤◣◤◣◤◣◤◣◤◣◥◢◥◢◥◢◥◢◥◢◥◢◤◣◤◣◤◣◤◣◤◣◤◣◥◢◥◢◥◢◥◢◥◢◥◢◤◣◤◣◤◣◤◣◤◣◤◣◥◢◥◢◥◢◥◢◥◢◥◢◤◣◤◣◤◣◤◣◤◣◤◣◥◢◥◢◥◢◥◢◥◢◥◢◤◣◤◣◤◣◤◣◤◣◤◣◥◢◥◢◥◢◥◢◥◢◥◢◤◣◤◣◤◣◤◣◤◣◤◣◥◢◥◢◥◢◥◢◥◢◥◢◤◣◤◣◤◣◤◣◤◣◤◣◥◢◥◢◥◢◥◢◥◢◥◢◤◣◤◣◤◣◤◣◤◣◤◣
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ showBand testBand 
+◥◢◥◢◥◢◥◢◥◢◥◢◤◣◤◣◤◣◤◣◤◣◤◣◥◢◥◢◥◢◥◢◥◢◥◢◤◣◤◣◤◣◤◣◤◣◤◣◥◢◥◢◥◢◥◢◥◢◥◢◤◣◤◣◤◣◤◣◤◣◤◣◥◢◥◢◥◢◥◢◥◢◥◢◤◣◤◣◤◣◤◣◤◣◤◣◥◢◥◢◥◢◥◢◥◢◥◢◤◣◤◣◤◣◤◣◤◣◤◣◥◢◥◢◥◢◥◢◥◢◥◢◤◣◤◣◤◣◤◣◤◣◤◣◥◢◥◢◥◢◥◢◥◢◥◢◤◣◤◣◤◣◤◣◤◣◤◣◥◢◥◢◥◢◥◢◥◢◥◢◤◣◤◣◤◣◤◣◤◣◤◣◥◢◥◢◥◢◥◢◥◢◥◢◤◣◤◣◤◣◤◣◤◣◤◣◥◢◥◢◥◢◥◢◥◢◥◢◤◣◤◣◤◣◤◣◤◣◤◣◥◢◥◢◥◢◥◢◥◢◥◢◤◣◤◣◤◣◤◣◤◣◤◣◥◢◥◢◥◢◥◢◥◢◥◢◤◣◤◣◤◣◤◣◤◣◤◣
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ showBand testBand 
+◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥
+*Integrate> 
+*Integrate> putStrLn $ showBand testBand 
+◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥*Int*Integ*Integr*Inte*In*Integrate>*Integr*In*Integrate> putStrLn $ showBand testBand *Integr◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥◥◤◥◤◥◤◥◤◥◤◥◤◤◥◤◥◤◥◤◥◤◥◤◥
+*Integrate> putStrLn $ showBand simpleBand 
+◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ showBand simpleBand 
+◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ showBand simpleBand 
+◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ showBand simpleBand 
+◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ showBand simpleBand 
+◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ showBand simpleBand 
+◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:182:86:
+    Not in scope: ‘wgbrTablet’
+    Perhaps you meant one of these:
+      ‘rwgbTablet’ (line 190), ‘rwgbTablet'’ (line 191)
+Failed, modules loaded: none.
+Prelude> putStrLn $ showBand simpleBand 
+
+<interactive>:176:12: Not in scope: ‘showBand’
+
+<interactive>:176:21: Not in scope: ‘simpleBand’
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ showBand simpleBand 
+◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥◥
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ showBand simpleBand 
+◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ showBand simpleBand 
+◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ showBand simpleBand 
+◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤
+*Integrate> :reload
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ showBand simpleBand 
+◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤*Integ*Integrate> :t showSegments ◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤*Integrate> ◥◤◥◤◥◤*Integrate> rate> ate> ashowSegments :: [[Segment]] -> [Char]
+*Integrate> 
+*Integrate> :t plyTop 
+plyTop :: Int -> Thread -> [Segment]
+*Integrate> :t showSegments 
+showSegments :: [[Segment]] -> [Char]
+*Integrate> :tshowBand
+unknown command ':tshowBand'
+use :? for help.
+*Integrate> :t showBand
+showBand :: Band -> [Char]
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:88:19:
+    Couldn't match type ‘[Char]’ with ‘Char’
+    Expected type: [Char]
+      Actual type: [String]
+    In the expression:
+      map (\ (f, s) -> (f s))
+      $ zip (cycle [colourTwistEven, colourTwistOdd]) ss
+    In an equation for ‘showSegments’:
+        showSegments ss
+          = map (\ (f, s) -> (f s))
+            $ zip (cycle [colourTwistEven, colourTwistOdd]) ss
+Failed, modules loaded: none.
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:88:19:
+    Couldn't match type ‘[Char]’ with ‘Char’
+    Expected type: [Char]
+      Actual type: [String]
+    In the expression:
+      map (\ (f, s) -> (f s))
+      $ zip (cycle [colourTwistEven, colourTwistOdd]) ss
+    In an equation for ‘showSegments’:
+        showSegments ss
+          = map (\ (f, s) -> (f s))
+            $ zip (cycle [colourTwistEven, colourTwistOdd]) ss
+Failed, modules loaded: none.
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> :t showBand 
+showBand :: Band -> [[String]]
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> :t showBand 
+showBand :: Band -> [String]
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> :t showBand 
+showBand :: Band -> [Char]
+*Integrate> 
+*Integrate> putStrLn $ showBand simpleBand 
+◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢
+*Integrate> putStrLn $ showBand simpleBand 
+◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ showBand simpleBand 
+◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤◥◤
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ showBand simpleBand 
+◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢
+*Integrate> putStrLn $ showBand testBand 
+◥◤◥◤◥◤◥◤◥◤◥◤◢◣◢◣◢◣◢◣◢◣◢◣◥◤◥◤◥◤◥◤◥◤◥◤◢◣◢◣◢◣◢◣◢◣◢◣◥◤◥◤◥◤◥◤◥◤◥◤◢◣◢◣◢◣◢◣◢◣◢◣◥◤◥◤◥◤◥◤◥◤◥◤◢◣◢◣◢◣◢◣◢◣◢◣◥◤◥◤◥◤◥◤◥◤◥◤◢◣◢◣◢◣◢◣◢◣◢◣◥◤◥◤◥◤◥◤◥◤◥◤◢◣◢◣◢◣◢◣◢◣◢◣◥◤◥◤◥◤◥◤◥◤◥◤◢◣◢◣◢◣◢◣◢◣◢◣◥◤◥◤◥◤◥◤◥◤◥◤◢◣◢◣◢◣◢◣◢◣◢◣◥◤◥◤◥◤◥◤◥◤◥◤◢◣◢◣◢◣◢◣◢◣◢◣◥◤◥◤◥◤◥◤◥◤◥◤◢◣◢◣◢◣◢◣◢◣◢◣◥◤◥◤◥◤◥◤◥◤◥◤◢◣◢◣◢◣◢◣◢◣◢◣◥◤◥◤◥◤◥◤◥◤◥◤◢◣◢◣◢◣◢◣◢◣◢◣
+*Integrate> putStrLn $ showBand simpleBand 
+◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ showBand simpleBand 
+◥◥◥◥◥◥◥◥◥◥◥◥◣◣◣◣◣◣◣◣◣◣◣◣◥◥◥◥◥◥◥◥◥◥◥◥◣◣◣◣◣◣◣◣◣◣◣◣◥◥◥◥◥◥◥◥◥◥◥◥◣◣◣◣◣◣◣◣◣◣◣◣◥◥◥◥◥◥◥◥◥◥◥◥◣◣◣◣◣◣◣◣◣◣◣◣◥◥◥◥◥◥◥◥◥◥◥◥◣◣◣◣◣◣◣◣◣◣◣◣◥◥◥◥◥◥◥◥◥◥◥◥◣◣◣◣◣◣◣◣◣◣◣◣◥◥◥◥◥◥◥◥◥◥◥◥◣◣◣◣◣◣◣◣◣◣◣◣◥◥◥◥◥◥◥◥◥◥◥◥◣◣◣◣◣◣◣◣◣◣◣◣◥◥◥◥◥◥◥◥◥◥◥◥◣◣◣◣◣◣◣◣◣◣◣◣◥◥◥◥◥◥◥◥◥◥◥◥◣◣◣◣◣◣◣◣◣◣◣◣◥◥◥◥◥◥◥◥◥◥◥◥◣◣◣◣◣◣◣◣◣◣◣◣◥◥◥◥◥◥◥◥◥◥◥◥◣◣◣◣◣◣◣◣◣◣◣◣
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> putStrLn $ showBand simpleBand 
+◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢*Int*Integrate> > ◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣*Integrate> ◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢◣◢◣◢◥◤◥◤◥◤◥◤◥◤◥◤◣◢◣◢◣◢◣◢*Integrate> *Integr*Integrate> 
+
+*Integrate> sRGB
+sRGB         sRGB24read   sRGB24show   sRGBBounded
+sRGB24       sRGB24reads  sRGB24shows  sRGBSpace
+*Integrate> sRGB24show red
+"#ff0000"
+*Integrate> x = 4
+
+<interactive>:216:3: parse error on input ‘=’
+*Integrate> let x = 4
+*Integrate> let y = show x
+*Integrate> :t x
+x :: Num a => a
+*Integrate> :t y
+y :: String
+*Integrate> x
+4
+*Integrate> y
+"4"
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:240:76:
+    lexical error in string/character literal at character '\n'
+Failed, modules loaded: none.
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:253:84: Not in scope: ‘corn’
+Failed, modules loaded: none.
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:253:1:
+    Couldn't match expected type ‘Corner -> [Char]’
+                with actual type ‘[Char]’
+    The equation(s) for ‘svgPath’ have five arguments,
+    but its type ‘String -> Twist -> (Int, Int) -> Corner -> String’
+    has only four
+
+Integrate.hs:254:27:
+    Couldn't match expected type ‘Colour Double’
+                with actual type ‘Corner’
+    In the first argument of ‘sRGB24show’, namely ‘c’
+    In the expression: sRGB24show c
+
+Integrate.hs:255:24:
+    Couldn't match expected type ‘(a0 -> String) -> Int -> [Char]’
+                with actual type ‘[Char]’
+    The function ‘" "’ is applied to two arguments,
+    but its type ‘[Char]’ has none
+    In the second argument of ‘(++)’, namely ‘" " show y’
+    In the expression: show x ++ " " show y
+Failed, modules loaded: none.
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:255:24:
+    Couldn't match expected type ‘(a0 -> String) -> Int -> [Char]’
+                with actual type ‘[Char]’
+    The function ‘" "’ is applied to two arguments,
+    but its type ‘[Char]’ has none
+    In the second argument of ‘(++)’, namely ‘" " show y’
+    In the expression: show x ++ " " show y
+Failed, modules loaded: none.
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> svgP
+svgPath       svgPostamble  svgPreamble
+*Integrate> svgPath "bing" S (100,100) red TL
+"<path id=\"bing\" d=\"m 100 100 10,-10 -10,0 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" />"
+*Integrate> svgPath "bing" S (100,100) red TL ++ svgPath "bing" S (100,100) red TL 
+"<path id=\"bing\" d=\"m 100 100 10,-10 -10,0 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"bing\" d=\"m 100 100 10,-10 -10,0 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" />"
+*Integrate> svgPath "a" S (100,100) red TL ++ svgPath "b" S (110,100) blue TR ++ svgPath "c" S (120,100) red BL ++ svgPath "d" S (130,100) blue BR
+"<path id=\"a\" d=\"m 100 100 10,-10 -10,0 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"b\" d=\"m 110 100 -10,-10 10,0 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"c\" d=\"m 120 100 10,10 -10,0 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"d\" d=\"m 130 100 -10,10 10,0 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" />"
+*Integrate> svgPreamble ++ svgPath "a" S (100,100) red TL ++ svgPath "b" S (110,100) blue TR ++ svgPath "c" S (120,100) red BL ++ svgPath "d" S (130,100) blue BR ++ svgPostamble 
+"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<svg\n   xmlns:dc=\"http://purl.org/dc/elements/1.1/\"\n   xmlns:cc=\"http://creativecommons.org/ns#\"\n   xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"\n   xmlns:svg=\"http://www.w3.org/2000/svg\"\n   xmlns=\"http://www.w3.org/2000/svg\"\n   version=\"1.1\"\n   id=\"svg2\"\n   viewBox=\"0 0 744.09448819 1052.3622047\"\n   height=\"297mm\"\n   width=\"210mm\">\n  <defs\n     id=\"defs4\" />\n  <metadata\n     id=\"metadata7\">\n    <rdf:RDF>\n      <cc:Work\n         rdf:about=\"\">\n        <dc:format>image/svg+xml</dc:format>\n        <dc:type\n           rdf:resource=\"http://purl.org/dc/dcmitype/StillImage\" />\n        <dc:title></dc:title>\n      </cc:Work>\n    </rdf:RDF>\n  </metadata>\n  <g\n     id=\"layer1\">\n<path id=\"a\" d=\"m 100 100 10,-10 -10,0 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"b\" d=\"m 110 100 -10,-10 10,0 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"c\" d=\"m 120 100 10,10 -10,0 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"d\" d=\"m 130 100 -10,10 10,0 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /></g>\n</svg>\n"
+*Integrate> x = svgPreamble ++ svgPath "a" S (100,100) red TL ++ svgPath "b" S (110,100) blue TR ++ svgPath "c" S (120,100) red BL ++ svgPath "d" S (130,100) blue BR ++ svgPostamble 
+
+<interactive>:232:3: parse error on input ‘=’
+*Integrate> let x = svgPreamble ++ svgPath "a" S (100,100) red TL ++ svgPath "b" S (110,100) blue TR ++ svgPath "c" S (120,100) red BL ++ svgPath "d" S (130,100) blue BR ++ svgPostamble 
+*Integrate> writeFile "hello.svg" x
+*Integrate> 
+[1]+  Stopped                 ghci Integrate.hs
+alex@olga ~/SparkleShare/penelope/types $ ls -latr
+total 32
+drwxr-xr-x 4 alex alex  4096 Jan 16 15:12 ..
+-rw-r--r-- 1 alex alex  2898 Jan 22 15:45 template.svg
+-rw-r--r-- 1 alex alex  1635 Jan 22 15:45 template2.svg
+-rw-r--r-- 1 alex alex 10593 Jan 22 16:01 Integrate.hs
+drwxr-xr-x 2 alex alex  4096 Jan 22 16:03 .
+-rw-r--r-- 1 alex alex  1131 Jan 22 16:03 hello.svg
+alex@olga ~/SparkleShare/penelope/types $ inkscape hello.svg 
+^Z
+[2]+  Stopped                 inkscape hello.svg
+alex@olga ~/SparkleShare/penelope/types $ [2]+ inkscape hello.svg &
+alex@olga ~/SparkleShare/penelope/types $ ghci Integrate.hs
+
+[1]+  Stopped                 ghci Integrate.hs
+alex@olga ~/SparkleShare/penelope/types $ [1]+ ghci Integrate.hs &
+
+[1]+  Stopped                 ghci Integrate.hs
+alex@olga ~/SparkleShare/penelope/types $ ghci Integrate.hs
+
+*Integrate> 
+*Integrate> writeFile "hello.svg" $ svgPreamble ++ svgPath "a" S (100,100) red TL ++ svgPath "b" S (110,100) blue TR ++ svgPath "c" S (120,100) red BL ++ svgPath "d" S (130,100) blue BR ++ svgPostamble 
+*Integrate> writeFile "hello.svg" $ svgPreamble ++ svgPath "a" S (100,100) red TL ++ svgPath "b" S (110,100) blue TR ++ svgPath "c" S (120,100) green BL ++ svgPath "d" S (130,100) yellow BR ++ svgPostamble 
+*Integrate> writeFile "hello.svg" $ svgPreamble ++ svgPath "a" S (100,100) red TL ++ svgPath "b" S (120,100) blue TR ++ svgPath "c" S (120,100) green BL ++ svgPath "d" S (130,100) yellow BR ++ svgPostamble 
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> writeFile "hello.svg" $ svgPreamble ++ svgPath "a" S (100,100) red TL ++ svgPath "b" S (120,100) blue TR ++ svgPath "c" S (120,100) green BL ++ svgPath "d" S (130,100) yellow BR ++ svgPostamble 
+*Integrate> writeFile "hello.svg" $ svgPreamble ++ svgPath "a" S (100,100) red TL ++ svgPath "b" S (110,100) blue TR ++ svgPath "c" S (120,100) green BL ++ svgPath "d" S (130,100) yellow BR ++ svgPostamble 
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> writeFile "hello.svg" $ svgPreamble ++ svgPath "a" S (100,100) red TL ++ svgPath "b" S (110,100) blue TR ++ svgPath "c" S (120,100) green BL ++ svgPath "d" S (130,100) yellow BR ++ svgPostamble 
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> writeFile "hello.svg" $ svgPreamble ++ svgPath "a" S (100,100) red TL ++ svgPath "b" S (110,100) blue TR ++ svgPath "c" S (120,100) green BL ++ svgPath "d" S (130,100) yellow BR ++ svgPostamble 
+*Integrate> svgPreamble ++ svgPath "a" S (100,100) red TL ++ svgPath "b" S (110,100) blue TR ++ svgPath "c" S (120,100) green BL ++ svgPath "d" S (130,100) yellow BR ++ svgPostamble 
+"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<svg\n   xmlns:dc=\"http://purl.org/dc/elements/1.1/\"\n   xmlns:cc=\"http://creativecommons.org/ns#\"\n   xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"\n   xmlns:svg=\"http://www.w3.org/2000/svg\"\n   xmlns=\"http://www.w3.org/2000/svg\"\n   version=\"1.1\"\n   id=\"svg2\"\n   viewBox=\"0 0 744.09448819 1052.3622047\"\n   height=\"297mm\"\n   width=\"210mm\">\n  <defs\n     id=\"defs4\" />\n  <metadata\n     id=\"metadata7\">\n    <rdf:RDF>\n      <cc:Work\n         rdf:about=\"\">\n        <dc:format>image/svg+xml</dc:format>\n        <dc:type\n           rdf:resource=\"http://purl.org/dc/dcmitype/StillImage\" />\n        <dc:title></dc:title>\n      </cc:Work>\n    </rdf:RDF>\n  </metadata>\n  <g\n     id=\"layer1\">\n<path id=\"a\" d=\"m 100,10010,0 -10,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"b\" d=\"m 110,10010,0 0,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"c\" d=\"m 120,10010,10 -10,0 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"d\" d=\"m 140,1000,10 -10,0 z\" style=\"fill:#ffff00;fill-rule:evenodd;stroke:none\" /></g>\n</svg>\n"
+*Integrate> svgPath "d" S (130,100) yellow BR
+"<path id=\"d\" d=\"m 140,1000,10 -10,0 z\" style=\"fill:#ffff00;fill-rule:evenodd;stroke:none\" />"
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> writeFile "hello.svg" $ svgPreamble ++ svgPath "a" S (100,100) red TL ++ svgPath "b" S (110,100) blue TR ++ svgPath "c" S (120,100) green BL ++ svgPath "d" S (130,100) yellow BR ++ svgPostamble 
+*Integrate> writeFile "hello.svg" $ svgPreamble ++ svgPath "a" S (100,100) red TL ++ svgPath "b" S (110,100) blue TR ++ svgPath "c" S (120,110) green BLsvgPostamble 
+
+<interactive>:251:139:
+    Not in scope: data constructor ‘BLsvgPostamble’
+    Perhaps you meant variable ‘svgPostamble’ (line 242)
+*Integrate> writeFile "hello.svg" $ svgPreamble ++ svgPath "a" S (100,100) red TL ++ svgPath "b" S (110,100) blue TR ++ svgPath "c" S (120,110) green BL ++ svgPostamble 
+*Integrate> zip [0 .. 5] [2 .. 7]
+[(0,2),(1,3),(2,4),(3,5),(4,6),(5,7)]
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:94:22:
+    Couldn't match type ‘(Integer, b0)’ with ‘[a]’
+    Expected type: [[a]]
+      Actual type: [(Integer, b0)]
+    Relevant bindings include
+      svgBand :: Band -> [a] (bound at Integrate.hs:94:1)
+    In the second argument of ‘($)’, namely
+      ‘zip [0 .. ] $ concat $ zip [0 .. ] (map (plyTop 0) $ bandCords b)’
+    In the expression:
+      concat
+      $ zip [0 .. ] $ concat $ zip [0 .. ] (map (plyTop 0) $ bandCords b)
+    In an equation for ‘svgBand’:
+        svgBand b
+          = concat
+            $ zip [0 .. ] $ concat $ zip [0 .. ] (map (plyTop 0) $ bandCords b)
+
+Integrate.hs:94:44:
+    Couldn't match type ‘(Integer, [Segment])’ with ‘[b0]’
+    Expected type: [[b0]]
+      Actual type: [(Integer, [Segment])]
+    In the second argument of ‘($)’, namely
+      ‘zip [0 .. ] (map (plyTop 0) $ bandCords b)’
+    In the second argument of ‘($)’, namely
+      ‘concat $ zip [0 .. ] (map (plyTop 0) $ bandCords b)’
+Failed, modules loaded: none.
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> :t svgBand 
+svgBand :: (Enum a, Num a) => Band -> [(a, [Segment])]
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> :t svgBand 
+svgBand
+  :: (Enum a, Enum a1, Num a, Num a1) =>
+     Band -> [(a, [(a1, Segment)])]
+*Integrate> svg
+svgBand       svgPath       svgPostamble  svgPreamble   svgScale
+*Integrate> svgBand te
+teal      test      testBand
+*Integrate> svgBand testBand 
+[(0,[(0,◥ (r/w S)),(1,◤ (w/r Z)),(2,◥ (r/w S)),(3,◤ (w/r Z)),(4,◥ (r/w S)),(5,◤ (w/r Z)),(6,◥ (r/w S)),(7,◤ (w/r Z)),(8,◥ (r/w S)),(9,◤ (w/r Z)),(10,◥ (r/w S)),(11,◤ (w/r Z)),(12,◥ (r/w S)),(13,◤ (w/r Z)),(14,◥ (r/w S)),(15,◤ (w/r Z)),(16,◥ (r/w S)),(17,◤ (w/r Z)),(18,◥ (r/w S)),(19,◤ (w/r Z)),(20,◥ (r/w S)),(21,◤ (w/r Z)),(22,◥ (r/w S)),(23,◤ (w/r Z))]),(1,[(0,◤ (b/g Z)),(1,◥ (g/b S)),(2,◤ (b/g Z)),(3,◥ (g/b S)),(4,◤ (b/g Z)),(5,◥ (g/b S)),(6,◤ (b/g Z)),(7,◥ (g/b S)),(8,◤ (b/g Z)),(9,◥ (g/b S)),(10,◤ (b/g Z)),(11,◥ (g/b S)),(12,◤ (b/g Z)),(13,◥ (g/b S)),(14,◤ (b/g Z)),(15,◥ (g/b S)),(16,◤ (b/g Z)),(17,◥ (g/b S)),(18,◤ (b/g Z)),(19,◥ (g/b S)),(20,◤ (b/g Z)),(21,◥ (g/b S)),(22,◤ (b/g Z)),(23,◥ (g/b S))]),(2,[(0,◥ (r/w S)),(1,◤ (w/r Z)),(2,◥ (r/w S)),(3,◤ (w/r Z)),(4,◥ (r/w S)),(5,◤ (w/r Z)),(6,◥ (r/w S)),(7,◤ (w/r Z)),(8,◥ (r/w S)),(9,◤ (w/r Z)),(10,◥ (r/w S)),(11,◤ (w/r Z)),(12,◥ (r/w S)),(13,◤ (w/r Z)),(14,◥ (r/w S)),(15,◤ (w/r Z)),(16,◥ (r/w S)),(17,◤ (w/r Z)),(18,◥ (r/w S)),(19,◤ (w/r Z)),(20,◥ (r/w S)),(21,◤ (w/r Z)),(22,◥ (r/w S)),(23,◤ (w/r Z))]),(3,[(0,◤ (b/g Z)),(1,◥ (g/b S)),(2,◤ (b/g Z)),(3,◥ (g/b S)),(4,◤ (b/g Z)),(5,◥ (g/b S)),(6,◤ (b/g Z)),(7,◥ (g/b S)),(8,◤ (b/g Z)),(9,◥ (g/b S)),(10,◤ (b/g Z)),(11,◥ (g/b S)),(12,◤ (b/g Z)),(13,◥ (g/b S)),(14,◤ (b/g Z)),(15,◥ (g/b S)),(16,◤ (b/g Z)),(17,◥ (g/b S)),(18,◤ (b/g Z)),(19,◥ (g/b S)),(20,◤ (b/g Z)),(21,◥ (g/b S)),(22,◤ (b/g Z)),(23,◥ (g/b S))]),(4,[(0,◥ (r/w S)),(1,◤ (w/r Z)),(2,◥ (r/w S)),(3,◤ (w/r Z)),(4,◥ (r/w S)),(5,◤ (w/r Z)),(6,◥ (r/w S)),(7,◤ (w/r Z)),(8,◥ (r/w S)),(9,◤ (w/r Z)),(10,◥ (r/w S)),(11,◤ (w/r Z)),(12,◥ (r/w S)),(13,◤ (w/r Z)),(14,◥ (r/w S)),(15,◤ (w/r Z)),(16,◥ (r/w S)),(17,◤ (w/r Z)),(18,◥ (r/w S)),(19,◤ (w/r Z)),(20,◥ (r/w S)),(21,◤ (w/r Z)),(22,◥ (r/w S)),(23,◤ (w/r Z))]),(5,[(0,◤ (b/g Z)),(1,◥ (g/b S)),(2,◤ (b/g Z)),(3,◥ (g/b S)),(4,◤ (b/g Z)),(5,◥ (g/b S)),(6,◤ (b/g Z)),(7,◥ (g/b S)),(8,◤ (b/g Z)),(9,◥ (g/b S)),(10,◤ (b/g Z)),(11,◥ (g/b S)),(12,◤ (b/g Z)),(13,◥ (g/b S)),(14,◤ (b/g Z)),(15,◥ (g/b S)),(16,◤ (b/g Z)),(17,◥ (g/b S)),(18,◤ (b/g Z)),(19,◥ (g/b S)),(20,◤ (b/g Z)),(21,◥ (g/b S)),(22,◤ (b/g Z)),(23,◥ (g/b S))]),(6,[(0,◥ (r/w S)),(1,◤ (w/r Z)),(2,◥ (r/w S)),(3,◤ (w/r Z)),(4,◥ (r/w S)),(5,◤ (w/r Z)),(6,◥ (r/w S)),(7,◤ (w/r Z)),(8,◥ (r/w S)),(9,◤ (w/r Z)),(10,◥ (r/w S)),(11,◤ (w/r Z)),(12,◥ (r/w S)),(13,◤ (w/r Z)),(14,◥ (r/w S)),(15,◤ (w/r Z)),(16,◥ (r/w S)),(17,◤ (w/r Z)),(18,◥ (r/w S)),(19,◤ (w/r Z)),(20,◥ (r/w S)),(21,◤ (w/r Z)),(22,◥ (r/w S)),(23,◤ (w/r Z))]),(7,[(0,◤ (b/g Z)),(1,◥ (g/b S)),(2,◤ (b/g Z)),(3,◥ (g/b S)),(4,◤ (b/g Z)),(5,◥ (g/b S)),(6,◤ (b/g Z)),(7,◥ (g/b S)),(8,◤ (b/g Z)),(9,◥ (g/b S)),(10,◤ (b/g Z)),(11,◥ (g/b S)),(12,◤ (b/g Z)),(13,◥ (g/b S)),(14,◤ (b/g Z)),(15,◥ (g/b S)),(16,◤ (b/g Z)),(17,◥ (g/b S)),(18,◤ (b/g Z)),(19,◥ (g/b S)),(20,◤ (b/g Z)),(21,◥ (g/b S)),(22,◤ (b/g Z)),(23,◥ (g/b S))]),(8,[(0,◥ (r/w S)),(1,◤ (w/r Z)),(2,◥ (r/w S)),(3,◤ (w/r Z)),(4,◥ (r/w S)),(5,◤ (w/r Z)),(6,◥ (r/w S)),(7,◤ (w/r Z)),(8,◥ (r/w S)),(9,◤ (w/r Z)),(10,◥ (r/w S)),(11,◤ (w/r Z)),(12,◥ (r/w S)),(13,◤ (w/r Z)),(14,◥ (r/w S)),(15,◤ (w/r Z)),(16,◥ (r/w S)),(17,◤ (w/r Z)),(18,◥ (r/w S)),(19,◤ (w/r Z)),(20,◥ (r/w S)),(21,◤ (w/r Z)),(22,◥ (r/w S)),(23,◤ (w/r Z))]),(9,[(0,◤ (b/g Z)),(1,◥ (g/b S)),(2,◤ (b/g Z)),(3,◥ (g/b S)),(4,◤ (b/g Z)),(5,◥ (g/b S)),(6,◤ (b/g Z)),(7,◥ (g/b S)),(8,◤ (b/g Z)),(9,◥ (g/b S)),(10,◤ (b/g Z)),(11,◥ (g/b S)),(12,◤ (b/g Z)),(13,◥ (g/b S)),(14,◤ (b/g Z)),(15,◥ (g/b S)),(16,◤ (b/g Z)),(17,◥ (g/b S)),(18,◤ (b/g Z)),(19,◥ (g/b S)),(20,◤ (b/g Z)),(21,◥ (g/b S)),(22,◤ (b/g Z)),(23,◥ (g/b S))]),(10,[(0,◥ (r/w S)),(1,◤ (w/r Z)),(2,◥ (r/w S)),(3,◤ (w/r Z)),(4,◥ (r/w S)),(5,◤ (w/r Z)),(6,◥ (r/w S)),(7,◤ (w/r Z)),(8,◥ (r/w S)),(9,◤ (w/r Z)),(10,◥ (r/w S)),(11,◤ (w/r Z)),(12,◥ (r/w S)),(13,◤ (w/r Z)),(14,◥ (r/w S)),(15,◤ (w/r Z)),(16,◥ (r/w S)),(17,◤ (w/r Z)),(18,◥ (r/w S)),(19,◤ (w/r Z)),(20,◥ (r/w S)),(21,◤ (w/r Z)),(22,◥ (r/w S)),(23,◤ (w/r Z))]),(11,[(0,◤ (b/g Z)),(1,◥ (g/b S)),(2,◤ (b/g Z)),(3,◥ (g/b S)),(4,◤ (b/g Z)),(5,◥ (g/b S)),(6,◤ (b/g Z)),(7,◥ (g/b S)),(8,◤ (b/g Z)),(9,◥ (g/b S)),(10,◤ (b/g Z)),(11,◥ (g/b S)),(12,◤ (b/g Z)),(13,◥ (g/b S)),(14,◤ (b/g Z)),(15,◥ (g/b S)),(16,◤ (b/g Z)),(17,◥ (g/b S)),(18,◤ (b/g Z)),(19,◥ (g/b S)),(20,◤ (b/g Z)),(21,◥ (g/b S)),(22,◤ (b/g Z)),(23,◥ (g/b S))])]
+*Integrate> :t svgBand testBand 
+svgBand testBand
+  :: (Enum a, Enum a1, Num a, Num a1) => [(a, [(a1, Segment)])]
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:256:1:
+    Duplicate type signatures for ‘svgPath’
+    at Integrate.hs:94:1-7
+       Integrate.hs:256:1-7
+Failed, modules loaded: none.
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:98:35:
+    Couldn't match expected type ‘[b]’
+                with actual type ‘t0 (t1, t2) -> [Char]’
+    Relevant bindings include
+      svgBand :: Band -> [b] (bound at Integrate.hs:98:1)
+    Probable cause: ‘concatMap’ is applied to too few arguments
+    In the expression: concatMap (\ (y, s) -> svgFgBg x y s)
+    In the first argument of ‘concatMap’, namely
+      ‘(\ (x, ys) -> concatMap (\ (y, s) -> svgFgBg x y s))’
+Failed, modules loaded: none.
+Prelude> 
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:96:32:
+    Couldn't match expected type ‘Corner -> t’
+                with actual type ‘[Char]’
+    Relevant bindings include
+      svgFgBg :: Integer -> Integer -> Segment -> t
+        (bound at Integrate.hs:96:1)
+    The function ‘svgPath’ is applied to five arguments,
+    but its type ‘String
+                  -> (Int, Int) -> Colour Double -> Corner -> String’
+    has only four
+    In the expression:
+      (svgPath idFg t (x * svgScale, y * svgScale) f fCorner)
+    In an equation for ‘svgFgBg’:
+        svgFgBg x y (Segment f b t)
+          = (svgPath idFg t (x * svgScale, y * svgScale) f fCorner)
+          where
+              idFg = "fg-" ++ show x ++ "x" ++ show y
+              idBg = "bg-" ++ show x ++ "x" ++ show y
+              fCorner
+                | t == S = TR
+                | otherwise = TL
+              bCorner
+                | t == S = BL
+                | otherwise = BR
+
+Integrate.hs:96:45:
+    Couldn't match expected type ‘(Int, Int)’ with actual type ‘Twist’
+    In the second argument of ‘svgPath’, namely ‘t’
+    In the expression:
+      (svgPath idFg t (x * svgScale, y * svgScale) f fCorner)
+
+Integrate.hs:96:47:
+    Couldn't match expected type ‘Colour Double’
+                with actual type ‘(Integer, Integer)’
+    In the third argument of ‘svgPath’, namely
+      ‘(x * svgScale, y * svgScale)’
+    In the expression:
+      (svgPath idFg t (x * svgScale, y * svgScale) f fCorner)
+    In an equation for ‘svgFgBg’:
+        svgFgBg x y (Segment f b t)
+          = (svgPath idFg t (x * svgScale, y * svgScale) f fCorner)
+          where
+              idFg = "fg-" ++ show x ++ "x" ++ show y
+              idBg = "bg-" ++ show x ++ "x" ++ show y
+              fCorner
+                | t == S = TR
+                | otherwise = TL
+              bCorner
+                | t == S = BL
+                | otherwise = BR
+
+Integrate.hs:96:71:
+    Couldn't match expected type ‘Corner’
+                with actual type ‘Colour Double’
+    In the fourth argument of ‘svgPath’, namely ‘f’
+    In the expression:
+      (svgPath idFg t (x * svgScale, y * svgScale) f fCorner)
+Failed, modules loaded: none.
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+
+Integrate.hs:104:32:
+    No instance for (Num [Char]) arising from a use of ‘+’
+    In the expression: svgPreamble + body + svgPostamble
+    In an equation for ‘svgBand’:
+        svgBand b
+          = svgPreamble + body + svgPostamble
+          where
+              body
+                = concatMap (\ (x, ys) -> concatMap (\ (y, s) -> svgFgBg x y s) ys)
+                  $ zip [0 .. ] (map (zip [0 .. ] . plyTop 0) $ bandCords b)
+Failed, modules loaded: none.
+Prelude> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> svgBand 
+
+<interactive>:269:1:
+    No instance for (Show (Band -> [Char]))
+      (maybe you haven't applied enough arguments to a function?)
+      arising from a use of ‘print’
+    In a stmt of an interactive GHCi command: print it
+*Integrate> svgBand testBand 
+"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<svg\n   xmlns:dc=\"http://purl.org/dc/elements/1.1/\"\n   xmlns:cc=\"http://creativecommons.org/ns#\"\n   xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"\n   xmlns:svg=\"http://www.w3.org/2000/svg\"\n   xmlns=\"http://www.w3.org/2000/svg\"\n   version=\"1.1\"\n   id=\"svg2\"\n   viewBox=\"0 0 744.09448819 1052.3622047\"\n   height=\"297mm\"\n   width=\"210mm\">\n  <defs\n     id=\"defs4\" />\n  <metadata\n     id=\"metadata7\">\n    <rdf:RDF>\n      <cc:Work\n         rdf:about=\"\">\n        <dc:format>image/svg+xml</dc:format>\n        <dc:type\n           rdf:resource=\"http://purl.org/dc/dcmitype/StillImage\" />\n        <dc:title></dc:title>\n      </cc:Work>\n    </rdf:RDF>\n  </metadata>\n  <g\n     id=\"layer1\">\n<path id=\"fg-0x0\" d=\"m 0,0 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-0x1\" d=\"m 0,10 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-0x2\" d=\"m 0,20 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-0x3\" d=\"m 0,30 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-0x4\" d=\"m 0,40 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-0x5\" d=\"m 0,50 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-0x6\" d=\"m 0,60 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-0x7\" d=\"m 0,70 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-0x8\" d=\"m 0,80 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-0x9\" d=\"m 0,90 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-0x10\" d=\"m 0,100 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-0x11\" d=\"m 0,110 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-0x12\" d=\"m 0,120 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-0x13\" d=\"m 0,130 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-0x14\" d=\"m 0,140 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-0x15\" d=\"m 0,150 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-0x16\" d=\"m 0,160 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-0x17\" d=\"m 0,170 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-0x18\" d=\"m 0,180 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-0x19\" d=\"m 0,190 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-0x20\" d=\"m 0,200 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-0x21\" d=\"m 0,210 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-0x22\" d=\"m 0,220 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-0x23\" d=\"m 0,230 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-1x0\" d=\"m 10,0 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-1x1\" d=\"m 10,10 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-1x2\" d=\"m 10,20 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-1x3\" d=\"m 10,30 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-1x4\" d=\"m 10,40 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-1x5\" d=\"m 10,50 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-1x6\" d=\"m 10,60 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-1x7\" d=\"m 10,70 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-1x8\" d=\"m 10,80 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-1x9\" d=\"m 10,90 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-1x10\" d=\"m 10,100 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-1x11\" d=\"m 10,110 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-1x12\" d=\"m 10,120 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-1x13\" d=\"m 10,130 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-1x14\" d=\"m 10,140 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-1x15\" d=\"m 10,150 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-1x16\" d=\"m 10,160 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-1x17\" d=\"m 10,170 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-1x18\" d=\"m 10,180 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-1x19\" d=\"m 10,190 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-1x20\" d=\"m 10,200 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-1x21\" d=\"m 10,210 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-1x22\" d=\"m 10,220 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-1x23\" d=\"m 10,230 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-2x0\" d=\"m 20,0 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-2x1\" d=\"m 20,10 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-2x2\" d=\"m 20,20 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-2x3\" d=\"m 20,30 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-2x4\" d=\"m 20,40 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-2x5\" d=\"m 20,50 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-2x6\" d=\"m 20,60 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-2x7\" d=\"m 20,70 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-2x8\" d=\"m 20,80 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-2x9\" d=\"m 20,90 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-2x10\" d=\"m 20,100 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-2x11\" d=\"m 20,110 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-2x12\" d=\"m 20,120 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-2x13\" d=\"m 20,130 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-2x14\" d=\"m 20,140 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-2x15\" d=\"m 20,150 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-2x16\" d=\"m 20,160 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-2x17\" d=\"m 20,170 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-2x18\" d=\"m 20,180 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-2x19\" d=\"m 20,190 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-2x20\" d=\"m 20,200 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-2x21\" d=\"m 20,210 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-2x22\" d=\"m 20,220 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-2x23\" d=\"m 20,230 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-3x0\" d=\"m 30,0 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-3x1\" d=\"m 30,10 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-3x2\" d=\"m 30,20 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-3x3\" d=\"m 30,30 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-3x4\" d=\"m 30,40 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-3x5\" d=\"m 30,50 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-3x6\" d=\"m 30,60 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-3x7\" d=\"m 30,70 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-3x8\" d=\"m 30,80 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-3x9\" d=\"m 30,90 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-3x10\" d=\"m 30,100 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-3x11\" d=\"m 30,110 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-3x12\" d=\"m 30,120 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-3x13\" d=\"m 30,130 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-3x14\" d=\"m 30,140 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-3x15\" d=\"m 30,150 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-3x16\" d=\"m 30,160 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-3x17\" d=\"m 30,170 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-3x18\" d=\"m 30,180 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-3x19\" d=\"m 30,190 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-3x20\" d=\"m 30,200 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-3x21\" d=\"m 30,210 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-3x22\" d=\"m 30,220 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-3x23\" d=\"m 30,230 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-4x0\" d=\"m 40,0 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-4x1\" d=\"m 40,10 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-4x2\" d=\"m 40,20 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-4x3\" d=\"m 40,30 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-4x4\" d=\"m 40,40 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-4x5\" d=\"m 40,50 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-4x6\" d=\"m 40,60 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-4x7\" d=\"m 40,70 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-4x8\" d=\"m 40,80 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-4x9\" d=\"m 40,90 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-4x10\" d=\"m 40,100 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-4x11\" d=\"m 40,110 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-4x12\" d=\"m 40,120 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-4x13\" d=\"m 40,130 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-4x14\" d=\"m 40,140 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-4x15\" d=\"m 40,150 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-4x16\" d=\"m 40,160 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-4x17\" d=\"m 40,170 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-4x18\" d=\"m 40,180 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-4x19\" d=\"m 40,190 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-4x20\" d=\"m 40,200 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-4x21\" d=\"m 40,210 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-4x22\" d=\"m 40,220 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-4x23\" d=\"m 40,230 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-5x0\" d=\"m 50,0 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-5x1\" d=\"m 50,10 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-5x2\" d=\"m 50,20 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-5x3\" d=\"m 50,30 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-5x4\" d=\"m 50,40 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-5x5\" d=\"m 50,50 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-5x6\" d=\"m 50,60 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-5x7\" d=\"m 50,70 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-5x8\" d=\"m 50,80 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-5x9\" d=\"m 50,90 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-5x10\" d=\"m 50,100 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-5x11\" d=\"m 50,110 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-5x12\" d=\"m 50,120 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-5x13\" d=\"m 50,130 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-5x14\" d=\"m 50,140 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-5x15\" d=\"m 50,150 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-5x16\" d=\"m 50,160 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-5x17\" d=\"m 50,170 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-5x18\" d=\"m 50,180 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-5x19\" d=\"m 50,190 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-5x20\" d=\"m 50,200 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-5x21\" d=\"m 50,210 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-5x22\" d=\"m 50,220 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-5x23\" d=\"m 50,230 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-6x0\" d=\"m 60,0 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-6x1\" d=\"m 60,10 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-6x2\" d=\"m 60,20 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-6x3\" d=\"m 60,30 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-6x4\" d=\"m 60,40 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-6x5\" d=\"m 60,50 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-6x6\" d=\"m 60,60 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-6x7\" d=\"m 60,70 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-6x8\" d=\"m 60,80 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-6x9\" d=\"m 60,90 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-6x10\" d=\"m 60,100 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-6x11\" d=\"m 60,110 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-6x12\" d=\"m 60,120 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-6x13\" d=\"m 60,130 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-6x14\" d=\"m 60,140 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-6x15\" d=\"m 60,150 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-6x16\" d=\"m 60,160 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-6x17\" d=\"m 60,170 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-6x18\" d=\"m 60,180 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-6x19\" d=\"m 60,190 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-6x20\" d=\"m 60,200 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-6x21\" d=\"m 60,210 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-6x22\" d=\"m 60,220 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-6x23\" d=\"m 60,230 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-7x0\" d=\"m 70,0 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-7x1\" d=\"m 70,10 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-7x2\" d=\"m 70,20 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-7x3\" d=\"m 70,30 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-7x4\" d=\"m 70,40 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-7x5\" d=\"m 70,50 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-7x6\" d=\"m 70,60 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-7x7\" d=\"m 70,70 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-7x8\" d=\"m 70,80 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-7x9\" d=\"m 70,90 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-7x10\" d=\"m 70,100 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-7x11\" d=\"m 70,110 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-7x12\" d=\"m 70,120 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-7x13\" d=\"m 70,130 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-7x14\" d=\"m 70,140 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-7x15\" d=\"m 70,150 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-7x16\" d=\"m 70,160 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-7x17\" d=\"m 70,170 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-7x18\" d=\"m 70,180 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-7x19\" d=\"m 70,190 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-7x20\" d=\"m 70,200 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-7x21\" d=\"m 70,210 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-7x22\" d=\"m 70,220 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-7x23\" d=\"m 70,230 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-8x0\" d=\"m 80,0 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-8x1\" d=\"m 80,10 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-8x2\" d=\"m 80,20 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-8x3\" d=\"m 80,30 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-8x4\" d=\"m 80,40 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-8x5\" d=\"m 80,50 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-8x6\" d=\"m 80,60 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-8x7\" d=\"m 80,70 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-8x8\" d=\"m 80,80 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-8x9\" d=\"m 80,90 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-8x10\" d=\"m 80,100 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-8x11\" d=\"m 80,110 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-8x12\" d=\"m 80,120 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-8x13\" d=\"m 80,130 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-8x14\" d=\"m 80,140 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-8x15\" d=\"m 80,150 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-8x16\" d=\"m 80,160 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-8x17\" d=\"m 80,170 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-8x18\" d=\"m 80,180 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-8x19\" d=\"m 80,190 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-8x20\" d=\"m 80,200 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-8x21\" d=\"m 80,210 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-8x22\" d=\"m 80,220 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-8x23\" d=\"m 80,230 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-9x0\" d=\"m 90,0 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-9x1\" d=\"m 90,10 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-9x2\" d=\"m 90,20 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-9x3\" d=\"m 90,30 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-9x4\" d=\"m 90,40 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-9x5\" d=\"m 90,50 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-9x6\" d=\"m 90,60 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-9x7\" d=\"m 90,70 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-9x8\" d=\"m 90,80 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-9x9\" d=\"m 90,90 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-9x10\" d=\"m 90,100 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-9x11\" d=\"m 90,110 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-9x12\" d=\"m 90,120 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-9x13\" d=\"m 90,130 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-9x14\" d=\"m 90,140 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-9x15\" d=\"m 90,150 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-9x16\" d=\"m 90,160 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-9x17\" d=\"m 90,170 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-9x18\" d=\"m 90,180 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-9x19\" d=\"m 90,190 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-9x20\" d=\"m 90,200 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-9x21\" d=\"m 90,210 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-9x22\" d=\"m 90,220 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-9x23\" d=\"m 90,230 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-10x0\" d=\"m 100,0 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-10x1\" d=\"m 100,10 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-10x2\" d=\"m 100,20 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-10x3\" d=\"m 100,30 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-10x4\" d=\"m 100,40 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-10x5\" d=\"m 100,50 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-10x6\" d=\"m 100,60 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-10x7\" d=\"m 100,70 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-10x8\" d=\"m 100,80 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-10x9\" d=\"m 100,90 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-10x10\" d=\"m 100,100 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-10x11\" d=\"m 100,110 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-10x12\" d=\"m 100,120 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-10x13\" d=\"m 100,130 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-10x14\" d=\"m 100,140 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-10x15\" d=\"m 100,150 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-10x16\" d=\"m 100,160 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-10x17\" d=\"m 100,170 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-10x18\" d=\"m 100,180 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-10x19\" d=\"m 100,190 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-10x20\" d=\"m 100,200 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-10x21\" d=\"m 100,210 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-10x22\" d=\"m 100,220 10,0 0,10 z\" style=\"fill:#ff0000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-10x23\" d=\"m 100,230 10,0 -10,10 z\" style=\"fill:#ffffff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-11x0\" d=\"m 110,0 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-11x1\" d=\"m 110,10 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-11x2\" d=\"m 110,20 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-11x3\" d=\"m 110,30 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-11x4\" d=\"m 110,40 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-11x5\" d=\"m 110,50 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-11x6\" d=\"m 110,60 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-11x7\" d=\"m 110,70 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-11x8\" d=\"m 110,80 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-11x9\" d=\"m 110,90 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-11x10\" d=\"m 110,100 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-11x11\" d=\"m 110,110 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-11x12\" d=\"m 110,120 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-11x13\" d=\"m 110,130 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-11x14\" d=\"m 110,140 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-11x15\" d=\"m 110,150 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-11x16\" d=\"m 110,160 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-11x17\" d=\"m 110,170 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-11x18\" d=\"m 110,180 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-11x19\" d=\"m 110,190 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-11x20\" d=\"m 110,200 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-11x21\" d=\"m 110,210 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /><path id=\"fg-11x22\" d=\"m 110,220 10,0 -10,10 z\" style=\"fill:#0000ff;fill-rule:evenodd;stroke:none\" /><path id=\"fg-11x23\" d=\"m 110,230 10,0 0,10 z\" style=\"fill:#008000;fill-rule:evenodd;stroke:none\" /></g>\n</svg>\n"
+*Integrate> writeFile "hello.svg" $ svgBand testBand 
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> writeFile "hello.svg" $ svgBand testBand 
+*Integrate> writeFile "hello.svg" $ svgBand simpleBand 
+*Integrate> :reload
+[1 of 1] Compiling Integrate        ( Integrate.hs, interpreted )
+Ok, modules loaded: Integrate.
+*Integrate> writeFile "hello.svg" $ svgBand simpleBand 
+*Integrate> 
+Emergency save activated!
+Emergency save completed. Inkscape will close now.
+If you can reproduce this crash, please file a bug at www.inkscape.org
+with a detailed description of the steps leading to the crash, so we can fix it.
+
+*Integrate> 
+*Integrate> ls
+
+<interactive>:279:1: Not in scope: ‘ls’
+*Integrate> writeFile "hello.svg" $ svgBand simpleBand 
+*Integrate> showBand simpleBand 
+"\ESC[31m\ESC[47m\9701\ESC[0m\ESC[31m\ESC[44m\9700\ESC[0m\ESC[31m\ESC[47m\9701\ESC[0m\ESC[31m\ESC[47m\9698\ESC[0m\ESC[31m\ESC[44m\9699\ESC[0m\ESC[31m\ESC[47m\9698\ESC[0m\ESC[31m\ESC[47m\9701\ESC[0m\ESC[31m\ESC[44m\9700\ESC[0m\ESC[31m\ESC[47m\9701\ESC[0m\ESC[31m\ESC[47m\9698\ESC[0m\ESC[31m\ESC[44m\9699\ESC[0m\ESC[31m\ESC[47m\9698\ESC[0m\ESC[31m\ESC[47m\9701\ESC[0m\ESC[31m\ESC[44m\9700\ESC[0m\ESC[31m\ESC[47m\9701\ESC[0m\ESC[31m\ESC[47m\9698\ESC[0m\ESC[31m\ESC[44m\9699\ESC[0m\ESC[31m\ESC[47m\9698\ESC[0m\ESC[31m\ESC[47m\9701\ESC[0m\ESC[31m\ESC[44m\9700\ESC[0m\ESC[31m\ESC[47m\9701\ESC[0m\ESC[31m\ESC[47m\9698\ESC[0m\ESC[31m\ESC[44m\9699\ESC[0m\ESC[31m\ESC[47m\9698\ESC[0m\ESC[31m\ESC[47m\9701\ESC[0m\ESC[31m\ESC[44m\9700\ESC[0m\ESC[31m\ESC[47m\9701\ESC[0m\ESC[31m\ESC[47m\9698\ESC[0m\ESC[31m\ESC[44m\9699\ESC[0m\ESC[31m\ESC[47m\9698\ESC[0m\ESC[31m\ESC[47m\9701\ESC[0m\ESC[31m\ESC[44m\9700\ESC[0m\ESC[31m\ESC[47m\9701\ESC[0m\ESC[31m\ESC[47m\9698\ESC[0m\ESC[31m\ESC[44m\9699\ESC[0m\ESC[31m\ESC[47m\9698\ESC[0m\ESC[31m\ESC[47m\9701\ESC[0m\ESC[31m\ESC[44m\9700\ESC[0m\ESC[31m\ESC[47m\9701\ESC[0m\ESC[31m\ESC[47m\9698\ESC[0m\ESC[31m\ESC[44m\9699\ESC[0m\ESC[31m\ESC[47m\9698\ESC[0m\ESC[31m\ESC[47m\9701\ESC[0m\ESC[31m\ESC[44m\9700\ESC[0m\ESC[31m\ESC[47m\9701\ESC[0m\ESC[31m\ESC[47m\9698\ESC[0m\ESC[31m\ESC[44m\9699\ESC[0m\ESC[31m\ESC[47m\9698\ESC[0m\ESC[31m\ESC[47m\9701\ESC[0m\ESC[31m\ESC[44m\9700\ESC[0m\ESC[31m\ESC[47m\9701\ESC[0m\ESC[31m\ESC[47m\9698\ESC[0m\ESC[31m\ESC[44m\9699\ESC[0m\ESC[31m\ESC[47m\9698\ESC[0m\ESC[31m\ESC[47m\9701\ESC[0m\ESC[31m\ESC[44m\9700\ESC[0m\ESC[31m\ESC[47m\9701\ESC[0m\ESC[31m\ESC[47m\9698\ESC[0m\ESC[31m\ESC[44m\9699\ESC[0m\ESC[31m\ESC[47m\9698\ESC[0m\ESC[31m\ESC[47m\9701\ESC[0m\ESC[31m\ESC[44m\9700\ESC[0m\ESC[31m\ESC[47m\9701\ESC[0m\ESC[31m\ESC[47m\9698\ESC[0m\ESC[31m\ESC[44m\9699\ESC[0m\ESC[31m\ESC[47m\9698\ESC[0m\ESC[31m\ESC[47m\9701\ESC[0m\ESC[31m\ESC[44m\9700\ESC[0m\ESC[31m\ESC[47m\9701\ESC[0m\ESC[31m\ESC[47m\9698\ESC[0m\ESC[31m\ESC[44m\9699\ESC[0m\ESC[31m\ESC[47m\9698\ESC[0m"
+*Integrate> putStrLn$ showBand simpleBand 
+◥◤◥◢◣◢◥◤◥◢◣◢◥◤◥◢◣◢◥◤◥◢◣◢◥◤◥◢◣◢◥◤◥◢◣◢◥◤◥◢◣◢◥◤◥◢◣◢◥◤◥◢◣◢◥◤◥◢◣◢◥◤◥◢◣◢◥◤◥◢◣◢
+*Integrate> 
