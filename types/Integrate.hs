@@ -67,7 +67,7 @@ firstColour (Strand c _) = c
 firstColour (Ply (t:_) r) = firstColour t
 
 data Segment = Segment (Colour Double) (Colour Double) Twist
-               deriving show
+             deriving show
 
 --instance Show Segment where
 --  show (Segment c1 c2 t) = colourTwistEven c1 c2 t
