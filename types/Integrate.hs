@@ -76,7 +76,7 @@ plyTop _ (Strand _ _) = []
 plyTop _ (Ply _ (Spin [])) = []
 plyTop n (Ply pt (Spin (twist:twists)))
   = this:succ
-    where this = Segment (firstColour $ pt !!! n, firstColour $pt !!! delta, twist)
+    where this = Segment (firstColour $ pt !!! n) (firstColour $pt !!! delta) twist
           succ = plyTop (n+delta) (Ply pt (Spin twists))
           delta | twist == S = 1 -- TODO - guess - other way around?
                 | otherwise = -1
