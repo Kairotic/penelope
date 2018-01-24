@@ -175,7 +175,7 @@ twistCords tw = map tabletCord (zip (tablets $ tLoom tw) twists)
 
 -- An example tablet weave
 test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [tablet2,
-                                                                   flipTablet tablet2
+                                                                   flipTablet tablet1
                                                                   ],
                                         tabletWeft = Strand {colour = orange,
                                                              roll = Spin (repeat S)
