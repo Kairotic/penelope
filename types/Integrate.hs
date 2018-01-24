@@ -268,3 +268,4 @@ svgPath id (x,y) c cnr = "<path id=\"" ++ id ++ "\" d=\"m " ++ path cnr x y ++ "
         xy = show x ++ " " ++ show y
 
 
+writeBand = writeFile "test.svg" . svgBand 
