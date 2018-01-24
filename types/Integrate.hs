@@ -230,10 +230,11 @@ ansibg c | c == black   = "\x001b[40m"
 
 ansireset = "\x001b[0m"
 
-redThread = Strand red (spin S)
-whiteThread = Strand white (spin S)
-blueThread = Strand blue (spin S)
-greenThread = Strand green (spin S)
+thread c = Strand c (spin S)
+redThread = thread red
+whiteThread = thread white
+blueThread = thread blue
+greenThread = thread green
 
 colourTwistEven (Segment f b S) = colourString f b (tr:[])
 colourTwistEven (Segment f b Z) = colourString f b (tl:[])
