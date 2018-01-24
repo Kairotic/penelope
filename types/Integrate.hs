@@ -181,7 +181,7 @@ test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redWhiteTable
                                                              roll = Spin (repeat S)
                                                             }
                                        },
-                    tSheds = (take 24 $ cycle [replicate 12 S, replicate 12 S, replicate 12 Z, replicate 12 Z])
+                    tSheds = (take 24 $ cycle [forward, backward, forward])
                    }
   where redWhiteTablet = Tablet {warps = [redThread, whiteThread, redThread, whiteThread], yaw = S}
         blueGreenTablet = Tablet {warps = [blueThread, greenThread, blueThread, greenThread], yaw = S}
@@ -189,6 +189,8 @@ test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redWhiteTable
         whiteThread = Strand white (spin S)
         blueThread = Strand blue (spin S)
         greenThread = Strand green (spin S)
+        forward = replicate 12 S
+        backward = replicate 12 Z
 
 -- The resulting band
 testBand = tabletWeave test
