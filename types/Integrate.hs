@@ -174,8 +174,8 @@ twistCords tw = map tabletCord (zip (tablets $ tLoom tw) twists)
         twists = transpose (tSheds tw)
 
 -- An example tablet weave
-test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redWhiteTablet,
-                                                                   flipTablet blueGreenTablet
+test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [tablet2,
+                                                                   flipTablet tablet2
                                                                   ],
                                         tabletWeft = Strand {colour = orange,
                                                              roll = Spin (repeat S)
@@ -183,8 +183,8 @@ test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [redWhiteTable
                                        },
                     tSheds = (take 24 $ cycle [forward, backward, forward])
                    }
-  where redWhiteTablet = Tablet {warps = [redThread, whiteThread, redThread, whiteThread], yaw = S}
-        blueGreenTablet = Tablet {warps = [blueThread, greenThread, blueThread, greenThread], yaw = S}
+  where tablet1 = Tablet {warps = [redThread, whiteThread, redThread, whiteThread], yaw = S}
+        tablet2 = Tablet {warps = [blueThread, greenThread, blueThread, greenThread], yaw = S}
         redThread = Strand red (spin S)
         whiteThread = Strand white (spin S)
         blueThread = Strand blue (spin S)
