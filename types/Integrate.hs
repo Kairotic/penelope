@@ -271,5 +271,5 @@ svgPath id (x,y) c cnr = "<path id=\"" ++ id ++ "\" d=\"m " ++ path cnr x y ++ "
 
 writeBand b = do writeFile "test.svg" (svgBand b)
                  system "~/Dropbox/bin/fixsvg.pl test.svg"
-                 system "convert test.svg test.pdf"
+                 system "inkscape test.svg --export-pdf=test.pdf"
                  return ()
