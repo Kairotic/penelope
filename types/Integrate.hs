@@ -3,6 +3,7 @@ module Integrate where
 import Data.List (transpose)
 import Data.Colour.SRGB
 import Data.Colour.Names
+import System.Cmd
 
 -- From earlier attempt at representation of thread within a
 -- weave..
@@ -268,4 +269,4 @@ svgPath id (x,y) c cnr = "<path id=\"" ++ id ++ "\" d=\"m " ++ path cnr x y ++ "
         xy = show x ++ " " ++ show y
 
 
-writeBand = writeFile "test.svg" . svgBand 
+writeBand = do $ writeFile "test.svg" . svgBand 
