@@ -270,5 +270,5 @@ svgPath id (x,y) c cnr = "<path id=\"" ++ id ++ "\" d=\"m " ++ path cnr x y ++ "
 
 
 writeBand = do writeFile "test.svg" . svgBand 
-               system "~/Dropbox/bin/fixsvg.pl"
+               system "~/Dropbox/bin/fixsvg.pl test.svg"
                system "convert test.svg test.pdf"
