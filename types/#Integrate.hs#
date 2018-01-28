@@ -224,7 +224,7 @@ svgWeft d t x y ((Pull n):as) = svg ++ svgWeft d x' y' as
                 | d == Right = (x+n, y)
         svg = "<path d=\"m " ++ path ++ " z\" style=\"fill:" ++ cHex red ++ ";fill-rule:evenodd;stroke:none\" />"
         path = show (x*svgScale) ++ "," ++ show (y*svgScale) ++ " "
-               ++ (show x )
+               ++ (show x  )
 
 -- path TL x y = show x ++ "," ++ show y ++ " 10,0 -10,10"
 
