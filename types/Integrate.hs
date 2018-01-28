@@ -224,6 +224,9 @@ path TR x y = show x ++ "," ++ show y ++ " 10,0 0,10"
 path BL x y = show x ++ "," ++ show y ++ " 10,10 -10,0"
 path BR x y = show (x+10) ++ "," ++ show y ++ " 0,10 -10,0"
 
+svgLayer :: String -> String -> String
+svgLayer id inner = "<g id=\"" ++ id ++ "\">" ++ inner ++ "</g>"
+
 svgPath :: String -> (Int,Int) -> Colour Double -> Corner ->  String
 svgPath id (x,y) c cnr = "<path id=\"" ++ id ++ "\" d=\"m " ++ path cnr x y ++ " z\" style=\"fill:" ++ cHex ++ ";fill-rule:evenodd;stroke:none\" />"
   where cHex = sRGB24show c

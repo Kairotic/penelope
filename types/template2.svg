@@ -5,11 +5,35 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.1"
    id="svg2"
    viewBox="0 0 744.09448819 1052.3622047"
    height="297mm"
-   width="210mm">
+   width="210mm"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="template2.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1026"
+     inkscape:window-height="613"
+     id="namedview10"
+     showgrid="false"
+     inkscape:zoom="5.0743654"
+     inkscape:cx="-17.596823"
+     inkscape:cy="5.1197414"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer3" />
   <defs
      id="defs4" />
   <metadata
@@ -20,27 +44,53 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
-     id="layer1">
-    <path
-       id="rect3336"
-       d="m 0,1042.3622 10,10 -10,0 z"
-       style="fill:#0000ff;fill-rule:evenodd;stroke:none;stroke-width:0.08216304px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-    <path
-       id="rect3336-3"
-       d="m 20,1042.3622 -10,10 10,0 z"
-       style="fill:#ff0000;fill-rule:evenodd;stroke:none;stroke-width:0.08216304px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-    <path
-       id="rect3336-3-6"
-       d="m 0,1042.3622 10,-10 -10,0 z"
-       style="fill:#ffff00;fill-rule:evenodd;stroke:none;stroke-width:0.08216304px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-    <path
-       id="rect3336-3-6-7"
-       d="m 20,1042.3622 -10,-10 10,0 z"
-       style="fill:#00ff00;fill-rule:evenodd;stroke:none;stroke-width:0.08216304px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="triangles"
+     style="display:inline">
+    <g
+       id="layer1">
+      <path
+         id="rect3336"
+         d="m 0,1042.3622 10,10 -10,0 z"
+         style="fill:#0000ff;fill-rule:evenodd;stroke:none;stroke-width:0.08216304px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         inkscape:connector-curvature="0" />
+      <path
+         id="rect3336-3"
+         d="m 20,1042.3622 -10,10 10,0 z"
+         style="fill:#ff0000;fill-rule:evenodd;stroke:none;stroke-width:0.08216304px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         inkscape:connector-curvature="0" />
+      <path
+         id="rect3336-3-6"
+         d="m 0,1042.3622 10,-10 -10,0 z"
+         style="fill:#ffff00;fill-rule:evenodd;stroke:none;stroke-width:0.08216304px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         inkscape:connector-curvature="0" />
+      <path
+         id="rect3336-3-6-7"
+         d="m 20,1042.3622 -10,-10 10,0 z"
+         style="fill:#00ff00;fill-rule:evenodd;stroke:none;stroke-width:0.08216304px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="some text">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;line-height:125%;font-family:brill;-inkscape-font-specification:'brill, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="8.6710348"
+       y="1024.7725"
+       id="text4145"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4147"
+         x="8.6710348"
+         y="1024.7725">hello</tspan></text>
   </g>
 </svg>
