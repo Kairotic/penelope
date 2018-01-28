@@ -217,11 +217,12 @@ svgBand b = svgPreamble ++ warpTop ++ svgPostamble
 
 svgWeft :: Direction -> Twist -> Int -> Int -> [Action] -> String
 svgWeft _ _ _ _ [] = ""
-svgWeft d t x y ((Pull n):as) =  ++ svgWeft d x y as
-  where (x,y) | d == Up = (x,y-n)
-              | d == Down = (x,y+n)
-              | d == Left = (x-n,y)
-                            | 
+svgWeft d t x y ((Pull n):as) = svg ++ svgWeft d x' y' as
+  where (x',y') | d == Up    = (x, y-n)
+                | d == Down  = (x, y+n)
+                | d == Left  = (x-n, y)
+                | d == Right = (x+n, y)
+        svg = "<path d=\"m " ++ path cnr x y ++ " z\" style=\"fill:" ++ cHex red ++ ";fill-rule:evenodd;stroke:none\" />"
 
 svgPreamble = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<svg\n   xmlns:dc=\"http://purl.org/dc/elements/1.1/\"\n   xmlns:cc=\"http://creativecommons.org/ns#\"\n   xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"\n   xmlns:svg=\"http://www.w3.org/2000/svg\"\n   xmlns=\"http://www.w3.org/2000/svg\"\n   version=\"1.1\"\n   id=\"svg2\"\n   viewBox=\"0 0 744.09448819 1052.3622047\"\n   height=\"297mm\"\n   width=\"210mm\">\n  <defs\n     id=\"defs4\" />\n  <metadata\n     id=\"metadata7\">\n    <rdf:RDF>\n      <cc:Work\n         rdf:about=\"\">\n        <dc:format>image/svg+xml</dc:format>\n        <dc:type\n           rdf:resource=\"http://purl.org/dc/dcmitype/StillImage\" />\n        <dc:title></dc:title>\n      </cc:Work>\n    </rdf:RDF>\n  </metadata>\n  <g\n     id=\"layer1\">\n"
 
@@ -239,9 +240,10 @@ svgLayer :: String -> String -> String
 svgLayer id inner = "<g id=\"" ++ id ++ "\">" ++ inner ++ "</g>"
 
 svgPath :: String -> (Int,Int) -> Colour Double -> Corner ->  String
-svgPath id (x,y) c cnr = "<path id=\"" ++ id ++ "\" d=\"m " ++ path cnr x y ++ " z\" style=\"fill:" ++ cHex ++ ";fill-rule:evenodd;stroke:none\" />"
-  where cHex = sRGB24show c
-        xy = show x ++ " " ++ show y
+svgPath id (x,y) c cnr = "<path id=\"" ++ id ++ "\" d=\"m " ++ path cnr x y ++ " z\" style=\"fill:" ++ cHex c ++ ";fill-rule:evenodd;stroke:none\" />"
+  where xy = show x ++ " " ++ show y
+
+cHex = sRGB24show c
 
 writeBand b = do writeFile "test.svg" (svgBand b)
                  system "~/Dropbox/bin/fixsvg.pl test.svg"
