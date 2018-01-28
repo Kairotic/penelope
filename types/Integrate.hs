@@ -174,41 +174,6 @@ twistCords tw = map tabletCord (zip (tablets $ tLoom tw) twists)
         -- list of thread twists rather than list of card moves over time
         twists = transpose (tSheds tw)
 
--- An example tablet weave
-test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [tablet2,
-                                                                   flipTablet tablet1
-                                                                  ],
-                                        tabletWeft = Strand {colour = orange,
-                                                             roll = Spin (repeat S)
-                                                            }
-                                       },
-                    tSheds = (take 24 $ cycle [forward, forward, forward, forward, forward, forward, backward, backward, backward, backward, backward, backward])
-                   }
-  where tablet1 = Tablet {warps = [redThread, whiteThread, redThread, whiteThread], yaw = S}
-        tablet2 = Tablet {warps = [blueThread, greenThread, blueThread, greenThread], yaw = S}
-        redThread = Strand red (spin S)
-        whiteThread = Strand white (spin S)
-        blueThread = Strand blue (spin S)
-        greenThread = Strand green (spin S)
-        forward = replicate 12 S
-        backward = replicate 12 Z
-
--- The resulting band
-testBand = tabletWeave test
-
-simpleWeave = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [rwgbTablet,
-                                                                          flipTablet rwgbTablet
-                                                                         ],
-                                               tabletWeft = Strand {colour = orange,
-                                                                    roll = Spin (repeat S)
-                                                                   }
-                                              },
-                           tSheds = (take 24 $ cycle [replicate 12 S, replicate 12 S, replicate 12 S, replicate 12 S, replicate 12 Z, replicate 12 Z, replicate 12 Z, replicate 12 Z])
-                          }
-  where rwgbTablet = Tablet {warps = [redThread, whiteThread, greenThread, blueThread], yaw = S}
-        
-simpleBand = tabletWeave simpleWeave
-
 ansifg c | c == black   = "\x001b[30m"
          | c == red     = "\x001b[31m"
          | c == green   = "\x001b[32m"
@@ -273,3 +238,38 @@ writeBand b = do writeFile "test.svg" (svgBand b)
                  system "~/Dropbox/bin/fixsvg.pl test.svg"
                  system "inkscape test.svg --export-pdf=test.pdf"
                  return ()
+
+-- EXAMPLES
+
+test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [tablet2,
+                                                                   flipTablet tablet1
+                                                                  ],
+                                        tabletWeft = Strand {colour = orange,
+                                                             roll = Spin (repeat S)
+                                                            }
+                                       },
+                    tSheds = (take 24 $ cycle [forward, forward, forward, forward, forward, forward, backward, backward, backward, backward, backward, backward])
+                   }
+  where tablet1 = Tablet {warps = [redThread, whiteThread, redThread, whiteThread], yaw = S}
+        tablet2 = Tablet {warps = [blueThread, greenThread, blueThread, greenThread], yaw = S}
+        redThread = Strand red (spin S)
+        whiteThread = Strand white (spin S)
+        blueThread = Strand blue (spin S)
+        greenThread = Strand green (spin S)
+        forward = replicate 12 S
+        backward = replicate 12 Z
+testBand = tabletWeave test
+
+simpleWeave = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [rwgbTablet,
+                                                                          flipTablet rwgbTablet
+                                                                         ],
+                                               tabletWeft = Strand {colour = orange,
+                                                                    roll = Spin (repeat S)
+                                                                   }
+                                              },
+                           tSheds = (take 24 $ cycle [replicate 12 S, replicate 12 S, replicate 12 S, replicate 12 S, replicate 12 Z, replicate 12 Z, replicate 12 Z, replicate 12 Z])
+                          }
+  where rwgbTablet = Tablet {warps = [redThread, whiteThread, greenThread, blueThread], yaw = S}
+        
+simpleBand = tabletWeave simpleWeave
+             
