@@ -5,8 +5,6 @@ import Data.Colour.SRGB
 import Data.Colour.Names
 import System.Cmd
 
--- From earlier attempt at representation of thread within a
--- weave..
 -- 'Pull' is a thread over a given distance (generally under tension)
 -- 'Turn' is where a thread takes the same 90 degree turn as last time
 -- 'TurnBack' is where takes teh opposite 90 degree turn as last time
@@ -91,19 +89,6 @@ showSegments ss = map (\(f, s) -> (f s))
 -- showBand :: Band -> String
 showBand b = concat $ concat $ transpose $ map (showSegments . plyTop 0) $ bandCords b
 
--- svgPath :: String -> Twist -> (Int,Int) -> Colour Double -> Corner ->  String
-
-svgFgBg x y (Segment f b t) = (svgPath idFg (x*svgScale,y*svgScale) f fCorner) ++ (svgPath idBg (x*svgScale,y*svgScale) b bCorner)
-  where idFg = "fg-" ++ show x ++ "x" ++ show y
-        idBg = "bg-" ++ show x ++ "x" ++ show y
-        fCorner | t == S = TR
-                | otherwise = TL
-        bCorner | t == S = BL
-                | otherwise = BR
-
-svgBand b = svgPreamble ++ body ++ svgPostamble
-  where body = concatMap (\(x,ys) -> concatMap (\(y,s) -> svgFgBg x y s) ys) $ zip [0 ..] (map (zip [0 ..] . plyTop 0) $ bandCords b)
-
 -- A curve is a sequence of actions -- representing how to use a one
 -- dimensional thread to fill a two dimensional surface..
 data Curve = Curve {curveThread :: Thread,
@@ -174,6 +159,10 @@ twistCords tw = map tabletCord (zip (tablets $ tLoom tw) twists)
         -- list of thread twists rather than list of card moves over time
         twists = transpose (tSheds tw)
 
+thread c = Strand c (spin S)
+
+-- ANSI drawing stuff
+
 ansifg c | c == black   = "\x001b[30m"
          | c == red     = "\x001b[31m"
          | c == green   = "\x001b[32m"
@@ -196,12 +185,6 @@ ansibg c | c == black   = "\x001b[40m"
 
 ansireset = "\x001b[0m"
 
-thread c = Strand c (spin S)
-redThread = thread red
-whiteThread = thread white
-blueThread = thread blue
-greenThread = thread green
-
 colourTwistEven (Segment f b S) = colourString f b (tr:[])
 colourTwistEven (Segment f b Z) = colourString f b (tl:[])
 
@@ -215,6 +198,19 @@ tl = '◤'
 tr = '◥'
 bl = '◣'
 br = '◢'
+
+-- SVG drawing things
+
+svgFgBg x y (Segment f b t) = (svgPath idFg (x*svgScale,y*svgScale) f fCorner) ++ (svgPath idBg (x*svgScale,y*svgScale) b bCorner)
+  where idFg = "fg-" ++ show x ++ "x" ++ show y
+        idBg = "bg-" ++ show x ++ "x" ++ show y
+        fCorner | t == S = TR
+                | otherwise = TL
+        bCorner | t == S = BL
+                | otherwise = BR
+
+svgBand b = svgPreamble ++ body ++ svgPostamble
+  where body = concatMap (\(x,ys) -> concatMap (\(y,s) -> svgFgBg x y s) ys) $ zip [0 ..] (map (zip [0 ..] . plyTop 0) $ bandCords b)
 
 svgPreamble = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<svg\n   xmlns:dc=\"http://purl.org/dc/elements/1.1/\"\n   xmlns:cc=\"http://creativecommons.org/ns#\"\n   xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"\n   xmlns:svg=\"http://www.w3.org/2000/svg\"\n   xmlns=\"http://www.w3.org/2000/svg\"\n   version=\"1.1\"\n   id=\"svg2\"\n   viewBox=\"0 0 744.09448819 1052.3622047\"\n   height=\"297mm\"\n   width=\"210mm\">\n  <defs\n     id=\"defs4\" />\n  <metadata\n     id=\"metadata7\">\n    <rdf:RDF>\n      <cc:Work\n         rdf:about=\"\">\n        <dc:format>image/svg+xml</dc:format>\n        <dc:type\n           rdf:resource=\"http://purl.org/dc/dcmitype/StillImage\" />\n        <dc:title></dc:title>\n      </cc:Work>\n    </rdf:RDF>\n  </metadata>\n  <g\n     id=\"layer1\">\n"
 
@@ -250,12 +246,8 @@ test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [tablet2,
                                        },
                     tSheds = (take 24 $ cycle [forward, forward, forward, forward, forward, forward, backward, backward, backward, backward, backward, backward])
                    }
-  where tablet1 = Tablet {warps = [redThread, whiteThread, redThread, whiteThread], yaw = S}
-        tablet2 = Tablet {warps = [blueThread, greenThread, blueThread, greenThread], yaw = S}
-        redThread = Strand red (spin S)
-        whiteThread = Strand white (spin S)
-        blueThread = Strand blue (spin S)
-        greenThread = Strand green (spin S)
+  where tablet1 = Tablet {warps = [thread red, thread white, thread red, thread white], yaw = S}
+        tablet2 = Tablet {warps = [thread blue, thread green, thread blue, thread green], yaw = S}
         forward = replicate 12 S
         backward = replicate 12 Z
 testBand = tabletWeave test
@@ -269,7 +261,7 @@ simpleWeave = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [rwgbTa
                                               },
                            tSheds = (take 24 $ cycle [replicate 12 S, replicate 12 S, replicate 12 S, replicate 12 S, replicate 12 Z, replicate 12 Z, replicate 12 Z, replicate 12 Z])
                           }
-  where rwgbTablet = Tablet {warps = [redThread, whiteThread, greenThread, blueThread], yaw = S}
+  where rwgbTablet = Tablet {warps = [thread red, thread white, thread green, thread blue], yaw = S}
         
 simpleBand = tabletWeave simpleWeave
              
