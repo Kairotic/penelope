@@ -287,10 +287,11 @@ simpleWeave = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [rwgbTa
         
 simpleBand = tabletWeave simpleWeave
              
-complexWeave = TabletWeave {tLoom = TabletLoom {tablets = take 11 $ cycle $ mirror
-                                                                          [tablet2,
+complexWeave = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [tablet2,
                                                                            flipTablet tablet2,
-                                                                           tablet3
+                                                                           tablet3,
+                                                                           flipTablet tablet4,
+                                                                           flipTablet tablet1
                                                                           ],
                                                 tabletWeft = Strand {colour = orange,
                                                                      roll = Spin (repeat S)
@@ -306,5 +307,3 @@ complexWeave = TabletWeave {tLoom = TabletLoom {tablets = take 11 $ cycle $ mirr
         backward = replicate 12 Z
 
 complexBand = tabletWeave complexWeave
-
-mirror xs = xs ++ reverse (map flipTablet xs)
