@@ -209,7 +209,7 @@ svgFgBg x y (Segment f b t) = (svgPath idFg (x*svgScale,y*svgScale) f fCorner) +
         bCorner | t == S = BL
                 | otherwise = BR
 
-data Direction = Up | Right | Down | Left
+--data Direction = Up | Right | Down | Left
 
 svgBand b = svgPreamble ++ warpTop ++ svgPostamble
   where warpTop = svgLayer "warptop" $ concatMap (\(x,ys) -> concatMap (\(y,s) -> svgFgBg x y s) ys) $ zip [0 ..] (map (zip [0 ..] . plyTop 0) $ bandCords b)
