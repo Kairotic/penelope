@@ -288,9 +288,10 @@ simpleWeave = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [rwgbTa
 simpleBand = tabletWeave simpleWeave
              
 complexWeave = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [tablet1,
-                                                                           flipTablet tablet2,
+                                                                           flipTablet tablet1,
                                                                            tablet3,
-                                                                           flipTablet tablet4
+                                                                           flipTablet tablet4,
+                                                                           flipTablet tablet1
                                                                           ],
                                                 tabletWeft = Strand {colour = orange,
                                                                      roll = Spin (repeat S)
