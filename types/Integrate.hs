@@ -304,4 +304,5 @@ complexWeave = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [table
         tablet4 = Tablet {warps = [thread purple, thread orange, thread purple, thread orange], yaw = S}
         forward = replicate 12 S
         backward = replicate 12 Z
-testBand = tabletWeave test
+
+complexBand = tabletWeave complexWeave
