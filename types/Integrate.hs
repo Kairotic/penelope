@@ -250,7 +250,7 @@ svgPath :: String -> (Int,Int) -> Colour Double -> Corner ->  String
 svgPath id (x,y) c cnr = "<path id=\"" ++ id ++ "\" d=\"m " ++ path cnr x y ++ " z\" style=\"fill:" ++ cHex c ++ ";fill-rule:evenodd;stroke:none\" />"
   where xy = show x ++ " " ++ show y
 
-cHex = sRGB24show c
+cHex = sRGB24show
 
 writeBand b = do writeFile "test.svg" (svgBand b)
                  system "~/Dropbox/bin/fixsvg.pl test.svg"
