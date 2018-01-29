@@ -215,6 +215,7 @@ svgBand b = svgPreamble ++ warpTop ++ svgPostamble
   where warpTop = svgLayer "warptop" $ concatMap (\(x,ys) -> concatMap (\(y,s) -> svgFgBg x y s) ys) $ zip [0 ..] (map (zip [0 ..] . plyTop 0) $ bandCords b)
         -- weft = svgWeft CW 0 0 $ curvePath $ bandWeft b
 
+{-
 svgWeft :: Direction -> Twist -> Int -> Int -> [Action] -> String
 svgWeft _ _ _ _ [] = ""
 svgWeft d t x y ((Pull n):as) = svg ++ svgWeft d x' y' as
@@ -225,6 +226,7 @@ svgWeft d t x y ((Pull n):as) = svg ++ svgWeft d x' y' as
         svg = "<path d=\"m " ++ path ++ " z\" style=\"fill:" ++ cHex red ++ ";fill-rule:evenodd;stroke:none\" />"
         path = show (x*svgScale) ++ "," ++ show (y*svgScale) ++ " "
                ++ (show x  )
+-}
 
 -- path TL x y = show x ++ "," ++ show y ++ " 10,0 -10,10"
 
