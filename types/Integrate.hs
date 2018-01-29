@@ -213,7 +213,7 @@ svgFgBg x y (Segment f b t) = (svgPath idFg (x*svgScale,y*svgScale) f fCorner) +
 
 svgBand b = svgPreamble ++ warpTop ++ svgPostamble
   where warpTop = svgLayer "warptop" $ concatMap (\(x,ys) -> concatMap (\(y,s) -> svgFgBg x y s) ys) $ zip [0 ..] (map (zip [0 ..] . plyTop 0) $ bandCords b)
-        weft = svgWeft CW 0 0 $ curvePath $ bandWeft b
+        -- weft = svgWeft CW 0 0 $ curvePath $ bandWeft b
 
 svgWeft :: Direction -> Twist -> Int -> Int -> [Action] -> String
 svgWeft _ _ _ _ [] = ""
