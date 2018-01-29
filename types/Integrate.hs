@@ -291,7 +291,7 @@ complexWeave = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [table
                                                                            flipTablet tablet2,
                                                                            tablet3,
                                                                            flipTablet tablet4,
-                                                                           flipTablet tablet1
+                                                                           flipTablet tablet2
                                                                           ],
                                                 tabletWeft = Strand {colour = orange,
                                                                      roll = Spin (repeat S)
