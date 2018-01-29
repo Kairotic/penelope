@@ -307,4 +307,4 @@ complexWeave = TabletWeave {tLoom = TabletLoom {tablets = take 11 $ cycle $ mirr
 
 complexBand = tabletWeave complexWeave
 
-mirror xs = xs ++ reverse xs
+mirror xs = xs ++ reverse (map flipTablet xs)
