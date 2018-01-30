@@ -5,3 +5,4 @@ import Data.Colour.Names
 let v = visCycle "demo.pdf" ""
 
 
+v "red"
