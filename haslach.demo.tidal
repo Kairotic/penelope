@@ -1,8 +1,7 @@
 import Sound.Tidal.VisCycle
 import Data.Colour
 import Data.Colour.Names
-
 let v = visCycle "demo" ""
+x1 silence
 
-
-v "red"
+v $ superimpose (rev) $ fast 12 $ every 4 (slow 2) $ every 4 ((1/3) <~) "red pink orange"

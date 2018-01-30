@@ -1,8 +1,0 @@
-import Sound.Tidal.VisCycle
-import Data.Colour
-import Data.Colour.Names
-
-let v = visCycle "demo" ""
-
-
-v $ superimpose (rev) $ fast 12 $ every 4 (slow 2) $ every 4 ((1/3) <~) "red pink orange"
