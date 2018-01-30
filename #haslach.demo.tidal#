@@ -5,4 +5,4 @@ import Data.Colour.Names
 let v = visCycle "demo" ""
 
 
-v $ <~ "red pink orange"
+v $ superimpose (rev) $ fast 12 $ every 4 (slow 2) $ every 4 ((1/3) <~) "red pink orange"
