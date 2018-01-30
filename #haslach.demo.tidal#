@@ -6,9 +6,12 @@ let blend' x y z = blend z x y
 x1 silence
 
 
-v $ fast 4 $ (blend' <$> "[red pink orange]*4" <*> "blue green purple" <*> (slow 2 sine))
 
-cps 0.7
 
-hush
-d1 $ n "c7" # sound "rash"
+
+
+
+
+
+
+
