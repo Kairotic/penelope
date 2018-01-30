@@ -1,0 +1,9 @@
+import Sound.Tidal.VisCycle
+import Data.Colour
+import Data.Colour.Names
+let v = visCycle "demo" ""
+let blend' x y z = blend z x y
+x1 silence
+
+
+v $ fast 4 $ (blend'<$> "[red pink orange]*4" <*> "blue green purple"
