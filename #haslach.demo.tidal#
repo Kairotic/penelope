@@ -18,6 +18,8 @@ d2 $ sound "drum(3,8)"
 d3 $ chunk 4 (hurry 2) $ n (off 0.125 (+12) $ off 0.25 (+7) $"<c7(3,8) e7(5,8) f7(3,8) g8(3,8,2)>") # sound "rash"
   # gain 1.1
 
+-
+
 v $ blend' <$> (fast 6 "orange [red [pink red] yellow]") <*> (fast 12 "blue purple") <*> (fast 2 sine)
 
 
