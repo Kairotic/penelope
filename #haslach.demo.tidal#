@@ -6,10 +6,10 @@ let blend' x y z = blend z x y
 x1 silence
 
 
+v $ fast "12 6" $ every "<3 2>" ((1/3) <~) "red blue green"
 
 
-
-
+d1 $ sound "bd cp sn:2 arpy"
 
 
 
