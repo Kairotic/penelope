@@ -11,9 +11,14 @@ x1 silence
 v $ fast "12 6" $ every "<3 2>" ((1/3) <~) "red blue green"
 
 
-d1 $ sound "bd cp sn:2 arpy"
+d1 $ chunk 4 (hurry 2) $ superimpose rev $ chop 8 $ sound "bd cp sn:2 arpy"
 
-v $ blend' <$> (fast 2 "orange [red [pink red] yellow]") <*> "blue purple" <*> (fast 2 sine)
+d2 $ sound "drum(3,8)"
+
+d3 $ n "<c6 e7 f7 g8>" # sound "rash"
+  # gain 1.1
+
+v $ blend' <$> (fast 6 "orange [red [pink red] yellow]") <*> (fast 12 "blue purple") <*> (fast 2 sine)
 
 
 
