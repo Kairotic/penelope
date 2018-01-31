@@ -12,4 +12,7 @@ import Sound.Tidal.Vis
 
 vPDF "test.pdf" (100, 15) $
   fast 32 $
-  superimpose id $ superimpose rev $ every 2 (slow 2) $ superimpose rev $ superimpose (iter 4) $ superimpose ((1/4) <~) $ "[black black white white black white]"
+  stack [superimpose id $ superimpose ((1/12) <~) $ "[black white black white black white]*2",
+         superimpose id $ superimpose rev $ every 2 (within (0,) (slow 2)) $ superimpose rev $ superimpose (iter 4) $ superimpose ((1/4) <~) $ "[black black white white black white]",
+         superimpose ((1/12) <~) $ "[black white black white black white]*2"
+        ]
