@@ -21,7 +21,7 @@ vPDF "test.pdf" (100, 25) $
          tabby
         ]
 
-d1 $ slow 2 $ sound $ superimpose id $ superimpose id $ superimpose (rev . ((3/12) <~)) $ every 2 (rev . ((2/12) <~)) $ superimpose (rev . (0.25 <~)) $ superimpose ((1/4) <~) $ "[<bd ~> <~ rash:50>]*3"
+d1 $ slow 2 $ sound $ superimpose id $ superimpose id $ superimpose (rev . ((3/12) <~)) $ every 2 (rev . ((2/12) <~)) $ superimpose (rev . (0.25 <~)) $ superimpose ((1/4) <~) $ "[<bd ~> <~ bd>]*3"
 
 
 
