@@ -25,7 +25,7 @@ vPDF "test.pdf" (100, 25) $
 d1 $ n (every 4 (fast 2) "c a f e") # sound "superpiano"
 
 vPDF "test.pdf" (100, 25) $
-  fast 32 $ fast 3 $ superimpose (rev) $ every 4 (fast 2) "[black white]"
+  fast 32 $ superimpose ((1/6) <~) $ fast 3 $ superimpose (rev) $ every 4 (fast 2) "[black white]"
 
 
 (blend 0.5 red <$>) . ((1/2) <~)  
