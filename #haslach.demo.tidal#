@@ -10,6 +10,6 @@ v $ "black black grey _ black grey _ black grey _ grey _"
 
 import Sound.Tidal.Vis
 
-vSVG "test.svg" (200, 15) $
-  fast 64 $
+vSVG "test.svg" (100, 15) $
+  fast 32 $
   superimpose id $ superimpose rev $ every 2 (slow 2) $ superimpose rev $ superimpose (iter 4) $ superimpose ((1/4) <~) $ "[black black white white black white]"
