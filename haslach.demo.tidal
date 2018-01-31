@@ -22,6 +22,8 @@ vPDF "test.pdf" (100, 25) $
         ]
 
 
+d1 $ sound "bd"
+
 d1 $ n (every 4 (fast 2) "c a f e") # sound "superpiano"
 
 vPDF "test.pdf" (100, 25) $
