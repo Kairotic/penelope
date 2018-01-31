@@ -1,0 +1,26 @@
+import Sound.Tidal.VisCycle
+import Data.Colour
+import Data.Colour.Names
+let v = visCycle "demo" ""
+x1 silence
+
+v $ superimpose (rev) $ fast 12 $ every 4 (slow 2) $ every 4 ((1/3) <~) "red pink orange"
+
+v $ "black black grey _ black grey _ black grey _ grey _"
+
+import Sound.Tidal.Vis
+
+let tabby = superimpose ((1/12) <~) $ "[black white black white black white]*2"
+
+vPDF "test.pdf" (100, 40) $
+  fast 32 $
+  stack [superimpose id $ superimpose ((1/12) <~) $ "[black white]*6",
+         superimpose id $ superimpose (rev . ((3/12) <~)) $ every 2 (rev . (<~)) $ superimpose (rev . (0.25 <~)) $ superimpose ((1/4) <~) $ "[black white]*3",
+         tabby,
+         superimpose id $ superimpose (rev . (0.25 <~)) $ every 2 (rev) $ superimpose (rev . (0.25 <~)) $ superimpose (iter 4) $ superimpose ((1/4) <~) $ "[black white]*3",
+         tabby,
+         "[black black white white black white]"
+        ]
+
+
+(blend 0.5 red <$>) . ((1/2) <~)  
