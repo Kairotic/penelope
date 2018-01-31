@@ -15,7 +15,7 @@ let tabby = superimpose ((1/12) <~) $ "[black white black white black white]*2"
 vPDF "test.pdf" (100, 40) $
   fast 32 $
   stack [superimpose id $ superimpose ((1/12) <~) $ "[black white]*6",
-         superimpose id $ superimpose (rev . ((2/12) <~)) $ every 2 (rev) $ superimpose (rev . (0.25 <~)) $ superimpose (iter 12) $ superimpose ((1/6) <~) $ "[black white]*3",
+         superimpose id $ superimpose (rev . ((2/12) <~)) $ every 2 (rev) $ superimpose (rev . (0.25 <~)) $ superimpose (iter 12) $ superimpose ((1/4) <~) $ "[black white]*3",
          tabby,
          superimpose id $ superimpose (rev . (0.25 <~)) $ every 2 (rev) $ superimpose (rev . (0.25 <~)) $ superimpose (iter 4) $ superimpose ((1/4) <~) $ "[black white]*3",
          tabby,
