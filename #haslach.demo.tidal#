@@ -10,4 +10,6 @@ v $ "black black grey _ black grey _ black grey _ grey _"
 
 import Sound.Tidal.Vis
 
-vPDF "test.svg" (200, 200) "[black white]*8"
+vPDF "test.pdf" (200, 200) $
+  fast 64 $
+    superimposeiter 4 $ superimpose ((1/4) <~) $ "[black black white white]"
