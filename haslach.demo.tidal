@@ -19,7 +19,7 @@ vPDF "test.pdf" (100, 25) $
          tabby,
          superimpose id $ superimpose (rev . (0.25 <~)) $ every 2 (rev) $ superimpose (rev . (0.25 <~)) $ superimpose (iter 4) $ superimpose ((1/4) <~) $ "[<black white> <white black>]*3",
          tabby,
-         superimpose rev $ superimpose ((1/6) <~) $ superimpose ((1/12) <~) $ "[black black white white black white]*2"
+         iter 6 $ superimpose rev $ superimpose ((1/6) <~) $ superimpose ((1/12) <~) $ "[black black white white black white]*2"
         ]
 
 let and a b | a == white && b == white = white
