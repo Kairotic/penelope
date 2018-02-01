@@ -46,7 +46,7 @@ vPDF "test.pdf" (120, 16) $
   fast 16 $ superimpose id $ superimpose (invert <$>) $ off 0.25 (rev) $ superimpose ((invert <$>) . (0.5 <~)) $ iter 4 $ "black black white black"
 
 vPDF "test.pdf" (120, 32) $
-  fast 16 $ always (id) $ superimpose (0.5 <~) $ superimpose (0.25 <~) $ "[black white, black white black white,white black white black, white black]"
+  fast 16 $ superimpose (iter ) $ superimpose (0.5 <~) $ superimpose (0.25 <~) $ "[black white, black white black white,white black white black, white black]"
 
 
-sometimes f p = (\x v -> if (v > 0.5) () ) <$> p <*> rand
+let sometimes f p = (\x v -> (x)) <$> p <*> sine
