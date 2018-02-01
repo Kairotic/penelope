@@ -49,7 +49,7 @@ vPDF "test.pdf" (120, 32) $
   fast 32 $ superimpose (iter 4) $ superimpose (iter 8) $ superimpose (0.5 <~) $ superimpose (0.25 <~) $ "[black white, black white black white,white black white black, white black]"
 
 vPDF "test.pdf" (120,32) $
-  fast 32 $ inside 2iter 4 $ stut' 4 "0.125" (invert <$>) $ superimpose rev $ superimpose rev $ "[black white, black white black white,white black]"
+  fast 32 $ inside 2 (iter 4) $ stut' 4 "0.125" (invert <$>) $ superimpose rev $ superimpose rev $ "[black white, black white black white,white black]"
 
 
 let sometimes f p = (\x v -> (x)) <$> p <*> sine
