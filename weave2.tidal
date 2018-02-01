@@ -1,4 +1,9 @@
-vPDF "test.pdf" (100, 25) $
+vPDF "test.pdf" (100, 5) $
   fast 32 $
-  stack [superimpose id $ superimpose ((1/12) <~) $ "[black white]*6"
+  stack [every 3 (invert <$>) $ superimpose (iter 4) $ superimpose ((1/2) <~) $ "[black black white white]"
         ]
+
+let and a b | a == white && b == white = white
+    and a b | otherwise = black
+    invert a | a == black = white
+             | otherwise = black
