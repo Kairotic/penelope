@@ -71,7 +71,6 @@ vPDF "test.pdf" (240,10) $ superimpose id $ fast 32 $ superimpose (invert <$>) $
 
 vPDF "test.pdf" (240,10) $ superimpose id $ fast 32 $ superimpose (invert <$>) $ superimpose ("<3 4>" <~) $ superimpose (1 <~) $ chunk 4 (invert <$>) $ iter 3 "[white black white white black white]"
 
-
 vPDF "test.pdf" (240,10) $ superimpose id $ fast 32 $ superimpose (invert <$>) $ superimpose ("<3 4 2>" <~) $ superimpose (1 <~) $ chunk 2 (invert <$>) $ iter 3 "[white black white white black white]"
 
 
