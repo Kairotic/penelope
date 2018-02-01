@@ -1,10 +1,12 @@
 vPDF "test.pdf" (100, 20) $
-  fast 32 $
+  fast 64 $
   stack [superimpose id $ every 3 (invert <$>) $ superimpose (iter 4) $ superimpose ((1/2) <~) $ "[black black white white]"
         , superimpose id $ every 2 (invert <$>) $ superimpose (iter 4) $ superimpose ((1/2) <~) $ "[black black white white]"
         , superimpose id $ every 4 (slow 2 . (invert <$>)) $ superimpose (iter 4) $ superimpose ((1/2) <~) $ "[black black white white]"
         , superimpose id $ whenmod 16 4 ( (invert <$>)) $ superimpose (iter 4) $ superimpose ((1/2) <~) $ "[black white]"
         , superimpose id $ whenmod 16 4 ( (invert <$>)) $ superimpose (iter 4) $ "[black white]"
+        , superimpose id $ whenmod 16 4 ( (invert <$>)) $ superimpose (iter 4) $ "[<black white> <white black>]"
+        , superimpose id $ whenmod 16 4 ( (invert <$>)) $ superimpose (iter 4) $ "[<black white> <white black> <black white black> <white black white>]"
         ]
 
 let and a b | a == white && b == white = white
