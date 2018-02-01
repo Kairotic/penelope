@@ -286,32 +286,18 @@ simpleWeave = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [rwgbTa
   where rwgbTablet = Tablet {warps = [thread red, thread white, thread green, thread blue], yaw = S}
         
 simpleBand = tabletWeave simpleWeave
-             
-TabletWeave {tLoom = TabletLoom {tablets =
-                                   take 11 $ cycle [tablet2,
-                                                    flipTablet tablet2,
-                                                    tablet3,
-                                                    flipTablet tablet4,
-                                                    flipTablet tablet2
-                                                   ],
-                                 tabletWeft =
-                                   Strand {colour = orange,
-                                           roll = Spin (repeat S)
-                                          }
-                                },
-             tSheds = (take 24 $ cycle [forward, backward, backward,
-                                        forward, forward, backward])
-            }
 
-tablet1 = Tablet {warps = [thread red, thread white, thread red, thread white],
-                  yaw = S}
-tablet2 = Tablet {warps = [thread blue, thread green, thread blue, thread green],
-                  yaw = S}
-tablet3 = Tablet {warps = [thread orange, thread purple, thread orange, thread purple],
-                  yaw = S}
-tablet4 = Tablet {warps = [thread purple, thread orange, thread purple, thread orange],
-                  yaw = S}
-forward = replicate 12 S
-backward = replicate 12 Z
 
-complexBand = tabletWeave complexWeave
+
+bfWeave = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [rwgbTablet,
+                                                                      flipTablet rwgbTablet
+                                                                     ],
+                                           tabletWeft = Strand {colour = orange,
+                                                                roll = Spin (repeat S)
+                                                               }
+                                          },
+                       tSheds = (take 24 $ cycle [replicate 12 S, replicate 12 Z])
+                      }
+  where rwgbTablet = Tablet {warps = [thread red, thread white, thread green, thread blue], yaw = S}
+        
+bfBand = tabletWeave bfWeave
