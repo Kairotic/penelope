@@ -60,7 +60,6 @@ vPDF "test.pdf" (120,64) $
     ]
 ]
 
-vPDF "test.pdf" (120,64) $ superimpose id $ superimpose id $ superimpose id $ fast 16 $
-  every 2 (slow 2) $ chunk 3 (slow 2) $ "[black white white, white black black]"
+vPDF "test.pdf" (240,64) $ superimpose id $ fast 16 $ superimpose (1 <~) $ superimpose (2 <~) $ iter 4 "[black white white white]"
 
 let sometimes f p = (\x v -> (x)) <$> p <*> sine
