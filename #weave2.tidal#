@@ -23,5 +23,5 @@ let and a b | a == white && b == white = white
 
 vPDF "test.pdf" (100, 20) $
   fast 32 $
-  stack ["black white white whit white black white white"
+  stack [off (1/6) (invert <$>) $ superimpose ((1/12) <~)$ iter 6 ("black white@5 black white@5" :: Pattern ColourD)
         ]
