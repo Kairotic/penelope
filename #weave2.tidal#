@@ -9,7 +9,7 @@ vPDF "test.pdf" (100, 20) $
         , superimpose id $ whenmod 16 4 ( (invert <$>)) $ superimpose (iter 4) $ "[<black white> <white black> <black white black> <white black white>]"
         , (invert <$> (superimpose id $ whenmod 16 4 ( (invert <$>)) $ superimpose (iter 4) $ "[<black white> <white black> <black white black> <white black white>]" :: Pattern ColourD))
         , every 2 (slow 2) (invert <$> (superimpose id $ whenmod 16 4 ( (invert <$>)) $ superimpose (iter 4) $ "[<black white> <white black> <black white black> <white black white>]" :: Pattern ColourD))
-        , slow (3/2) $ "black white white black white"
+        , superimpose (invert <$>) $ slow (3/2) $ ("black black white white black white" :: Pattern ColourD)
         ]
 
 
