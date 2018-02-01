@@ -1,0 +1,4 @@
+vPDF "test.pdf" (100, 5) $
+  fast 32 $
+  stack [superimpose id $ superimpose ((1/2) <~) $ "[black black white white]*4"
+        ]
