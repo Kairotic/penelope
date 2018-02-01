@@ -1,0 +1,43 @@
+import Sound.Tidal.VisCycle
+import Data.Colour
+import Data.Colour.Names
+let v = visCycle "demo" ""
+x1 silence
+import Sound.Tidal.Vis
+
+
+let and a b | a == white && b == white = white
+    and a b | otherwise = black
+    invert a | a == black = white
+             | otherwise = black
+
+vPDF "test.pdf" (100, 20) $
+  fast 48 $
+  stack [superimpose id $ every 3 (invert <$>) $ superimpose (iter 4) $ superimpose ((1/2) <~) $ "[black black white white]"
+        , superimpose id $ every 2 (invert <$>) $ superimpose (iter 4) $ superimpose ((1/2) <~) $ "[black black white white]"
+        , superimpose id $ every 4 (slow 2 . (invert <$>)) $ superimpose (iter 4) $ superimpose ((1/2) <~) $ "[black black white white]"
+        , superimpose id $ whenmod 16 4 ( (invert <$>)) $ superimpose (iter 4) $ superimpose ((1/2) <~) $ "[black white]"
+        , superimpose id $ whenmod 16 4 ( (invert <$>)) $ superimpose (iter 4) $ "[black white]"
+        , superimpose id $ whenmod 16 4 ( (invert <$>)) $ superimpose (iter 4) $ "[<black white> <white black>]"
+        , superimpose id $ whenmod 16 4 ( (invert <$>)) $ superimpose (iter 4) $ "[<black white> <white black> <black white black> <white black white>]"
+        , (invert <$> (superimpose id $ whenmod 16 4 ( (invert <$>)) $ superimpose (iter 4) $ "[<black white> <white black> <black white black> <white black white>]" :: Pattern ColourD))
+        , every 2 (slow 2) (invert <$> (superimpose id $ whenmod 16 4 ( (invert <$>)) $ superimpose (iter 4) $ "[<black white> <white black> <black white black> <white black white>]" :: Pattern ColourD))
+        , superimpose (invert <$>) $ slow (3/2) $ ("black black white white black white" :: Pattern ColourD)
+        ]
+
+
+:t invert
+
+
+vPDF "test.pdf" (120, 20) $
+  fast 32 $
+  stack [superimpose id $ superimpose id $ superimpose id $ superimpose ((invert <$>) . rev) $ superimpose ((1/12) <~)$ iter 6 ("black white@5 black white@5" :: Pattern ColourD),
+         chunk 3 (invert <$>) $ iter 3 $ (superimpose id $ superimpose id $ superimpose rev $ superimpose ((invert <$>) . (inside 2 rev)) $ superimpose ((1/12) <~)$ iter 6 ("black white@5 black white@5" :: Pattern ColourD))
+        ]
+
+vPDF "test.pdf" (120, 2) $
+  fast 64 $
+  stack [chunk 2 (invert <$>) ("black white@5 black white@5" :: Pattern ColourD)
+         , chunk 8 (invert <$>) ("black white@5 black white@5" :: Pattern ColourD)
+        ]
+
