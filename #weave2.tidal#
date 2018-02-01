@@ -77,12 +77,16 @@ let sometimes f p = (\x v -> (x)) <$> p <*> sine
 
 
 
-vPDF "test.pdf" (240,60) $ stack [
-  superimpose id $ fast 32 $ superimpose (invert <$>) $ superimpose (3 <~) $ superimpose (2 <~) $ chunk 4 (invert <$>) $ iter 4 "[black white white white black white]"
-  , "[white black]*12"
-  , superimpose id $ fast 32 $ superimpose (invert <$>) $ superimpose (3 <~) $ superimpose (2 <~) $ chunk 4 (invert <$>) $ iter 4 "[white black white white black white]"
-  , superimpose id $ fast 32 $ superimpose (invert <$>) $ superimpose (3 <~) $ superimpose (1 <~) $ chunk 4 (invert <$>) $ iter 4 "[white black white white black white]"
-  , superimpose id $ fast 32 $ superimpose (invert <$>) $ superimpose (3 <~) $ superimpose (1 <~) $ chunk 4 (invert <$>) $ iter 3 "[white black white white black white]"
-  , superimpose id $ fast 32 $ superimpose (invert <$>) $ superimpose ("<3 4>" <~) $ superimpose (1 <~) $ chunk 4 (invert <$>) $ iter 3 "[white black white white black white]"
-  , superimpose id $ fast 32 $ superimpose (invert <$>) $ superimpose ("<3 4 2>" <~) $ superimpose (1 <~) $ chunk 2 (invert <$>) $ iter 3 "[white black white white black white]"
+vSVG "steps.svg" (240,60) $ stack [
+  superimpose id $ fast 32 $ superimpose (invert <$>) $ superimpose (3 <~) $ superimpose (2 <~) $ chunk 4 (invert <$>) $ iter 4 "[black white white white black white]" -- 16
+  , superimpose id $ fast 16 "[white black,black white]*12" -- 4
+  , superimpose id $ fast 32 $ superimpose (invert <$>) $ superimpose (3 <~) $ superimpose (2 <~) $ chunk 4 (invert <$>) $ iter 4 "[white black white white black white]" -- 16
+  , superimpose id $ fast 16 "[white black,black white]*12" -- 4
+  , superimpose id $ fast 32 $ superimpose (invert <$>) $ superimpose (3 <~) $ superimpose (1 <~) $ chunk 4 (invert <$>) $ iter 4 "[white black white white black white]" -- 16 
+  , superimpose id $ fast 16 "[white black,black white]*12" -- 4
+  , superimpose id $ fast 32 $ superimpose (invert <$>) $ superimpose (3 <~) $ superimpose (1 <~) $ chunk 4 (invert <$>) $ iter 3 "[white black white white black white]" -- 16
+  , superimpose id $ fast 16 "[white black,black white]*12" -- 4
+  , superimpose id $ fast 32 $ superimpose (invert <$>) $ superimpose ("<3 4>" <~) $ superimpose (1 <~) $ chunk 4 (invert <$>) $ iter 3 "[white black white white black white]" -- 16
+  , superimpose id $ fast 16 "[white black,black white]*12" -- 4
+  , superimpose id $ fast 32 $ superimpose (invert <$>) $ superimpose ("<3 4 2>" <~) $ superimpose (1 <~) $ chunk 2 (invert <$>) $ iter 3 "[white black white white black white]" -- 16
   ]
