@@ -35,9 +35,9 @@ vSVG "piece5.svg" (120, 20) $
          chunk 3 (invert <$>) $ iter 3 $ (superimpose id $ superimpose id $ superimpose rev $ superimpose ((invert <$>) . (inside 2 rev)) $ superimpose ((1/12) <~)$ iter 6 ("black white@5 black white@5" :: Pattern ColourD))
         ]
 
-vPDF "test.pdf" (120, 8) $
-  fast 64 $
-  superimpose id $ stack [superimpose (invert <$>) $ chunk 2 (invert <$>) ("black white@5 black white@5" :: Pattern ColourD)
+vPDF "test.pdf" (120, 16) $
+  fast 16 $
+  stack [superimpose (invert <$>) $ chunk 2 (invert <$>) ("black white@5 black white@5" :: Pattern ColourD)
          , iter 12 $ superimpose id $ superimpose (invert <$>) $ chunk 3 (invert <$>) ("black white@5 black white@5" :: Pattern ColourD)
          , superimpose id $ iter 12 $ superimpose rev $ superimpose (invert <$>) $ chunk 3 (invert <$>) ("black white@5 white black@5" :: Pattern ColourD)
         ]
@@ -51,11 +51,16 @@ vPDF "test.pdf" (120, 32) $
 vPDF "test.pdf" (120,32) $ "black"
 
 vPDF "test.pdf" (120,64) $
-  fast 32 $ stack [
+  fast 32 $
+  c[stack [superimpose (invert <$>) $ chunk 2 (invert <$>) ("black white@5 black white@5" :: Pattern ColourD)
+         , iter 12 $ superimpose id $ superimpose (invert <$>) $ chunk 3 (invert <$>) ("black white@5 black white@5" :: Pattern ColourD)
+         , superimpose id $ iter 12 $ superimpose rev $ superimpose (invert <$>) $ chunk 3 (invert <$>) ("black white@5 white black@5" :: Pattern ColourD)
+        ],
+  stack [
     stut' 2 "0.125" (invert <$>) $ superimpose rev $ superimpose rev $ "[black white, black white black white,white black]"
     , iter 4 $ stut' 4 "0.125" (invert <$>) $ superimpose rev $ superimpose rev $ "[black white, black white black white,white black]"
     , stut' 2 "0.125" (invert <$>) $ superimpose rev $ superimpose rev $ "[black white, black white black white,white black]"
     ]
-
+]
 
 let sometimes f p = (\x v -> (x)) <$> p <*> sine
