@@ -29,7 +29,8 @@ vPDF "test.pdf" (100, 20) $
 :t invert
 
 
-vPDF "test.pdf" (100, 5) $
-  fast 32 $
-  stack [superimpose id $ superimpose id $ superimpose id $ superimpose ((invert <$>) . rev) $ superimpose ((1/12) <~)$ iter 6 ("black white@5 black white@5" :: Pattern ColourD)
+vPDF "test.pdf" (60, 20) $
+  fast 16 $
+  stack [superimpose id $ superimpose id $ superimpose id $ superimpose ((invert <$>) . rev) $ superimpose ((1/12) <~)$ iter 6 ("black white@5 black white@5" :: Pattern ColourD),
+         chunk 3 (invert <$>) $ iter 3 $ (superimpose id $ superimpose id $ superimpose id $ superimpose ((invert <$>) . rev) $ superimpose ((1/12) <~)$ iter 6 ("black white@5 black white@5" :: Pattern ColourD))
         ]
