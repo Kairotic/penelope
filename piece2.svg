@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="120pt" height="32pt" viewBox="0 0 120 32" version="1.1">
 <g id="surface49">
-<rect x="0" y="0" width="120" height="32" style="fill:rgb(0%,0%,0%);fill-opacity:1;stroke:none;"/>
 <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 0 0 L 0.9375 0 L 0.9375 0.5 L 0 0.5 Z M 0 0 "/>
 <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 0 0.5 L 0.9375 0.5 L 0.9375 1 L 0 1 Z M 0 0.5 "/>
 <path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 0 1 L 0.9375 1 L 0.9375 1.5 L 0 1.5 Z M 0 1 "/>
