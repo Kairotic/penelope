@@ -7,7 +7,7 @@ difference() {
     cube([w+4,h+4,d+4]);
     translate([2,2,2]) {
       // inside
-      cube([13,15,29+3]);
+      cube([w,h,d+3]);
     }
     
     // hole for pin
