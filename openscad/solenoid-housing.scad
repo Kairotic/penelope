@@ -4,12 +4,12 @@ difference() {
     w = 13;
     h = 15;
     d = 29;
-    wall = 4;
+    wall = 2;
     // box
     cube([w+wall,h+wall,d+wall]);
-    translate([2,2,2]) {
+    translate([wall,wall,wall]) {
       // inside
-      cube([w,h,d+3]);
+      cube([w,h,d+wall+1]);
     }
     
     // hole for pin
