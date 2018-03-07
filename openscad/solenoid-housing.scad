@@ -38,8 +38,8 @@ module halfbox(w,h,d,wall) {
 }
 
 bw = 13;
-bh = 15.5;
-bd = 30.5;
+bh = 15;
+bd = 29;
 bwall=2;
 give = 0.25;
 
