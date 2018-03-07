@@ -19,11 +19,17 @@ difference() {
 };
 };
 
-// translate([15,0,0]) { box(); };
-
-difference() {
-    box();
-    translate([((13+4)/2),-1,-1]) {
-        cube([13+4,15+4+2,29+4+2]);
+module halfbox() {
+    difference() {
+        box();
+        translate([((13+4)/2),-1,-1]) {
+            cube([13+4,15+4+2,29+4+2]);
+        }
     }
+}
+
+halfbox();
+
+translate([10,10,0)) {
+    cube();
 }
