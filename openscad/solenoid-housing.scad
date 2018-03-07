@@ -1,9 +1,6 @@
-module box() {
+module box(w,h,d) {
 difference() {
     // size of inside
-    w = 13;
-    h = 15;
-    d = 29;
     wall = 2;
     // box
     cube([w+wall*2,h+wall*2,d+wall*2]);
@@ -25,7 +22,10 @@ difference() {
 };
 
 module halfbox() {
-    difference() {
+    w = 13;
+    h = 15;
+    d = 29;
+    difference(w,h,d) {
         box();
         translate([((13+4)/2),-1,-1]) {
             cube([13+4,15+4+2,29+4+2]);
