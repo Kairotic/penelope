@@ -62,7 +62,7 @@ h=bw-0.5;
             };
             
         };
-            translate ([0,(bh+bwall*2)/2,5]) {
+            translate ([0,0,0]) {
                 sphere(4);
             }
     }
