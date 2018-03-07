@@ -39,7 +39,7 @@ module halfbox(w,h,d,wall) {
 
 bw = 13;
 bh = 15.5;
-bd = 31;
+bd = 30.5;
 bwall=2;
 give = 0.5;
 
@@ -49,20 +49,20 @@ l=25;
 h=bw-0.5;
 
 translate([l+bwall*3,0,-10]) {
-rotate([0,90,0]) {
+    rotate([0,90,0]) {
 
-translate([0-bwall,0-bwall,0-(l+bwall*2)]) {
-    difference() {
-        cube([h,bh+bwall*4,l+bwall*2]);
-        translate([bwall-give,bwall-give,bwall]) {
-            cube([h-bwall*2+give*2,bh+bwall*2+give*2,
-                  l+4]);
+    translate([0-bwall,0-bwall,0-(l+bwall*2)]) {
+        difference() {
+            cube([h,bh+bwall*4,l+bwall*2]);
+            translate([bwall-give,bwall-give,bwall]) {
+                cube([h-bwall*2+give*2,bh+bwall*2+give*2,
+                    l+4]);
+            };
+            translate([bwall+3,bwall+bwall,bwall]) {
+                cube([h-bwall*2,bh,l+4]);
+            };
         };
-        translate([bwall+3,bwall+bwall,bwall]) {
-            cube([h-bwall*2,bh,l+4]);
-        };
-    };
-}
+    }
 }
 }
 
