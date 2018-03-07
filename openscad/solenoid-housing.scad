@@ -38,7 +38,7 @@ bwall=2;
 union() {
 halfbox(bw,bh,bd,bwall);
 l=25;
-h=15
+h=15;
 translate([0,0,0-(l+bwall*2)+1]) {
     difference() {
         cube([h,bh+bwall*2,l+bwall*2]);
