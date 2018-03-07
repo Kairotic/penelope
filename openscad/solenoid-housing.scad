@@ -43,7 +43,7 @@ translate([0,0,0-(l+bwall*2)+1]) {
     difference() {
         cube([h,bh+bwall*2,l+bwall*2]);
         translate([bwall,bwall,bwall]) {
-            cube([h+4,bh,l+4]);
+            cube([h,bh,l+4]);
         };
     };
 }
