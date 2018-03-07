@@ -77,9 +77,9 @@ translate ([(bw+bwall*2)/2,(bh+bwall*2)/2,-17]) {
 
 translate ([0,-10,0]) rotate ([0,90,0]) {
   //cylinder(r1=5,r2=1,h=20);
-    rotate_extrude(convexity = 10)
-translate([2, 0, 0])
-circle(r = 1, $fn = 100);
+  rotate_extrude(convexity = 10)
+    translate([2, 0, 0])
+    circle(r = 1, $fn = 100);
 }
 
 
