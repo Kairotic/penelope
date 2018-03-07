@@ -38,11 +38,12 @@ bwall=2;
 union() {
 halfbox(bw,bh,bd,bwall);
 l=25;
+h=15
 translate([0,0,0-(l+bwall*2)+1]) {
     difference() {
-        cube([10,bh+bwall*2,l+bwall*2]);
+        cube([h,bh+bwall*2,l+bwall*2]);
         translate([bwall,bwall,bwall]) {
-            cube([10+4,bh,l+4]);
+            cube([h+4,bh,l+4]);
         };
     };
 }
