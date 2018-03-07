@@ -37,7 +37,7 @@ module halfbox(w,h,d,wall) {
     }
 }
 
-bw = 15;
+bw = 13;
 bh = 15;
 bd = 29;
 bwall=2;
