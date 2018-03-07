@@ -36,6 +36,7 @@ bd = 29;
 bwall=2;
 halfbox(bw,bh,bd,bwall);
 
+// path of pin
 translate ([(bw+bwall*2)/2,(bh+bwall*2)/2,-17]) {
    cylinder(r1=3,r2=3,h=20);
 }
