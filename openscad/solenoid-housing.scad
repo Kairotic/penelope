@@ -34,7 +34,7 @@ bw = 13;
 bh = 15;
 bd = 29;
 bwall=2;
-halfbox(bw,bh,bd);
+halfbox(bw,bh,bd,bwall);
 
 translate ([(13+4)/2,(15+4)/2,-17]) {
    cylinder(r1=3,r2=3,h=20);
