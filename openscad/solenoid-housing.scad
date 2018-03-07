@@ -18,7 +18,7 @@ difference() {
     }
     
     // hole for wire
-    translate([-1,((15+4)/2)-2,2]) {
+    translate([-1,((h+wall*2)/2)-2,2]) {
        cube([3.5,4,3.5]);
     }
 };
