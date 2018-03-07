@@ -71,7 +71,7 @@ translate ([(bw+bwall*2)/2,(bh+bwall*2)/2,-17]) {
 }
 
 translate ([(bw+bwall*2)/2,(bh+bwall*2)/2,-30]) {
-   cylinder(r1=3,r2=3,h=10);
+   sphere(10);
 }
 
 
