@@ -30,7 +30,7 @@ module halfbox() {
 
 halfbox();
 
-translate ([(13+4)/2,(15+4)/2,-1]) {
+translate ([(13+4)/2,(15+4)/2,0]) {
    cylinder(r1=3,r2=3,h=10);
 }
 
