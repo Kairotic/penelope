@@ -71,7 +71,7 @@ translate ([(bw+bwall*2)/2,(bh+bwall*2)/2,-17]) {
 }
 
 translate ([(bw+bwall*2)/2,(bh+bwall*2)/2,-30]) {
-   sphere(10);
+   sphere(4);
 }
 
 
