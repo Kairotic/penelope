@@ -39,7 +39,7 @@ union() {
 halfbox(bw,bh,bd,bwall);
 l=25;
 h=15;
-translate([0,0-bwall,0-(l+bwall*2)-10]) {
+translate([0-bwall,0-bwall,0-(l+bwall*2)-10]) {
     difference() {
         cube([h,bh+bwall*4,l+bwall*2]);
         translate([bwall,bwall,bwall]) {
