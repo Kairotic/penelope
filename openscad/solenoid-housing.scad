@@ -43,7 +43,10 @@ bd = 29;
 bwall=2;
 give = 0.25;
 
+rotate([90]) {
 halfbox(bw,bh,bd,bwall);
+}
+
 l=25;
 h=bh/2+bwall+bwall/2+bwall;
 translate([0-bwall,0-bwall,0-(l+bwall*2)-2]) {
