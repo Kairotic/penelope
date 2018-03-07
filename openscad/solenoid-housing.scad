@@ -25,8 +25,8 @@ module halfbox() {
     w = 13;
     h = 15;
     d = 29;
-    difference(w,h,d) {
-        box();
+    difference() {
+        box(w,h,d);
         translate([((13+4)/2),-1,-1]) {
             cube([13+4,15+4+2,29+4+2]);
         }
