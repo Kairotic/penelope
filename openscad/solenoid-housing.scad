@@ -45,11 +45,12 @@ give = 0.25;
 
 halfbox(bw,bh,bd,bwall);
 
+l=25;
+h=bh/2+bwall+bwall/2+bwall;
+
 translate([h,0,0]) {
 rotate([0,90,0]) {
 
-l=25;
-h=bh/2+bwall+bwall/2+bwall;
 translate([0-bwall,0-bwall,0-(l+bwall*2)-2]) {
     difference() {
         cube([h,bh+bwall*4,l+bwall*2]);
