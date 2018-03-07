@@ -6,4 +6,8 @@
         translate([0,0,-5]) {
             cylinder(h=20, r1=ir, r2=ir, $fn=50);
         };
+        translate ([0,0,-1]) {
+            cube([10,10,20]);
+        }
     }   
+    
