@@ -6,7 +6,7 @@ difference() {
     d = 29;
     wall = 2;
     // box
-    cube([w+wall,h+wall,d+wall]);
+    cube([w+wall*2,h+wall*2,d+wall*2]);
     translate([wall,wall,wall]) {
       // inside
       cube([w,h,d+wall+1]);
