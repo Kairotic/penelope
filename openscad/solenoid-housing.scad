@@ -42,7 +42,7 @@ translate ([(bw+bwall*2)/2,(bh+bwall*2)/2,-17]) {
 }
 
 l=20;
-translate([0,0,(0-l)) {
+translate([0,0,20) {
     difference() {
         l = 20;
         cube([10,bh+bwall*2,l+bwall*2]);
