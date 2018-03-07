@@ -30,6 +30,6 @@ module halfbox() {
 
 halfbox();
 
-translate([10,0,-20]) {
+translate([0,0,-20]) {
     cube();
 }
