@@ -1,7 +1,10 @@
 module box() {
 difference() {
+    w = 13;
+    h = 15;
+    d = 29;
     // box
-    cube([13+4,15+4,29+4]);
+    cube([w+4,h+4,d+4]);
     translate([2,2,2]) {
       // inside
       cube([13,15,29+3]);
