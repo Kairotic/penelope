@@ -13,7 +13,7 @@ difference() {
     }
     
     // hole for pin
-    translate ([(13+4)/2,(15+4)/2,-1]) {
+    translate ([(w+wall*2)/2,(h+wall*2)/2,-1]) {
         cylinder(r1=4,r2=4,h=6);
     }
     
