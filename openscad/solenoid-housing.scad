@@ -58,7 +58,7 @@ h=bw-0.5;
                     l+4]);
             };
             translate([bwall+3,bwall+bwall,bwall]) {
-                cube([h-bwall*2,bh,l+4]);
+                sphere([h-bwall*2,bh,l+4]);
             };
         };
     }
