@@ -19,7 +19,7 @@ difference() {
     }
 };
     // hole for pin 'back'
-    translate ([(w+wall*2)/2,(h+wall*2)/2,-1]) {
+    translate ([(w+wall*2)/2,(h+wall*2)/2,d]) {
         cylinder(r1=4,r2=4,h=6);
     }
 };
