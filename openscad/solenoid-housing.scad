@@ -4,8 +4,9 @@ difference() {
     w = 13;
     h = 15;
     d = 29;
+    wall = 4;
     // box
-    cube([w+4,h+4,d+4]);
+    cube([w+wall,h+wall,d+wall]);
     translate([2,2,2]) {
       // inside
       cube([w,h,d+3]);
