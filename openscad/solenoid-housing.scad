@@ -60,7 +60,10 @@ h=bw-0.5;
             translate([bwall+3,bwall+bwall,bwall]) {
                 cube([h-bwall*2,bh,l+4]);
             };
-   
+            
+            translate ([(bw+bwall*2)/2,(bh+bwall*2)/2,-24]) {
+   sphere(4);
+}
 
         };
     }
@@ -72,10 +75,7 @@ translate ([(bw+bwall*2)/2,(bh+bwall*2)/2,-17]) {
    cylinder(r1=3,r2=3,h=20);
 }
 
-         
-            translate ([(bw+bwall*2)/2,(bh+bwall*2)/2,-24]) {
-   sphere(4);
-}
+
 
 
 
