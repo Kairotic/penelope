@@ -40,7 +40,7 @@ halfbox(bw,bh,bd,bwall);
 l=25;
 translate([0,0,0-(l+bwall*2)+1]) {
     difference() {
-        cube([20,bh+bwall*2,l+bwall*2]);
+        cube([10,bh+bwall*2,l+bwall*2]);
         translate([bwall,bwall,bwall]) {
             cube([bw+4,bh,l+4]);
         };
