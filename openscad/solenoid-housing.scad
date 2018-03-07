@@ -1,5 +1,6 @@
 module box() {
 difference() {
+    // size of inside
     w = 13;
     h = 15;
     d = 29;
