@@ -60,10 +60,12 @@ h=bw-0.5;
             translate([bwall+3,bwall+bwall,bwall]) {
                 cube([h-bwall*2,bh,l+4]);
             };
-        };
-translate ([(bw+bwall*2)/2,(bh+bwall*2)/2,-24]) {
+            
+            translate ([(bw+bwall*2)/2,(bh+bwall*2)/2,-24]) {
    sphere(4);
 }
+
+        };
     }
 //}
 
