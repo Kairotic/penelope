@@ -45,7 +45,7 @@ translate([0,0,-40]) {
     difference() {
         cube([bw+bwall*2,bh+bwall*2,10+bwall*2]);
         translate([bwall,bwall,bwall]) {
-            cube([bw+4,bh,10+4]);
+            cube([bw+4,bh,20+4]);
         };
     };
 }
