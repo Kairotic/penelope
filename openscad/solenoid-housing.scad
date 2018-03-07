@@ -19,11 +19,7 @@ difference() {
 };
 };
 
-module halfbox() {
-    w = 13;
-    h = 15;
-    d = 29;
-    wall=2;
+module halfbox(w,h,d,wall) {
     difference() {
         box(w,h,d,wall);
         translate([((w+(wall*2))/2),-1,-1]) {
@@ -34,7 +30,11 @@ module halfbox() {
     }
 }
 
-halfbox();
+bw = 13;
+bh = 15;
+bd = 29;
+bwall=2;
+halfbox(bw,bh,bd);
 
 translate ([(13+4)/2,(15+4)/2,-17]) {
    cylinder(r1=3,r2=3,h=20);
