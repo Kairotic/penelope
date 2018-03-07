@@ -34,13 +34,9 @@ bw = 13;
 bh = 15;
 bd = 29;
 bwall=2;
+
+union() {
 halfbox(bw,bh,bd,bwall);
-
-// path of pin
-translate ([(bw+bwall*2)/2,(bh+bwall*2)/2,-17]) {
-   cylinder(r1=3,r2=3,h=20);
-}
-
 l=25;
 translate([0,0,0-(l+bwall*2)]) {
     difference() {
@@ -50,6 +46,13 @@ translate([0,0,0-(l+bwall*2)]) {
         };
     };
 }
+}
+
+// path of pin
+translate ([(bw+bwall*2)/2,(bh+bwall*2)/2,-17]) {
+   cylinder(r1=3,r2=3,h=20);
+}
+
 
 
 
