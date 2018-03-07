@@ -47,7 +47,7 @@ h=bh/2+bwall+bwall/2+bwall;
 translate([0-bwall,0-bwall,0-(l+bwall*2)-2]) {
     difference() {
         cube([h,bh+bwall*4,l+bwall*2]);
-        translate([bwall,bwall,bwall]) {
+        translate([bwall-give,bwall,bwall]) {
             cube([h-bwall*2+give*2,bh+bwall*2,l+4]);
         };
         translate([bwall+3,bwall+bwall,bwall]) {
