@@ -27,7 +27,9 @@ module halfbox() {
     difference() {
         box(w,h,d,wall);
         translate([((w+(wall*2))/2),-1,-1]) {
-            cube([w+(wall*2),h+(wall*2)+2,d+(wall*2)+2]);
+            cube([w+(wall*2),
+                  h+(wall*2)+2,
+                  d+(wall*2)+2]);
         }
     }
 }
