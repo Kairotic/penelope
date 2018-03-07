@@ -39,7 +39,7 @@ bw = 13;
 bh = 15;
 bd = 29;
 bwall=2;
-give = 0.125;
+give = 0.25;
 
 halfbox(bw,bh,bd,bwall);
 l=25;
