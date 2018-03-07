@@ -2,7 +2,7 @@ module box() {
 difference() {
     // box
     cube([13+4,15+4,29+4]);
-    translate([2,2,4]) {
+    translate([2,2,6]) {
       // inside
       cube([13,15,29+1]);
     }
@@ -20,7 +20,7 @@ difference() {
 };
 };
 
-translate([15,0,0]) { box(); };
+// translate([15,0,0]) { box(); };
 
 difference() {
     box();
