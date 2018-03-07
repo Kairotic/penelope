@@ -51,7 +51,7 @@ h=bw;
 //translate([l+bwall*3,0,-10]) {
 //rotate([0,90,0]) {
 
-translate([0-bwall,0-bwall,0-(l+bwall*2)-2]) {
+translate([0-bwall,0-bwall,0-(l+bwall*2)]) {
     difference() {
         cube([h,bh+bwall*4,l+bwall*2]);
         translate([bwall-give,bwall-give,bwall]) {
