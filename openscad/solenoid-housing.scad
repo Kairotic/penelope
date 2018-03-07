@@ -46,7 +46,7 @@ translate([0-bwall,0-bwall,0-(l+bwall*2)-2]) {
             cube([h-bwall*2,bh+bwall*2,l+4]);
         };
         translate([bwall+3,bwall+bwall,bwall]) {
-            cube([h-bwall*2,bh+bwall,l+4]);
+            cube([h-bwall*2,bh,l+4]);
         };
     };
 }
