@@ -43,7 +43,7 @@ bd = 29;
 bwall=2;
 give = 0.25;
 
-rotate([0,90]) {
+rotate([0,90,0]) {
 halfbox(bw,bh,bd,bwall);
 }
 
