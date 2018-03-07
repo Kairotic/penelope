@@ -7,16 +7,21 @@ difference() {
       cube([w,h,d]);
     }
     
-    // hole for pin
+    // hole for pin 'front'
     translate ([(w+wall*2)/2,(h+wall*2)/2,-1]) {
         cylinder(r1=4,r2=4,h=6);
     }
+
     
     // hole for wire
     translate([-1,((h+wall*2)/2)-2,2]) {
        cube([3.5,4,3.5]);
     }
 };
+    // hole for pin 'back'
+    translate ([(w+wall*2)/2,(h+wall*2)/2,-1]) {
+        cylinder(r1=4,r2=4,h=6);
+    }
 };
 
 module halfbox(w,h,d,wall) {
