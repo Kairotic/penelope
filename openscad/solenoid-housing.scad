@@ -48,8 +48,8 @@ halfbox(bw,bh,bd,bwall);
 l=25;
 h=bw-0.5;
 
-//translate([l+bwall*3,0,-10]) {
-//rotate([0,90,0]) {
+translate([l+bwall*3,0,-10]) {
+rotate([0,90,0]) {
 
 translate([0-bwall,0-bwall,0-(l+bwall*2)]) {
     difference() {
@@ -63,8 +63,8 @@ translate([0-bwall,0-bwall,0-(l+bwall*2)]) {
         };
     };
 }
-//}
-//}
+}
+}
 
 // path of pin
 /*
