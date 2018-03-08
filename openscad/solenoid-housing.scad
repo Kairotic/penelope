@@ -80,7 +80,7 @@ translate ([0,-10,0]) rotate ([0,90,0]) {
   // rotate([0,10,0]) cylinder(r1=1,r2=1,h=20);
   rotate([0,90,0])
   rotate_extrude(convexity = 10)
-    translate([1, 0, 0])
+    translate([10, 0, 0])
     circle(r = 1, $fn = 100);
 }
 
