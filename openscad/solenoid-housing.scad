@@ -95,7 +95,7 @@ translate ([15,-20,0]) rotate ([0,90,0]) {
     difference() {
         cylinder(r1=6,r2=1,h=5);
         // rotate([0,10,0]) cylinder(r1=1,r2=1,h=20);
-//        cylinder(r1=1,r2=1,h=5);
+        cylinder(r1=1,r2=1,h=5);
   }
 }
 
