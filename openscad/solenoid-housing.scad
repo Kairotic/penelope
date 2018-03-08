@@ -90,6 +90,8 @@ translate ([0,-20,0]) rotate ([0,90,0]) {
 
 translate ([0,-20,-20]) rotate ([0,90,0]) {
 //translate ([2.5,10,-30]) rotate ([0,180,90]) {
+            cylinder(r1=5,r2=1,h=20);
+
     difference() {
         cylinder(r1=5,r2=1,h=20);
         // rotate([0,10,0]) cylinder(r1=1,r2=1,h=20);
