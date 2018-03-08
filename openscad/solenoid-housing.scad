@@ -88,7 +88,7 @@ translate ([0,-20,0]) rotate ([0,90,0]) {
   }
 }
 
-translate ([15,-10,0]) rotate ([0,90,0]) {
+translate ([0,-10,0]) rotate ([0,90,0]) {
 //translate ([2.5,10,-30]) rotate ([0,180,90]) {
     difference() {
         cylinder(r1=6,r2=1,h=5);
