@@ -76,7 +76,7 @@ translate ([(bw+bwall*2)/2,(bh+bwall*2)/2,-17]) {
 
 
 //translate ([0,-20,0]) rotate ([0,90,0]) {
-translate ([10,10,30]) rotate ([0,180,0]) {
+translate ([10,10,-30]) rotate ([0,180,0]) {
     difference() {
         cylinder(r1=5,r2=1,h=20);
         // rotate([0,10,0]) cylinder(r1=1,r2=1,h=20);
