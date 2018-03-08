@@ -69,11 +69,11 @@ translate([l+bwall*3,0,-10]) rotate([0,90,0]) {
 }
 
 // path of pin
-
+/*
 translate ([(bw+bwall*2)/2,(bh+bwall*2)/2,-17]) {
    cylinder(r1=3,r2=3,h=20);
 }
-
+*/
 
 translate ([0,-20,0]) rotate ([0,90,0]) {
 //translate ([2.5,10,-30]) rotate ([0,180,90]) {
