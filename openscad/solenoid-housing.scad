@@ -75,6 +75,7 @@ translate ([(bw+bwall*2)/2,(bh+bwall*2)/2,-17]) {
 }
 */
 
+// cone
 //translate ([0,-20,0]) rotate ([0,90,0]) {
 translate ([2.5,10,-30]) rotate ([0,180,90]) {
     difference() {
