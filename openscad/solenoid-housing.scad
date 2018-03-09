@@ -99,14 +99,14 @@ module cone(bw,bh,bd,bwall) {
     */
 }
 
+module matchbox() {
+    bw = 13;
+    bh = 15.5;
+    bd = 30.5;
+    bwall=2;
+    give = 0.25;
 
-bw = 13;
-bh = 15.5;
-bd = 30.5;
-bwall=2;
-give = 0.25;
-
-halfbox(bw,bh,bd,bwall);
-outerbox(bw,bh,bd,bwall);
-cone(bw,bh,bd,bwall);
-
+    halfbox(bw,bh,bd,bwall);
+    outerbox(bw,bh,bd,bwall);
+    cone(bw,bh,bd,bwall);
+}
