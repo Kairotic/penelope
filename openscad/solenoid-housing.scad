@@ -41,6 +41,8 @@ module halfbox(w,h,d,wall) {
 module outerbox(bw,bh,bd,bwall) {
     l=25;
     h=bw-0.5;
+    give = 0.25;
+
     // outer
     //translate([l+bwall*2,0,-10]) rotate([0,90,0])
     {
@@ -104,7 +106,6 @@ module matchbox() {
     bh = 15.5;
     bd = 30.5;
     bwall=2;
-    give = 0.25;
 
     halfbox(bw,bh,bd,bwall);
     outerbox(bw,bh,bd,bwall);
