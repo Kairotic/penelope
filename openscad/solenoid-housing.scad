@@ -37,15 +37,6 @@ module halfbox(w,h,d,wall) {
     }
 }
 
-bw = 13;
-bh = 15.5;
-bd = 30.5;
-bwall=2;
-give = 0.25;
-
-halfbox(bw,bh,bd,bwall);
-outerbox(bw,bh,bd,bwall);
-
 
 module outerbox(bw,bh,bd,bwall) {
     l=25;
@@ -109,8 +100,12 @@ module cone(bw,bh,bd,bwall) {
 }
 
 
+bw = 13;
+bh = 15.5;
+bd = 30.5;
+bwall=2;
+give = 0.25;
 
-
-
-
+halfbox(bw,bh,bd,bwall);
+outerbox(bw,bh,bd,bwall);
 
