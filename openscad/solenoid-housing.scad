@@ -110,3 +110,5 @@ module matchbox() {
     outerbox(bw,bh,bd,bwall);
     cone(bw,bh,bd,bwall);
 }
+
+matchbox();
