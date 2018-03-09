@@ -48,24 +48,26 @@ halfbox(bw,bh,bd,bwall);
 l=25;
 h=bw-0.5;
 
-// outer
-//translate([l+bwall*2,0,-10]) rotate([0,90,0])
-{
-    translate([0-bwall,0-bwall,0-(l+bwall*2)]) {
-        difference() {
-            cube([h,bh+bwall*4,l+bwall*2]);
-            translate([bwall-give,bwall-give,bwall]) {
-                cube([h-bwall*2+give*2,bh+bwall*2+give*2,
-                    l+4]);
-            };
-            translate([bwall+3,bwall+bwall,bwall]) {
-                cube([h-bwall*2,bh,l+4]);
-            };
-            translate ([h/2+bwall*2+give,(bh+bwall*4)/2,5.5]) {
-                sphere(4);
-            }
+module outerbox(bw,bh,bd,bwall) {
+    // outer
+    //translate([l+bwall*2,0,-10]) rotate([0,90,0])
+    {
+        translate([0-bwall,0-bwall,0-(l+bwall*2)]) {
+            difference() {
+                cube([h,bh+bwall*4,l+bwall*2]);
+                translate([bwall-give,bwall-give,bwall]) {
+                    cube([h-bwall*2+give*2,bh+bwall*2+give*2,
+                        l+4]);
+                };
+                translate([bwall+3,bwall+bwall,bwall]) {
+                    cube([h-bwall*2,bh,l+4]);
+                };
+                translate ([h/2+bwall*2+give,(bh+bwall*4)/2,5.5]) {
+                    sphere(4);
+                }
             
-        };
+            };
+        }
     }
 }
 
