@@ -113,4 +113,4 @@ module matchbox() {
 }
 
 matchbox();
-translate([20,0,0]) matchbox();
+translate([0,20,0]) matchbox();
