@@ -94,6 +94,7 @@ translate ([2.5,10,-29]) rotate ([0,180,90]) {
 }
 
 // hat
+/*
 translate ([0,-20,20]) rotate ([0,90,0]) {
 //translate ([2.5,10,-30]) rotate ([0,180,90]) {
     difference() {
@@ -103,7 +104,7 @@ translate ([0,-20,20]) rotate ([0,90,0]) {
         translate([0,0,-17]) cylinder(r1=6,r2=1,h=20);
   }
 }
-
+*/
 
 
 
