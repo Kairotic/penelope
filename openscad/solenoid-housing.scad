@@ -79,32 +79,35 @@ translate ([(bw+bwall*2)/2,(bh+bwall*2)/2,-17]) {
 }
 
 
-// cone
-//translate ([0,-20,0]) rotate ([0,90,0]) {
-translate ([2.5,10,-29]) rotate ([0,180,90]) {
-    difference() {
-        cylinder(r1=5,r2=1,h=20);
-        // rotate([0,10,0]) cylinder(r1=1,r2=1,h=20);
-        rotate([0,90,0]) {
-            translate([-20,36,0]) rotate_extrude(convexity = 10)
-            translate([36, 0, 0])
-            circle(r = 1, $fn = 100);
+module cone(bw,bh,bd,bwall) {
+    //translate ([0,-20,0]) rotate ([0,90,0]) {
+    translate ([2.5,10,-29]) rotate ([0,180,90]) {
+        difference() {
+            cylinder(r1=5,r2=1,h=20);
+            // rotate([0,10,0]) cylinder(r1=1,r2=1,h=20);
+            rotate([0,90,0]) {
+                translate([-20,36,0]) rotate_extrude(convexity = 10)
+                translate([36, 0, 0])
+                circle(r = 1, $fn = 100);
+            }
+    }
+    }
+    
+    // hat
+    /*
+    translate ([0,-20,20]) rotate ([0,90,0]) {
+    //translate ([2.5,10,-30]) rotate ([0,180,90]) {
+        difference() {
+            cylinder(r1=6,r2=1,h=5);
+            // rotate([0,10,0]) cylinder(r1=1,r2=1,h=20);
+            cylinder(r1=1,r2=1,h=6);
+            translate([0,0,-17]) cylinder(r1=6,r2=1,h=20);
         }
-  }
+    }
+    */
+
 }
 
-// hat
-/*
-translate ([0,-20,20]) rotate ([0,90,0]) {
-//translate ([2.5,10,-30]) rotate ([0,180,90]) {
-    difference() {
-        cylinder(r1=6,r2=1,h=5);
-        // rotate([0,10,0]) cylinder(r1=1,r2=1,h=20);
-        cylinder(r1=1,r2=1,h=6);
-        translate([0,0,-17]) cylinder(r1=6,r2=1,h=20);
-  }
-}
-*/
 
 
 
