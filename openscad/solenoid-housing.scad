@@ -49,7 +49,7 @@ l=25;
 h=bw-0.5;
 
 // outer
-//translate([l+bwall*2,0,-10]) rotate([0,90,0]) {
+//translate([l+bwall*2,0,-10]) rotate([0,90,0])
 {
     translate([0-bwall,0-bwall,0-(l+bwall*2)]) {
         difference() {
