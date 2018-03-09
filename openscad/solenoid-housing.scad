@@ -44,7 +44,7 @@ bwall=2;
 give = 0.25;
 
 halfbox(bw,bh,bd,bwall);
-halfbox(bw,bh,bd,bwall);
+outerbox(bw,bh,bd,bwall);
 
 
 module outerbox(bw,bh,bd,bwall) {
