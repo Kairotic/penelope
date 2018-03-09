@@ -44,11 +44,12 @@ bwall=2;
 give = 0.25;
 
 halfbox(bw,bh,bd,bwall);
+halfbox(bw,bh,bd,bwall);
 
-l=25;
-h=bw-0.5;
 
 module outerbox(bw,bh,bd,bwall) {
+l=25;
+h=bw-0.5;
     // outer
     //translate([l+bwall*2,0,-10]) rotate([0,90,0])
     {
