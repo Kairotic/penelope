@@ -88,6 +88,7 @@ translate ([2.5,10,-30]) rotate ([0,180,90]) {
   }
 }
 
+// hat
 translate ([0,-20,20]) rotate ([0,90,0]) {
 //translate ([2.5,10,-30]) rotate ([0,180,90]) {
     difference() {
