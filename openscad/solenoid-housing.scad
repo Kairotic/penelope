@@ -73,11 +73,11 @@ module outerbox(bw,bh,bd,bwall) {
 }
 
 // path of pin
-/*
+
 translate ([(bw+bwall*2)/2,(bh+bwall*2)/2,-17]) {
    cylinder(r1=3,r2=3,h=20);
 }
-*/
+
 
 // cone
 //translate ([0,-20,0]) rotate ([0,90,0]) {
