@@ -108,4 +108,5 @@ give = 0.25;
 
 halfbox(bw,bh,bd,bwall);
 outerbox(bw,bh,bd,bwall);
+cone(bw,bh,bd,bwall);
 
