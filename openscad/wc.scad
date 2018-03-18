@@ -1,6 +1,6 @@
 translate ([0,0,3]) {
 
-dxf_linear_extrude(file="outfile.dxf", height=8);
+dxf_linear_extrude(file="outfile.dxf", height=4);
 
 difference() {
 translate([50,50,-3])
