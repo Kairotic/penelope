@@ -1,5 +1,5 @@
 use <path_extrude.scad>;
-shift=0;
+shift=1;
 pi=3.14159;
 for(shift = [0, 360/15]){
     myPoints = [ for(t = [0:72:359]) [cos(t),sin(t)] ];
