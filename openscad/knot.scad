@@ -7,4 +7,4 @@ myPath = [ for(t = [0:3.6:359]) [
     5*(-sin(3*t))] ];
 path_extrude(exPath=myPath, exShape=myPoints, merge=true);
 //cylinder(d1=10, d2=2, h=10, $fn=50);
-translate([0,0,9.8]) sphere(d=2, $fn=48);
+//translate([0,0,9.8]) sphere(d=2, $fn=48);
