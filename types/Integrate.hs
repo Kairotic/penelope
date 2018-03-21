@@ -277,6 +277,8 @@ test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [tablet2,
         backward = replicate 12 Z
 testBand = tabletWeave test
 
+
+simpleWeave :: TabletWeave
 simpleWeave = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [rwgbTablet,
                                                                           flipTablet rwgbTablet
                                                                          ],
@@ -287,7 +289,7 @@ simpleWeave = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [rwgbTa
                            tSheds = (take 24 $ cycle [replicate 12 S, replicate 12 S, replicate 12 S, replicate 12 S, replicate 12 Z, replicate 12 Z, replicate 12 Z, replicate 12 Z])
                           }
   where rwgbTablet = Tablet {warps = [thread red, thread white, thread green, thread blue], yaw = S}
-        
+
 simpleBand = tabletWeave simpleWeave
 
 
