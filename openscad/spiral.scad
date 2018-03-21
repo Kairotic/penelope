@@ -11,3 +11,6 @@ module yarnSegment(x,y) {
     twist(1,1);
     twist(-1,-1);
 }
+
+yawnSegment(0,0) {
+}
