@@ -5,4 +5,4 @@ module twist(x,y) {
         circle(r = 1);
 }
 
-twist(0,2);
+twist(-1,1);
