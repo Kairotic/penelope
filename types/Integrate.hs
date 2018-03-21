@@ -262,6 +262,7 @@ writeBand b = do writeFile "test.svg" (svgBand b)
 
 -- EXAMPLES
 
+test :: TabletWeave
 test = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [tablet2,
                                                                    flipTablet tablet1
                                                                   ],
