@@ -3,7 +3,7 @@ module Integrate where
 import Data.List (transpose)
 import Data.Colour.SRGB
 import Data.Colour.Names
--- import System.Cmd
+import System.Cmd
 
 -- 'Pull' is a thread over a given distance (generally under tension)
 -- 'Turn' is where a thread takes the same 90 degree turn as last time
