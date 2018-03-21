@@ -12,4 +12,7 @@ module yarnSegment() {
     twist(-1,-1);
 }
 
+
 yarnSegment();
+translate([0,0,2])
+  yarnSegment();
