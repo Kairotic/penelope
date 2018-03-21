@@ -16,3 +16,5 @@ module yarnSegment() {
 yarnSegment();
 translate([0,0,2])
   yarnSegment();
+translate([0,0,4])
+  yarnSegment();
