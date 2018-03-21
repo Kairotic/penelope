@@ -5,11 +5,11 @@ module twist(x,y) {
         circle(r = 1);
 }
 
-module yarnSegment(x,y) {    
+module yarnSegment() {    
     twist(-1,1);
     twist(1,-1);
     twist(1,1);
     twist(-1,-1);
 }
 
-yarnSegment(0,0);
+yarnSegment();
