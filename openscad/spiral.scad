@@ -1,7 +1,7 @@
 
 
 linear_extrude(height = 10, center = true, convexity = 10, twist = 90, $fn = 100)
-    translate([2, 0, 0])
+    translate([2, -2, 0])
     circle(r = 1);
     
  linear_extrude(height = 10, center = true, convexity = 10, twist = 90, $fn = 100)
