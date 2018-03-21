@@ -1,6 +1,6 @@
 
 module twist(x,y,t) {
-    linear_extrude(height = 2, center = false, convexity = 10, twist = t/*, $fn=100*/)
+    linear_extrude(height = 2, center = false, convexity = 10, twist = t, $fn=10)
         translate([x, y, 0])
         circle(r = 1);
 }
