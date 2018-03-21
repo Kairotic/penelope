@@ -5,7 +5,9 @@ module twist(x,y) {
         circle(r = 1);
 }
 
-twist(-1,1);
-twist(1,-1);
-twist(1,1);
-twist(-1,-1);
+module yarnSegment(x,y) {    
+    twist(-1,1);
+    twist(1,-1);
+    twist(1,1);
+    twist(-1,-1);
+}
