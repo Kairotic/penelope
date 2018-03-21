@@ -291,7 +291,7 @@ simpleWeave = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [rwgbTa
 simpleBand = tabletWeave simpleWeave
 
 
-
+bfWeave :: TabletWeave
 bfWeave = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [rwgbTablet,
                                                                       flipTablet rwgbTablet
                                                                      ],
