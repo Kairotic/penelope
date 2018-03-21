@@ -256,8 +256,8 @@ svgPath id (x,y) c cnr = "<path id=\"" ++ id ++ "\" d=\"m " ++ path cnr x y ++ "
 cHex = sRGB24show
 
 writeBand b = do writeFile "test.svg" (svgBand b)
-                 system "~/Dropbox/bin/fixsvg.pl test.svg"
-                 system "inkscape test.svg --export-pdf=test.pdf"
+                 callProcess "~/Dropbox/bin/fixsvg.pl" ["test.svg"]
+                 callProcess "inkscape" ["test.svg", "--export-pdf=test.pdf"]
                  return ()
 
 -- EXAMPLES
