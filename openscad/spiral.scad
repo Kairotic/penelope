@@ -18,3 +18,5 @@ translate([0,0,2])
   yarnSegment(90);
 translate([0,0,4])
   yarnSegment(-90);
+translate([0,0,4])
+  yarnSegment(-90);
