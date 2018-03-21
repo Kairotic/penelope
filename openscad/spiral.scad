@@ -4,3 +4,5 @@ module twist(x,y) {
         translate([x, y, 0])
         circle(r = 1);
 }
+
+twist(0,1);
