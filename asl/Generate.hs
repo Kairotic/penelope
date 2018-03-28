@@ -39,7 +39,7 @@ colourSeq = Option [colour,
                    ]
 
 colourSeqList = Option [colourSeq,
-                        colourSeq, Symbol ", ", colourSeqList
+                        Sequence [colourSeq, Symbol ", ", colourSeqList]
                        ]
 
 colourPolyMeter = Sequence [Symbol "{",
