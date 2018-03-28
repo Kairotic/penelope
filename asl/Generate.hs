@@ -9,6 +9,21 @@ choose xs = Option $ map Symbol xs
 
 colour = choose $ words "red orange yellow pink"
 
-colourSequence = option [colour,
-                         colour, Symbol " ", colourSequence
-                        ]
+colourSeqList = option [colour,
+                        Sequence [colour, Symbol " ", colourSequence]
+                       ]
+
+colourSeqList = Option [colourSequence,
+                        colourSequence, Symbol ", ", colourSeqList
+                       ]
+
+colourPolyMeter = Sequence [Symbol "{",
+                            colourSeqList,
+                            Symbol "}"
+                           ]
+
+colourPolyRhythm = Sequence [Symbol "[",
+                             colourSeqList,
+                             Symbol "]"
+                            ]
+
