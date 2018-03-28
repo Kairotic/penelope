@@ -59,7 +59,7 @@ colourPoly = Option [colourPolyMeter,
 
 trans = Option [Symbol "rev",
                 Sequence [Symbol "jux", trans],
-                Sequence [Symbol "every ", choose [2,3,4,5], "(", trans, ")"]
+                Sequence [Symbol "every ", choose [2,3,4,5], Symbol "(", Symbol trans, ")"]
                ]
 
 -- gen ::  Grammar -> [Float] -> String
