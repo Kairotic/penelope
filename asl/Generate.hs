@@ -25,7 +25,7 @@ toString' mFs (Option os) = do f <- mHead mFs
                                let o = os !! (floor (f * (fromIntegral $ length os)))
                                toString' mFs o
 toString' mFs (Sequence gs) = do ss <- mapM (toString' mFs) gs
-                                return $ concat ss
+                                 return $ concat ss
 
 
 
