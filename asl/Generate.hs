@@ -11,6 +11,9 @@ data Grammar = Symbol String
 removeOption test (Option gs) = Option $ filter (not . test) gs
 removeOption _ g = g
 
+removeFunction g name = removeOption test g
+  where test (Function name' _) = name == name'
+        test _ = False
 
 mHead :: MVar [a] -> IO a
 mHead mv = do xs <- takeMVar mv
