@@ -6,6 +6,7 @@ import Control.Concurrent.MVar
 data Grammar = Symbol String
              | Option [Grammar]
              | Sequence [Grammar]
+             | Function String Grammar
 
 mHead :: MVar [a] -> IO a
 mHead mv = do xs <- takeMVar mv
