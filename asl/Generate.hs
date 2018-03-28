@@ -15,7 +15,7 @@ mHead mv = do xs <- takeMVar mv
 toString :: Grammar -> IO String
 toString g = do gen <- getStdGen
                 let rs = randomRs (0.0, 1.0) gen
-                mFs <- newMVar rs
+                mFs <- newMVar (rs :: [Float])
                 toString mFs g
               
 
