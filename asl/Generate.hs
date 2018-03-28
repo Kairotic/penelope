@@ -30,3 +30,4 @@ colourPolyRhythm = Sequence [Symbol "[",
 colourPoly = Option [colourPolyMeter,
                      colourPolyRhythm
                     ]
+
