@@ -8,7 +8,8 @@ data Grammar = Symbol String
              | Sequence [Grammar]
 
 mHead :: MVar [a] -> IO a
-mHead mv = do takeMVar 
+mHead mv = do takeMVar mv
+              let 
 
 toString :: (MVar [Float]) -> Grammar -> IO String
 toString _ (Symbol s) = return s
