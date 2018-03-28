@@ -16,7 +16,7 @@ toString :: Grammar -> IO String
 toString g = do gen <- getStdGen
                 let rs = randomRs (0.0, 1.0) gen
                 mFs <- newMVar (rs :: [Float])
-                toString mFs g
+                toString' mFs g
               
 
 toString' :: (MVar [Float]) -> Grammar -> IO String
