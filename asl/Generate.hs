@@ -15,7 +15,7 @@ mHead mv = do xs <- takeMVar mv
 toString :: (MVar [Float]) -> Grammar -> IO String
 toString _ (Symbol s) = return s
 toString mFs (Option os) = do f <- mHead mFs
-                              let o = os !! (floor (f * (length os)))
+                              let o = os !! (floor (f * (fromIntegral $ length os)))
                               toString mFs o
 
 
