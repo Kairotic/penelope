@@ -28,6 +28,9 @@ toString' mFs (Option os) = do f <- mHead mFs
 toString' mFs (Sequence gs) = do ss <- mapM (toString' mFs) gs
                                  return $ concat ss
 
+toString' mFs (Function name g) = do s <- toString' mFs g
+                                     return $ name ++ (' ':s)
+
 choose :: [String] -> Grammar
 choose xs = Option $ map Symbol xs
 
