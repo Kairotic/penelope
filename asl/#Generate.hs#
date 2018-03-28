@@ -6,6 +6,10 @@ data Grammar = Symbol String
              | Option [Grammar]
              | Sequence [Grammar]
 
+toString :: [Float] -> Grammar -> String
+toStr
+
+
 choose :: [String] -> Grammar
 choose xs = Option $ map Symbol xs
 
@@ -33,4 +37,8 @@ colourPoly = Option [colourPolyMeter,
                      colourPolyRhythm
                     ]
 
+gen ::  Grammar -> [Float] -> String
 
+generate = do g <- getStdGen
+              let rs = randomRs (0.0, 1.0) g
+              
