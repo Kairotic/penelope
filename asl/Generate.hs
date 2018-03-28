@@ -8,6 +8,10 @@ data Grammar = Symbol String
              | Sequence [Grammar]
              | Function String Grammar
 
+removeOption test (Option gs) = Option $ filter (not . test) gs
+removeOption _ g = g
+
+
 mHead :: MVar [a] -> IO a
 mHead mv = do xs <- takeMVar mv
               putMVar mv (tail xs)
