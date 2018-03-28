@@ -42,6 +42,8 @@ colourSeqList = Option [colourSeq,
                         Sequence [colourPoly, Symbol ", ", colourSeqList]
                        ]
 
+colourSeqList2 = Sequence [colourSeq, Symbol " ", colourSeqList]
+
 colourPolyMeter = Sequence [Symbol "{",
                             colourSeqList,
                             Symbol "}"
@@ -57,11 +59,9 @@ colourPoly = Option [colourPolyMeter,
                     ]
 
 
-
-
 trans = Option [Symbol "rev",
-                Sequence [Symbol "every ", choose [2,3,4,5], "(", trans, ")"
-                         ]
+                Sequence [Symbol "jux", trans],
+                Sequence [Symbol "every ", choose [2,3,4,5], "(", trans, ")"]
                ]
 
 -- gen ::  Grammar -> [Float] -> String
