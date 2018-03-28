@@ -4,7 +4,7 @@ data Grammar = Symbol String
              | Option [Grammar]
              | Sequence [Grammar]
 
-choose :: String -> Grammar
+choose :: [String] -> Grammar
 choose xs = Option $ map Symbol xs
 
 colour = choose $ words "red orange yellow pink"
