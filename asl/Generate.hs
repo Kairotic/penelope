@@ -1,8 +1,24 @@
 module Generate where
 
+import System.Random
+import Control.Concurrent.MVar
+
 data Grammar = Symbol String
              | Option [Grammar]
              | Sequence [Grammar]
+
+mHead :: MVar [a] -> IO a
+mHead mv = do xs <- takeMVar mv
+              putMVar mv (tail xs)
+              return $ head xs
+
+toString :: (MVar [Float]) -> Grammar -> IO String
+toString _ (Symbol s) = return s
+toString mFs (Option os) = do f <- mHead mFs
+                              let o = os !! (floor (f * (length os)))
+                              toString mFs o
+
+
 
 choose :: [String] -> Grammar
 choose xs = Option $ map Symbol xs
@@ -31,3 +47,8 @@ colourPoly = Option [colourPolyMeter,
                      colourPolyRhythm
                     ]
 
+gen ::  Grammar -> [Float] -> String
+
+generate = do g <- getStdGen
+              let rs = randomRs (0.0, 1.0) g
+              
