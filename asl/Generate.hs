@@ -47,8 +47,8 @@ colourPoly = Option [colourPolyMeter,
                      colourPolyRhythm
                     ]
 
-gen ::  Grammar -> [Float] -> String
+-- gen ::  Grammar -> [Float] -> String
 
-generate = do g <- getStdGen
-              let rs = randomRs (0.0, 1.0) g
+-- generate = do g <- getStdGen
+--              let rs = randomRs (0.0, 1.0) g
               
