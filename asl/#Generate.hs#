@@ -1,13 +1,19 @@
 module Generate where
 
 import System.Random
+import Control.Concurrent.MVar
 
 data Grammar = Symbol String
              | Option [Grammar]
              | Sequence [Grammar]
 
-toString :: [Float] -> Grammar -> String
-toStr
+mHead :: MVar [a] -> IO a
+mHead mv = do takeMVar 
+
+toString :: (MVar [Float]) -> Grammar -> IO String
+toString _ (Symbol s) = return s
+toString mFs (Option os) = 
+
 
 
 choose :: [String] -> Grammar
