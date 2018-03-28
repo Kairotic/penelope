@@ -13,8 +13,8 @@ colourSeq = Option [colour,
                     Sequence [colour, Symbol " ", colourSeq]
                    ]
 
-colourSeqList = Option [colourSequence,
-                        colourSequence, Symbol ", ", colourSeqList
+colourSeqList = Option [colourSeq,
+                        colourSeq, Symbol ", ", colourSeqList
                        ]
 
 colourPolyMeter = Sequence [Symbol "{",
