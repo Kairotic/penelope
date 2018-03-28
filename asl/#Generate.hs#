@@ -14,7 +14,7 @@ colourSeqList = option [colour,
                        ]
 
 colourSeqList = Option [colourSequence,
-                        colourSequence, Symbol ", ", colourPoly
+                        colourSequence, Symbol ", ", colourSeqList
                        ]
 
 colourPolyMeter = Sequence [Symbol "{",
@@ -25,4 +25,5 @@ colourPolyMeter = Sequence [Symbol "{",
 colourPolyRhythm = Sequence [Symbol "[",
                              colourSeqList,
                              Symbol "]"
-                            ]         
+                            ]
+
