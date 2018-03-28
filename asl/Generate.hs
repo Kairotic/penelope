@@ -71,5 +71,5 @@ trans = Option [Symbol "rev",
                ]
 
 pattern = Option [colourPoly,
-                  Sequence [trans, Symbol " ", colourPoly]
+                  Sequence [trans, Symbol " \"", colourPoly, "\""]
                  ]
