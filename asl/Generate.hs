@@ -22,8 +22,8 @@ toString g = do gen <- getStdGen
 toString' :: (MVar [Float]) -> Grammar -> IO String
 toString' _ (Symbol s) = return s
 toString' mFs (Option os) = do f <- mHead mFs
-                              let o = os !! (floor (f * (fromIntegral $ length os)))
-                              toString' mFs o
+                               let o = os !! (floor (f * (fromIntegral $ length os)))
+                               toString' mFs o
 toString' mFs (Sequence gs) = do ss <- mapM (toString' mFs) gs
                                 return $ concat ss
 
