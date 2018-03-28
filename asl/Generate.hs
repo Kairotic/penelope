@@ -58,7 +58,6 @@ colourPoly = Option [colourPolyMeter,
                      colourPolyRhythm
                     ]
 
-
 trans = Option [Symbol "rev",
                 Function "jux" trans,
                 Function "every" $ Sequence [choose (words "2 3 4 5"), Symbol "(", trans, Symbol ")"]
