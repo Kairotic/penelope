@@ -38,8 +38,6 @@ colourSeq = Option [colour,
                     Sequence [colour, Symbol " ", colourSeq]
                    ]
 
-colourSeq2 = Sequence [colourSeq, Symbol " ", colourSeq]
-
 colourSeqList = Option [colourSeq,
                         Sequence [colourPoly, Symbol ", ", colourSeqList]
                        ]
