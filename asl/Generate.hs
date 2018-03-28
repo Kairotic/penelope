@@ -61,6 +61,3 @@ trans = Option [Symbol "rev",
                 Sequence [Symbol "jux", trans],
                 Sequence [Symbol "every ", choose (words "2 3 4 5"), Symbol "(", trans, Symbol ")"]
                ]
-
--- gen ::  Grammar -> [Float] -> String
-
