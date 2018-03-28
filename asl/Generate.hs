@@ -12,6 +12,13 @@ mHead mv = do xs <- takeMVar mv
               putMVar mv (tail xs)
               return $ head xs
 
+toString :: Grammar -> IO String
+toString g = do gen <- getStdGen
+                let rs = randomRs (0.0, 1.0) gen
+                mFs <- newMVar rs
+                toString mFs g
+              
+
 toString' :: (MVar [Float]) -> Grammar -> IO String
 toString' _ (Symbol s) = return s
 toString' mFs (Option os) = do f <- mHead mFs
@@ -51,6 +58,3 @@ colourPoly = Option [colourPolyMeter,
 
 -- gen ::  Grammar -> [Float] -> String
 
--- generate = do g <- getStdGen
---              let rs = randomRs (0.0, 1.0) g
-              
