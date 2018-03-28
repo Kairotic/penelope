@@ -9,9 +9,9 @@ choose xs = Option $ map Symbol xs
 
 colour = choose $ words "red orange yellow pink"
 
-colourSeqList = Option [colour,
-                        Sequence [colour, Symbol " ", colourSequence]
-                       ]
+colourSeq = Option [colour,
+                    Sequence [colour, Symbol " ", colourSeq]
+                   ]
 
 colourSeqList = Option [colourSequence,
                         colourSequence, Symbol ", ", colourSeqList
