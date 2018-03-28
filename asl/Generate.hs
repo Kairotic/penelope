@@ -56,5 +56,13 @@ colourPoly = Option [colourPolyMeter,
                      colourPolyRhythm
                     ]
 
+
+
+
+trans = Option [Symbol "rev",
+                Sequence [Symbol "every ", choose [2,3,4,5], "(", trans, ")"
+                         ]
+               ]
+
 -- gen ::  Grammar -> [Float] -> String
 
