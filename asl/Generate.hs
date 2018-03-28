@@ -57,7 +57,7 @@ colourPoly = Option [colourPolyMeter,
 
 
 trans = Option [Symbol "rev",
-                Sequence [Symbol "jux", trans],
+                Function "jux" trans,
                 Sequence [Symbol "every ", choose (words "2 3 4 5"), Symbol "(", trans, Symbol ")"]
                ]
 
