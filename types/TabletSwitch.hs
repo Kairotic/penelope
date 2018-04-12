@@ -61,3 +61,7 @@ firstColour (Ply (t:_) r) = firstColour t
 -- 'roll'
 data Tablet = Tablet {warps :: [Thread], yaw :: Twist}
             deriving Show
+
+instance Show Thread where
+  show (Strand c r) = "Strand " ++ showColour c ++ " " ++ show r
+  show (Ply pt r) = "Ply " ++ show pt ++ " " ++ show r
