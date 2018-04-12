@@ -42,6 +42,13 @@ showColour c | c == red = "r"
              | c == white = "w"
              | otherwise = show c
 
+-- A thread can eiher be a base Strand, or be a Ply composed of other
+-- threads (which can recurse to any level). A strand has a colour,
+-- both strand and ply have a twist over their length (called 'roll'
+-- in sympathy with the 'yaw' of a flipping tablet)
+data Thread = Strand {colour :: Colour Double, roll :: Spin}
+            | Ply {plyThreads :: [Thread], roll :: Spin}
+
 -- Returns the colour of a strand, or if the thread has more than one
 -- strand, the colour of the 'first' one.
 firstColour :: Thread -> Colour Double
