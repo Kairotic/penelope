@@ -60,6 +60,10 @@ instance Show Thread where
 data Tablet = Tablet {warps :: [Thread], yaw :: Twist}
             deriving Show
 
+-- A tablet weaving loom, as an ordered set of tablets and a weft
+data TabletLoom = TabletLoom {tablets :: [Tablet], tabletWeft :: Thread}
+                deriving Show
+
 -- A tablet weave is a tablet loom and a sequence of tablet rotations
 -- to create sheds
 data TabletWeave = TabletWeave {tLoom :: TabletLoom, tSheds :: [TabletShed]}
