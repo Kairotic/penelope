@@ -78,7 +78,6 @@ data TabletWeave = TabletWeave {tLoom :: TabletLoom, tSheds :: [TabletShed]}
 spin :: Twist -> Spin
 spin twist = Spin $ repeat twist
 
-
 -- Function for flipping S/Z direction
 flipTwist :: Twist -> Twist
 flipTwist S = Z
