@@ -60,12 +60,10 @@ instance Show Thread where
 data Tablet = Tablet {warps :: [Thread], yaw :: Twist}
             deriving Show
 
-
 -- A tablet weave is a tablet loom and a sequence of tablet rotations
 -- to create sheds
 data TabletWeave = TabletWeave {tLoom :: TabletLoom, tSheds :: [TabletShed]}
                  deriving Show
-
 
 -- An infinitely long twist in a single given direction
 spin :: Twist -> Spin
