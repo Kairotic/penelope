@@ -55,3 +55,9 @@ firstColour :: Thread -> Colour Double
 firstColour (Strand c _) = c
 firstColour (Ply (t:_) r) = firstColour t
 
+
+-- Trying to conflate S/Z threading (or flip) on the card with
+-- rotation of it by referring to former as 'yaw' and latter as
+-- 'roll'
+data Tablet = Tablet {warps :: [Thread], yaw :: Twist}
+            deriving Show
