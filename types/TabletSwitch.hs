@@ -64,6 +64,11 @@ data Tablet = Tablet {warps :: [Thread], yaw :: Twist}
 data TabletLoom = TabletLoom {tablets :: [Tablet], tabletWeft :: Thread}
                 deriving Show
 
+-- Not the shed exactly but how to go from one shed to the
+-- next.. Should be one twist per card. This is really the same type
+-- as a Spin although used differently, hmm.
+type TabletShed = [Twist]
+
 -- A tablet weave is a tablet loom and a sequence of tablet rotations
 -- to create sheds
 data TabletWeave = TabletWeave {tLoom :: TabletLoom, tSheds :: [TabletShed]}
