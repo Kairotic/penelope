@@ -12,7 +12,7 @@ import System.Process
 -- (possibly itself)
 data Action = Pull Int | Turn | TurnBack | Over | Under
 
-data Twist = S | Z
+data Twist = S | Z | I
            deriving Eq
 
 -- Used for twist in yarn, threading (and 'flipping') of tablets, and
@@ -22,4 +22,5 @@ data Twist = S | Z
 instance Show Twist where
   show S = "S"
   show Z = "Z"
+  show I = "I"
 
