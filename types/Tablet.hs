@@ -61,7 +61,6 @@ showColour c | c == red = "r"
              | c == white = "w"
              | otherwise = show c
 
-
 -- Returns the colour of a strand, or if the thread has more than one
 -- strand, the colour of the 'first' one.
 firstColour :: Thread -> Colour Double
