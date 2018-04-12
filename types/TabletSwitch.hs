@@ -31,3 +31,4 @@ instance Show Action where
   show Over = "over"
   show Under = "under"
 
+data Spin = Spin [Twist]
