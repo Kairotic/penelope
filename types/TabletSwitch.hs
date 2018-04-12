@@ -36,3 +36,8 @@ data Spin = Spin [Twist]
 instance Show Spin where
   show (Spin s) =  (concatMap (show) $ take 5 s) ++ ".."
 
+showColour c | c == red = "r"
+             | c == blue = "b"
+             | c == green = "g"
+             | c == white = "w"
+             | otherwise = show c
