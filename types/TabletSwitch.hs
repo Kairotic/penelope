@@ -60,6 +60,13 @@ instance Show Thread where
 data Tablet = Tablet {warps :: [Thread], yaw :: Twist}
             deriving Show
 
+
+-- Function for flipping S/Z direction
+flipTwist :: Twist -> Twist
+flipTwist S = Z
+flipTwist Z = S
+flipTwist I = I
+
 -- Returns the colour of a strand, or if the thread has more than one
 -- strand, the colour of the 'first' one.
 firstColour :: Thread -> Colour Double
