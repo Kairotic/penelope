@@ -65,3 +65,4 @@ data Tablet = Tablet {warps :: [Thread], yaw :: Twist}
 instance Show Thread where
   show (Strand c r) = "Strand " ++ showColour c ++ " " ++ show r
   show (Ply pt r) = "Ply " ++ show pt ++ " " ++ show r
+
