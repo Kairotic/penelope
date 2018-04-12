@@ -24,3 +24,9 @@ instance Show Twist where
   show Z = "Z"
   show I = "I"
 
+instance Show Action where
+  show (Pull n) = "pull " ++ show n
+  show Turn = "turn"
+  show TurnBack = "turn back"
+  show Over = "over"
+  show Under = "under"
