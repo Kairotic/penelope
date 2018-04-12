@@ -54,7 +54,7 @@ data Thread = Strand {colour :: Colour Double, roll :: Spin}
 instance Show Thread where
   show (Strand c r) = "Strand " ++ showColour c ++ " " ++ show r
   show (Ply pt r) = "Ply " ++ show pt ++ " " ++ show r
-
+ 
 showColour c | c == red = "r"
              | c == blue = "b"
              | c == green = "g"
