@@ -54,3 +54,4 @@ data Thread = Strand {colour :: Colour Double, roll :: Spin}
 firstColour :: Thread -> Colour Double
 firstColour (Strand c _) = c
 firstColour (Ply (t:_) r) = firstColour t
+
