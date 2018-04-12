@@ -22,3 +22,4 @@ data Twist = S | Z
 instance Show Twist where
   show S = "S"
   show Z = "Z"
+
