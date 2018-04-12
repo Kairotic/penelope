@@ -61,6 +61,8 @@ data Tablet = Tablet {warps :: [Thread], yaw :: Twist}
             deriving Show
 
 
+
+
 -- An infinitely long twist in a single given direction
 spin :: Twist -> Spin
 spin twist = Spin $ repeat twist
