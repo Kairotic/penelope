@@ -49,13 +49,6 @@ showColour c | c == red = "r"
 data Thread = Strand {colour :: Colour Double, roll :: Spin}
             | Ply {plyThreads :: [Thread], roll :: Spin}
 
--- Returns the colour of a strand, or if the thread has more than one
--- strand, the colour of the 'first' one.
-firstColour :: Thread -> Colour Double
-firstColour (Strand c _) = c
-firstColour (Ply (t:_) r) = firstColour t
-
-
 -- Trying to conflate S/Z threading (or flip) on the card with
 -- rotation of it by referring to former as 'yaw' and latter as
 -- 'roll'
@@ -65,4 +58,11 @@ data Tablet = Tablet {warps :: [Thread], yaw :: Twist}
 instance Show Thread where
   show (Strand c r) = "Strand " ++ showColour c ++ " " ++ show r
   show (Ply pt r) = "Ply " ++ show pt ++ " " ++ show r
+
+
+-- Returns the colour of a strand, or if the thread has more than one
+-- strand, the colour of the 'first' one.
+firstColour :: Thread -> Colour Double
+firstColour (Strand c _) = c
+firstColour (Ply (t:_) r) = firstColour t
 
