@@ -61,6 +61,11 @@ data Tablet = Tablet {warps :: [Thread], yaw :: Twist}
             deriving Show
 
 
+-- An infinitely long twist in a single given direction
+spin :: Twist -> Spin
+spin twist = Spin $ repeat twist
+
+
 -- Function for flipping S/Z direction
 flipTwist :: Twist -> Twist
 flipTwist S = Z
