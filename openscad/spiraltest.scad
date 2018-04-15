@@ -20,15 +20,16 @@ a = [1.0,1.0,1.0];
 b = [1.0,0,1.0];
 c = [0.6470588235294119,0.16470588235294117,0.16470588235294117];
 d = [1.0,1.0,0.0];
-rotate([0,0,90]) translate([0,0,0]) yarnSegment(90,a,b,c,d);
-rotate([0,0,0]) translate([0,0,2]) yarnSegment(90,a,b,c,d);
-rotate([0,0,-90]) translate([0,0,4]) yarnSegment(90,a,b,c,d);
-rotate([0,0,-270]) translate([0,0,6]) yarnSegment(0,a,b,c,d);
-rotate([0,0,-360]) translate([0,0,8]) yarnSegment(-90,a,b,c,d);
-rotate([0,0,-270]) translate([0,0,10]) yarnSegment(-90,a,b,c,d);
-rotate([0,0,-180]) translate([0,0,12]) yarnSegment(-90,a,b,c,d);
-rotate([0,0,0]) translate([0,0,14]) yarnSegment(0,a,b,c,d);
-
+rotate([0,0,45]) {
+rotate([0,0,-90]) translate([0,0,0]) yarnSegment(-90,a,b,c,d);
+rotate([0,0,-180]) translate([0,0,-2]) yarnSegment(-90,a,b,c,d);
+rotate([0,0,-270]) translate([0,0,-4]) yarnSegment(-90,a,b,c,d);
+rotate([0,0,-270]) translate([0,0,-6]) yarnSegment(0,a,b,c,d);
+rotate([0,0,-180]) translate([0,0,-8]) yarnSegment(90,a,b,c,d);
+rotate([0,0,-90]) translate([0,0,-10]) yarnSegment(90,a,b,c,d);
+rotate([0,0,0]) translate([0,0,-12]) yarnSegment(90,a,b,c,d);
+rotate([0,0,0]) translate([0,0,-14]) yarnSegment(0,a,b,c,d);
+};
 /*
 a = [0,1,0];
 b = [0,0,1];
