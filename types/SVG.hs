@@ -26,7 +26,7 @@ plyTop n (Ply pt (Spin (twist:twists)))
           (!!!) xs n = xs !! (n `mod` length xs)
 
 -- Given an x y position, return a string representing a Segment in
--- SVG format.
+-- SVG code.
 svgFgBg :: Int -> Int -> Segment -> String
 svgFgBg x y (Segment f b t) = (svgPath idFg (x*svgScale,y*svgScale) f fCorner) ++ (svgPath idBg (x*svgScale,y*svgScale) b bCorner)
   where idFg = "fg-" ++ show x ++ "x" ++ show y
@@ -37,7 +37,7 @@ svgFgBg x y (Segment f b t) = (svgPath idFg (x*svgScale,y*svgScale) f fCorner) +
                 | otherwise = BR
 
 -- Return SVG code to draw the given band
-svgBand Band -> String
+svgBand :: Band -> String
 svgBand b = svgPreamble ++ warpTop ++ svgPostamble
   where warpTop = svgLayer "warptop" $ concatMap (\(x,ys) -> concatMap (\(y,s) -> svgFgBg x y s) ys) $ zip [0 ..] (map (zip [0 ..] . plyTop 0) $ bandCords b)
         -- weft = svgWeft CW 0 0 $ curvePath $ bandWeft b
