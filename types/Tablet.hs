@@ -115,20 +115,22 @@ tabletWeave tw = Band cords weftCurve
   where cords = twistCords tw
         weftCurve = Curve {curveThread = (tabletWeft $ tLoom tw) ,
                            -- TODO: weft needs to go up and down
-                           curvePath = concat $ replicate weftCount [Pull warpCount, TurnBack, Turn]
+                           curvePath = concat $ replicate weftCount (tabby warpCount ++ [TurnBack, Turn])
                           }
         warpCount = length $ tablets $ tLoom tw
         weftCount = length $ tSheds tw
+        -- TODO - is this right? only works for even number of warp anyway..
+        tabby n = take n $ cycle [Over, Under]
 
 -- Twists the cords according to the 'flip' of the tablet and the sequences of twists in the shed.
 twistCords :: TabletWeave -> [Thread]
 twistCords tw = map tabletCord (zip (tablets $ tLoom tw) twists)
-  -- derivative needed
   where tabletCord (tablet, tabletTwists) = Ply (warps tablet) (Spin $ deriveSpin $ map doFlip tabletTwists)
-        -- assuming yaw of tablet = roll of thread, depends which side you look at tablet from?
+        -- assumes yaw of tablet = roll of thread, depends which side you look at tablet from?
           where doFlip x | yaw tablet == S = x
                          | otherwise = flipTwist x
-        -- list of thread twists rather than list of card moves over time
+        -- transpose to get list of thread twists rather than list of
+        -- card moves over time
         twists = transpose (tSheds tw)
 
 -- The twist of the yarn = the first derivative of the twist of the tablet
@@ -139,5 +141,6 @@ deriveSpin (S:S:xs) = S:(deriveSpin (S:xs))
 deriveSpin (Z:Z:xs) = Z:(deriveSpin (Z:xs))
 deriveSpin (x:xs) = I:(deriveSpin xs)
 
+-- Make a simple S thread, consisting of a single strand of the given colour
 thread :: Colour Double -> Thread
 thread c = Strand c (spin S)

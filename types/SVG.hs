@@ -62,6 +62,7 @@ svgPreamble = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<sv
 
 svgPostamble = "</g>\n</svg>\n"
 
+-- scale x + y
 sX = 10
 sY = 15
 sXs = show sX
