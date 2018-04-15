@@ -1,9 +1,10 @@
 module SVG where
 
-import TabletSwitch
 import Data.Colour.SRGB
 import Data.Colour.Names
 import System.Process
+
+import Tablet
 
 data Segment = Segment (Colour Double) (Colour Double) Twist
 

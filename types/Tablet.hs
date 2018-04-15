@@ -1,4 +1,4 @@
-module TabletSwitch where
+module Tablet where
 
 import Data.List (transpose)
 import Data.Colour.SRGB
