@@ -56,7 +56,7 @@ daveWeave = TabletWeave {tLoom = TabletLoom {tablets = [Tablet [a,a,a,a] Z,
                                                         Tablet [x,y,y,z] Z,
                                                         Tablet [x,z,y,y] S,
                                                         Tablet [y,x,z,y] S,
-                                                        Tablet [y,z,x,y] S,
+                                                        Tablet [y,y,x,z] S,
                                                         Tablet [a,a,a,a] S
                                                        ],
                                              tabletWeft = thread orange
