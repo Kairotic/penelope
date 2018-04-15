@@ -16,7 +16,7 @@ plyTop n (Ply pt (Spin (twist:twists)))
           succ = plyTop (n+delta) (Ply pt (Spin twists))
           delta | twist == S = 1 -- TODO - guess - other way around?
                 | twist == Z = -1
-                | twist == Z = 0
+                | twist == I = 0
           (!!!) :: [a] -> Int -> a
           (!!!) xs n = xs !! (n `mod` length xs)
 
