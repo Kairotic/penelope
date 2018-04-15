@@ -8,6 +8,10 @@ import Tablet
 
 data Segment = Segment (Colour Double) (Colour Double) Twist
 
+-- Returns a list representing a sequence of 'top' strands in a
+-- multi-ply thread, in terms of the colour of the previous strand,
+-- the previous of the current one, and the direction of twist. If the
+-- twist direction is I, then both colours should be the say.
 plyTop :: Int -> Thread -> [Segment]
 plyTop _ (Strand _ _) = []
 plyTop _ (Ply _ (Spin [])) = []
@@ -21,6 +25,9 @@ plyTop n (Ply pt (Spin (twist:twists)))
           (!!!) :: [a] -> Int -> a
           (!!!) xs n = xs !! (n `mod` length xs)
 
+-- Given an x y position, return a string representing a Segment in
+-- SVG format.
+svgFgBg :: Int -> Int -> Segment -> String
 svgFgBg x y (Segment f b t) = (svgPath idFg (x*svgScale,y*svgScale) f fCorner) ++ (svgPath idBg (x*svgScale,y*svgScale) b bCorner)
   where idFg = "fg-" ++ show x ++ "x" ++ show y
         idBg = "bg-" ++ show x ++ "x" ++ show y
@@ -29,8 +36,8 @@ svgFgBg x y (Segment f b t) = (svgPath idFg (x*svgScale,y*svgScale) f fCorner) +
         bCorner | t == S = BL
                 | otherwise = BR
 
---data Direction = Up | Right | Down | Left
-
+-- Return SVG code to draw the given band
+svgBand Band -> String
 svgBand b = svgPreamble ++ warpTop ++ svgPostamble
   where warpTop = svgLayer "warptop" $ concatMap (\(x,ys) -> concatMap (\(y,s) -> svgFgBg x y s) ys) $ zip [0 ..] (map (zip [0 ..] . plyTop 0) $ bandCords b)
         -- weft = svgWeft CW 0 0 $ curvePath $ bandWeft b
