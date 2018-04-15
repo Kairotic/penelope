@@ -61,7 +61,7 @@ daveWeave = TabletWeave {tLoom = TabletLoom {tablets = [Tablet [a,a,a,a] S,
                                                        ],
                                              tabletWeft = thread orange
                                             },
-                       tSheds = [S,S,S,S,Z,Z,Z,Z]
+                       tSheds = map (replicate 8) [S,S,S,S,Z,Z,Z,Z]
                       }
   where a = thread yellow
         x = thread brown
