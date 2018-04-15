@@ -6,7 +6,7 @@ module twist(x,y,t) {
 }
 
 module yarnSegment(t) {
-    color([0,1,0]);
+    color([0,1,0])
     twist(-1,1,t);
     twist(1,-1,t);
     twist(1,1,t);
