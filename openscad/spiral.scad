@@ -8,8 +8,11 @@ module twist(x,y,t) {
 module yarnSegment(t) {
     color([0,1,0])
     twist(-1,1,t);
+    color([0,1,1])
     twist(1,-1,t);
+    color([1,1,0])
     twist(1,1,t);
+    color([1,0,1])
     twist(-1,-1,t);
 }
 
