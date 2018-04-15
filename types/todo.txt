@@ -1,7 +1,7 @@
 Check results against Dave's
 Weft - is it tabby?
 Modelling in openscad
-
+With triangular card weave, is the weft visible?
 
 \|
 \\
