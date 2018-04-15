@@ -138,4 +138,6 @@ deriveSpin (x:[]) = I:[]
 deriveSpin (S:S:xs) = S:(deriveSpin (S:xs))
 deriveSpin (Z:Z:xs) = Z:(deriveSpin (Z:xs))
 deriveSpin (x:xs) = I:(deriveSpin xs)
-           
+
+thread :: Colour Double -> Thread
+thread c = Strand c (spin S)

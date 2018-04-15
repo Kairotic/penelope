@@ -3,17 +3,9 @@ module SVG where
 import TabletSwitch
 import Data.Colour.SRGB
 import Data.Colour.Names
+import System.Process
 
 data Segment = Segment (Colour Double) (Colour Double) Twist
-
-instance Show Segment where
-  show s@(Segment c1 c2 t) = colourTwistEven s ++ " (" ++ showColour c1 ++ "/" ++ showColour c2 ++ " " ++ show t ++ ")"
-
-colourTwistEven (Segment f b S) = colourString f b (tr:[])
-colourTwistEven (Segment f b Z) = colourString f b (tl:[])
-
-colourTwistOdd (Segment f b S) = colourString b f (bl:[])
-colourTwistOdd (Segment f b Z) = colourString b f (br:[])
 
 plyTop :: Int -> Thread -> [Segment]
 plyTop _ (Strand _ _) = []
