@@ -7,8 +7,8 @@ import Tablet
 scadBand :: Band -> String
 scadBand (Band cords weft) = concatMap showThread cords
 
-showThread (Ply ts s)  = ""
+showThread (Ply ts s)  = concatMap setColour $ zip (words "a b c d") colours
   where colours = map firstColour ts
-        setColour name c = name ++ " = [" ++ show r ++ "," ++ show g ++ "," ++ show b ++ "];\n"
+        setColour (name, c) = name ++ " = [" ++ show r ++ "," ++ show g ++ "," ++ show b ++ "];\n"
           where (RGB r g b) = toSRGB c
 showThread _ = ""
