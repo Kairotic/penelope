@@ -3,4 +3,11 @@ Weft - is it tabby?
 Modelling in openscad
 
 
-
+\|
+\\
+/|
+//
+\|
+\\
+/|
+//
