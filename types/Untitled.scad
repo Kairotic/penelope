@@ -1,4 +1,4 @@
-use <path_extrude.scad>;
+//use <path_extrude.scad>;
 shift=0;
 pi=3.14159;
 for(shift = [0, 360/15]){
