@@ -2,6 +2,7 @@ Check results against Dave's
 Weft - is it tabby?
 Modelling in openscad
 With triangular card weave, is the weft visible?
+Is feathering (partly?) to do with whether the weft is up or down?
 
 \|
 \\

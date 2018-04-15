@@ -131,7 +131,7 @@ twistCords tw = map tabletCord (zip (tablets $ tLoom tw) twists)
         -- list of thread twists rather than list of card moves over time
         twists = transpose (tSheds tw)
 
-
+-- The twist of the yarn = the first derivative of the twist of the tablet
 deriveSpin :: [Twist] -> [Twist]
 deriveSpin [] = []
 deriveSpin (x:[]) = I:[]
