@@ -1,4 +1,5 @@
 import SVG
+import Scad
 import Tablet
 import Data.Colour.SRGB
 import Data.Colour.Names
