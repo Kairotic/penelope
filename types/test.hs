@@ -34,8 +34,8 @@ bfWeave = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [rwgbTablet
 bfBand = tabletWeave bfWeave
 
 fooWeave :: TabletWeave
-fooWeave = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [rwgbTablet,
-                                                                      flipTablet rwgbTablet
+fooWeave = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [rwgbTablet
+                                                                       -- flipTablet rwgbTablet
                                                                      ],
                                            tabletWeft = Strand {colour = orange,
                                                                 roll = Spin (repeat S)
