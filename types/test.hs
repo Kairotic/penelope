@@ -1,5 +1,5 @@
 import SVG
-import TabletSwitch
+import Tablet
 import Data.Colour.SRGB
 import Data.Colour.Names
 

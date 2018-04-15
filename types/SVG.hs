@@ -28,7 +28,7 @@ plyTop n (Ply pt (Spin (twist:twists)))
 -- Given an x y position, return a string representing a Segment in
 -- SVG code.
 svgFgBg :: Int -> Int -> Segment -> String
-svgFgBg x y (Segment f b t) = (svgPath idFg (x*svgScale,y*svgScale) f fCorner) ++ (svgPath idBg (x*svgScale,y*svgScale) b bCorner)
+svgFgBg x y (Segment f b t) = (svgPath idFg (x*svgScale,y*svgScale*2) f fCorner) ++ (svgPath idBg (x*svgScale,y*svgScale*2) b bCorner)
   where idFg = "fg-" ++ show x ++ "x" ++ show y
         idBg = "bg-" ++ show x ++ "x" ++ show y
         fCorner | t == S = TR
