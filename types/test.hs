@@ -54,6 +54,7 @@ daveWeave = TabletWeave {tLoom = TabletLoom {tablets = [Tablet [a,a,a,a] Z,
                                                         Tablet [y,z,x,y] Z,
                                                         Tablet [y,y,z,x] Z,
                                                         Tablet [x,y,y,z] Z,
+                                                        -- TODO - threading is in wrong direction
                                                         Tablet [x,z,y,y] S,
                                                         Tablet [y,x,z,y] S,
                                                         Tablet [y,y,x,z] S,
