@@ -63,7 +63,7 @@ svgPreamble = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<sv
 svgPostamble = "</g>\n</svg>\n"
 
 sX = 10
-sY = 20
+sY = 15
 sXs = show sX
 sYs = show sY
 
@@ -71,7 +71,7 @@ data Corner = TL | TR | BL | BR
 path TL x y = show x ++ "," ++ show y ++ " " ++ sXs ++ ",0 -" ++ sXs ++ "," ++ sYs
 path TR x y = show x ++ "," ++ show y ++ " " ++ sXs ++ ",0 0," ++ sYs
 path BL x y = show x ++ "," ++ show y ++ " " ++ sXs ++ "," ++ sYs ++ " -" ++ sXs ++ ",0"
-path BR x y = show (x+sXs) ++ "," ++ show y ++ " 0," ++ sYs ++ " -" ++ sXs ++ ",0"
+path BR x y = show (x+sX) ++ "," ++ show y ++ " 0," ++ sYs ++ " -" ++ sXs ++ ",0"
 
 svgLayer :: String -> String -> String
 svgLayer id inner = "<g id=\"" ++ id ++ "\">" ++ inner ++ "</g>"
