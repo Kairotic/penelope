@@ -1,4 +1,4 @@
 module Scad where
 
 scadBand :: Band -> String
-scadBand s = 
+scadBand (Band cords weft) = 
