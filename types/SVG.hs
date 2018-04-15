@@ -15,7 +15,8 @@ plyTop n (Ply pt (Spin (twist:twists)))
     where this = Segment (firstColour $ pt !!! n) (firstColour $pt !!! (n+delta)) twist
           succ = plyTop (n+delta) (Ply pt (Spin twists))
           delta | twist == S = 1 -- TODO - guess - other way around?
-                | otherwise = -1
+                | twist == Z = -1
+                | twist == Z = 0
           (!!!) :: [a] -> Int -> a
           (!!!) xs n = xs !! (n `mod` length xs)
 
@@ -71,6 +72,6 @@ svgPath id (x,y) c cnr = "<path id=\"" ++ id ++ "\" d=\"m " ++ path cnr x y ++ "
 cHex = sRGB24show
 
 writeBand b = do writeFile "test.svg" (svgBand b)
-                 callProcess "~/Dropbox/bin/fixsvg.pl" ["test.svg"]
+                 -- callProcess "~/Dropbox/bin/fixsvg.pl" ["test.svg"]
                  callProcess "inkscape" ["test.svg", "--export-pdf=test.pdf"]
                  return ()
