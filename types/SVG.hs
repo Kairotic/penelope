@@ -28,7 +28,7 @@ plyTop n (Ply pt (Spin (twist:twists)))
 -- Given an x y position, return a string representing a Segment in
 -- SVG code.
 svgFgBg :: Int -> Int -> Segment -> String
-svgFgBg x y (Segment f b t) = (svgPath idFg (x*svgScale,y*svgScale*2) f fCorner) ++ (svgPath idBg (x*svgScale,y*svgScale*2) b bCorner)
+svgFgBg x y (Segment f b t) = (svgPath idFg (x*sX,y*sY) f fCorner) ++ (svgPath idBg (x*sX,y*sY) b bCorner)
   where idFg = "fg-" ++ show x ++ "x" ++ show y
         idBg = "bg-" ++ show x ++ "x" ++ show y
         fCorner | t == S = TR
@@ -62,13 +62,16 @@ svgPreamble = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<sv
 
 svgPostamble = "</g>\n</svg>\n"
 
-svgScale = 10
+sX = 10
+sY = 20
+sXs = show sX
+sYs = show sY
 
 data Corner = TL | TR | BL | BR
-path TL x y = show x ++ "," ++ show y ++ " 10,0 -10,10"
-path TR x y = show x ++ "," ++ show y ++ " 10,0 0,10"
-path BL x y = show x ++ "," ++ show y ++ " 10,10 -10,0"
-path BR x y = show (x+10) ++ "," ++ show y ++ " 0,10 -10,0"
+path TL x y = show x ++ "," ++ show y ++ " " ++ sXs ++ ",0 -" ++ sXs ++ "," ++ sYs
+path TR x y = show x ++ "," ++ show y ++ " " ++ sXs ++ ",0 0," ++ sYs
+path BL x y = show x ++ "," ++ show y ++ " " ++ sXs ++ "," ++ sYs ++ " -" ++ sXs ++ ",0"
+path BR x y = show (x+sXs) ++ "," ++ show y ++ " 0," ++ sYs ++ " -" ++ sXs ++ ",0"
 
 svgLayer :: String -> String -> String
 svgLayer id inner = "<g id=\"" ++ id ++ "\">" ++ inner ++ "</g>"
