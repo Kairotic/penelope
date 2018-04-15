@@ -90,3 +90,21 @@ firstColour :: Thread -> Colour Double
 firstColour (Strand c _) = c
 firstColour (Ply (t:_) r) = firstColour t
 
+-- A curve is a sequence of actions -- representing how to use a one
+-- dimensional thread to fill a two dimensional surface..
+data Curve = Curve {curveThread :: Thread,
+                    curvePath :: [Action]
+                   }
+           deriving Show
+
+-- A band is a set of twisted cords next to each other, drawn together
+-- into a band by the weft. Cords here aren't curves, they're 1d but
+-- with varying S/Z spin. It's the curve of the weft that binds them
+-- together (by passing through the cords) into a 2D surface.
+data Band = Band {bandCords :: [Thread], bandWeft :: Curve}
+          deriving Show
+
+-- Returns the input tablet, but flipped
+flipTablet :: Tablet -> Tablet
+flipTablet t = t {yaw = flipTwist (yaw t)}
+
