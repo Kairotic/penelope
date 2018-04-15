@@ -18,7 +18,7 @@ module yarnSegment(t) {
 
 
 yarnSegment(90);
-rotate([0,0,90]) translate([0,0,2])
+rotate([0,0,-90]) translate([0,0,2])
   yarnSegment(90);
 /*
 translate([0,0,4])
