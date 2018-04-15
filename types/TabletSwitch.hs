@@ -108,3 +108,24 @@ data Band = Band {bandCords :: [Thread], bandWeft :: Curve}
 flipTablet :: Tablet -> Tablet
 flipTablet t = t {yaw = flipTwist (yaw t)}
 
+-- A function that does the tablet weaving - turning the TabletWeave
+-- instructions into an actual Band.
+tabletWeave :: TabletWeave -> Band
+tabletWeave tw = Band cords weftCurve
+  where cords = twistCords tw
+        weftCurve = Curve {curveThread = (tabletWeft $ tLoom tw) ,
+                           -- TODO: weft needs to go up and down
+                           curvePath = concat $ replicate weftCount [Pull warpCount, TurnBack, Turn]
+                          }
+        warpCount = length $ tablets $ tLoom tw
+        weftCount = length $ tSheds tw
+
+-- Twists the cords according to the 'flip' of the tablet and the sequences of twists in the shed.
+twistCords :: TabletWeave -> [Thread]
+twistCords tw = map tabletCord (zip (tablets $ tLoom tw) twists)
+  where tabletCord (tablet, tabletTwists) = Ply (warps tablet) (Spin $ map doFlip tabletTwists)
+        -- assuming yaw of tablet = roll of thread, depends which side you look at tablet from?
+          where doFlip x | yaw tablet == S = x
+                         | otherwise = flipTwist x
+        -- list of thread twists rather than list of card moves over time
+        twists = transpose (tSheds tw)
