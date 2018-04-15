@@ -50,20 +50,23 @@ fooBand = tabletWeave fooWeave
 
 
 daveWeave :: TabletWeave
-daveWeave = TabletWeave {tLoom = TabletLoom {tablets = [Tablet [a,a,a,a] Z,
-                                                        Tablet [y,z,x,y] Z,
-                                                        Tablet [y,y,z,x] Z,
-                                                        Tablet [x,y,y,z] Z,
-                                                        -- TODO - threading is in wrong direction I think
-                                                        Tablet [x,z,y,y] S,
-                                                        Tablet [y,x,z,y] S,
-                                                        Tablet [y,y,x,z] S,
-                                                        Tablet [a,a,a,a] S
-                                                       ],
-                                             tabletWeft = thread orange
-                                            },
-                       tSheds = map (replicate 8) [S,S,S,S,Z,Z,Z,Z]
-                      }
+daveWeave =
+  TabletWeave {tLoom = TabletLoom {tablets = [Tablet [a,a,a,a] Z,
+                                               Tablet [y,z,x,y] Z,
+                                               Tablet [y,y,z,x] Z,
+                                               Tablet [x,y,y,z] Z,
+                                               -- TODO - threading is
+                                               -- in wrong direction I
+                                               -- think
+                                               Tablet [x,z,y,y] S,
+                                               Tablet [y,x,z,y] S,
+                                               Tablet [y,y,x,z] S,
+                                               Tablet [a,a,a,a] S
+                                             ],
+                                    tabletWeft = thread orange
+                                  },
+                tSheds = map (replicate 8) [S,S,S,S,Z,Z,Z,Z]
+              }
   where a = thread yellow
         x = thread brown
         y = thread white
