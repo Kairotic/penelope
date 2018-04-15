@@ -24,9 +24,7 @@ rotate([0,0,-180]) translate([0,0,4])
   yarnSegment(-90);
 rotate([0,0,-90]) translate([0,0,6])
   yarnSegment(-90);
-/*
 translate([0,0,8])
   yarnSegment(0);
 translate([0,0,10])
   yarnSegment(90);
-*/
