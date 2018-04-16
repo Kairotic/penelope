@@ -5,7 +5,7 @@ import Data.Colour.Names
 import Tablet
 
 scadBand :: Band -> String
-scadBand (Band cords weft) = concat $ map offset $ zip [0, 2 ..] (map showThread cords)
+scadBand (Band cords weft) = scadPreamble ++ (concat $ map offset $ zip [0, 2 ..] (map showThread cords))
   where offset (n, t) = "translate([0," ++ show n ++ ",0]) {\n" ++ t ++ "};\n"
 
 showThread (Ply threads (Spin twists))  = setColours ++ "rotate ([0,0,45]) {\n" ++ doTwist 0 0 twists ++ "\n};\n"
