@@ -17,10 +17,7 @@ module Arc(r=r){
 
 module S(r){
     Arc(r=r);
-    translate( [-eps,3,0 ] ) // use eps
-    rotate( [-90,0,180] )
-    translate( [0,-3,0 ] )
-    Arc(r=r);
+
 }
 
 difference(){
