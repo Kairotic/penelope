@@ -54,9 +54,7 @@ daveWeave :: TabletWeave
 daveWeave =
   TabletWeave {tLoom =
     TabletLoom {tablets =
-                [Tablet [y,y,y,y] Z, Tablet [w,r,b,w] Z, Tablet [w,w,r,b] Z, Tablet [b,w,w,r] Z,
-                  Tablet [b,r,w,w] S, Tablet [w,b,r,w] S, Tablet [w,w,b,r] S, Tablet [y,y,y,y] S
-                ],
+                [Tablet [y,y,y,y] Z, Tablet [w,r,b,w] Z, Tablet [w,w,r,b] Z, Tablet [b,w,w,r] Z, Tablet [b,r,w,w] S, Tablet [w,b,r,w] S, Tablet [w,w,b,r] S, Tablet [y,y,y,y] S],
                 tabletWeft = thread orange
                },
                tSheds = map (replicate 8) [S,S,S,S,Z,Z,Z,Z]
