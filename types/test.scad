@@ -23,7 +23,7 @@ rotate ([0,0,45]) {
 rotate([0,0,90]) translate([0,0,0]) yarnSegment(90,a,b,c,d);
 rotate([0,0,180]) translate([0,0,-2]) yarnSegment(90,a,b,c,d);
 rotate([0,0,270]) translate([0,0,-4]) yarnSegment(90,a,b,c,d);
-rotate([0,0,270]) translate([0,0,-6]) yarnSegment(0,a,b,c,d);
+//rotate([0,0,270]) translate([0,0,-6]) yarnSegment(0,a,b,c,d);
 rotate([0,0,180]) translate([0,0,-8]) yarnSegment(-90,a,b,c,d);
 rotate([0,0,90]) translate([0,0,-10]) yarnSegment(-90,a,b,c,d);
 rotate([0,0,0]) translate([0,0,-12]) yarnSegment(-90,a,b,c,d);
