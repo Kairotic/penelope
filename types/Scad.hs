@@ -6,7 +6,7 @@ import Tablet
 
 scadBand :: Band -> String
 scadBand (Band cords weft) = scadPreamble ++ (concat $ map offset $ zip [0, 2 ..] (map showThread cords))
-  where offset (n, t) = "translate([0," ++ show (n*1.1) ++ ",0]) {\n" ++ t ++ "};\n"
+  where offset (n, t) = "translate([0," ++ show (n*1) ++ ",0]) {\n" ++ t ++ "};\n"
 
 writeScadBand b = writeFile "test.scad" (scadBand b)
 
