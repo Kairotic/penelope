@@ -12,35 +12,14 @@ import System.Process
 -- (possibly itself)
 data Action = Pull Int | Turn | TurnBack | Over | Under
 
-instance Show Action where
-  show (Pull n) = "pull " ++ show n
-  show Turn = "turn"
-  show TurnBack = "turn back"
-  show Over = "over"
-  show Under = "under"
-
-data Twist = S | Z | I
-           deriving Eq
-
 -- Used for twist in yarn, threading (and 'flipping') of tablets, and
 -- rotation of tablets. These are closely related if you consider the
 -- twist of tablets to create a new yarn by twisting threads together
 -- within the band.
-instance Show Twist where
-  show S = "S"
-  show Z = "Z"
-  show I = "I"
+data Twist = S | Z | I
+           deriving Eq
 
 data Spin = Spin [Twist]
-
-instance Show Spin where
-  show (Spin s) =  (concatMap (show) $ take 5 s) ++ ".."
-
-showColour c | c == red = "r"
-             | c == blue = "b"
-             | c == green = "g"
-             | c == white = "w"
-             | otherwise = show c
 
 -- A thread can eiher be a base Strand, or be a Ply composed of other
 -- threads (which can recurse to any level). A strand has a colour,
@@ -48,11 +27,6 @@ showColour c | c == red = "r"
 -- in sympathy with the 'yaw' of a flipping tablet)
 data Thread = Strand {colour :: Colour Double, roll :: Spin}
             | Ply {plyThreads :: [Thread], roll :: Spin}
-
-instance Show Thread where
-  show (Strand c r) = "Strand " ++ showColour c ++ " " ++ show r
-  show (Ply pt r) = "Ply " ++ show pt ++ " " ++ show r
-
 
 -- Trying to conflate S/Z threading (or flip) on the card with
 -- rotation of it by referring to former as 'yaw' and latter as
@@ -144,3 +118,30 @@ deriveSpin (x:xs) = I:(deriveSpin xs)
 -- Make a simple S thread, consisting of a single strand of the given colour
 thread :: Colour Double -> Thread
 thread c = Strand c (spin S)
+
+
+-- Show instances, used for debugging
+instance Show Action where
+  show (Pull n) = "pull " ++ show n
+  show Turn = "turn"
+  show TurnBack = "turn back"
+  show Over = "over"
+  show Under = "under"
+
+instance Show Twist where
+  show S = "S"
+  show Z = "Z"
+  show I = "I"
+
+instance Show Spin where
+  show (Spin s) =  (concatMap (show) $ take 5 s) ++ ".."
+
+showColour c | c == red = "r"
+             | c == blue = "b"
+             | c == green = "g"
+             | c == white = "w"
+             | otherwise = show c
+
+instance Show Thread where
+  show (Strand c r) = "Strand " ++ showColour c ++ " " ++ show r
+  show (Ply pt r) = "Ply " ++ show pt ++ " " ++ show r
