@@ -8,9 +8,9 @@ module yarnSegment(t, a,b,c,d) {
     color(a)
     twist(-1,1,t);
     color(b)
-    twist(1,-1,t);
-    color(c)
     twist(-1,-1,t);
+    color(c)
+    twist(1,-1,t);
     color(d)    
     twist(1,1,t);
 }translate([0,0,0]) {
