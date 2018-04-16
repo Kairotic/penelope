@@ -56,9 +56,9 @@ daveWeave =
                                                Tablet [w,r,b,w] Z,
                                                Tablet [w,w,r,b] Z,
                                                Tablet [b,w,w,r] Z,
-                                               Tablet [b,w,w,r] S                                                                                      Tablet [w,w,r,b] S,
+                                               Tablet [b,w,w,r] S,                                                                                      Tablet [w,w,r,b] S,
                                                Tablet [w,r,b,w] S,
-                                               Tablet [y,y,y,y] S,
+                                               Tablet [y,y,y,y] S
         
                                                -- TODO - threading
                                                -- should be done
