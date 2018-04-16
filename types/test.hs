@@ -55,20 +55,19 @@ daveWeave =
   TabletWeave {tLoom = TabletLoom {tablets = [Tablet [w,r,b,y] Z,
                                                Tablet [w,r,b,w] Z,
                                                Tablet [w,w,r,b] Z,
-                                               Tablet [b,w,w,r] Z,
+                                               Tablet [b,w,w,r] Z,{-
                                                Tablet [b,w,w,r] S,
                                                Tablet [w,w,r,b] S,
                                                Tablet [w,r,b,w] S,
-                                               Tablet [y,y,y,y] S
+                                               Tablet [y,y,y,y] S-}
         
                                                -- TODO - threading
                                                -- should be done
                                                -- before the flip (?)
-                                               {-
                                                Tablet [b,r,w,w] S,
                                                Tablet [w,b,r,w] S,
                                                Tablet [w,w,b,r] S,
-                                               Tablet [y,y,y,y] S-}
+                                               Tablet [y,y,y,y] S
                                              ],
                                     tabletWeft = thread orange
                                   },
