@@ -25,5 +25,5 @@ module S(r){
 
 difference(){
     S();
-    S(r=0.6);
+    S(r=0.2);
 }   
