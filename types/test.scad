@@ -7,7 +7,7 @@ module twist(x,y,t) {
 
 module yarnSegment(t, a,b,c,d,d1,d2) {
         color(a)
-    twist(-1,1,t);
+    twist(-1,1,t+d1);
     color(b)
     twist(-1,-1,t+d2);
     color(c)
@@ -20,7 +20,7 @@ b = [1.0,1.0,0.0];
 c = [1.0,1.0,0.0];
 d = [1.0,1.0,0.0];
 rotate ([0,0,45]) {
-rotate([0,0,90]) translate([0,0,0]) yarnSegment(90,a,b,c,d,10,0);
+rotate([0,0,90]) translate([0,0,0]) yarnSegment(90,a,b,c,d,1,0);
 rotate([0,0,180]) translate([0,0,-2]) yarnSegment(90,a,b,c,d,0,10);
 rotate([0,0,270]) translate([0,0,-4]) yarnSegment(90,a,b,c,d,10,0);
 rotate([0,0,270]) translate([0,0,-6]) yarnSegment(0,a,b,c,d,0,10);
