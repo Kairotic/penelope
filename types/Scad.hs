@@ -6,7 +6,7 @@ import Tablet
 
 scadBand :: Band -> String
 scadBand (Band cords weft) = scadPreamble ++ (concat $ map offset $ zip [0, 2 ..] (map showThread cords))
-  where offset (n, t) = "translate([0," ++ show (n*1) ++ ",0]) {\n" ++ t ++ "};\n"
+  where offset (n, t) = "translate([0," ++ show (n) ++ "*pack,0]) {\n" ++ t ++ "};\n"
 
 writeScadBand b = writeFile "test.scad" (scadBand b)
 
@@ -23,7 +23,7 @@ showThread (Ply threads (Spin twists))  = setColours ++ "rotate ([0,0,45]) {\n" 
           where (RGB r g b) = toSRGB c
 showThread _ = ""
 
-scadPreamble = "module twist(x,y,t) {\n    linear_extrude(height = 2, center = false, convexity = 10, twist = t, $fn=50)\n        translate([x, y, 0])\n        circle(r = 0.95);\n}\n\nmodule yarnSegment(t, a,b,c,d) {\n        color(a)\n    twist(-1,1,t);\n    color(b)\n    twist(-1,-1,t);\n    color(c)\n    twist(1,-1,t);\n    color(d)    \n    twist(1,1,t);\n}"
+scadPreamble = "pack=0.7;\nmodule twist(x,y,t) {\n    linear_extrude(height = 2, center = false, convexity = 10, twist = t, $fn=50)\n        translate([x, y, 0])\n        circle(r = 0.95);\n}\n\nmodule yarnSegment(t, a,b,c,d) {\n        color(a)\n    twist(-1,1,t);\n    color(b)\n    twist(-1,-1,t);\n    color(c)\n    twist(1,-1,t);\n    color(d)    \n    twist(1,1,t);\n}"
 
 
 
