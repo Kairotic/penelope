@@ -11,8 +11,8 @@ module yarnSegment(t, a,b,c,d) {
     twist(1,-1,t);
     color(c)
     twist(1,1,t);
-
-    color(d)    twist(-1,-1,t);
+    color(d)    
+    twist(-1,-1,t);
 }translate([0,0,0]) {
 a = [1.0,1.0,1.0];
 b = [1.0,0.0,0.0];
