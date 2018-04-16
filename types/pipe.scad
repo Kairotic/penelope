@@ -1,5 +1,5 @@
 
-$fn=100;
+$fn=50;
 eps=0.001; // to make sure there's no gap
 r=1;
 module Ring(r=r){
