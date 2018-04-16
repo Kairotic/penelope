@@ -52,25 +52,25 @@ fooBand = tabletWeave fooWeave
 
 daveWeave :: TabletWeave
 daveWeave =
-  TabletWeave {tLoom = TabletLoom {tablets = [Tablet [a,a,a,a] Z,
-                                               Tablet [y,z,x,y] Z,
-                                               Tablet [y,y,z,x] Z,
-                                               Tablet [x,y,y,z] Z,
+  TabletWeave {tLoom = TabletLoom {tablets = [Tablet [y,y,y,y] Z,
+                                               Tablet [w,r,b,w] |,
+                                               Tablet [w,w,r,b] Z,
+                                               Tablet [b,w,w,r] Z,
                                                -- TODO - threading
                                                -- should be done
                                                -- before the flip (?)
-                                               Tablet [x,z,y,y] S,
-                                               Tablet [y,x,z,y] S,
-                                               Tablet [y,y,x,z] S,
-                                               Tablet [a,a,a,a] S
+                                               Tablet [b,r,w,w] S,
+                                               Tablet [w,b,r,w] S,
+                                               Tablet [w,w,b,r] S,
+                                               Tablet [y,y,y,y] S
                                              ],
                                     tabletWeft = thread orange
                                   },
                 tSheds = map (replicate 8) [S,S,S,S,Z,Z,Z,Z]
               }
-  where a = thread yellow
-        x = thread brown
-        y = thread white
-        z = thread red
+  where y = thread yellow
+        b = thread brown
+        w = thread white
+        r = thread red
 
 daveBand = tabletWeave daveWeave
