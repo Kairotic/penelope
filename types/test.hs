@@ -58,7 +58,7 @@ daveWeave =
                                                Tablet [x,y,y,z] Z,
                                                Tablet [x,y,y,z] S,                                                                                     Tablet [y,y,z,x] S,
                                                Tablet [y,z,x,y] S,
-                                               Tablet [a,a,a,a] S,
+                                               Tablet [a,a,a,a] S
                                                -- TODO - threading
                                                -- should be done
                                                -- before the flip (?)
