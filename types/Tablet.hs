@@ -121,6 +121,7 @@ thread c = Strand c (spin S)
 
 
 -- Show instances, used for debugging
+
 instance Show Action where
   show (Pull n) = "pull " ++ show n
   show Turn = "turn"
