@@ -12,7 +12,6 @@ module yarnSegment(t, a,b,c,d,d1,d2) {
     color(b)
     twist(-1,-1,t+d2);
     color(c)
-    rotate ([0,0,d1])
     twist(1,-1,t+d1);
     color(d)    
     twist(1,1,t+d2);
