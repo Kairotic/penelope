@@ -19,6 +19,7 @@ data Action = Pull Int | Turn | TurnBack | Over | Under
 data Twist = S | Z | I
            deriving Eq
 
+-- A sequence of twists
 data Spin = Spin [Twist]
 
 -- A thread can eiher be a base Strand, or be a Ply composed of other
