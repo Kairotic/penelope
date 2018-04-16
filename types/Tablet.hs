@@ -7,6 +7,7 @@ import System.Process
 
 -- References:
 -- http://www.stringpage.com/tw/twtheory.html
+-- http://www.pawfal.org/dave/blog/tag/tablet-weaving/
 -- 
 
 -- 'Pull' is a thread over a given distance (generally under tension)
