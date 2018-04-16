@@ -2,7 +2,7 @@ pack=2;
 module twist(x,y,t) {
     linear_extrude(height = 2, center = false, convexity = 10, twist = t, $fn=50)
         translate([x, y, 0])
-        circle(r = 1);
+        circle(r = 1.1);
 }
 
 module yarnSegment(t, a,b,c,d) {
