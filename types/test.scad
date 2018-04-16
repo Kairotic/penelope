@@ -1,5 +1,5 @@
 module twist(x,y,t) {
-    linear_extrude(height = 2, center = false, convexity = 10, twist = t, $fn=20)
+    linear_extrude(height = 2, center = false, convexity = 10, twist = t, $fn=10)
         translate([x, y, 0])
         circle(r = 0.9);
 }
