@@ -48,13 +48,15 @@ data Spin = Spin [Twist]
 A `spin` is a sequence of twists. Normally a yarn would be sequence of
 either `S` or `Z` twists.
 
-
--- A thread can eiher be a base Strand, or be a Ply composed of other
--- threads (which can recurse to any level). A strand has a colour,
--- both strand and ply have a twist over their length (called 'roll'
--- in sympathy with the 'yaw' of a flipping tablet)
+```haskell
 data Thread = Strand {colour :: Colour Double, roll :: Spin}
             | Ply {plyThreads :: [Thread], roll :: Spin}
+```
+
+A thread can eiher be an atomic `Strand`, or a `Ply` composed of other
+threads (each of which may themselves be `Ply` or `Strand`). A strand
+has a colour, and both strand and ply have a twist over their length
+(called 'roll' in sympathy with the 'yaw' of a flipping tablet).
 
 -- Trying to conflate S/Z threading (or flip) on the card with
 -- rotation of it by referring to former as 'yaw' and latter as
