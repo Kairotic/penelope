@@ -88,10 +88,13 @@ exactly, but how to go from one shed to another.  (This is really the
 same type as `Spin`, we should probably use that here..)
 
 
--- A tablet weave is a tablet loom and a sequence of tablet rotations
--- to create sheds
+```haskell
 data TabletWeave = TabletWeave {tLoom :: TabletLoom, tSheds :: [TabletShed]}
                  deriving Show
+```
+
+A tablet weave is a tablet loom and a sequence of tablet rotations to
+create sheds.
 
 -- An infinitely long twist in a single given direction
 spin :: Twist -> Spin
