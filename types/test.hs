@@ -63,7 +63,7 @@ daveWeave =
                            Tablet [y,y,y,y] S],
                 tabletWeft = thread orange
                },
-               tSheds = map (replicate 8) [S,S,S,S,Z,Z,Z,Z]
+               tSheds = map (replicate 8) [S,S,Z,Z,S,S,Z,Z]
               }
   where y = thread yellow
         b = thread brown
