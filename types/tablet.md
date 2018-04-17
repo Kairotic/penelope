@@ -144,7 +144,7 @@ flipTwist Z = S
 flipTwist I = I
 ```
 
-`flipTwist` flips S/Z direction of a twist.
+`flipTwist` flips S/Z direction of a `Twist`.
 
 ```haskell
 firstColour :: Thread -> Colour Double
