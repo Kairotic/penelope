@@ -22,6 +22,8 @@ References:
 * 'TurnBack' is where takes teh opposite 90 degree turn as last time
 * 'Over' and 'Under' is where a thread goes over or under a thread (possibly itself)
 
+For tablet weaving, we only really need pull.
+
 ```haskell
 data Action = Pull Int | Turn | TurnBack | Over | Under
 
