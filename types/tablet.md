@@ -274,7 +274,7 @@ Band {bandCords = [Ply [Strand Data.Colour.SRGB.Linear.rgb 1.0 1.0 0.0 SSSSS..,S
 Hypotheses
 
 * Warps are straight when they twist (and deform when they don't)
-* Wefts are straight when the warp twists
+* Wefts are straight when the warp twists (and go up and down when they don't)
 
 Prediction:
 
