@@ -208,7 +208,7 @@ Turns the twists of the tablets into the twist of the yarn. The twist of the yar
 
 
 
-
+```haskell
 daveWeave :: TabletWeave
 daveWeave =
   TabletWeave {tLoom =
@@ -223,3 +223,4 @@ daveWeave =
         r = thread red
 
 daveBand = tabletWeave daveWeave
+```
