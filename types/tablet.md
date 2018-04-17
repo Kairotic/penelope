@@ -11,9 +11,9 @@ Prediction:
 
 References:
 
+* http://dyadic.borrowed-scenery.net/penelope/tabletloom/
 * http://www.stringpage.com/tw/twtheory.html
 * http://www.pawfal.org/dave/blog/tag/tablet-weaving/
-* http://dyadic.borrowed-scenery.net/penelope/tabletloom/
 
 ## Tablet.hs
 
