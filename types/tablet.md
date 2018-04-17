@@ -27,7 +27,8 @@ The actions taken by a thread.
 * `TurnBack` is where takes the opposite 90 degree turn as last time
 * `Over` and 'Under' is where a thread goes over or under a thread (possibly itself)
 
-For tablet weaving, perhaps we only really need `pull`.
+For tablet weaving, perhaps we only really need `pull`. The others are
+for when we later integrate plain weaving with tablet weaving.
 
 ```haskell
 data Twist = S | Z | I
