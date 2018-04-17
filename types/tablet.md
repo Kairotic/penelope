@@ -168,7 +168,7 @@ tabletWeave tw = Band cords weftCurve
 ```
 
 This function does the actual tablet weaving - turning the TabletWeave
-instructions into an actual Band.
+instructions into a Band.
 
 ```haskell
 twistCords :: TabletWeave -> [Thread]
