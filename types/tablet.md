@@ -103,13 +103,17 @@ spin :: Twist -> Spin
 spin twist = Spin $ repeat twist
 ```
 
-An infinitely long twist in a single given direction
+An infinitely long twist in a single given direction - used to create
+a standard thread (as opposed to the `Spin` type defined earlier).
 
--- Function for flipping S/Z direction
+```haskell
 flipTwist :: Twist -> Twist
 flipTwist S = Z
 flipTwist Z = S
 flipTwist I = I
+```
+
+Function for flipping S/Z direction
 
 -- Returns the colour of a strand, or if the thread has more than one
 -- strand, the colour of the 'first' one.
