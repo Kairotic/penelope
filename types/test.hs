@@ -66,8 +66,8 @@ daveWeave =
                tSheds = map (replicate 8) [S,S,Z,Z,S,S,Z,Z]
               }
   where y = thread yellow
-        w = thread white
-        b = thread darkblue
+        w = thread yellow
+        b = thread darkgreen
         g = thread darkgreen
 
 daveBand = tabletWeave daveWeave
