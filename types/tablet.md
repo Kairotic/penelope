@@ -82,8 +82,8 @@ type TabletShed = [Twist]
 ```
 
 Not the shed exactly but how to go from one shed to the next.. Should
-be one twist per card. This is really the same type as a Spin,
-we should probably use that here..
+be one twist per card. This is really the same type as `Spin`, we
+should probably use that here..
 
 
 -- A tablet weave is a tablet loom and a sequence of tablet rotations
