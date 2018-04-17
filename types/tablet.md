@@ -235,3 +235,7 @@ daveWeave =
 
 daveBand = tabletWeave daveWeave
 ```
+
+Here is the result, rendered via OpenSCAD via [Scad.hs](Scad.hs).
+
+
