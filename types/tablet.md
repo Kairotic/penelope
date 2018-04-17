@@ -171,7 +171,7 @@ tabletWeave tw = Band cords weftCurve
                           }
         warpCount = length $ tablets $ tLoom tw
         weftCount = length $ tSheds tw
-		-- not currently used..
+        -- not currently used..
         tabby n = take n $ cycle [Over, Under]
 ```
 
