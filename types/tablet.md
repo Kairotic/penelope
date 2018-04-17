@@ -82,8 +82,8 @@ type TabletShed = [Twist]
 ```
 
 The `Shed` of a tablet is a set of twists, one per tablet. Not a shed
-exactly, but how to go from one shed to another.  This is really the
-same type as `Spin`, we should probably use that here..
+exactly, but how to go from one shed to another.  (This is really the
+same type as `Spin`, we should probably use that here..)
 
 
 -- A tablet weave is a tablet loom and a sequence of tablet rotations
