@@ -18,6 +18,8 @@ Tablet weaving is described in terms of types and functions.
 data Action = Pull Int | Turn | TurnBack | Over | Under
 ```
 
+The actions taken by a thread.
+
 * `Pull` is a thread over a given distance (generally under tension)
 * `Turn` is where a thread takes the same 90 degree turn as last time
 * `TurnBack` is where takes the opposite 90 degree turn as last time
