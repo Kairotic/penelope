@@ -12,7 +12,7 @@ References:
 
 Tablet weaving is described in terms of types and functions, with the
 aim to result in a representation of tablet weave from the point of
-view of the threads.
+view of threads.
 
 ### Types
 
