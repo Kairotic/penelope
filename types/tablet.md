@@ -167,7 +167,7 @@ tabletWeave :: TabletWeave -> Band
 tabletWeave tw = Band cords weftCurve
   where cords = twistCords tw
         weftCurve = Curve {curveThread = (tabletWeft $ tLoom tw) ,
-                           curvePath = concat $ replicate weftCount ([Pull warpCount] ++ [TurnBack, Turn])
+                           curvePath = concat $ replicate weftCount $ [Pull warpCount] ++ [TurnBack, Turn]
                           }
         warpCount = length $ tablets $ tLoom tw
         weftCount = length $ tSheds tw
