@@ -37,7 +37,7 @@ data Twist = S | Z | I
 
 `Twist` is used for twist in yarn, threading (and 'flipping') of
 tablets, and rotation of tablets. These are closely related if you
-consider the twist of tablets to create a new yarn by twisting threads
+consider the twist of tablets creates a new yarn by twisting threads
 together within the band.
 
 -- A sequence of twists
