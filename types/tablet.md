@@ -241,3 +241,15 @@ Here is the result, rendered via OpenSCAD via [Scad.hs](Scad.hs).
 Front
 
 ![front](davefront.png)
+
+Back
+
+![back](daveback.png)
+
+'Exploded'
+
+![exploded](daveexplode.png)
+
+Side
+
+![side](daveside.png)
