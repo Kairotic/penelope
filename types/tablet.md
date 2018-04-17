@@ -202,7 +202,7 @@ deriveSpin (Z:Z:xs) = Z:(deriveSpin (Z:xs))
 deriveSpin (x:xs) = I:(deriveSpin xs)
 ```
 
-Turns the twists of the tablets into the twist of the yarn. The twist of the yarn = the first derivative of the twist of the tablet.
+`deriveSpin` turns the twists of the tablets into the twist of the yarn. The twist of the yarn = the first derivative of the twist of the tablet.
 
 ### Example
 
