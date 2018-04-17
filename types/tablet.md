@@ -94,7 +94,7 @@ data TabletWeave = TabletWeave {tLoom :: TabletLoom, tSheds :: [TabletShed]}
 ```
 
 A tablet weave is a tablet loom and a sequence of tablet rotations to
-create sheds (both types defined above).
+create sheds.
 
 -- An infinitely long twist in a single given direction
 spin :: Twist -> Spin
