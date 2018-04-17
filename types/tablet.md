@@ -177,11 +177,12 @@ twistCords tw = map tabletCord (zip (tablets $ tLoom tw) twists)
           where doFlip x | yaw tablet == S = x
                          | otherwise = flipTwist x
         -- transpose to get list of thread twists rather than list of
-        -- card moves over time
+        -- card rotations over time
         twists = transpose (tSheds tw)
 ```
 
-Twists the cords according to the 'flip' of the tablet and the sequences of twists in the shed.
+Used by `tabletWeave` - twists the cords according to the 'flip' of
+the tablet and the sequences of twists in the shed.
 
 -- The twist of the yarn = the first derivative of the twist of the tablet
 deriveSpin :: [Twist] -> [Twist]
