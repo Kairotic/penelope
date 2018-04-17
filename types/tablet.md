@@ -68,7 +68,7 @@ data Tablet = Tablet {warps :: [Thread], yaw :: Twist}
 A tablet is an ordered set of warps, and its yaw (flip). This
 conflates S/Z threading (or flip) on the card with rotation of it by
 referring to former as 'yaw' and latter as 'roll'. (In English the
-three directions that e.g. a fish or plane rotates are called pitch,
+three directions that e.g. a plane or fish rotates are called pitch,
 yaw and roll).
 
 ```haskell
