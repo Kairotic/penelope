@@ -135,7 +135,7 @@ thread :: Colour Double -> Thread
 thread c = Strand c (spin S)
 ```
 
-A function that returns a `Thread` that is a single strand of a given colour, spun in the `S` direction.
+`thread` is a function that returns a `Thread` that is a single strand of a given colour, spun in the `S` direction.
 
 ```haskell
 flipTwist :: Twist -> Twist
