@@ -9,6 +9,12 @@ Prediction:
 
 * Wefts are harder to pull when the tablets change direction
 
+References:
+
+* http://www.stringpage.com/tw/twtheory.html
+* http://www.pawfal.org/dave/blog/tag/tablet-weaving/
+* http://dyadic.borrowed-scenery.net/penelope/tabletloom/
+
 ## Tablet.hs
 
 ```haskell
@@ -19,10 +25,6 @@ import Data.Colour.SRGB
 import Data.Colour.Names
 import System.Process
 
--- References:
--- http://www.stringpage.com/tw/twtheory.html
--- http://www.pawfal.org/dave/blog/tag/tablet-weaving/
--- http://dyadic.borrowed-scenery.net/penelope/tabletloom/
 
 -- 'Pull' is a thread over a given distance (generally under tension)
 -- 'Turn' is where a thread takes the same 90 degree turn as last time
