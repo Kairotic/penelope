@@ -68,9 +68,11 @@ data Tablet = Tablet {warps :: [Thread], yaw :: Twist}
 Trying to conflate S/Z threading (or flip) on the card with rotation
 of it by referring to former as 'yaw' and latter as 'roll'.
 
+```haskell
 -- A tablet weaving loom, as an ordered set of tablets and a weft
 data TabletLoom = TabletLoom {tablets :: [Tablet], tabletWeft :: Thread}
                 deriving Show
+```
 
 -- Not the shed exactly but how to go from one shed to the
 -- next.. Should be one twist per card. This is really the same type
