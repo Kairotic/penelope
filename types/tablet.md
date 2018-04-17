@@ -175,8 +175,8 @@ tabletWeave tw = Band cords weftCurve
         tabby n = take n $ cycle [Over, Under]
 ```
 
-This function does the actual tablet weaving - turning the `TabletWeave`
-instructions into a `Band`.
+The `tabletWeave` function does the actual tablet weaving - turning
+the `TabletWeave` instructions into a `Band`.
 
 ```haskell
 twistCords :: TabletWeave -> [Thread]
