@@ -124,19 +124,27 @@ firstColour (Ply (t:_) r) = firstColour t
 This returns the colour of a strand, or if the thread has more than
 one strand, the colour of the 'first' one.
 
--- A curve is a sequence of actions -- representing how to use a one
--- dimensional thread to fill a two dimensional surface..
+```haskell
 data Curve = Curve {curveThread :: Thread,
                     curvePath :: [Action]
                    }
            deriving Show
+```
 
--- A band is a set of twisted cords next to each other, drawn together
--- into a band by the weft. Cords here aren't curves, they're 1d but
--- with varying S/Z spin. It's the curve of the weft that binds them
--- together (by passing through the cords) into a 2D surface.
+A `Curve` is a sequence of actions taken by a thread. This can be
+thought of as representing how to use a one dimensional thread to fill a
+two or three-dimensional surface.
+
+```haskell
 data Band = Band {bandCords :: [Thread], bandWeft :: Curve}
           deriving Show
+```
+
+A `Band` is a set of twisted cords next to each other, drawn together
+into a band by the weft. Cords here aren't curves, they're 1d but
+with varying S/Z spin. It's the curve of the weft that binds them
+together (by passing through the cords) into a 2D surface.
+
 
 -- Returns the input tablet, but flipped
 flipTablet :: Tablet -> Tablet
