@@ -56,13 +56,17 @@ data Thread = Strand {colour :: Colour Double, roll :: Spin}
 A thread can eiher be an atomic `Strand`, or a `Ply` composed of other
 threads (each of which may themselves be `Ply` or `Strand`). A strand
 has a colour, and both strand and ply have a twist over their length
-(called 'roll' in sympathy with the 'yaw' of a flipping tablet).
+(called 'roll' in sympathy with the 'yaw' of a flipping
+tablet). Normally a `Ply` thread would spin in the opposite direction
+to its composite threads.
 
--- Trying to conflate S/Z threading (or flip) on the card with
--- rotation of it by referring to former as 'yaw' and latter as
--- 'roll'
+```haskell
 data Tablet = Tablet {warps :: [Thread], yaw :: Twist}
             deriving Show
+```
+
+Trying to conflate S/Z threading (or flip) on the card with rotation
+of it by referring to former as 'yaw' and latter as 'roll'.
 
 -- A tablet weaving loom, as an ordered set of tablets and a weft
 data TabletLoom = TabletLoom {tablets :: [Tablet], tabletWeft :: Thread}
