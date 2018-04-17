@@ -95,7 +95,7 @@ tabletWeave tw = Band cords weftCurve
   where cords = twistCords tw
         weftCurve = Curve {curveThread = (tabletWeft $ tLoom tw) ,
                            -- TODO: weft needs to go up and down
-                           curvePath = concat $ replicate weftCount (tabby warpCount ++ [TurnBack, Turn])
+                           curvePath = concat $ [Pull warpCount] ++ [TurnBack, Turn])
                           }
         warpCount = length $ tablets $ tLoom tw
         weftCount = length $ tSheds tw
