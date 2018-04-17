@@ -81,9 +81,9 @@ data TabletLoom = TabletLoom {tablets :: [Tablet], tabletWeft :: Thread}
 type TabletShed = [Twist]
 ```
 
-Not the shed exactly but how to go from one shed to the next.. Should
-be one twist per card. This is really the same type as `Spin`, we
-should probably use that here..
+The `Shed` of a tablet is a set of twists, one per tablet. Not a shed
+exactly, but how to go from one shed to another.  This is really the
+same type as `Spin`, we should probably use that here..
 
 
 -- A tablet weave is a tablet loom and a sequence of tablet rotations
