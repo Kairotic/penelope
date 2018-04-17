@@ -20,7 +20,7 @@ data Action = Pull Int | Turn | TurnBack | Over | Under
 
 * `Pull` is a thread over a given distance (generally under tension)
 * `Turn` is where a thread takes the same 90 degree turn as last time
-* `TurnBack` is where takes teh opposite 90 degree turn as last time
+* `TurnBack` is where takes the opposite 90 degree turn as last time
 * `Over` and 'Under' is where a thread goes over or under a thread (possibly itself)
 
 For tablet weaving, perhaps we only really need `pull`.
