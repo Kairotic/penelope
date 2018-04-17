@@ -184,43 +184,19 @@ twistCords tw = map tabletCord (zip (tablets $ tLoom tw) twists)
 `twistCords` is used by `tabletWeave` - twists the cords according to the 'flip' of
 the tablet and the sequences of twists in the shed.
 
--- The twist of the yarn = the first derivative of the twist of the tablet
+```haskell
 deriveSpin :: [Twist] -> [Twist]
 deriveSpin [] = []
 deriveSpin (x:[]) = I:[]
 deriveSpin (S:S:xs) = S:(deriveSpin (S:xs))
 deriveSpin (Z:Z:xs) = Z:(deriveSpin (Z:xs))
 deriveSpin (x:xs) = I:(deriveSpin xs)
+```
 
--- Make a simple S thread, consisting of a single strand of the given colour
+Turns the twists of the tablets into the twist of the yarn. The twist of the yarn = the first derivative of the twist of the tablet.
+
+```haskell
 thread :: Colour Double -> Thread
 thread c = Strand c (spin S)
-
-
--- Show instances, used for debugging
-
-instance Show Action where
-  show (Pull n) = "pull " ++ show n
-  show Turn = "turn"
-  show TurnBack = "turn back"
-  show Over = "over"
-  show Under = "under"
-
-instance Show Twist where
-  show S = "S"
-  show Z = "Z"
-  show I = "I"
-
-instance Show Spin where
-  show (Spin s) =  (concatMap (show) $ take 5 s) ++ ".."
-
-showColour c | c == red = "r"
-             | c == blue = "b"
-             | c == green = "g"
-             | c == white = "w"
-             | otherwise = show c
-
-instance Show Thread where
-  show (Strand c r) = "Strand " ++ showColour c ++ " " ++ show r
-  show (Ply pt r) = "Ply " ++ show pt ++ " " ++ show r
 ```
+
