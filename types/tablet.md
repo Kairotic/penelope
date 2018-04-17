@@ -41,8 +41,13 @@ consider the twist of tablets creates a new yarn by twisting threads
 together within the band. `S` and `Z` indicates a twist as standard,
 and `I` indicates an untwisted yarn.
 
--- A sequence of twists
+```haskell
 data Spin = Spin [Twist]
+```
+
+A `spin` is a sequence of twists. Normally a yarn would be sequence of
+either `S` or `Z` twists.
+
 
 -- A thread can eiher be a base Strand, or be a Ply composed of other
 -- threads (which can recurse to any level). A strand has a colour,
