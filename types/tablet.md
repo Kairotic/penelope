@@ -2,7 +2,7 @@
 
 Hypotheses
 
-* Warps are straight when they twist
+* Warps are straight
 * Wefts are straight when the warp twists
 
 Prediction:
