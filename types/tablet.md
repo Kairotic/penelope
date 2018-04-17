@@ -17,6 +17,8 @@ References:
 
 ## Tablet.hs
 
+Types.
+
 ```haskell
 data Action = Pull Int | Turn | TurnBack | Over | Under
 ```
@@ -28,12 +30,15 @@ data Action = Pull Int | Turn | TurnBack | Over | Under
 
 For tablet weaving, perhaps we only really need `pull`.
 
--- Used for twist in yarn, threading (and 'flipping') of tablets, and
--- rotation of tablets. These are closely related if you consider the
--- twist of tablets to create a new yarn by twisting threads together
--- within the band.
+```haskell
 data Twist = S | Z | I
            deriving Eq
+```
+
+`Twist` is used for twist in yarn, threading (and 'flipping') of
+tablets, and rotation of tablets. These are closely related if you
+consider the twist of tablets to create a new yarn by twisting threads
+together within the band.
 
 -- A sequence of twists
 data Spin = Spin [Twist]
