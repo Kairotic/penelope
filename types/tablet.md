@@ -113,13 +113,16 @@ flipTwist Z = S
 flipTwist I = I
 ```
 
-Function for flipping S/Z direction
+This flips S/Z direction.
 
--- Returns the colour of a strand, or if the thread has more than one
--- strand, the colour of the 'first' one.
+```haskell
 firstColour :: Thread -> Colour Double
 firstColour (Strand c _) = c
 firstColour (Ply (t:_) r) = firstColour t
+```
+
+Returns the colour of a strand, or if the thread has more than one
+strand, the colour of the 'first' one.
 
 -- A curve is a sequence of actions -- representing how to use a one
 -- dimensional thread to fill a two dimensional surface..
