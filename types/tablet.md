@@ -76,7 +76,8 @@ data TabletLoom = TabletLoom {tablets :: [Tablet], tabletWeft :: Thread}
                 deriving Show
 ```
 
-A tablet weaving loom, as an ordered set of tablets, and a weft.
+A tablet weaving loom, as an ordered set of tablets, and a weft that
+will go back and forth.
 
 ```haskell
 type TabletShed = [Twist]
