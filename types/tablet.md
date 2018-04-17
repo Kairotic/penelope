@@ -209,7 +209,7 @@ Turns the twists of the tablets into the twist of the yarn. The twist of the yar
 The following taken from Dave's example here: http://dyadic.borrowed-scenery.net/penelope/tabletloom/
 
 (The threading of the `S` tablets is different from Dave's, because
-the code does not yet take into account the flip direction in the
+the code does not yet take into account the flip direction when
 threading.)
 
 ```haskell
