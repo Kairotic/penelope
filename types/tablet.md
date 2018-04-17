@@ -129,6 +129,13 @@ An infinitely long twist in a single given direction - used to create
 a standard thread (as opposed to the `Spin` type defined earlier).
 
 ```haskell
+thread :: Colour Double -> Thread
+thread c = Strand c (spin S)
+```
+
+A function that returns a `Thread` that is a single strand of a given colour, spun in the `S` direction.
+
+```haskell
 flipTwist :: Twist -> Twist
 flipTwist S = Z
 flipTwist Z = S
@@ -194,9 +201,4 @@ deriveSpin (x:xs) = I:(deriveSpin xs)
 ```
 
 Turns the twists of the tablets into the twist of the yarn. The twist of the yarn = the first derivative of the twist of the tablet.
-
-```haskell
-thread :: Colour Double -> Thread
-thread c = Strand c (spin S)
-```
 
