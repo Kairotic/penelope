@@ -210,7 +210,7 @@ The following taken from Dave's example here: http://dyadic.borrowed-scenery.net
 
 (The threading of the `S` tablets is different from Dave's, because
 I am not taking into account the flip direction in the threading
-correctly.)
+as I should.)
 
 ```haskell
 daveWeave :: TabletWeave
