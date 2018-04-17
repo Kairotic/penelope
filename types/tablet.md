@@ -65,8 +65,9 @@ data Tablet = Tablet {warps :: [Thread], yaw :: Twist}
             deriving Show
 ```
 
-Trying to conflate S/Z threading (or flip) on the card with rotation
-of it by referring to former as 'yaw' and latter as 'roll'.
+A tablet is an ordered set of warps, and its yaw (flip). This
+conflates S/Z threading (or flip) on the card with rotation of it by
+referring to former as 'yaw' and latter as 'roll'.
 
 ```haskell
 -- A tablet weaving loom, as an ordered set of tablets and a weft
