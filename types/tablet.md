@@ -4,9 +4,9 @@ Representation of Tablet Weaving in Haskell
 
 References:
 
+* http://www.stringpage.com/tw/twtheory.html
 * http://dyadic.borrowed-scenery.net/penelope/tabletloom/
 * http://www.pawfal.org/dave/blog/tag/tablet-weaving/
-* http://www.stringpage.com/tw/twtheory.html
 
 ## Tablet.hs
 
