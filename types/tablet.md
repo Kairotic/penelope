@@ -1,13 +1,6 @@
 # Tablet coding
 
-Hypotheses
-
-* Warps are straight when they twist (and deform when they don't)
-* Wefts are straight when the warp twists
-
-Prediction:
-
-* Wefts are harder to pull when the tablets change direction
+Representation of Tablet Weaving in Haskell
 
 References:
 
@@ -275,3 +268,14 @@ Band {bandCords = [Ply [Strand Data.Colour.SRGB.Linear.rgb 1.0 1.0 0.0 SSSSS..,S
                        }
      }
 ```
+
+# Conclusion
+
+Hypotheses
+
+* Warps are straight when they twist (and deform when they don't)
+* Wefts are straight when the warp twists
+
+Prediction:
+
+* Wefts are harder to pull when the tablets change direction
