@@ -206,7 +206,7 @@ Turns the twists of the tablets into the twist of the yarn. The twist of the yar
 
 ### Example
 
-
+The following taken from Dave's example here: http://dyadic.borrowed-scenery.net/penelope/tabletloom/
 
 ```haskell
 daveWeave :: TabletWeave
