@@ -1,4 +1,4 @@
-# Tablet code
+# Tablet coding
 
 Hypotheses
 
