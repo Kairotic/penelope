@@ -146,10 +146,13 @@ firstColour (Ply (t:_) r) = firstColour t
 This returns the colour of a strand, or if the thread has more than
 one strand, the colour of the 'first' one.
 
-
--- Returns the input tablet, but flipped
+```
 flipTablet :: Tablet -> Tablet
 flipTablet t = t {yaw = flipTwist (yaw t)}
+```
+
+Returns the given tablet, flipped.
+
 
 -- A function that does the tablet weaving - turning the TabletWeave
 -- instructions into an actual Band.
