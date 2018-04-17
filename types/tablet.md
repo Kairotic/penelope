@@ -17,7 +17,7 @@ References:
 
 ## Tablet.hs
 
-### Types.
+### Types
 
 ```haskell
 data Action = Pull Int | Turn | TurnBack | Over | Under
