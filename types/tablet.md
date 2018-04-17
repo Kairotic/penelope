@@ -153,20 +153,22 @@ flipTablet t = t {yaw = flipTwist (yaw t)}
 
 Returns the given tablet, flipped.
 
-
--- A function that does the tablet weaving - turning the TabletWeave
--- instructions into an actual Band.
+```haskell
 tabletWeave :: TabletWeave -> Band
 tabletWeave tw = Band cords weftCurve
   where cords = twistCords tw
         weftCurve = Curve {curveThread = (tabletWeft $ tLoom tw) ,
                            -- TODO: weft needs to go up and down
-                           curvePath = concat $ replicate weftCount (tabby warpCount ++ [TurnBack, Turn])
+                           curvePath = concat $ replicate weftCount ([Pull warpCount] ++ [TurnBack, Turn])
                           }
         warpCount = length $ tablets $ tLoom tw
         weftCount = length $ tSheds tw
-        -- TODO - is this right? only works for even number of warp anyway..
+		-- not currently used..
         tabby n = take n $ cycle [Over, Under]
+```
+
+A function that does the tablet weaving - turning the TabletWeave
+instructions into an actual Band.
 
 -- Twists the cords according to the 'flip' of the tablet and the sequences of twists in the shed.
 twistCords :: TabletWeave -> [Thread]
