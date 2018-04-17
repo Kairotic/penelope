@@ -72,10 +72,11 @@ three directions that e.g. a plane or fish rotates are called pitch,
 yaw and roll).
 
 ```haskell
--- A tablet weaving loom, as an ordered set of tablets and a weft
 data TabletLoom = TabletLoom {tablets :: [Tablet], tabletWeft :: Thread}
                 deriving Show
 ```
+
+A tablet weaving loom, as an ordered set of tablets, and a weft.
 
 ```haskell
 type TabletShed = [Twist]
