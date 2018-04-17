@@ -181,7 +181,7 @@ twistCords tw = map tabletCord (zip (tablets $ tLoom tw) twists)
         twists = transpose (tSheds tw)
 ```
 
-Used by `tabletWeave` - twists the cords according to the 'flip' of
+`twistCords` is used by `tabletWeave` - twists the cords according to the 'flip' of
 the tablet and the sequences of twists in the shed.
 
 -- The twist of the yarn = the first derivative of the twist of the tablet
