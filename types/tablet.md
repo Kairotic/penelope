@@ -38,7 +38,8 @@ data Twist = S | Z | I
 `Twist` is used for twist in yarn, threading (and 'flipping') of
 tablets, and rotation of tablets. These are closely related if you
 consider the twist of tablets creates a new yarn by twisting threads
-together within the band.
+together within the band. `S` and `Z` indicates a twist as standard,
+and `I` indicates an untwisted yarn.
 
 -- A sequence of twists
 data Spin = Spin [Twist]
