@@ -167,10 +167,10 @@ tabletWeave tw = Band cords weftCurve
         tabby n = take n $ cycle [Over, Under]
 ```
 
-A function that does the tablet weaving - turning the TabletWeave
+This function does the actual tablet weaving - turning the TabletWeave
 instructions into an actual Band.
 
--- Twists the cords according to the 'flip' of the tablet and the sequences of twists in the shed.
+```haskell
 twistCords :: TabletWeave -> [Thread]
 twistCords tw = map tabletCord (zip (tablets $ tLoom tw) twists)
   where tabletCord (tablet, tabletTwists) = Ply (warps tablet) (Spin $ deriveSpin $ map doFlip tabletTwists)
@@ -180,6 +180,9 @@ twistCords tw = map tabletCord (zip (tablets $ tLoom tw) twists)
         -- transpose to get list of thread twists rather than list of
         -- card moves over time
         twists = transpose (tSheds tw)
+```
+
+Twists the cords according to the 'flip' of the tablet and the sequences of twists in the shed.
 
 -- The twist of the yarn = the first derivative of the twist of the tablet
 deriveSpin :: [Twist] -> [Twist]
