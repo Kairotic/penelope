@@ -17,6 +17,8 @@ References:
 
 ## Tablet.hs
 
+Tablet weaving is described in terms of types and functions.
+
 ### Types
 
 ```haskell
