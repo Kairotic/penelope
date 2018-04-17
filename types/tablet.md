@@ -204,3 +204,22 @@ deriveSpin (x:xs) = I:(deriveSpin xs)
 
 Turns the twists of the tablets into the twist of the yarn. The twist of the yarn = the first derivative of the twist of the tablet.
 
+### Example
+
+
+
+
+daveWeave :: TabletWeave
+daveWeave =
+  TabletWeave {tLoom =
+    TabletLoom {tablets = [Tablet [y,y,y,y] Z, Tablet [w,r,b,w] Z, Tablet [w,w,r,b] Z, Tablet [b,w,w,r] Z, Tablet [b,r,w,w] S, Tablet [w,b,r,w] S, Tablet [w,w,b,r] S, Tablet [y,y,y,y] S],
+                tabletWeft = thread orange
+               },
+               tSheds = map (replicate 8) [S,S,S,S,Z,Z,Z,Z]
+              }
+  where y = thread yellow
+        b = thread brown
+        w = thread white
+        r = thread red
+
+daveBand = tabletWeave daveWeave
