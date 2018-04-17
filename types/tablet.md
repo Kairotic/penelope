@@ -160,7 +160,7 @@ flipTablet :: Tablet -> Tablet
 flipTablet t = t {yaw = flipTwist (yaw t)}
 ```
 
-Returns the given tablet, flipped.
+`flipTablet` returns the given tablet, flipped.
 
 ```haskell
 tabletWeave :: TabletWeave -> Band
