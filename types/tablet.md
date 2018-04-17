@@ -10,8 +10,8 @@ References:
 
 ## Tablet.hs
 
-Tablet weaving is described in terms of types and functions, from the
-point of view of the threads.
+Tablet weaving is described in terms of types and functions, resulting
+in a tablet weave from the point of view of the threads.
 
 ### Types
 
