@@ -53,14 +53,14 @@ fooBand = tabletWeave fooWeave
 daveWeave :: TabletWeave
 daveWeave =
   TabletWeave {tLoom =
-    TabletLoom {tablets = [Tablet [y,w,b,g] Z,
-                           Tablet [y,w,b,g] Z,
-                           Tablet [y,w,b,g] Z,
-                           Tablet [y,w,b,g] Z,
-                           Tablet [y,w,b,g] Z,
-                           Tablet [y,w,b,g] Z,
-                           Tablet [y,w,b,g] Z,
-                           Tablet [y,w,b,g] Z],
+    TabletLoom {tablets = [Tablet [g,y,w,b] Z,
+                           Tablet [g,y,w,b] Z,
+                           Tablet [g,y,w,b] Z,
+                           Tablet [g,y,w,b] Z,
+                           Tablet [g,y,w,b] Z,
+                           Tablet [g,y,w,b] Z,
+                           Tablet [g,y,w,b] Z,
+                           Tablet [g,y,w,b] Z],
                 tabletWeft = thread orange
                },
                tSheds = map (replicate 8) [S,S,Z,Z,S,S,Z,Z]
