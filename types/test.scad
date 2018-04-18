@@ -17,9 +17,9 @@ module yarnSegment(t, a,b,c,d) {
     twist(1,1,t);
 }translate([0,0*pack,0]) {
 a = [1.0,1.0,1.0];
-b = [1.0,1.0,1.0];
+b = [0.0,0.0,1.0];
 c = [0.0,0.0,1.0];
-d = [0.0,0.0,1.0];
+d = [1.0,1.0,1.0];
 rotate ([0,0,45]) {
 rotate([0,0,-90]) translate([0,0,0*stretch]) yarnSegment(-90,a,b,c,d);
 rotate([0,0,-180]) translate([0,0,-1*stretch]) yarnSegment(-90,a,b,c,d);
