@@ -227,14 +227,14 @@ heartWeave :: TabletWeave
 heartWeave =
   TabletWeave {tLoom =
     TabletLoom {tablets = [
-                                      threadTablet [b,b,w,w] S,
+                                      threadTablet [w,b,b,w] S,
                                       threadTablet [b,b,w,w] S,
                                       threadTablet [b,b,w,w] S,
                                       threadTablet [b,b,w,w] S,
                                       threadTablet [b,b,w,w] Z,
                                       threadTablet [b,b,w,w] Z,
                                       threadTablet [b,b,w,w] Z,
-                                      threadTablet [b,b,w,w] Z
+                                      threadTablet [w,b,b,w] Z
                           ],
                 tabletWeft = thread orange
                },
