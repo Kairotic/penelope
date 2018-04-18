@@ -2,8 +2,11 @@ Beginnings
 
 - In the year 2000, few believed in the creativity of programming
 - Computer artists hid their screens and keyboards
-- Computer music was gripped by acousmatic and sensors
+- Computer music was gripped by sound diffusion and seamless sensory
+  interfaces
 - Repetition was frowned upon
+
+
 
 Projection
 - Distraction / contention of cognitive resources
