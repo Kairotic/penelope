@@ -136,8 +136,8 @@ dave2Weave =
                },
                tSheds = map (replicate 8) [S,S,S,S,S,S,S,S,Z,Z,Z,Z,Z,Z,Z,Z]
               }
-  where b = thread brown
-        w = thread white
+  where b = thread white
+        w = thread brown
 
 
 dave2Band = tabletWeave dave2Weave
