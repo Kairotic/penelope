@@ -234,7 +234,7 @@ heartWeave =
                                       threadTablet [w,b,b,w] Z,
                                       threadTablet [b,b,w,w] Z,
                                       threadTablet [b,b,w,w] Z,
-                                      threadTablet [w,b,b,w] Z
+                                      threadTablet [b,b,w,w] Z
                           ],
                 tabletWeft = thread orange
                },
