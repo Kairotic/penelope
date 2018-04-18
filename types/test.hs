@@ -141,3 +141,26 @@ dave2Weave =
 
 
 dave2Band = tabletWeave dave2Weave
+
+
+dave3Weave :: TabletWeave
+dave3Weave =
+  TabletWeave {tLoom =
+    TabletLoom {tablets = [threadTablet [b,b,w,w] Z,
+                           threadTablet [w,b,b,w] Z,
+                           threadTablet [w,w,b,b] Z,
+                           threadTablet [b,w,w,b] Z,
+                           threadTablet [b,b,w,w] Z,
+                           threadTablet [w,b,b,w] Z,
+                           threadTablet [w,w,b,b] Z,
+                           threadTablet [b,w,w,b] Z
+                          ],
+                tabletWeft = thread orange
+               },
+               tSheds = map (replicate 8) [S,S,S,S,S,S,S,S,Z,Z,Z,Z,Z,Z,Z,Z]
+              }
+  where b = thread brown
+        w = thread white
+
+
+dave3Band = tabletWeave dave3Weave
