@@ -7,13 +7,13 @@ module twist(x,y,t) {
 
 module yarnSegment(t, a,b,c,d) {
         color(a)
-    twist(-1,2,t);
+    twist(-1,1,t);
     color(b)
-    twist(-1,-2,t);
+    twist(-1,-1,t);
     color(c)
-    twist(1,-2,t);
+    twist(1,-1,t);
     color(d)    
-    twist(1,2,t);
+    twist(1,1,t);
 }translate([0,0*pack,0]) {
 a = [0.6470588235294119,0.16470588235294117,0.16470588235294117];
 b = [0.6470588235294119,0.16470588235294117,0.16470588235294117];
