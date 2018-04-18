@@ -53,15 +53,15 @@ fooBand = tabletWeave fooWeave
 daveWeave :: TabletWeave
 daveWeave =
   TabletWeave {tLoom =
-    TabletLoom {tablets = [Tablet [y,y,y,y] Z,
-                           Tablet [w,r,b,w] Z,
-                           Tablet [w,w,r,b] Z,
-                           Tablet [b,w,w,r] Z,
+    TabletLoom {tablets = [threadTablet [y,y,y,y] Z,
+                           threadTablet [w,r,b,w] Z,
+                           threadTablet [w,w,r,b] Z,
+                           threadTablet [b,w,w,r] Z,
 
-                           Tablet [b,w,w,r] S,
-                           Tablet [w,w,r,b] S,
-                           Tablet [w,r,b,w] S,
-                           Tablet [y,y,y,y] S
+                           threadTablet [b,w,w,r] S,
+                           threadTablet [w,w,r,b] S,
+                           threadTablet [w,r,b,w] S,
+                           threadTablet [y,y,y,y] S
                           {-
                            Tablet [b,r,w,w] S,
                            Tablet [w,b,r,w] S,
