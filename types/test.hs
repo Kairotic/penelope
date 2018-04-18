@@ -62,7 +62,7 @@ daveWeave =
                            Tablet [w,w,r,b] Z,
                            Tablet [w,r,b,w] Z,
                            Tablet [y,y,y,y] Z
-                            {-
+                          {-
                            Tablet [b,r,w,w] S,
                            Tablet [w,b,r,w] S,
                            Tablet [w,w,b,r] S,
