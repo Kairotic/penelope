@@ -213,7 +213,7 @@ arrowWeave =
                           ],
                 tabletWeft = thread orange
                },
-               tSheds = map (replicate 8) [S,S,Z,Z,S,S,Z,Z,S,S,Z,Z,S,S,Z,Z]
+               tSheds = map (replicate 18) [S,S,S,S,S,S,S,S]
               }
   where b = thread black
         g = thread green
