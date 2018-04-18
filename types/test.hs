@@ -100,7 +100,7 @@ barWeave =
 
 barBand = tabletWeave daveWeave
 
-
+{-
 (load "scm/tablet-loom2.jscm")(weave
 ;; list of card rotations and orientation flips
 (list 'ccw 'ccw 'ccw 'ccw 'ccw 'ccw 'ccw 'ccw
@@ -118,7 +118,7 @@ barBand = tabletWeave daveWeave
 )
 ;; starting orientation of the tablets
 (list 'left 'left 'left 'left 'left 'left 'left 'left))
-
+-}
 
 dave2Weave :: TabletWeave
 dave2barWeave =
@@ -134,7 +134,7 @@ dave2barWeave =
                           ]
                 tabletWeft = thread orange
                },
-               tSheds = map (replicate 8) [S,Z,S,Z,S,Z,S,Z]
+               tSheds = map (replicate 8) [S,S,S,S,S,S,S,S]
               }
   where b = thread brown
         w = thread white
