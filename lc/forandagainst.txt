@@ -12,6 +12,8 @@ Live coding
 - Programming language as user interface
 - Community
 
+
+
 Projection
 - Distraction / contention of cognitive resources
 - Looks like a powerpoint presentation
