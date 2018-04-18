@@ -54,6 +54,12 @@ type TabletShed = [Twist]
 data TabletWeave = TabletWeave {tLoom :: TabletLoom, tSheds :: [TabletShed]}
                  deriving Show
 
+threadTablet :: [Thread] -> Twist -> Tablet
+threadTablet threads twist = map fixThreading threads
+  where fixThreading thread | twist == S = [threads !! 0, threads !! 3, threads !! 2, threads !! 1]
+                            | otherwise = threads
+                            
+
 -- An infinitely long twist in a single given direction
 spin :: Twist -> Spin
 spin twist = Spin $ repeat twist
