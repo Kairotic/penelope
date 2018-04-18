@@ -165,6 +165,8 @@ dave3Weave =
 
 dave3Band = tabletWeave dave3Weave
 
+
+{-
 (load "scm/tablet-loom2.jscm")(weave
 ;; list of card rotations and orientation flips
 (list 'ccw 'ccw 'cw 'cw 'ccw 'ccw 'cw 'cw
@@ -182,3 +184,4 @@ dave3Band = tabletWeave dave3Weave
 )
 ;; starting orientation of the tablets
 (list 'left 'left 'left 'left 'left 'left 'left 'left))
+-}
