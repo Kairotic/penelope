@@ -185,3 +185,38 @@ dave3Band = tabletWeave dave3Weave
 ;; starting orientation of the tablets
 (list 'left 'left 'left 'left 'left 'left 'left 'left))
 -}
+
+
+
+arrowWeave :: TabletWeave
+arrowWeave =
+  TabletWeave {tLoom =
+    TabletLoom {tablets = [
+                           threadTablet [b,b,b,b] S,
+                           threadTablet [b,b,b,b] Z,
+                           threadTablet [w,w,w,w] S,
+                           threadTablet [w,w,w,w] S,
+                           threadTablet [b,w,w,w] S,
+                           threadTablet [b,b,w,w] S,
+                           threadTablet [b,g,b,w] S,
+                           threadTablet [b,g,g,b] S,
+                           threadTablet [b,g,g,g] S,
+                           threadTablet [b,g,g,g] S,
+                           threadTablet [b,g,g,b] S,
+                           threadTablet [b,g,b,w] S,
+                           threadTablet [b,b,w,w] S,
+                           threadTablet [b,w,w,w] S,
+                           threadTablet [w,w,w,w] S,
+                           threadTablet [w,w,w,w] S,
+                           threadTablet [b,b,b,b] Z,
+                           threadTablet [b,b,b,b] S
+                          ],
+                tabletWeft = thread orange
+               },
+               tSheds = map (replicate 8) [S,S,Z,Z,S,S,Z,Z,S,S,Z,Z,S,S,Z,Z]
+              }
+  where b = thread black
+        g = thread green
+        w = thread white
+
+arrowBand = tabletWeave arrowWeave
