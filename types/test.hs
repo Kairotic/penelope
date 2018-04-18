@@ -238,7 +238,7 @@ heartWeave =
                           ],
                 tabletWeft = thread orange
                },
-               tSheds = [[S,S,S,S,S,S,S,Z]] ++ map (replicate 8) [S,S,S,S,S,S] ++ [[S,S,S,S,S,S,S,S]]
+               tSheds = [[S,S,S,S,S,S,S,S]] ++ [[S,S,S,S,S,S,S,S]] ++ map (replicate 8) [S,S,S,S,S] ++ [[Z,S,S,S,S,S,S,Z]] ++ [[S,S,S,S,S,S,S,S]] ++ [[S,S,S,S,S,S,S,S]] ++ map (replicate 8) [S,S,S,S,S] ++ [[Z,S,S,S,S,S,S,Z]]
               }
   where b = thread blue
         w = thread white
