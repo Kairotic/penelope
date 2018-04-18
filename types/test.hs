@@ -123,14 +123,14 @@ barBand = tabletWeave daveWeave
 dave2Weave :: TabletWeave
 dave2barWeave =
   TabletWeave {tLoom =
-    TabletLoom {tablets = [Tablet [b,b,w,w] Z,
-                           Tablet [w,b,b,w] Z,
-                           Tablet [w,w,b,b] Z,
-                           Tablet [b,w,w,b] Z,
-                           Tablet [b,b,w,w] S,
-                           Tablet [w,b,b,w] S,
-                           Tablet [w,w,b,b] S,
-                           Tablet [b,w,w,b] S
+    TabletLoom {tablets = [threadTablet [b,b,w,w] Z,
+                           threadTablet [w,b,b,w] Z,
+                           threadTablet [w,w,b,b] Z,
+                           threadTablet [b,w,w,b] Z,
+                           threadTablet [b,b,w,w] S,
+                           threadTablet [w,b,b,w] S,
+                           threadTablet [w,w,b,b] S,
+                           threadTablet [b,w,w,b] S
                           ]
                 tabletWeft = thread orange
                },
