@@ -240,8 +240,7 @@ heartWeave =
                },
                tSheds = map (replicate 18) [S,S,S,S,S,S,S,S]
               }
-  where b = thread black
-        g = thread green
+  where b = thread blue
         w = thread white
 
 heartBand = tabletWeave arrowWeave
