@@ -16,14 +16,14 @@ showThread (Ply threads (Spin twists))  = setColours ++ "rotate ([0,0,45]) {\n" 
         doTwist d y (Z:twists) = seg ( 90) (d + 90) y ++ doTwist (d + 90) (y-1) twists
         doTwist d y (S:twists) = seg (-90) (d - 90) y ++ doTwist (d - 90) (y-1) twists
         doTwist d y (I:twists) = seg (  0) (d +  0) y ++ doTwist (d +  0) (y-1) twists
-        seg t r y = "rotate([0,0," ++ show r ++ "]) translate([0,0," ++ show (y*2) ++ "]) yarnSegment(" ++ show t ++ ",a,b,c,d);\n"
+        seg t r y = "rotate([0,0," ++ show r ++ "]) translate([0,0," ++ show (y) ++ "*stretch]) yarnSegment(" ++ show t ++ ",a,b,c,d);\n"
         setColours = concatMap setColour $ zip (words "a b c d") colours
         colours = map firstColour threads
         setColour (name, c) = name ++ " = [" ++ show r ++ "," ++ show g ++ "," ++ show b ++ "];\n"
           where (RGB r g b) = toSRGB c
 showThread _ = ""
 
-scadPreamble = "pack=0.7;\nmodule twist(x,y,t) {\n    linear_extrude(height = 2, center = false, convexity = 10, twist = t, $fn=50)\n        translate([x, y, 0])\n        circle(r = 0.95);\n}\n\nmodule yarnSegment(t, a,b,c,d) {\n        color(a)\n    twist(-1,1,t);\n    color(b)\n    twist(-1,-1,t);\n    color(c)\n    twist(1,-1,t);\n    color(d)    \n    twist(1,1,t);\n}"
+scadPreamble = "pack=0.7;\nstretch=3;\nmodule twist(x,y,t) {\n    linear_extrude(height = stretch, center = false, convexity = 10, twist = t, $fn=50)\n        translate([x, y, 0])\n        circle(r = 0.95);\n}\n\nmodule yarnSegment(t, a,b,c,d) {\n        color(a)\n    twist(-1,1,t);\n    color(b)\n    twist(-1,-1,t);\n    color(c)\n    twist(1,-1,t);\n    color(d)    \n    twist(1,1,t);\n}"
 
 
 
