@@ -127,10 +127,10 @@ dave2barWeave =
                            threadTablet [w,b,b,w] Z,
                            threadTablet [w,w,b,b] Z,
                            threadTablet [b,w,w,b] Z,
-                           threadTablet [b,b,w,w] S,
-                           threadTablet [w,b,b,w] S,
-                           threadTablet [w,w,b,b] S,
-                           threadTablet [b,w,w,b] S
+                           threadTablet [b,b,w,w] Z,
+                           threadTablet [w,b,b,w] Z,
+                           threadTablet [w,w,b,b] Z,
+                           threadTablet [b,w,w,b] Z
                           ]
                 tabletWeft = thread orange
                },
