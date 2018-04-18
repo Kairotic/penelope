@@ -131,7 +131,7 @@ dave2Weave =
                            threadTablet [w,b,b,w] Z,
                            threadTablet [w,w,b,b] Z,
                            threadTablet [b,w,w,b] Z
-                          ]
+                          ],
                 tabletWeft = thread orange
                },
                tSheds = map (replicate 8) [S,S,S,S,S,S,S,S,Z,Z,Z,Z,Z,Z,Z,Z]
