@@ -55,7 +55,7 @@ data TabletWeave = TabletWeave {tLoom :: TabletLoom, tSheds :: [TabletShed]}
                  deriving Show
 
 threadTablet :: [Thread] -> Twist -> Tablet
-threadTablet threads twist = map fixThreading threads
+threadTablet threads twist = Tablet (map fixThreading threads) twist
   where fixThreading thread | twist == S = [threads !! 0, threads !! 3, threads !! 2, threads !! 1]
                             | otherwise = threads
                             
