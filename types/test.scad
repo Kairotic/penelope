@@ -1,4 +1,4 @@
-pack=0.7;
+pack=1.1;
 stretch=3;
 module twist(x,y,t) {
     linear_extrude(height = stretch, center = false, convexity = 10, twist = t, $fn=50)
@@ -118,8 +118,8 @@ rotate([0,0,630]) translate([0,0,-7*stretch]) yarnSegment(0,a,b,c,d);
 };
 };
 translate([0,12*pack,0]) {
-a = [1.0,1.0,1.0];
-b = [1.0,1.0,1.0];
+a = [0.0,0.0,1.0];
+b = [0.0,0.0,1.0];
 c = [1.0,1.0,1.0];
 d = [1.0,1.0,1.0];
 rotate ([0,0,45]) {
