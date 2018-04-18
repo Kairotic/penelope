@@ -238,7 +238,7 @@ heartWeave =
                           ],
                 tabletWeft = thread orange
                },
-               tSheds = map (replicate 18) [S,S,S,S,S,S,S,S,Z,Z,Z,Z,Z,Z,Z,Z]
+               tSheds = map (replicate 18) [S,S,S,S,S,S,S,S]
               }
   where b = thread black
         g = thread green
