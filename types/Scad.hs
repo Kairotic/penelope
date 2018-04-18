@@ -23,7 +23,7 @@ showThread (Ply threads (Spin twists))  = setColours ++ "rotate ([0,0,45]) {\n" 
           where (RGB r g b) = toSRGB c
 showThread _ = ""
 
-scadPreamble = "pack=0.7;\nstretch=3;\nmodule twist(x,y,t) {\n    linear_extrude(height = stretch, center = false, convexity = 10, twist = t, $fn=50)\n        translate([x, y, 0])\n        circle(r = 0.95);\n}\n\nmodule yarnSegment(t, a,b,c,d) {\n        color(a)\n    twist(-1,1,t);\n    color(b)\n    twist(-1,-1,t);\n    color(c)\n    twist(1,-1,t);\n    color(d)    \n    twist(1,1,t);\n}"
+scadPreamble = "pack=1.1;\nstretch=3;\nmodule twist(x,y,t) {\n    linear_extrude(height = stretch, center = false, convexity = 10, twist = t, $fn=50)\n        translate([x, y, 0])\n        circle(r = 0.95);\n}\n\nmodule yarnSegment(t, a,b,c,d) {\n        color(a)\n    twist(-1,1,t);\n    color(b)\n    twist(-1,-1,t);\n    color(c)\n    twist(1,-1,t);\n    color(d)    \n    twist(1,1,t);\n}"
 
 
 
