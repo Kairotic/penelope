@@ -220,3 +220,28 @@ arrowWeave =
         w = thread white
 
 arrowBand = tabletWeave arrowWeave
+
+
+
+heartWeave :: TabletWeave
+heartWeave =
+  TabletWeave {tLoom =
+    TabletLoom {tablets = [
+                                      threadTablet [b,b,w,w] S,
+                                      threadTablet [b,b,w,w] S,
+                                      threadTablet [b,b,w,w] S,
+                                      threadTablet [b,b,w,w] S,
+                                      threadTablet [b,b,w,w] Z,
+                                      threadTablet [b,b,w,w] Z,
+                                      threadTablet [b,b,w,w] Z,
+                                      threadTablet [b,b,w,w] Z,
+                          ],
+                tabletWeft = thread orange
+               },
+               tSheds = map (replicate 18) [S,S,S,S,S,S,S,S,Z,Z,Z,Z,Z,Z,Z,Z]
+              }
+  where b = thread black
+        g = thread green
+        w = thread white
+
+heartBand = tabletWeave arrowWeave
