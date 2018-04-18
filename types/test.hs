@@ -121,7 +121,7 @@ barBand = tabletWeave daveWeave
 -}
 
 dave2Weave :: TabletWeave
-dave2barWeave =
+dave2Weave =
   TabletWeave {tLoom =
     TabletLoom {tablets = [threadTablet [b,b,w,w] Z,
                            threadTablet [w,b,b,w] Z,
