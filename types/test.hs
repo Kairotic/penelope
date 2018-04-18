@@ -243,4 +243,4 @@ heartWeave =
   where b = thread blue
         w = thread white
 
-heartBand = tabletWeave arrowWeave
+heartBand = tabletWeave heartWeave
