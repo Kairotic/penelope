@@ -4,9 +4,13 @@ Beginnings
 - Computer artists hid their screens and keyboards
 - Computer music was gripped by sound diffusion and seamless sensory
   interfaces
-- Repetition was frowned upon
 
+Personal view of influences
 
+Live coding
+- Making creativity of programming self-evident
+- Programming language as user interface
+- Community
 
 Projection
 - Distraction / contention of cognitive resources
