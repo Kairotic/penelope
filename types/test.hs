@@ -57,7 +57,6 @@ daveWeave =
                            threadTablet [w,r,b,w] Z,
                            threadTablet [w,w,r,b] Z,
                            threadTablet [b,w,w,r] Z,
-
                            threadTablet [b,w,w,r] S,
                            threadTablet [w,w,r,b] S,
                            threadTablet [w,r,b,w] S,
