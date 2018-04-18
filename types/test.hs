@@ -134,7 +134,7 @@ dave2barWeave =
                           ]
                 tabletWeft = thread orange
                },
-               tSheds = map (replicate 8) [S,S,S,S,S,S,S,S]
+               tSheds = map (replicate 8) [S,S,S,S,S,S,S,S,Z,Z,Z,Z,Z,Z,Z,Z]
               }
   where b = thread brown
         w = thread white
