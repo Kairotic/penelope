@@ -1,5 +1,5 @@
 pack=1;
-stretch=4;
+stretch=3;
 module twist(x,y,t) {
     linear_extrude(height = stretch, center = false, convexity = 10, twist = t, $fn=50)
         translate([x, y, 0])
