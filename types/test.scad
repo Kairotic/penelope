@@ -1,4 +1,4 @@
-pack=1;
+pack=0.9;
 stretch=3;
 
 module twist(x,y,t) {
