@@ -4,7 +4,6 @@ import Tablet
 import Data.Colour.SRGB
 import Data.Colour.Names
 
-
 simpleWeave :: TabletWeave
 simpleWeave = TabletWeave {tLoom = TabletLoom {tablets = take 12 $ cycle [rwgbTablet,
                                                                           flipTablet rwgbTablet
@@ -188,36 +187,35 @@ dave3Band = tabletWeave dave3Weave
 
 
 
-arrowWeave :: TabletWeave
-arrowWeave =
-  TabletWeave {tLoom =
-    TabletLoom {tablets = [
-                           threadTablet [b,b,b,b] S,
-                           threadTablet [b,b,b,b] Z,
-                           threadTablet [w,w,w,w] S,
-                           threadTablet [w,w,w,w] S,
-                           threadTablet [b,w,w,w] S,
-                           threadTablet [b,b,w,w] S,
-                           threadTablet [b,g,b,w] S,
-                           threadTablet [b,g,g,b] S,
-                           threadTablet [b,g,g,g] S,
-                           threadTablet [b,g,g,g] Z,
-                           threadTablet [b,g,g,b] Z,
-                           threadTablet [b,g,b,w] Z,
-                           threadTablet [b,b,w,w] Z,
-                           threadTablet [b,w,w,w] Z,
-                           threadTablet [w,w,w,w] Z,
-                           threadTablet [w,w,w,w] Z,
-                           threadTablet [b,b,b,b] S,
-                           threadTablet [b,b,b,b] Z
-                          ],
+let arrowWeave :: TabletWeave
+    arrowWeave = TabletWeave {tLoom =
+      TabletLoom {tablets = [
+                             threadTablet [b,b,b,b] S,
+                             threadTablet [b,b,b,b] Z,
+                             threadTablet [w,w,w,w] S,
+                             threadTablet [w,w,w,w] S,
+                             threadTablet [b,w,w,w] S,
+                             threadTablet [b,b,w,w] S,
+                             threadTablet [b,g,b,w] S,
+                             threadTablet [b,g,g,b] S,
+                             threadTablet [b,g,g,g] S,
+                             threadTablet [b,g,g,g] Z,
+                             threadTablet [b,g,g,b] Z,
+                             threadTablet [b,g,b,w] Z,
+                             threadTablet [b,b,w,w] Z,
+                             threadTablet [b,w,w,w] Z,
+                             threadTablet [w,w,w,w] Z,
+                             threadTablet [w,w,w,w] Z,
+                             threadTablet [b,b,b,b] S,
+                             threadTablet [b,b,b,b] Z
+                            ],
                 tabletWeft = thread orange
                },
                tSheds = map (replicate 18) [S,S,S,S,S,S,S,S,Z,Z,Z,Z,Z,Z,Z,Z]
               }
-  where b = thread black
-        g = thread green
-        w = thread white
+      where b = thread black
+            g = thread green
+            w = thread white
 
 arrowBand = tabletWeave arrowWeave
 
