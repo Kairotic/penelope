@@ -34,7 +34,10 @@ let
       superimpose ((1/12) <~) $
       "[black black white white black white]*2"
 in
-stack [a, b, tabby, c, tabby, d, tabby, c, tabby, b, a]
+stack [a, b, tabby, c, tabby,
+       d,
+       tabby, c, tabby, b, a
+      ]
 
 
 vSVG "test.svg" (100, 25) $
