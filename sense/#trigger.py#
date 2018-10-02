@@ -26,49 +26,45 @@ with serial.Serial(devname, 115200, timeout=1) as ser:
                 print("%s %d %f %f" % (m.group(1), int(m.group(2)), int(m.group(3)), int(m.group(4))))
 
             
-    target = liblo.Address(6)
+    target = liblo.Address(6010)
     liblo.send(target,
                "/play",
-
+               "bd", 
+               0, # offset
+               
     )
 
-            
-
-  char *sample_name = (char *) argv[0+poffset];
-
-  float offset = argv[1+poffset]->f;
+offset
   
-  //when += offset;
-
-  float start = argv[2+poffset]->f;
-  float end  = argv[3+poffset]->f;
-  float speed  = argv[4+poffset]->f;
-  float pan  = argv[5+poffset]->f;
-  float velocity  = argv[6+poffset]->f;
-  char *vowel_s = (char *) argv[7+poffset];
-  float cutoff = argv[8+poffset]->f;
-  float resonance = argv[9+poffset]->f;
-  float accelerate = argv[10+poffset]->f;
-  float shape = argv[11+poffset]->f;
+start
+end
+speed
+pan
+velocity
+  char *vowel_s
+cutoff
+resonance
+accelerate
+shape
   
-  float gain = argc > (13+poffset) ? argv[13+poffset]->f : 0;
-  int cutgroup = argc > (14+poffset) ? argv[14+poffset]->i : 0;
+gain
+  int cutgroup
 
-  float delay = argc > (15+poffset) ? argv[15+poffset]->f : 0;
-  float delaytime = argc > (16+poffset) ? argv[16+poffset]->f : 0;
-  float delayfeedback = argc > (17+poffset) ? argv[17+poffset]->f : 0;
+delay
+delaytime
+delayfeedback
   
-  float crush = argc > (18+poffset) ? argv[18+poffset]->f : 0;
-  int coarse = argc > (19+poffset) ? argv[19+poffset]->i : 0;
-  float hcutoff = argc > (20+poffset) ? argv[20+poffset]->f : 0;
-  float hresonance = argc > (21+poffset) ? argv[21+poffset]->f : 0;
-  float bandf = argc > (22+poffset) ? argv[22+poffset]->f : 0;
-  float bandq = argc > (23+poffset) ? argv[23+poffset]->f : 0;
+crush
+  int coarse
+hcutoff
+hresonance
+bandf
+bandq
 
-  char *unit_name = argc > (24+poffset) ? (char *) argv[24+poffset] : "r";
-  int sample_loop = argc > (25+poffset) ? floor(argv[25+poffset]->f) : 0;
-  int sample_n = argc > (26+poffset) ? argv[26+poffset]->i : 0;
+  char *unit_name
+  int sample_loop
+  int sample_n
 
-  float attack = argc > (27+poffset) ? argv[27+poffset]->f : 0;
-  float hold = argc > (28+poffset) ? argv[28+poffset]->f : 0;
-  float release = argc > (29+poffset) ? argv[29+poffset]->f : 0;
+attack
+hold
+release
