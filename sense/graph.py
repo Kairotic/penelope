@@ -1,7 +1,7 @@
 import sys
 import time
 
-sys.path.insert(0, "/home/pi/Adafruit_Python_MPR121/Adafruit_MPR121")
+sys.path.insert(0, "/home/alex/src/Adafruit_Python_MPR121/Adafruit_MPR121")
 
 import MPR121ROB as MPR121
 
