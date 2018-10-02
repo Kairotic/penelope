@@ -10,7 +10,7 @@ def dirt():
     print "kick"
     liblo.send(target,
                "/play",
-               "bd", 
+               "bdadsf", 
                0, # offset
                0, # start
                1, # end
