@@ -6,19 +6,19 @@ import liblo
 
 target = liblo.Address(7771)
 
-def dirt():
+def dirt(name, speed=1.0, vowel=""):
     liblo.send(target,
                "/play",
                1538498648,0,
                1.0, # cps
-               "gabba", 
+               name, 
                float(0.0), # offset
                float(0.0), # start
                1.0, # end
-               1.0, # speed
+               speed, # speed
                0.5, # pan
                0.5, # velocity
-               "", # vowel_s
+               vowel, # vowel_s
                float(0.0), # cutoff
                float(0.0), # resonance
                float(0.0), # accelerate
