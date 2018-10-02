@@ -28,22 +28,22 @@ def dirt():
                1.0, # gain
                0, # cutgroup
                
-               0, # delay
-               -1, # delaytime
-               -1, # delayfeedback
+               0.0, # delay
+               -1.0, # delaytime
+               -1.0, # delayfeedback
 
-               0, # crush
+               0.0, # crush
                0, # coarse
-               0, # hcutoff
-               0, # hresonance
-               0, # bandf
-               0, # bandq
+               0.0, # hcutoff
+               0.0, # hresonance
+               0.0, # bandf
+               0.0, # bandq
                "r", # unit_name
-               1, # sample_loop
-               0, # sample_n
-               -1, # attack
-               0, # hold
-               -1,  # release
+               1.0, # sample_loop
+               0.0, # sample_n
+               -1.0, # attack
+               0.0, # hold
+               -1.0,  # release
                0
                )
 
