@@ -9,5 +9,5 @@ with serial.Serial('/dev/ttyS1', 19200, timeout=1) as ser:
     while true:
         l = ser.readline
         if l:
-            print l
+            print(l)
             
