@@ -4,7 +4,7 @@ import serial
 import re
 import liblo
 
-target = liblo.Address(6010)
+target = liblo.Address(7771)
 
 def dirt():
     print "kick"
