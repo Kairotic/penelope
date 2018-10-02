@@ -16,7 +16,8 @@ with serial.Serial(devname, 115200, timeout=1) as ser:
         l = ser.readline()
         if l:
             m = re.search(pat, l)
-            print m.group(1)
-            print m.group(2)
+            if m: 
+                print m.group(1)
+                print m.group(2)
             
             
