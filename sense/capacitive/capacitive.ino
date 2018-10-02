@@ -55,11 +55,12 @@ void loop() {
   for (uint8_t i=0; i<12; i++) {
     // it if *is* touched and *wasnt* touched before, alert!
     if ((currtouched & _BV(i)) && !(lasttouched & _BV(i)) ) {
-      Serial.print("str(i)); Serial.println(" on");
+      Serial.print("+");
+      Serial.print(" ".join([str(i), str(filteredData(i)), str(baselineData(i))]));
     }
     // if it *was* touched and now *isnt*, alert!
     if (!(currtouched & _BV(i)) && (lasttouched & _BV(i)) ) {
-      Serial.print(i); Serial.println(" off");
+      Serial.print("-" + str(i));
     }
   }
 
