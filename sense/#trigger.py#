@@ -26,10 +26,49 @@ with serial.Serial(devname, 115200, timeout=1) as ser:
                 print("%s %d %f %f" % (m.group(1), int(m.group(2)), int(m.group(3)), int(m.group(4))))
 
             
-    target = liblo.Address(7778)
+    target = liblo.Address(6)
     liblo.send(target,
-               "/pulse",
-               int(1),0.25,1.0,0.0,2
+               "/play",
+
     )
 
             
+
+  char *sample_name = (char *) argv[0+poffset];
+
+  float offset = argv[1+poffset]->f;
+  
+  //when += offset;
+
+  float start = argv[2+poffset]->f;
+  float end  = argv[3+poffset]->f;
+  float speed  = argv[4+poffset]->f;
+  float pan  = argv[5+poffset]->f;
+  float velocity  = argv[6+poffset]->f;
+  char *vowel_s = (char *) argv[7+poffset];
+  float cutoff = argv[8+poffset]->f;
+  float resonance = argv[9+poffset]->f;
+  float accelerate = argv[10+poffset]->f;
+  float shape = argv[11+poffset]->f;
+  
+  float gain = argc > (13+poffset) ? argv[13+poffset]->f : 0;
+  int cutgroup = argc > (14+poffset) ? argv[14+poffset]->i : 0;
+
+  float delay = argc > (15+poffset) ? argv[15+poffset]->f : 0;
+  float delaytime = argc > (16+poffset) ? argv[16+poffset]->f : 0;
+  float delayfeedback = argc > (17+poffset) ? argv[17+poffset]->f : 0;
+  
+  float crush = argc > (18+poffset) ? argv[18+poffset]->f : 0;
+  int coarse = argc > (19+poffset) ? argv[19+poffset]->i : 0;
+  float hcutoff = argc > (20+poffset) ? argv[20+poffset]->f : 0;
+  float hresonance = argc > (21+poffset) ? argv[21+poffset]->f : 0;
+  float bandf = argc > (22+poffset) ? argv[22+poffset]->f : 0;
+  float bandq = argc > (23+poffset) ? argv[23+poffset]->f : 0;
+
+  char *unit_name = argc > (24+poffset) ? (char *) argv[24+poffset] : "r";
+  int sample_loop = argc > (25+poffset) ? floor(argv[25+poffset]->f) : 0;
+  int sample_n = argc > (26+poffset) ? argv[26+poffset]->i : 0;
+
+  float attack = argc > (27+poffset) ? argv[27+poffset]->f : 0;
+  float hold = argc > (28+poffset) ? argv[28+poffset]->f : 0;
+  float release = argc > (29+poffset) ? argv[29+poffset]->f : 0;
