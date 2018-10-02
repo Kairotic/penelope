@@ -29,8 +29,8 @@ def dirt():
                0, # cutgroup
                
                0, # delay
-               0, # delaytime
-               0, # delayfeedback
+               -1, # delaytime
+               -1, # delayfeedback
 
                0, # crush
                0, # coarse
@@ -39,11 +39,12 @@ def dirt():
                0, # bandf
                0, # bandq
                "r", # unit_name
-               0, # sample_loop
+               1, # sample_loop
                0, # sample_n
-               0, # attack
+               -1, # attack
                0, # hold
-               0  # release
+               -1,  # release
+               0
                )
 
 
