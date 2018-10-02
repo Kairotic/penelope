@@ -17,7 +17,12 @@ with serial.Serial(devname, 115200, timeout=1) as ser:
         if l:
             print l
             m = re.search(pat, l)
-            if m: 
+            if m:
+                if m.group(1) == "+":
+                    t = int(m.group(2))
+                    filtered = int(m.group(3))
+                    baseline = int(m.group(4))
+                    
                 print("%s %d %f %f" % (m.group(1), int(m.group(2)), int(m.group(3)), int(m.group(4))))
 
             
