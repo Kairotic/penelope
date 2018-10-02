@@ -51,15 +51,18 @@ void setup() {
 void loop() {
   // Get the currently touched pads
   currtouched = cap.touched();
+  char buf[256];
   
   for (uint8_t i=0; i<12; i++) {
     // it if *is* touched and *wasnt* touched before, alert!
     if ((currtouched & _BV(i)) && !(lasttouched & _BV(i)) ) {
-      Serial.printf("+%d %f %f\n", i, filteredData(i), baselineData(i));
+      snprintf(buf, 255, "+%d %f %f\n", i, filteredData(i), baselineData(i));
+      Serial.print(buf);
     }
     // if it *was* touched and now *isnt*, alert!
     if (!(currtouched & _BV(i)) && (lasttouched & _BV(i)) ) {
-      Serial.printf("-%d", i);
+      snprintf(buf, 255, "-%d\n", i);
+      Serial.print(buf);
     }
   }
 
