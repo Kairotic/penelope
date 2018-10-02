@@ -56,7 +56,7 @@ void loop() {
     // it if *is* touched and *wasnt* touched before, alert!
     if ((currtouched & _BV(i)) && !(lasttouched & _BV(i)) ) {
       Serial.print("+");
-      Serial.print(" ".join([str(i), str(filteredData(i)), str(baselineData(i))]));
+      Serial.printf("+%d %f %f", i, filteredData(i), baselineData(i));
     }
     // if it *was* touched and now *isnt*, alert!
     if (!(currtouched & _BV(i)) && (lasttouched & _BV(i)) ) {
