@@ -18,7 +18,7 @@ with serial.Serial(devname, 115200, timeout=1) as ser:
             print l
             m = re.search(pat, l)
             if m: 
-                print("%s %d %f %f" % (m.group(1), m.group(2), m.group(3), m.group(4)))
+                print("%s %d %f %f" % (m.group(1), int(m.group(2)), int(m.group(3)), int(m.group(4))))
 
             
             
