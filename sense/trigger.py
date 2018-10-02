@@ -6,6 +6,10 @@ import liblo
 
 target = liblo.Address(7771)
 
+samplesets = [
+    
+]
+
 def dirt(name, speed=1.0, vowel="", crush=0):
     liblo.send(target,
                "/play",
