@@ -7,7 +7,7 @@ import re
 
 devname = "/dev/serial/by-id/usb-Arduino__www.arduino.cc__0043_557363239393515181E2-if00"
 
-pat = re.compile("(\+|\-)(\d+) ([\d\.]+) ([\d\.]+)")
+pat = re.compile("(\+|\-)(\d+)\s*([\d\.]+)?\s*([\d\.]+)?")
 
 with serial.Serial(devname, 115200, timeout=1) as ser:
     print("opened serial port " + ser.name)
