@@ -12,19 +12,19 @@ def dirt():
                "/play",
                0,0,0,
                "gabba", 
-               0, # offset
-               0, # start
-               1, # end
-               1, # speed
+               0.0, # offset
+               0.0, # start
+               1.0, # end
+               1.0, # speed
                0.5, # pan
-               0, # velocity
+               0.0, # velocity
                "", # vowel_s
-               0, # cutoff
-               0, # resonance
-               0, # accelerate
-               0, # shape
+               0.0, # cutoff
+               0.0, # resonance
+               0.0, # accelerate
+               0.0, # shape
 
-               1, # gain
+               1.0, # gain
                0, # cutgroup
                
                0, # delay
