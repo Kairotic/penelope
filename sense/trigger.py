@@ -7,7 +7,6 @@ import liblo
 target = liblo.Address(7771)
 
 def dirt():
-    print "kick"
     liblo.send(target,
                "/play",
                1538498648,0,
