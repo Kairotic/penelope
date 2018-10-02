@@ -7,7 +7,18 @@ import liblo
 target = liblo.Address(7771)
 
 samplesets = [
-    
+    "can",
+    "cp",
+    "dr",
+    "kurt",
+    "psr",
+    "hi",
+    "lo",
+    "clap",
+    "onoff",
+    "sb",
+    "arpy",
+    "rs"
 ]
 
 def dirt(name, speed=1.0, vowel="", crush=0):
