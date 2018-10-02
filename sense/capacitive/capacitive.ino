@@ -56,7 +56,7 @@ void loop() {
   for (uint8_t i=0; i<12; i++) {
     // it if *is* touched and *wasnt* touched before, alert!
     if ((currtouched & _BV(i)) && !(lasttouched & _BV(i)) ) {
-      snprintf(buf, 255, "+%d %f %f\n", i, filteredData(i), baselineData(i));
+      snprintf(buf, 255, "+%d %f %f\n", i, cap.filteredData(i), cap.baselineData(i));
       Serial.print(buf);
     }
     // if it *was* touched and now *isnt*, alert!
