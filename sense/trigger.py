@@ -3,6 +3,8 @@
 import serial
 import re
 
+
+
 devname = "/dev/serial/by-id/usb-Arduino__www.arduino.cc__0043_557363239393515181E2-if00"
 
 pat = re.compile("(\d+) (on|off)")
