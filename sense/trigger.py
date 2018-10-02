@@ -18,7 +18,7 @@ def dirt():
                1.0, # end
                1.0, # speed
                0.5, # pan
-               0.0, # velocity
+               0.5, # velocity
                "", # vowel_s
                0.0, # cutoff
                0.0, # resonance
