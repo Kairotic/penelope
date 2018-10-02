@@ -6,7 +6,7 @@ import liblo
 
 target = liblo.Address(7771)
 
-def dirt(name, speed=1.0, vowel=""):
+def dirt(name, speed=1.0, vowel="", crush=0):
     liblo.send(target,
                "/play",
                1538498648,0,
@@ -31,7 +31,7 @@ def dirt(name, speed=1.0, vowel=""):
                -1.0, # delaytime
                -1.0, # delayfeedback
 
-               float(0.0), # crush
+               float(crush), # crush
                0, # coarse
                float(0.0), # hcutoff
                float(0.0), # hresonance
