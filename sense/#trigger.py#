@@ -31,40 +31,34 @@ with serial.Serial(devname, 115200, timeout=1) as ser:
                "/play",
                "bd", 
                0, # offset
-               
-    )
+               , # offset
+               , # start
+               , # end
+               , # speed
+               , # pan
+               , # velocity
+               , # vowel_s
+               , # cutoff
+               , # resonance
+               , # accelerate
+               , # shape
+               , 
+               , # gain
+               , # cutgroup
 
-offset
-  
-start
-end
-speed
-pan
-velocity
-  char *vowel_s
-cutoff
-resonance
-accelerate
-shape
-  
-gain
-  int cutgroup
+               , # delay
+               , # delaytime
+               , # delayfeedback
 
-delay
-delaytime
-delayfeedback
-  
-crush
-  int coarse
-hcutoff
-hresonance
-bandf
-bandq
-
-  char *unit_name
-  int sample_loop
-  int sample_n
-
-attack
-hold
-release
+               , # crush
+               , # coarse
+               , # hcutoff
+               , # hresonance
+               , # bandf
+               , # bandq
+               , # unit_name
+               ,# sample_loop
+               , # sample_n
+               , # attack
+               , # hold
+               , # release
