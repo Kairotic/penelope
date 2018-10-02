@@ -21,7 +21,7 @@ def dirt():
                0, # resonance
                0, # accelerate
                0, # shape
-               , 
+
                1, # gain
                0, # cutgroup
                
