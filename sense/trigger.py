@@ -13,7 +13,7 @@ with serial.Serial(devname, 115200, timeout=1) as ser:
     while True:
         l = ser.readline()
         if l:
-            m = re.search(pat)
+            m = re.search(pat, l)
             print m.group(1)
             print m.group(2)
             
