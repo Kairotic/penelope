@@ -4,4 +4,4 @@ devname = "/dev/serial/by-id/usb-Arduino__www.arduino.cc__0043_55736323939351518
 
 with serial.Serial('/dev/ttyS1', 19200, timeout=1) as ser:
     s = serial.Serial(devname)
-    print("opened serial " + print(ser.name))
+    print("opened serial port " + print(ser.name))
