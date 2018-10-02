@@ -7,7 +7,7 @@ with serial.Serial(devname, 115200, timeout=1) as ser:
     print("opened serial port " + ser.name)
 
     while True:
-        l = ser.readline
+        l = ser.readline()
         if l:
             print(l)
             
