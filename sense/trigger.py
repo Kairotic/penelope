@@ -13,36 +13,36 @@ def dirt():
                0,0,
                1, # cps
                "gabba", 
-               0.0, # offset
-               0.0, # start
+               float(0.0), # offset
+               float(0.0), # start
                1.0, # end
                1.0, # speed
                0.5, # pan
                0.5, # velocity
                "", # vowel_s
-               0.0, # cutoff
-               0.0, # resonance
-               0.0, # accelerate
-               0.0, # shape
+               float(0.0), # cutoff
+               float(0.0), # resonance
+               float(0.0), # accelerate
+               float(0.0), # shape
                0, # ?
                1.0, # gain
                0, # cutgroup
                
-               0.0, # delay
+               float(0.0), # delay
                -1.0, # delaytime
                -1.0, # delayfeedback
 
-               0.0, # crush
+               float(0.0), # crush
                0, # coarse
-               0.0, # hcutoff
-               0.0, # hresonance
-               0.0, # bandf
-               0.0, # bandq
+               float(0.0), # hcutoff
+               float(0.0), # hresonance
+               float(0.0), # bandf
+               float(0.0), # bandq
                "r", # unit_name
                1.0, # sample_loop
-               0.0, # sample_n
+               float(0.0), # sample_n
                -1.0, # attack
-               0.0, # hold
+               float(0.0), # hold
                -1.0,  # release
                0
                )
