@@ -11,7 +11,7 @@ def dirt():
     liblo.send(target,
                "/play",
                0,0,0,
-               "bd", 
+               "clap", 
                0, # offset
                0, # start
                1, # end
