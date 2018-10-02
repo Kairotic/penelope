@@ -26,4 +26,39 @@ with serial.Serial(devname, 115200, timeout=1) as ser:
                 print("%s %d %f %f" % (m.group(1), int(m.group(2)), int(m.group(3)), int(m.group(4))))
 
             
-            
+    target = liblo.Address(6010)
+    liblo.send(target,
+               "/play",
+               "bd", 
+               0, # offset
+               0, # start
+               1, # end
+               1, # speed
+               0.5, # pan
+               0, # velocity
+               "", # vowel_s
+               0, # cutoff
+               0, # resonance
+               0, # accelerate
+               0, # shape
+               , 
+               1, # gain
+               0, # cutgroup
+               
+               0, # delay
+               0, # delaytime
+               0, # delayfeedback
+
+               0, # crush
+               0, # coarse
+               0, # hcutoff
+               0, # hresonance
+               0, # bandf
+               0, # bandq
+               "r", # unit_name
+               0, # sample_loop
+               0, # sample_n
+               0, # attack
+               0, # hold
+               0  # release
+               )
