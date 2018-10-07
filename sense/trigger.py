@@ -4,6 +4,7 @@ import serial
 import re
 import liblo
 import time
+import math
 
 target = liblo.Address(7771)
 
@@ -24,10 +25,11 @@ target = liblo.Address(7771)
 
 def dirt(name, n=0.0, speed=1.0, vowel="", crush=0,cutoff=0.0,resonance=0.0):
     now = time.time()
-    
+    sec = math.floor(now)
+    usec = math.floor((now - sec)*1000000)
     liblo.send(target,
                "/play",
-               1538498648,0,
+               int(sec),int(usec),
                1.0, # cps
                name, 
                float(0.0), # offset
@@ -68,10 +70,10 @@ def dirt(name, n=0.0, speed=1.0, vowel="", crush=0,cutoff=0.0,resonance=0.0):
 n = 0
 co = 1000
 
-dirt("cp",
-     #n=float(n),
-     #resonance=0.2,
-     #cutoff=co
+dirt("foley",
+     n=float(n),
+     resonance=0.2,
+     cutoff=co
 )
 
 
