@@ -6,20 +6,20 @@ import liblo
 
 target = liblo.Address(7771)
 
-samplesets = [
-    "can",
-    "cp",
-    "dr",
-    "kurt",
-    "psr",
-    "hi",
-    "lo",
-    "clap",
-    "onoff",
-    "sb",
-    "arpy",
-    "rs"
-]
+#samplesets = [
+#    "can",
+#    "cp",
+#    "dr",
+#    "kurt",
+#    "psr",
+#    "hi",
+#    "lo",
+#    "clap",
+#    "onoff",
+#    "sb",
+#    "arpy",
+#    "rs"
+#]
 
 def dirt(name, speed=1.0, vowel="", crush=0):
     liblo.send(target,
@@ -42,7 +42,7 @@ def dirt(name, speed=1.0, vowel="", crush=0):
                1.0, # gain
                0, # cutgroup
                
-               float(0.0), # delay
+p               float(0.0), # delay
                -1.0, # delaytime
                -1.0, # delayfeedback
 
@@ -69,6 +69,9 @@ pat = re.compile("(\+|\-)(\d+)\s*([\d\.]+)?\s*([\d\.]+)?")
 with serial.Serial(devname, 115200, timeout=1) as ser:
     print("opened serial port " + ser.name)
 
+    float minval = None
+    float maxval = None
+    
     while True:
         l = ser.readline()
         if l:
@@ -81,6 +84,8 @@ with serial.Serial(devname, 115200, timeout=1) as ser:
                     baseline = int(m.group(4))
                     
                     print("%s %d %f %f" % (m.group(1), int(m.group(2)), int(m.group(3)), int(m.group(4))))
-                dirt()
+                dirt("foley",
+                     n=float(n),
+                )
 
             
