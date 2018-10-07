@@ -3,6 +3,7 @@
 import serial
 import re
 import liblo
+import time
 
 target = liblo.Address(7771)
 
@@ -21,7 +22,9 @@ target = liblo.Address(7771)
 #    "rs"
 #]
 
-def dirt(name, speed=1.0, vowel="", crush=0,cutoff=0,resonance=0):
+def dirt(name, n=0.0, speed=1.0, vowel="", crush=0,cutoff=0.0,resonance=0.0):
+    now = time.time()
+    
     liblo.send(target,
                "/play",
                1538498648,0,
@@ -42,7 +45,7 @@ def dirt(name, speed=1.0, vowel="", crush=0,cutoff=0,resonance=0):
                1.0, # gain
                0, # cutgroup
                
-p               float(0.0), # delay
+               float(0.0), # delay
                -1.0, # delaytime
                -1.0, # delayfeedback
 
@@ -54,12 +57,22 @@ p               float(0.0), # delay
                float(0.0), # bandq
                "r", # unit_name
                1.0, # sample_loop
-               float(0.0), # sample_n
+               float(n), # sample_n
                -1.0, # attack
                float(0.0), # hold
                -1.0,  # release
                0
                )
+
+
+n = 0
+co = 1000
+
+dirt("cp",
+     #n=float(n),
+     #resonance=0.2,
+     #cutoff=co
+)
 
 
 devname = "/dev/serial/by-id/usb-Arduino__www.arduino.cc__0043_557363239393515181E2-if00"
@@ -69,8 +82,8 @@ pat = re.compile("(\+|\-)(\d+)\s*([\d\.]+)?\s*([\d\.]+)?")
 with serial.Serial(devname, 115200, timeout=1) as ser:
     print("opened serial port " + ser.name)
 
-    float minval = None
-    float maxval = None
+    minval = None
+    maxval = None
     
     while True:
         l = ser.readline()
