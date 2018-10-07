@@ -68,10 +68,10 @@ def dirt(name, n=0.0, speed=1.0, vowel="", crush=0,cutoff=0.0,resonance=0.0):
 
 
 n = 0
-co = 1000
+co = 4000
 
 dirt("foley",
-     n=float(n),
+     n=float(4),
      resonance=0.2,
      cutoff=co
 )
