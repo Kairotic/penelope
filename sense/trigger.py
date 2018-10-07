@@ -21,7 +21,7 @@ target = liblo.Address(7771)
 #    "rs"
 #]
 
-def dirt(name, speed=1.0, vowel="", crush=0):
+def dirt(name, speed=1.0, vowel="", crush=0,cutoff=0,resonance=0):
     liblo.send(target,
                "/play",
                1538498648,0,
@@ -34,8 +34,8 @@ def dirt(name, speed=1.0, vowel="", crush=0):
                0.5, # pan
                0.5, # velocity
                vowel, # vowel_s
-               float(0.0), # cutoff
-               float(0.0), # resonance
+               float(cutoff), # cutoff
+               float(resonance), # resonance
                float(0.0), # accelerate
                float(0.0), # shape
                0, # ?
@@ -82,10 +82,18 @@ with serial.Serial(devname, 115200, timeout=1) as ser:
                     n = int(m.group(2))
                     filtered = int(m.group(3))
                     baseline = int(m.group(4))
-                    
+                    if minval == None or minval > filtered:
+                        minval = filtered
+                    if maxval == None or maxval < filtered:
+                        maxval = filtered
+                    delta = maxval - minval
+                    perc = (filtered - minval) / delta
+                    co = perc * 2000.0
                     print("%s %d %f %f" % (m.group(1), int(m.group(2)), int(m.group(3)), int(m.group(4))))
                 dirt("foley",
                      n=float(n),
+                     resonance=0.2,
+                     cutoff=co
                 )
 
             
