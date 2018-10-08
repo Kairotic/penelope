@@ -109,8 +109,8 @@ with serial.Serial(devname, 9600, timeout=1) as ser:
                     print("%s %d %f %f" % (m.group(1), int(m.group(2)), int(m.group(3)), int(m.group(4))))
                 dirt("foley",
                      n=float(n),
-                     resonance=0.2,
-                     cutoff=co
+                     #resonance=0.2,
+                     #cutoff=co
                 )
 
             
