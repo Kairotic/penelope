@@ -117,4 +117,4 @@ with serial.Serial(devname, 9600, timeout=1) as ser:
                          #cutoff=co
                     )
 
-            
+        print("min: " + str(minval) + " max: " + str(maxval))
