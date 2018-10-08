@@ -93,8 +93,6 @@ with serial.Serial(devname, 9600, timeout=1) as ser:
         print(l)
         if l:
             print l
-
-
             
 #            m = re.search(pat, l)
 #            if m:
