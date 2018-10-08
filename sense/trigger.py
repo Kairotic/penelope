@@ -108,12 +108,13 @@ with serial.Serial(devname, 9600, timeout=1) as ser:
                         perc = 0
                     else :
                         perc = (filtered - minval) / delta
+                    print("perc: " + str(perc))
                     #co = perc * 2000.0
                     print("%s %d %f %f" % (m.group(1), int(m.group(2)), int(m.group(3)), int(m.group(4))))
-                dirt("tam",
-                     n=float(n),
-                     #resonance=0.2,
-                     #cutoff=co
-                )
+                    dirt("tam",
+                         n=float(n),
+                         #resonance=0.2,
+                         #cutoff=co
+                    )
 
             
