@@ -93,24 +93,27 @@ with serial.Serial(devname, 115200, timeout=1) as ser:
         print(l)
         if l:
             print l
-            m = re.search(pat, l)
-            if m:
-                if m.group(1) == "+":
-                    n = int(m.group(2))
-                    filtered = int(m.group(3))
-                    baseline = int(m.group(4))
-                    if minval == None or minval > filtered:
-                        minval = filtered
-                    if maxval == None or maxval < filtered:
-                        maxval = filtered
-                    delta = maxval - minval
-                    perc = (filtered - minval) / delta
-                    co = perc * 2000.0
-                    print("%s %d %f %f" % (m.group(1), int(m.group(2)), int(m.group(3)), int(m.group(4))))
-                dirt("foley",
-                     n=float(n),
-                     resonance=0.2,
-                     cutoff=co
-                )
+
+
+            
+#            m = re.search(pat, l)
+#            if m:
+#                if m.group(1) == "+":
+#                    n = int(m.group(2))
+#                    filtered = int(m.group(3))
+#                    baseline = int(m.group(4))
+#                    if minval == None or minval > filtered:
+#                        minval = filtered
+#                    if maxval == None or maxval < filtered:
+#                        maxval = filtered
+#                    delta = maxval - minval
+#                    perc = (filtered - minval) / delta
+#                    co = perc * 2000.0
+#                    print("%s %d %f %f" % (m.group(1), int(m.group(2)), int(m.group(3)), int(m.group(4))))
+#                dirt("foley",
+#                     n=float(n),
+#                     resonance=0.2,
+#                     cutoff=co
+#                )
 
             
