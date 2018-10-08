@@ -90,7 +90,7 @@ with serial.Serial(devname, 9600, timeout=1) as ser:
 
     minval = None
     maxval = None
-    
+
     while True:
         l = ser.readline()
         print(l)
@@ -99,6 +99,10 @@ with serial.Serial(devname, 9600, timeout=1) as ser:
             
             m = re.search(pat, l)
             if m:
+                for i in range(0,12):
+                    h = hist[i]
+                    if len(
+                
                 print m.group(1)
 #                    n = int(m.group(2))
 #                    filtered = int(m.group(3))
