@@ -77,7 +77,8 @@ dirt("foley",
 )
 
 
-devname = "/dev/serial/by-id/usb-Arduino__www.arduino.cc__0043_557363239393515181E2-if00"
+#devname = "/dev/serial/by-id/usb-Arduino__www.arduino.cc__0043_557363239393515181E2-if00"
+devname = "/dev/serial/by-id/usb-Arduino__www.arduino.cc__0043_95635333930351303240-if00"
 
 pat = re.compile("(\+|\-)(\d+)\s*([\d\.]+)?\s*([\d\.]+)?")
 
