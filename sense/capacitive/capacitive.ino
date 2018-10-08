@@ -31,7 +31,7 @@ uint16_t lasttouched = 0;
 uint16_t currtouched = 0;
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
 
   while (!Serial) { // needed to keep leonardo/micro from starting too fast!
     delay(10);
