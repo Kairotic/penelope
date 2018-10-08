@@ -90,9 +90,9 @@ with serial.Serial(devname, 115200, timeout=1) as ser:
     
     while True:
         l = ser.readline()
+        print l
         if l:
             print "received"
-            print l
             m = re.search(pat, l)
             if m:
                 if m.group(1) == "+":
