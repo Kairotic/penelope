@@ -80,45 +80,36 @@ dirt("foley",
 #devname = "/dev/serial/by-id/usb-Arduino__www.arduino.cc__0043_557363239393515181E2-if00"
 devname = "/dev/serial/by-id/usb-Arduino__www.arduino.cc__0043_95635333930351303240-if00"
 
-#pat = re.compile("(\+|\-)(\d+)\s*([\d\.]+)?\s*([\d\.]+)?")
+pat = re.compile("(\+|\-)(\d+)\s*([\d\.]+)?\s*([\d\.]+)?")
 
-pat = re.compile("(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)")
-
-
-with serial.Serial(devname, 9600, timeout=1) as ser:
+with serial.Serial(devname, 115200, timeout=1) as ser:
     print("opened serial port " + ser.name)
 
     minval = None
     maxval = None
-
+    
     while True:
         l = ser.readline()
-        print(l)
         if l:
             print l
-            
             m = re.search(pat, l)
             if m:
-                for i in range(0,12):
-                    h = hist[i]
-                    if len(
-                
-                print m.group(1)
-#                    n = int(m.group(2))
-#                    filtered = int(m.group(3))
-#                    baseline = int(m.group(4))
-#                    if minval == None or minval > filtered:
-#                        minval = filtered
-#                    if maxval == None or maxval < filtered:
-#                        maxval = filtered
-#                    delta = maxval - minval
-#                    perc = (filtered - minval) / delta
-#                    co = perc * 2000.0
-#                    print("%s %d %f %f" % (m.group(1), int(m.group(2)), int(m.group(3)), int(m.group(4))))
-#                dirt("foley",
-#                     n=float(n),
-#                     resonance=0.2,
-#                     cutoff=co
-#                )
+                if m.group(1) == "+":
+                    n = int(m.group(2))
+                    filtered = int(m.group(3))
+                    baseline = int(m.group(4))
+                    if minval == None or minval > filtered:
+                        minval = filtered
+                    if maxval == None or maxval < filtered:
+                        maxval = filtered
+                    delta = maxval - minval
+                    perc = (filtered - minval) / delta
+                    co = perc * 2000.0
+                    print("%s %d %f %f" % (m.group(1), int(m.group(2)), int(m.group(3)), int(m.group(4))))
+                dirt("foley",
+                     n=float(n),
+                     resonance=0.2,
+                     cutoff=co
+                )
 
             
